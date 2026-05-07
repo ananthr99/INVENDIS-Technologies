@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invendis Technologies – Invent. Discover.</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #ff5050;
+    --blue: #05059b;
+    --white: #ffffff;
+    --light: #f7f8fc;
+    --dark: #0a0a1a;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --grad-red: linear-gradient(135deg, #ff5050 0%, #ff8080 50%, #ffffff 100%);
+    --grad-blue: linear-gradient(135deg, #05059b 0%, #2929c8 50%, #ffffff 100%);
+    --grad-mix: linear-gradient(135deg, #05059b 0%, #3a0a8f 40%, #ff5050 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(5,5,155,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 68px;
+    box-shadow: 0 2px 20px rgba(5,5,155,0.06);
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+  }
+
+  .logo-text {
+    font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 800;
+    color: var(--blue); letter-spacing: -0.5px;
+  }
+
+  .logo-text span { color: var(--red); }
+
+  .logo-sub {
+    font-size: 10px; color: var(--muted); font-weight: 400;
+    letter-spacing: 1.5px; text-transform: uppercase; margin-top: -2px;
+  }
+
+  .nav-links {
+    display: flex; gap: 6px; list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500;
+    padding: 8px 16px; border-radius: 8px; transition: all 0.2s;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    background: rgba(5,5,155,0.07); color: var(--blue);
+  }
+
+  .nav-cta {
+    background: var(--blue) !important; color: white !important;
+    border-radius: 8px !important; font-weight: 600 !important;
+  }
+
+  .nav-cta:hover { background: #0808cc !important; transform: translateY(-1px); box-shadow: 0 4px 15px rgba(5,5,155,0.3) !important; }
+
+  /* ─── PAGES ─── */
+  .page { display: none; padding-top: 68px; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ─── SECTION HELPERS ─── */
+  .section { padding: 80px 0; }
+  .section-sm { padding: 60px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+
+  h1 { font-family: 'Sora', sans-serif; font-weight: 800; }
+  h2 { font-family: 'Sora', sans-serif; font-weight: 700; }
+  h3 { font-family: 'Sora', sans-serif; font-weight: 600; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: ''; display: block; width: 24px; height: 2px; background: var(--red);
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 44px); color: var(--text); line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-title span { color: var(--blue); }
+
+  .section-desc {
+    font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 600px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: calc(100vh - 68px);
+    background: linear-gradient(150deg, #05059b 0%, #1a1a8a 30%, #2a0a7a 55%, #ff5050 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 70% 40%, rgba(255,255,255,0.06) 0%, transparent 70%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.06;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+    padding: 80px 0;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px; padding: 6px 16px 6px 6px;
+    font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 500;
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow-dot {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--red); display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 5vw, 62px); color: white; line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 span { color: rgba(255,180,180,1); }
+
+  .hero-desc {
+    font-size: 18px; color: rgba(255,255,255,0.78); line-height: 1.7;
+    margin-bottom: 40px; font-weight: 300;
+  }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: white; color: var(--blue); font-family: 'Sora', sans-serif;
+    font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 10px;
+    border: none; cursor: pointer; transition: all 0.25s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,255,255,0.3); }
+
+  .btn-secondary {
+    background: transparent; color: white; font-family: 'Sora', sans-serif;
+    font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.4); cursor: pointer; transition: all 0.25s;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin-top: 50px;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px; padding: 22px 20px; backdrop-filter: blur(8px);
+  }
+
+  .hero-stat-num {
+    font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 800;
+    color: white; line-height: 1;
+  }
+
+  .hero-stat-num span { color: rgba(255,180,180,1); }
+  .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 6px; }
+
+  .hero-visual {
+    position: relative; display: flex; flex-direction: column; gap: 16px;
+    align-items: flex-end;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px); border-radius: 18px; padding: 24px;
+    width: 100%;
+  }
+
+  .hero-card-title { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+
+  .hero-card-items { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .hero-tag {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px; padding: 6px 14px; font-size: 13px; color: white;
+    font-weight: 500;
+  }
+
+  .hero-tag.red { background: rgba(255,80,80,0.3); border-color: rgba(255,80,80,0.4); }
+
+  /* ─── LOGOS / CLIENTS ─── */
+  .clients-bar {
+    background: var(--light); border-top: 1px solid rgba(5,5,155,0.07);
+    border-bottom: 1px solid rgba(5,5,155,0.07); padding: 32px 0;
+  }
+
+  .clients-label {
+    text-align: center; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--muted); font-weight: 600; margin-bottom: 24px;
+  }
+
+  .clients-row {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 40px;
+  }
+
+  .client-logo {
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px;
+    color: var(--muted); opacity: 0.6; letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+  }
+
+  .client-logo:hover { opacity: 1; color: var(--blue); }
+
+  /* ─── FEATURE GRID ─── */
+  .feature-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+
+  .feature-card {
+    background: white; border: 1px solid rgba(5,5,155,0.08);
+    border-radius: 20px; padding: 36px 30px;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--grad-blue); opacity: 0; transition: opacity 0.3s;
+  }
+
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(5,5,155,0.1); border-color: rgba(5,5,155,0.15); }
+  .feature-card:hover::before { opacity: 1; }
+
+  .feature-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 20px;
+  }
+
+  .feature-icon.blue { background: rgba(5,5,155,0.08); }
+  .feature-icon.red { background: rgba(255,80,80,0.1); }
+
+  .feature-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--text); }
+  .feature-card p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+  /* ─── SPLIT SECTIONS ─── */
+  .split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+
+  .split.reverse { direction: rtl; }
+  .split.reverse > * { direction: ltr; }
+
+  /* ─── BLUE BAND ─── */
+  .blue-band {
+    background: linear-gradient(135deg, var(--blue) 0%, #1a1a9a 60%, #2929c8 100%);
+    position: relative; overflow: hidden;
+  }
+
+  .blue-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 50%, rgba(255,80,80,0.15) 0%, transparent 60%);
+  }
+
+  .blue-band-content { position: relative; z-index: 2; }
+
+  .blue-band h2, .blue-band p, .blue-band .section-label { color: white; }
+  .blue-band .section-label::before { background: rgba(255,255,255,0.5); }
+
+  /* ─── STATS GRID ─── */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  }
+
+  .stat-box {
+    text-align: center; padding: 32px 20px;
+    border-right: 1px solid rgba(5,5,155,0.08);
+  }
+
+  .stat-box:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Sora', sans-serif; font-size: 44px; font-weight: 800;
+    color: var(--blue); line-height: 1;
+  }
+
+  .stat-num.red { color: var(--red); }
+  .stat-label { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+  /* ─── PRODUCT CARDS ─── */
+  .product-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+
+  .product-card {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid rgba(5,5,155,0.08);
+    background: white; transition: all 0.3s;
+  }
+
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(5,5,155,0.12); }
+
+  .product-card-header {
+    padding: 32px; background: linear-gradient(135deg, #f0f1ff 0%, #fff 100%);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 160px; position: relative;
+  }
+
+  .product-card-header.red-bg {
+    background: linear-gradient(135deg, #fff0f0 0%, #fff 100%);
+  }
+
+  .product-badge {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--blue); color: white; font-size: 11px; font-weight: 700;
+    padding: 4px 10px; border-radius: 100px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  .product-badge.red { background: var(--red); }
+
+  .product-emoji { font-size: 52px; }
+
+  .product-card-body { padding: 28px; }
+  .product-card-body h3 { font-size: 18px; margin-bottom: 8px; }
+  .product-card-body p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+
+  .product-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .product-tag {
+    background: var(--light); color: var(--blue); font-size: 12px;
+    font-weight: 600; padding: 4px 10px; border-radius: 6px;
+  }
+
+  /* ─── SECTOR CARDS ─── */
+  .sector-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+
+  .sector-card {
+    border-radius: 20px; padding: 36px; border: 1px solid rgba(5,5,155,0.08);
+    background: white; display: flex; gap: 24px; align-items: flex-start;
+    transition: all 0.3s;
+  }
+
+  .sector-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(5,5,155,0.1); }
+  .sector-card.featured { grid-column: 1 / -1; background: linear-gradient(135deg, #f0f1ff 0%, white 100%); }
+
+  .sector-icon {
+    width: 64px; height: 64px; border-radius: 18px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 28px;
+    background: linear-gradient(135deg, var(--blue) 0%, #2929c8 100%);
+  }
+
+  .sector-card.alt .sector-icon {
+    background: linear-gradient(135deg, var(--red) 0%, #ff8080 100%);
+  }
+
+  .sector-card h3 { font-size: 20px; margin-bottom: 8px; }
+  .sector-card p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+  .sector-solutions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .sector-solution {
+    background: rgba(5,5,155,0.06); color: var(--blue);
+    font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 8px;
+  }
+
+  /* ─── CASE STUDIES ─── */
+  .case-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+
+  .case-card {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid rgba(5,5,155,0.08);
+    background: white; transition: all 0.3s;
+  }
+
+  .case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(5,5,155,0.1); }
+
+  .case-card-top {
+    padding: 28px;
+    background: linear-gradient(135deg, var(--blue) 0%, #1a1a9a 100%);
+    position: relative;
+  }
+
+  .case-card-top.red { background: linear-gradient(135deg, var(--red) 0%, #cc2020 100%); }
+  .case-card-top.mix { background: linear-gradient(135deg, #2929c8 0%, #7a0a5a 100%); }
+
+  .case-sector {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.6); margin-bottom: 8px;
+  }
+
+  .case-card-top h3 { font-size: 17px; color: white; line-height: 1.35; }
+
+  .case-client {
+    margin-top: 20px; display: flex; align-items: center; gap: 10px;
+  }
+
+  .case-client-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  .case-client span { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+  .case-card-body { padding: 24px 28px; }
+  .case-card-body p { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+
+  .case-result {
+    background: var(--light); border-radius: 10px; padding: 16px 18px;
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .case-result-num {
+    font-family: 'Sora', sans-serif; font-size: 26px; font-weight: 800;
+    color: var(--blue); white-space: nowrap;
+  }
+
+  .case-result-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+  /* ─── TEAM ─── */
+  .team-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+
+  .team-card {
+    background: white; border: 1px solid rgba(5,5,155,0.08);
+    border-radius: 20px; overflow: hidden; text-align: center;
+    transition: all 0.3s;
+  }
+
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(5,5,155,0.1); }
+
+  .team-card-top {
+    height: 120px;
+    background: linear-gradient(135deg, var(--blue) 0%, #2929c8 100%);
+    position: relative;
+  }
+
+  .team-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: white; border: 4px solid white;
+    position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-weight: 800; font-size: 24px;
+    color: var(--blue); box-shadow: 0 8px 24px rgba(5,5,155,0.2);
+  }
+
+  .team-card-body { padding: 52px 24px 28px; }
+  .team-card-body h3 { font-size: 17px; margin-bottom: 4px; }
+  .team-card-body .role { font-size: 13px; color: var(--red); font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .team-card-body p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── CONTACT ─── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+  }
+
+  .contact-info h2 { font-size: 36px; margin-bottom: 16px; }
+  .contact-info p { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+
+  .contact-item {
+    display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--blue) 0%, #2929c8 100%);
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+
+  .contact-item-body h4 { font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .contact-item-body p { font-size: 14px; color: var(--muted); }
+
+  .contact-form {
+    background: var(--light); border-radius: 24px; padding: 40px;
+    border: 1px solid rgba(5,5,155,0.06);
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 16px; border-radius: 10px;
+    border: 1.5px solid rgba(5,5,155,0.12); background: white; font-family: 'DM Sans', sans-serif;
+    font-size: 15px; color: var(--text); outline: none; transition: border-color 0.2s;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--blue); box-shadow: 0 0 0 3px rgba(5,5,155,0.08);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .btn-form {
+    background: var(--blue); color: white; width: 100%;
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 16px;
+    padding: 16px; border-radius: 12px; border: none; cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .btn-form:hover { background: #0808cc; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(5,5,155,0.3); }
+
+  /* ─── TIMELINE ─── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--blue), var(--red));
+  }
+
+  .timeline-item { position: relative; margin-bottom: 36px; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -38px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--blue); border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+
+  .timeline-year {
+    font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--blue); text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-item h4 { font-size: 16px; margin-bottom: 6px; }
+  .timeline-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── VALUES ─── */
+  .values-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+
+  .value-card {
+    background: white; border: 1px solid rgba(5,5,155,0.08);
+    border-radius: 18px; padding: 28px 24px; text-align: center;
+    transition: all 0.3s;
+  }
+
+  .value-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(5,5,155,0.1); }
+  .value-card-icon { font-size: 36px; margin-bottom: 16px; }
+  .value-card h3 { font-size: 16px; margin-bottom: 8px; }
+  .value-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── CERT STRIP ─── */
+  .cert-strip {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  .cert-badge {
+    background: var(--light); border: 1px solid rgba(5,5,155,0.1);
+    border-radius: 12px; padding: 12px 20px;
+    font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--blue); display: flex; align-items: center; gap: 8px;
+  }
+
+  .cert-badge::before { content: '✓'; color: var(--red); font-size: 14px; }
+
+  /* ─── CTA BANNER ─── */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--blue) 0%, #2929c8 60%, var(--red) 100%);
+    border-radius: 28px; padding: 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .cta-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  }
+
+  .cta-banner > * { position: relative; }
+  .cta-banner h2 { font-size: 36px; color: white; margin-bottom: 12px; }
+  .cta-banner p { font-size: 18px; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.7);
+    padding: 60px 0 32px;
+  }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo-text { color: white; }
+  .footer-brand .logo-sub { color: rgba(255,255,255,0.4); }
+  .footer-brand p { font-size: 14px; margin-top: 16px; line-height: 1.7; color: rgba(255,255,255,0.5); }
+
+  .footer-col h4 {
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px;
+    color: white; margin-bottom: 18px; letter-spacing: 0.3px;
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links a:hover { color: white; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px; display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+  .silbo-callout {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 6px 12px; font-size: 13px; color: rgba(255,255,255,0.6);
+  }
+
+  .silbo-callout strong { color: white; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--red) 100%);
+    border: none; margin: 0;
+  }
+
+  /* ─── HIGHLIGHT CHIP ─── */
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(5,5,155,0.07); color: var(--blue);
+    font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 8px;
+  }
+
+  .chip.red { background: rgba(255,80,80,0.08); color: var(--red); }
+
+  /* ─── SILBO SECTION ─── */
+  .silbo-hero {
+    background: linear-gradient(135deg, #0a0a2a 0%, #05059b 50%, #2929c8 100%);
+    border-radius: 24px; padding: 56px; position: relative; overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .silbo-hero::before {
+    content: ''; position: absolute; right: -60px; top: -60px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: rgba(255,80,80,0.12);
+  }
+
+  .silbo-hero h2 { font-size: 40px; color: white; margin-bottom: 12px; }
+  .silbo-hero h2 span { color: rgba(255,180,180,1); }
+  .silbo-hero p { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 500px; }
+
+  .silbo-products {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+
+  .silbo-product {
+    background: white; border: 1px solid rgba(5,5,155,0.08);
+    border-radius: 16px; padding: 28px 22px; text-align: center;
+    transition: all 0.3s;
+  }
+
+  .silbo-product:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(5,5,155,0.1); border-color: rgba(5,5,155,0.2); }
+  .silbo-product .sp-icon { font-size: 36px; margin-bottom: 14px; }
+  .silbo-product h4 { font-size: 15px; margin-bottom: 8px; }
+  .silbo-product p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── PAGE HERO (inner pages) ─── */
+  .page-hero {
+    background: linear-gradient(135deg, var(--blue) 0%, #1a1a9a 60%, #2929c8 100%);
+    padding: 60px 0 70px; position: relative; overflow: hidden;
+  }
+
+  .page-hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 40px; background: white;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .page-hero-grid {
+    position: absolute; inset: 0; opacity: 0.05;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .page-hero h1 { font-size: clamp(30px, 4vw, 50px); color: white; margin-bottom: 12px; }
+  .page-hero h1 span { color: rgba(255,180,180,1); }
+  .page-hero p { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 550px; line-height: 1.65; }
+
+  .page-hero-content { position: relative; z-index: 2; }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonial-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+
+  .testimonial-card {
+    background: white; border: 1px solid rgba(5,5,155,0.08);
+    border-radius: 20px; padding: 32px; position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"'; position: absolute; top: 16px; right: 24px;
+    font-family: 'Sora', sans-serif; font-size: 80px; font-weight: 800;
+    color: rgba(5,5,155,0.06); line-height: 1;
+  }
+
+  .testimonial-text { font-size: 15px; color: var(--text); line-height: 1.7; margin-bottom: 24px; }
+
+  .testimonial-author { display: flex; align-items: center; gap: 14px; }
+
+  .testimonial-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue) 0%, #2929c8 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 16px; color: white;
+  }
+
+  .testimonial-author-info h4 { font-size: 14px; font-weight: 700; }
+  .testimonial-author-info p { font-size: 13px; color: var(--muted); }
+
+  /* ─── ABOUT MISSION ─── */
+  .mission-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+  }
+
+  .mission-card {
+    border-radius: 20px; padding: 36px;
+    background: linear-gradient(135deg, #f0f1ff 0%, white 100%);
+    border: 1px solid rgba(5,5,155,0.08);
+  }
+
+  .mission-card.red-card {
+    background: linear-gradient(135deg, #fff0f0 0%, white 100%);
+  }
+
+  .mission-card h3 { font-size: 20px; margin-bottom: 12px; }
+  .mission-card p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+  /* ─── WHITEPAPER ─── */
+  .whitepaper-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+
+  .wp-card {
+    display: flex; gap: 24px; align-items: flex-start;
+    background: white; border: 1px solid rgba(5,5,155,0.08);
+    border-radius: 20px; padding: 32px; transition: all 0.3s;
+  }
+
+  .wp-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(5,5,155,0.1); }
+
+  .wp-icon {
+    width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    background: linear-gradient(135deg, var(--blue) 0%, #2929c8 100%);
+  }
+
+  .wp-card h3 { font-size: 17px; margin-bottom: 6px; }
+  .wp-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+  .wp-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+    font-size: 13px; font-weight: 700; color: var(--blue); text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .wp-link:hover { gap: 10px; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-content, .split, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .feature-grid, .product-grid, .case-grid, .team-grid, .testimonial-grid { grid-template-columns: 1fr 1fr; }
+    .sector-grid, .whitepaper-grid { grid-template-columns: 1fr; }
+    .silbo-products, .values-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0 24px; }
+    .container, .container-wide { padding: 0 24px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .sector-card.featured { grid-column: 1; }
+    .mission-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .feature-grid, .product-grid, .case-grid, .team-grid, .testimonial-grid { grid-template-columns: 1fr; }
+    .silbo-products, .values-grid, .stats-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  .btn-blue {
+    background: var(--blue); color: white;
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px;
+    padding: 13px 26px; border-radius: 10px; border: none; cursor: pointer;
+    transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-blue:hover { background: #0808cc; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(5,5,155,0.3); }
+
+  .btn-red {
+    background: var(--red); color: white;
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px;
+    padding: 13px 26px; border-radius: 10px; border: none; cursor: pointer;
+    transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-red:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,80,80,0.3); }
+
+  .btn-outline {
+    background: transparent; color: var(--blue);
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px;
+    padding: 12px 24px; border-radius: 10px; border: 2px solid rgba(5,5,155,0.2);
+    cursor: pointer; transition: all 0.25s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-outline:hover { border-color: var(--blue); background: rgba(5,5,155,0.05); }
+
+  .bg-light { background: var(--light); }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="#" class="logo" onclick="showPage('home')">
+    <div>
+      <div class="logo-text">Inven<span>dis</span></div>
+      <div class="logo-sub">Invent. Discover.</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('sectors')" id="nav-sectors">Sectors</a></li>
+    <li><a href="#" onclick="showPage('products')" id="nav-products">Products</a></li>
+    <li><a href="#" onclick="showPage('casestudies')" id="nav-casestudies">Case Studies</a></li>
+    <li><a href="#" onclick="showPage('company')" id="nav-company">Company</a></li>
+    <li><a href="#" onclick="showPage('company')" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- PAGE: HOME -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <div class="hero-eyebrow">
+            <div class="hero-eyebrow-dot">🌐</div>
+            IIoT Solutions · 17+ Years · 26 Countries
+          </div>
+          <h1>Industrial IoT for a <span>Smarter World</span></h1>
+          <p class="hero-desc">Invendis delivers end-to-end hardware, software, and managed services for telecom, energy, and industrial sectors — from Bangalore to 26 countries worldwide.</p>
+          <div class="hero-btns">
+            <a href="#" class="btn-primary" onclick="showPage('products')">Explore Products →</a>
+            <a href="#" class="btn-secondary" onclick="showPage('casestudies')">View Case Studies</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-num">150K<span>+</span></div>
+              <div class="hero-stat-label">Telecom sites deployed</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">54</div>
+              <div class="hero-stat-label">Partner countries</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">180<span>+</span></div>
+              <div class="hero-stat-label">Team strength</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-title">Hardware Products</div>
+            <div class="hero-card-items">
+              <span class="hero-tag">Routers & Gateways</span>
+              <span class="hero-tag">iSense RMS Controller</span>
+              <span class="hero-tag red">Energy Meters</span>
+              <span class="hero-tag">Protocol Converters</span>
+              <span class="hero-tag">Network Switches</span>
+              <span class="hero-tag red">5G Ready</span>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-title">Software Platforms</div>
+            <div class="hero-card-items">
+              <span class="hero-tag">PizGloria RMS Platform</span>
+              <span class="hero-tag red">Mobile Apps</span>
+              <span class="hero-tag">Utility Billing</span>
+              <span class="hero-tag">NMS · Cloud SaaS</span>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-title">Key Clients</div>
+            <div class="hero-card-items">
+              <span class="hero-tag">Nokia</span>
+              <span class="hero-tag">Ericsson</span>
+              <span class="hero-tag red">American Tower</span>
+              <span class="hero-tag">Infosys · Capgemini</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS BAR -->
+  <section class="clients-bar">
+    <div class="container">
+      <div class="clients-label">Trusted by Global Industry Leaders</div>
+      <div class="clients-row">
+        <div class="client-logo">NOKIA</div>
+        <div class="client-logo">ERICSSON</div>
+        <div class="client-logo">AMERICAN TOWER</div>
+        <div class="client-logo">CAPGEMINI</div>
+        <div class="client-logo">INFOSYS</div>
+        <div class="client-logo">VERTIV</div>
+        <div class="client-logo">HELIOS TOWERS</div>
+        <div class="client-logo">AIRTEL</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHAT WE DO -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <div class="section-label" style="justify-content:center;">What We Do</div>
+        <h2 class="section-title">End-to-End <span>IIoT Solutions</span></h2>
+        <p class="section-desc" style="margin:0 auto;">From hardware design to cloud platforms, we cover every layer of the industrial IoT stack — built in Bangalore, deployed globally.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon blue">📡</div>
+          <h3>Telecom Tower OA</h3>
+          <p>Remote monitoring of passive infrastructure — batteries, rectifiers, generators, fuel levels, security, and environmental sensors — all in one platform.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon blue">☀️</div>
+          <h3>Solar & Energy Monitoring</h3>
+          <p>Solar monitoring solutions with integrated energy measurement and billing. Real-time visibility over renewable assets from edge to cloud.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon red">⚡</div>
+          <h3>Digital Energy Meters</h3>
+          <p>Smart tariff-grade meters, multi-function meters, and GSM energy meters for utility billing and consumption analytics.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon blue">🌐</div>
+          <h3>Industrial Networking (SILBO)</h3>
+          <p>Industrial routers, SD-WAN gateways, protocol converters, and network switches designed for harsh industrial environments.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon red">💻</div>
+          <h3>PizGloria RMS Platform</h3>
+          <p>Cloud-based Remote Monitoring System with graphical dashboards, Power BI analytics, mobile app, and automated alerting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon blue">🔧</div>
+          <h3>OEM/ODM & Design Services</h3>
+          <p>Bespoke hardware design, product development, and 24×7 remote support services for OEM and ODM customers worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SILBO SPOTLIGHT -->
+  <section class="section-sm bg-light">
+    <div class="container">
+      <div class="silbo-hero">
+        <div class="hero-grid"></div>
+        <div style="position:relative;z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
+          <div>
+            <div class="section-label" style="color:rgba(255,180,180,1);">An Invendis Brand</div>
+            <h2 style="font-size:40px; color:white; margin-bottom:12px;">SILBO Networks</h2>
+            <p style="font-size:16px; color:rgba(255,255,255,0.7); line-height:1.7; margin-bottom:24px;">Industrial networking hardware purpose-built for mission-critical infrastructure. Rugged, reliable, and ready for Industry 4.0.</p>
+            <a href="#" class="btn-primary" onclick="showPage('products')">Explore SILBO →</a>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <div style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:20px; text-align:center;">
+              <div style="font-size:28px; margin-bottom:8px;">📶</div>
+              <div style="font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:white;">Multi-WAN Routers</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:20px; text-align:center;">
+              <div style="font-size:28px; margin-bottom:8px;">🔗</div>
+              <div style="font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:white;">Industrial Gateways</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:20px; text-align:center;">
+              <div style="font-size:28px; margin-bottom:8px;">🔄</div>
+              <div style="font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:white;">Protocol Converters</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:20px; text-align:center;">
+              <div style="font-size:28px; margin-bottom:8px;">🔀</div>
+              <div style="font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:white;">Network Switches</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num">17<span style="font-size:24px; color:var(--muted)">+</span></div>
+          <div class="stat-label">Years of successful operations in IIoT</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num red">26</div>
+          <div class="stat-label">Countries with active customer deployments</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">150K<span style="font-size:24px; color:var(--muted)">+</span></div>
+          <div class="stat-label">Telecom tower sites monitored</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num red">4</div>
+          <div class="stat-label">ISO certifications (9001, 14001, 45001, 27001)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section bg-light">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <div class="section-label" style="justify-content:center;">Testimonials</div>
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"ATC India is using Invendis to monitor tower operations across ~70,000+ towers. Invendis has provided trouble-ticketing, mobile-based field interface, and real-time alarm monitoring — aiding field efficiency."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SI</div>
+            <div class="testimonial-author-info">
+              <h4>Shyam Iyer</h4>
+              <p>VP Technology, ATC India</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"I feel Invendis is a company that listens and does all they can to meet my needs. There is open, honest communication on all levels and a process to improve where things fail. Transparency is key."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AP</div>
+            <div class="testimonial-author-info">
+              <h4>Alexander Pigall</h4>
+              <p>Director – Managed Services, Ericsson</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Our enterprise system combines Asset Management (ERP), WO & TT System, RMS (Invendis), and Electronic Key System. Invendis RMS auto-generates trouble tickets with alarms to manage all end-to-end processes."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">HM</div>
+            <div class="testimonial-author-info">
+              <h4>Hans Moritz</h4>
+              <p>CTO, IGT Myanmar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready to Digitise Your Operations?</h2>
+        <p>Talk to our IIoT experts and discover how Invendis can transform your infrastructure.</p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="#" class="btn-primary" onclick="showPage('company')">Get in Touch →</a>
+          <a href="#" class="btn-secondary" onclick="showPage('products')">See All Products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- PAGE: SECTORS -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-sectors">
+
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label" style="color:rgba(255,180,180,1);">Industries We Serve</div>
+        <h1>Sector <span>Solutions</span></h1>
+        <p>From telecom towers to smart energy — Invendis delivers purpose-built IIoT solutions across multiple industrial verticals with proven global deployments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="sector-grid">
+
+        <div class="sector-card featured">
+          <div class="sector-icon" style="background:linear-gradient(135deg,var(--blue),#2929c8);">📡</div>
+          <div>
+            <div class="chip">Core Vertical</div>
+            <h3>Telecom Tower Infrastructure</h3>
+            <p>Invendis's flagship vertical with 150,000+ sites deployed across Africa, the Middle East, and South & Southeast Asia. Our end-to-end telecom OA solution covers passive infrastructure monitoring, energy management, battery optimization, and predictive maintenance.</p>
+            <div class="sector-solutions">
+              <span class="sector-solution">Remote Monitoring (RMS)</span>
+              <span class="sector-solution">Battery & Rectifier Optimization</span>
+              <span class="sector-solution">Power Source Management</span>
+              <span class="sector-solution">Site Visit Efficiency</span>
+              <span class="sector-solution">Energy Measurement & Billing</span>
+              <span class="sector-solution">Equipment Performance Prediction</span>
+            </div>
+            <div style="margin-top:20px; display:flex; gap:14px; flex-wrap:wrap;">
+              <div style="font-family:'Sora',sans-serif; font-size:13px; color:var(--muted);">Key clients: <strong style="color:var(--text);">Nokia · Ericsson · American Tower · Airtel · Helios Towers</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card">
+          <div class="sector-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">☀️</div>
+          <div>
+            <h3>Solar & Renewable Energy</h3>
+            <p>Comprehensive solar monitoring with real-time data on generation, consumption, and anomaly detection. Launched in 2016 with ongoing deployments for telecom and utility clients.</p>
+            <div class="sector-solutions">
+              <span class="sector-solution">Solar Controller Monitoring</span>
+              <span class="sector-solution">Anomaly Detection</span>
+              <span class="sector-solution">Energy Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card alt">
+          <div class="sector-icon">⚡</div>
+          <div>
+            <h3>Smart Energy & Utilities</h3>
+            <p>Smart metering, tariff-grade energy measurement, and utility billing platforms for distribution companies and industrial consumers.</p>
+            <div class="sector-solutions">
+              <span class="sector-solution">Smart Energy Meters</span>
+              <span class="sector-solution">Generator ATS Control</span>
+              <span class="sector-solution">Utility Billing Platform</span>
+              <span class="sector-solution">Energy Monitoring</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card">
+          <div class="sector-icon" style="background:linear-gradient(135deg,#059669,#34d399);">🏭</div>
+          <div>
+            <h3>Edge Compute & Industrial Networks</h3>
+            <p>Industrial networking solutions for edge computation, protocol bridging, and secure connectivity — including 4G/5G routers, SD-WAN, and Modbus/DNP3 converters.</p>
+            <div class="sector-solutions">
+              <span class="sector-solution">Multi-WAN Routers</span>
+              <span class="sector-solution">SD-WAN Gateways</span>
+              <span class="sector-solution">Protocol Converters</span>
+              <span class="sector-solution">Cloud NMS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card alt">
+          <div class="sector-icon">🌿</div>
+          <div>
+            <h3>ESG & Sustainability</h3>
+            <p>Enabling customers to meet ESG targets through real-time energy monitoring, carbon tracking, and automated sustainability reporting across large site portfolios.</p>
+            <div class="sector-solutions">
+              <span class="sector-solution">Carbon Footprint Tracking</span>
+              <span class="sector-solution">ESG Reporting</span>
+              <span class="sector-solution">Energy Efficiency Analytics</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET ALIGNMENT -->
+  <section class="section blue-band">
+    <div class="container">
+      <div class="blue-band-content">
+        <div style="text-align:center; margin-bottom:48px;">
+          <div class="section-label">Global Reach</div>
+          <h2 class="section-title" style="color:white;">Present in <span style="color:rgba(255,180,180,1);">54 Countries</span></h2>
+          <p style="color:rgba(255,255,255,0.7); font-size:17px; margin:0 auto; max-width:600px;">Partner ecosystem spanning Africa, Middle East, South & Southeast Asia, and North America.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+          <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:18px; padding:28px; text-align:center;">
+            <div style="font-size:36px; margin-bottom:12px;">🌍</div>
+            <h3 style="color:white; font-size:16px; margin-bottom:6px;">Africa</h3>
+            <p style="color:rgba(255,255,255,0.6); font-size:14px;">Nigeria, Ghana, Tanzania, Niger, Malawi, Kenya, South Africa</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:18px; padding:28px; text-align:center;">
+            <div style="font-size:36px; margin-bottom:12px;">🌏</div>
+            <h3 style="color:white; font-size:16px; margin-bottom:6px;">Middle East</h3>
+            <p style="color:rgba(255,255,255,0.6); font-size:14px;">Oman, Qatar, Saudi Arabia</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:18px; padding:28px; text-align:center;">
+            <div style="font-size:36px; margin-bottom:12px;">🌐</div>
+            <h3 style="color:white; font-size:16px; margin-bottom:6px;">South & SE Asia</h3>
+            <p style="color:rgba(255,255,255,0.6); font-size:14px;">India, Bangladesh, Sri Lanka, Myanmar, Malaysia, Indonesia, Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Solving Challenges in Your Industry?</h2>
+        <p>Let's discuss how Invendis can tailor a solution for your specific sector requirements.</p>
+        <a href="#" class="btn-primary" onclick="showPage('company')">Talk to an Expert →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- PAGE: PRODUCTS -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-products">
+
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label" style="color:rgba(255,180,180,1);">Hardware · Software · Services</div>
+        <h1>Our <span>Products</span></h1>
+        <p>A complete portfolio of industrial-grade hardware, software platforms, and managed services — all designed and built in-house at our Bangalore R&D centre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVENDIS HARDWARE -->
+  <section class="section">
+    <div class="container">
+      <div style="margin-bottom:40px;">
+        <div class="section-label">Hardware Products</div>
+        <h2 class="section-title">Invendis <span>Hardware Portfolio</span></h2>
+        <p class="section-desc">Rugged, industrial-grade devices designed for reliability in demanding field environments.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-card-header">
+            <span class="product-badge">Flagship</span>
+            <div class="product-emoji">🖥️</div>
+          </div>
+          <div class="product-card-body">
+            <h3>iSense RMS Controller</h3>
+            <p>The heart of Invendis's telecom monitoring. Dual SIM, multi-protocol, modular design with 5G-ready architecture and pluggable RS485 cards.</p>
+            <div class="product-tags">
+              <span class="product-tag">4G / 5G Ready</span>
+              <span class="product-tag">Modular</span>
+              <span class="product-tag">Linux OS</span>
+              <span class="product-tag">RS485 / RS232</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-header">
+            <div class="product-emoji">⚡</div>
+          </div>
+          <div class="product-card-body">
+            <h3>Multi-Function Energy Meters</h3>
+            <p>Tariff-grade smart meters for utility billing and industrial energy monitoring. Compatible with major DIN standards.</p>
+            <div class="product-tags">
+              <span class="product-tag">Tariff Grade</span>
+              <span class="product-tag">Modbus</span>
+              <span class="product-tag">RS485</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-header red-bg">
+            <span class="product-badge red">New</span>
+            <div class="product-emoji">🔌</div>
+          </div>
+          <div class="product-card-body">
+            <h3>Smart ATS Controller</h3>
+            <p>Generator ATS control unit with digital output control, auto-switching logic, and remote visibility via RMS platform.</p>
+            <div class="product-tags">
+              <span class="product-tag">DG Control</span>
+              <span class="product-tag">Relay Output</span>
+              <span class="product-tag">Remote</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-header">
+            <div class="product-emoji">📦</div>
+          </div>
+          <div class="product-card-body">
+            <h3>Telecom Gateways</h3>
+            <p>Packaged telecom site gateway solutions integrating monitoring, control, and communication in a single ruggedised enclosure.</p>
+            <div class="product-tags">
+              <span class="product-tag">SNMP</span>
+              <span class="product-tag">Ethernet</span>
+              <span class="product-tag">DIN Rail</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-header red-bg">
+            <div class="product-emoji">📟</div>
+          </div>
+          <div class="product-card-body">
+            <h3>GSM Energy Meter</h3>
+            <p>GSM-connected energy meter for remote monitoring of consumption at distributed utility and telecom sites.</p>
+            <div class="product-tags">
+              <span class="product-tag">GSM/GPRS</span>
+              <span class="product-tag">Solar</span>
+              <span class="product-tag">Grid</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-header">
+            <div class="product-emoji">🔧</div>
+          </div>
+          <div class="product-card-body">
+            <h3>Sensor & Accessories</h3>
+            <p>Surveillance cameras, environmental sensors, fuel sensors, BMS interfaces, and door/access control units for complete site visibility.</p>
+            <div class="product-tags">
+              <span class="product-tag">CCTV</span>
+              <span class="product-tag">Fuel Sensors</span>
+              <span class="product-tag">BMS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SILBO SECTION -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:40px; gap:20px; flex-wrap:wrap;">
+        <div>
+          <div class="section-label">An Invendis Brand</div>
+          <h2 class="section-title">SILBO <span>Networking Products</span></h2>
+          <p class="section-desc">Industrial networking hardware for mission-critical industrial and telecom environments.</p>
+        </div>
+      </div>
+
+      <div class="silbo-hero">
+        <div class="hero-grid"></div>
+        <div style="position:relative;z-index:2;">
+          <p style="font-size:18px; color:rgba(255,255,255,0.85); font-weight:300; max-width:680px; line-height:1.7;">SILBO is Invendis's dedicated industrial networking brand — delivering rugged routers, gateways, protocol converters, and switches purpose-built for Industry 4.0 connectivity challenges.</p>
+        </div>
+      </div>
+
+      <div class="silbo-products">
+        <div class="silbo-product">
+          <div class="sp-icon">📶</div>
+          <h4>Multi-WAN Router</h4>
+          <p>4G/5G, Wi-Fi 4/5/6, and dual-SIM with load balancing and VPN support for secure industrial connectivity.</p>
+        </div>
+        <div class="silbo-product">
+          <div class="sp-icon">🌐</div>
+          <h4>Industrial Gateway</h4>
+          <p>Edge computing gateways for data aggregation, local processing, and cloud connectivity at industrial sites.</p>
+        </div>
+        <div class="silbo-product">
+          <div class="sp-icon">🔄</div>
+          <h4>Protocol Converter</h4>
+          <p>Modbus, DNP3, IEC, and SNMP protocol bridging for legacy equipment integration and industrial automation.</p>
+        </div>
+        <div class="silbo-product">
+          <div class="sp-icon">🔀</div>
+          <h4>Network Switch</h4>
+          <p>Industrial managed and unmanaged Ethernet switches rated for -40°C to +75°C operating environments.</p>
+        </div>
+        <div class="silbo-product">
+          <div class="sp-icon">🛡️</div>
+          <h4>SD-WAN Gateway</h4>
+          <p>Software-defined WAN with centralised management, traffic prioritisation, and zero-touch provisioning.</p>
+        </div>
+        <div class="silbo-product">
+          <div class="sp-icon">📡</div>
+          <h4>Cloud NMS</h4>
+          <p>Centralised network management platform for monitoring, configuration, and troubleshooting SILBO devices remotely.</p>
+        </div>
+        <div class="silbo-product">
+          <div class="sp-icon">🔌</div>
+          <h4>4G Dongle</h4>
+          <p>Compact plug-and-play 4G dongle for rapid deployment of cellular connectivity at remote industrial sites.</p>
+        </div>
+        <div class="silbo-product">
+          <div class="sp-icon">⚙️</div>
+          <h4>Controllers</h4>
+          <p>Programmable industrial controllers for automation, digital I/O, and site equipment management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFTWARE -->
+  <section class="section bg-light">
+    <div class="container">
+      <div style="margin-bottom:40px;">
+        <div class="section-label">Proprietary Software</div>
+        <h2 class="section-title">Software <span>Platforms</span></h2>
+        <p class="section-desc">Cloud-based and on-premise platforms for monitoring, analytics, and operations management.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon blue">📊</div>
+          <h3>PizGloria RMS Platform</h3>
+          <p>Cloud-based Remote Monitoring System with graphical site views, executive dashboards, energy analytics, and Power BI integration. Deployed for telecom and solar customers globally.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon red">📱</div>
+          <h3>Mobile App</h3>
+          <p>Field operations mobile application for real-time alarm acknowledgment, site visits, trouble ticketing, and manager-level executive views — iOS and Android.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon blue">💡</div>
+          <h3>Utility Billing Platform</h3>
+          <p>End-to-end energy utility billing solution with meter data management, tariff configuration, invoice generation, and customer portal.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon red">🔔</div>
+          <h3>Alarm & Notification Engine</h3>
+          <p>Automated escalation matrix delivering SMS, email, and push notifications based on configurable alarm thresholds and SLA windows.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon blue">📉</div>
+          <h3>Analytics & Reporting</h3>
+          <p>Backend analytics layer with customised algorithms for predictive maintenance, energy anomaly detection, and executive KPI reporting via Power BI.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon red">☁️</div>
+          <h3>NMS – Network Management</h3>
+          <p>Centralised network management system for SILBO devices, providing configuration management, performance monitoring, and fault management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PARTNERS -->
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Design Partners</div>
+      <h2 class="section-title" style="margin-bottom:32px;">Built with <span>Industry-Leading Silicon</span></h2>
+      <div class="clients-row">
+        <div class="client-logo" style="opacity:0.8;">MediaTek</div>
+        <div class="client-logo" style="opacity:0.8;">Intel</div>
+        <div class="client-logo" style="opacity:0.8;">Qualcomm</div>
+        <div class="client-logo" style="opacity:0.8;">Realtek</div>
+        <div class="client-logo" style="opacity:0.8;">Renesas</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- PAGE: CASE STUDIES -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-casestudies">
+
+  <section class="page-hero" style="background:linear-gradient(135deg, #8a0000 0%, #cc2020 50%, #ff5050 100%);">
+    <div class="page-hero-grid"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label" style="color:rgba(255,200,200,1);">Proven Impact</div>
+        <h1>Case Studies & <span style="color:rgba(255,200,200,1);">White Papers</span></h1>
+        <p>Real-world deployments, measurable outcomes, and technical insights from 17+ years of IIoT innovation across 26 countries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="section">
+    <div class="container">
+      <div style="margin-bottom:40px;">
+        <div class="section-label">Deployments</div>
+        <h2 class="section-title">Case <span>Studies</span></h2>
+      </div>
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-card-top">
+            <div class="case-sector">Telecom · Africa</div>
+            <h3>Large-Scale Tower Monitoring for Major TowerCo – Africa</h3>
+            <div class="case-client"><div class="case-client-dot"></div><span>American Tower Corporation</span></div>
+          </div>
+          <div class="case-card-body">
+            <p>Deployed Invendis iSense RMS controllers across a large portfolio of towers in Sub-Saharan Africa, integrating generator monitoring, fuel management, rectifier parameters, and access control into a single unified platform.</p>
+            <div class="case-result">
+              <div class="case-result-num">40%</div>
+              <div class="case-result-label">Reduction in unnecessary site visits through remote diagnostics</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-top mix">
+            <div class="case-sector">Telecom · India</div>
+            <h3>Tower OA & Field Efficiency Platform – 70,000+ Sites</h3>
+            <div class="case-client"><div class="case-client-dot"></div><span>ATC India</span></div>
+          </div>
+          <div class="case-card-body">
+            <p>Invendis monitors tower operations for ATC India across 70,000+ towers. The solution includes process automation, real-time alarm ticketing, and a mobile field interface — driving significant operational efficiency gains.</p>
+            <div class="case-result">
+              <div class="case-result-num">70K+</div>
+              <div class="case-result-label">Towers actively monitored on Invendis RMS Platform</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-top red">
+            <div class="case-sector">Telecom · Myanmar</div>
+            <h3>Integrated Enterprise Operations – RMS + ERP + WO System</h3>
+            <div class="case-client"><div class="case-client-dot"></div><span>IGT Myanmar</span></div>
+          </div>
+          <div class="case-card-body">
+            <p>Invendis RMS integrated with AMS (ERP), ClickOnSite WO & TT System, and an Electronic Key System to create a fully automated operations ecosystem. Alarm-to-ticket creation is automatic, end-to-end.</p>
+            <div class="case-result">
+              <div class="case-result-num">100%</div>
+              <div class="case-result-label">Automated alarm-to-ticket workflow with zero manual intervention</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-top">
+            <div class="case-sector">Telecom · Global</div>
+            <h3>Global Frame Agreement for Tower Passive Asset Monitoring</h3>
+            <div class="case-client"><div class="case-client-dot"></div><span>Nokia</span></div>
+          </div>
+          <div class="case-card-body">
+            <p>Nokia's global frame agreement for Invendis monitoring hardware and software covers tower passive assets across multiple regions. Invendis provides bespoke solutions aligned to Nokia's evolving requirements.</p>
+            <div class="case-result">
+              <div class="case-result-num">Global</div>
+              <div class="case-result-label">Multi-region deployment under a Strategic Global Agreement</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-top mix">
+            <div class="case-sector">Telecom · Saudi Arabia</div>
+            <h3>3-Year MFA for IIoT Networking Hardware – KSA</h3>
+            <div class="case-client"><div class="case-client-dot"></div><span>Major Client, Saudi Arabia (2025)</span></div>
+          </div>
+          <div class="case-card-body">
+            <p>Invendis signed a 3-year Master Framework Agreement in 2025 to supply industrial networking devices — routers, gateways, and switches — for a major telecommunications operator in the Kingdom of Saudi Arabia.</p>
+            <div class="case-result">
+              <div class="case-result-num">3 Yrs</div>
+              <div class="case-result-label">Framework agreement for continuous hardware supply in KSA</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-top red">
+            <div class="case-sector">Technology · USA</div>
+            <h3>Intel-Based Router Development for US Client</h3>
+            <div class="case-client"><div class="case-client-dot"></div><span>US Technology Client (2024)</span></div>
+          </div>
+          <div class="case-card-body">
+            <p>Invendis designed and delivered a custom Intel-based industrial router for a US technology client — demonstrating in-house hardware R&D capability for bespoke product design and OEM manufacturing.</p>
+            <div class="case-result">
+              <div class="case-result-num">OEM</div>
+              <div class="case-result-label">Custom Intel-based router designed and manufactured in-house</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHITE PAPERS -->
+  <section class="section bg-light">
+    <div class="container">
+      <div style="margin-bottom:40px;">
+        <div class="section-label">Technical Resources</div>
+        <h2 class="section-title">White Papers & <span>Technical Notes</span></h2>
+        <p class="section-desc">In-depth technical documentation, solution architectures, and industry insights from the Invendis engineering team.</p>
+      </div>
+      <div class="whitepaper-grid">
+        <div class="wp-card">
+          <div class="wp-icon">📋</div>
+          <div>
+            <h3>Telecom RMS Architecture Guide</h3>
+            <p>A comprehensive guide to the Invendis Telecom Remote Monitoring Solution — covering architecture, data flows, RMS adapters, analytics layers, and integration with third-party systems.</p>
+            <a href="#" class="wp-link">Download PDF →</a>
+          </div>
+        </div>
+        <div class="wp-card">
+          <div class="wp-icon" style="background:linear-gradient(135deg,var(--red),#ff8080);">⚡</div>
+          <div>
+            <h3>iSense Gateway – Technical Datasheet</h3>
+            <p>Full technical specification for the iSense RMS Controller including hardware interfaces, firmware capabilities, communication protocols, and third-party equipment compatibility list.</p>
+            <a href="#" class="wp-link">Download PDF →</a>
+          </div>
+        </div>
+        <div class="wp-card">
+          <div class="wp-icon">🌐</div>
+          <div>
+            <h3>SILBO Industrial Networking Catalogue</h3>
+            <p>Complete product catalogue for the SILBO brand — routers, gateways, protocol converters, and switches — including specifications, environmental ratings, and deployment scenarios.</p>
+            <a href="#" class="wp-link">Download PDF →</a>
+          </div>
+        </div>
+        <div class="wp-card">
+          <div class="wp-icon" style="background:linear-gradient(135deg,#059669,#34d399);">☀️</div>
+          <div>
+            <h3>Solar Monitoring Solution Brief</h3>
+            <p>Overview of Invendis's solar monitoring platform — covering controller integration, anomaly detection algorithms, energy yield analytics, and billing module integration for renewable energy sites.</p>
+            <a href="#" class="wp-link">Download PDF →</a>
+          </div>
+        </div>
+        <div class="wp-card">
+          <div class="wp-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">📊</div>
+          <div>
+            <h3>ESG & Energy Analytics White Paper</h3>
+            <p>How IIoT-enabled monitoring supports ESG target setting, carbon footprint measurement, and automated sustainability reporting for large telecom and industrial site portfolios.</p>
+            <a href="#" class="wp-link">Download PDF →</a>
+          </div>
+        </div>
+        <div class="wp-card">
+          <div class="wp-icon" style="background:linear-gradient(135deg,var(--red),#cc2020);">🔒</div>
+          <div>
+            <h3>ISO 27001 Security Framework</h3>
+            <p>Overview of Invendis's information security management practices, covering secure data transmission, access control, and compliance with ISO/IEC 27001:2022 for remote monitoring systems.</p>
+            <a href="#" class="wp-link">Download PDF →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner" style="background:linear-gradient(135deg, #8a0000 0%, #cc2020 60%, #ff5050 100%);">
+        <h2>Want the Full Story?</h2>
+        <p>Request a detailed case study pack or speak to our team about your specific use case.</p>
+        <a href="#" class="btn-primary" onclick="showPage('company')">Request Case Studies →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- PAGE: COMPANY -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-company">
+
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label" style="color:rgba(255,180,180,1);">About Us</div>
+        <h1>Invendis <span>Technologies</span></h1>
+        <p>Founded in 2007, Invendis is an ISO-certified IIoT hardware and software manufacturer headquartered in Bangalore — serving customers in 26 countries with 17+ years of proven expertise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION VISION VALUES -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <div class="section-label" style="justify-content:center;">Who We Are</div>
+        <h2 class="section-title">Built on <span>Purpose & Expertise</span></h2>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div style="font-size:36px; margin-bottom:16px;">🎯</div>
+          <h3>Our Mission</h3>
+          <p>To enable quality products, solutions, and services in the IoT space — covering multiple verticals — with a professional team committed to innovation and customer success.</p>
+        </div>
+        <div class="mission-card" style="background:linear-gradient(135deg, #e0f0ff 0%, white 100%);">
+          <div style="font-size:36px; margin-bottom:16px;">🔭</div>
+          <h3>Our Vision</h3>
+          <p>To be the global leader in industrial IoT solutions — bridging the physical and digital worlds through intelligent hardware, software platforms, and managed services at scale.</p>
+        </div>
+        <div class="mission-card red-card">
+          <div style="font-size:36px; margin-bottom:16px;">💡</div>
+          <h3>Our Tagline</h3>
+          <p style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:var(--blue); margin-bottom:8px;">"Invent. Discover."</p>
+          <p>Every product and every deployment at Invendis begins with curiosity — and ends with a solution that genuinely transforms how our customers operate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section-sm bg-light">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:40px;">
+        <div class="section-label" style="justify-content:center;">Our Values</div>
+        <h2 class="section-title">What <span>Drives Us</span></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-card-icon">🔬</div>
+          <h3>Innovation</h3>
+          <p>Constant R&D investment and design partnerships with MediaTek, Intel, and Qualcomm.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-card-icon">🤝</div>
+          <h3>Partnership</h3>
+          <p>9+ year average client relationships. We grow with our customers, not just for them.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-card-icon">🔒</div>
+          <h3>Reliability</h3>
+          <p>ISO 9001, 14001, 45001, and 27001 certified. 24×7 remote support as standard.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-card-icon">🌍</div>
+          <h3>Global Reach</h3>
+          <p>Operations, support, and partnerships spanning 54 countries across 4 continents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div>
+          <div class="section-label">Our Journey</div>
+          <h2 class="section-title" style="margin-bottom:36px;">17+ Years of <span>IIoT Innovation</span></h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2007</div>
+              <h4>Founded in Bangalore</h4>
+              <p>Established by a professional team to deliver quality IoT products across multiple verticals.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2009</div>
+              <h4>First Telecom RMS Order</h4>
+              <p>Secured first order for 1,800 telecom sites across India — validating the core technology.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2011–2014</div>
+              <h4>International Expansion</h4>
+              <p>First overseas order from the Middle East, followed by Africa and Southeast Asia deployments.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2016</div>
+              <h4>Solar Monitoring Launch</h4>
+              <p>Launched dedicated solar monitoring solution, expanding into the energy sector.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2019–2020</div>
+              <h4>Strategic Ericsson Engagement</h4>
+              <p>Deep engagement with Ericsson for bespoke telecom RMS solutions across multiple markets.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2021</div>
+              <h4>Acquisition of ELTRAC Technologies</h4>
+              <p>Added digital energy meters to the portfolio, strengthening the energy measurement vertical.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2022</div>
+              <h4>Acquisition of RELYSYS</h4>
+              <p>Brought in Industrial Communication & Edge Computing capabilities — including SILBO.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2023–2025</div>
+              <h4>Expansion & New Products</h4>
+              <p>5G routers, switches, tariff-grade meters, Intel-based router for US client, and a 3-year MFA signed in Saudi Arabia.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="background:var(--light); border-radius:24px; padding:40px; border:1px solid rgba(5,5,155,0.07);">
+            <div class="section-label">Facilities</div>
+            <h3 style="font-size:22px; margin-bottom:20px;">HQ & Operations</h3>
+            <p style="color:var(--muted); font-size:15px; line-height:1.7; margin-bottom:28px;">ISO & ISMS certified organisation based in Bangalore, India with operations distributed across 3 facilities.</p>
+            <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:32px;">
+              <div style="display:flex; gap:14px; align-items:center;">
+                <div style="width:40px; height:40px; border-radius:10px; background:var(--blue); display:flex; align-items:center; justify-content:center; color:white; font-size:18px; flex-shrink:0;">🏢</div>
+                <div><strong>HQ</strong> – 10,000+ sq. ft. · Bangalore, India</div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:center;">
+                <div style="width:40px; height:40px; border-radius:10px; background:var(--blue); display:flex; align-items:center; justify-content:center; color:white; font-size:18px; flex-shrink:0;">🏭</div>
+                <div><strong>Factory</strong> – 7,500 sq. ft. manufacturing floor</div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:center;">
+                <div style="width:40px; height:40px; border-radius:10px; background:var(--red); display:flex; align-items:center; justify-content:center; color:white; font-size:18px; flex-shrink:0;">🔬</div>
+                <div><strong>R&D & Sales</strong> – 10,000 sq. ft. innovation centre</div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:center;">
+                <div style="width:40px; height:40px; border-radius:10px; background:var(--muted); display:flex; align-items:center; justify-content:center; color:white; font-size:18px; flex-shrink:0;">🌍</div>
+                <div><strong>Foreign Office</strong> – Accra, Ghana</div>
+              </div>
+            </div>
+            <div class="section-label" style="margin-bottom:14px;">Certifications</div>
+            <div class="cert-strip">
+              <div class="cert-badge">ISO 9001:2015</div>
+              <div class="cert-badge">ISO 14001:2015</div>
+              <div class="cert-badge">ISO 45001:2018</div>
+              <div class="cert-badge">ISO 27001:2022</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section bg-light" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-label">Get In Touch</div>
+          <h2>Let's Build Something <span style="color:var(--blue);">Together</span></h2>
+          <p>Whether you're looking for a monitoring solution, industrial networking hardware, or a custom OEM design partnership — our team is ready to help.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-item-body">
+              <h4>Headquarters</h4>
+              <p>No 230, 1st Cross 36th Main, BCOMBCS Layout, BTM 2nd Stage, Bangalore – 560 068, Karnataka, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-item-body">
+              <h4>Website</h4>
+              <p>www.invendis.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌍</div>
+            <div class="contact-item-body">
+              <h4>Foreign Office</h4>
+              <p>Accra, Ghana (West Africa operations)</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🤝</div>
+            <div class="contact-item-body">
+              <h4>Partnerships</h4>
+              <p>Partners in 54 countries. Customers in 26 countries across Africa, Middle East, and Asia Pacific.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="contact-form">
+            <h3 style="font-size:22px; margin-bottom:24px;">Send Us a Message</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="John">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Smith">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company / Organisation</label>
+              <input type="text" placeholder="Your company name">
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="john@company.com">
+            </div>
+            <div class="form-group">
+              <label>I'm interested in</label>
+              <select>
+                <option>Select a topic…</option>
+                <option>Telecom Monitoring (RMS)</option>
+                <option>Energy Meters & Billing</option>
+                <option>SILBO Networking Products</option>
+                <option>OEM / ODM Services</option>
+                <option>Software Platforms</option>
+                <option>Partnership Opportunities</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell us about your project or requirement…"></textarea>
+            </div>
+            <button class="btn-form">Send Message →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">Inven<span style="color:var(--red);">dis</span></div>
+        <div class="logo-sub" style="margin-top:4px; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.35);">Invent. Discover.</div>
+        <p>IIoT hardware, software, and managed services for telecom, energy, and industrial sectors — serving 26 countries from Bangalore, India.</p>
+        <div class="silbo-callout" style="margin-top:20px;">
+          <strong>SILBO</strong> — An Invendis Brand
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('products')">iSense RMS Controller</a></li>
+          <li><a href="#" onclick="showPage('products')">Energy Meters</a></li>
+          <li><a href="#" onclick="showPage('products')">SILBO Routers</a></li>
+          <li><a href="#" onclick="showPage('products')">Industrial Gateways</a></li>
+          <li><a href="#" onclick="showPage('products')">PizGloria Platform</a></li>
+          <li><a href="#" onclick="showPage('products')">Mobile App</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sectors</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('sectors')">Telecom Infrastructure</a></li>
+          <li><a href="#" onclick="showPage('sectors')">Solar & Renewables</a></li>
+          <li><a href="#" onclick="showPage('sectors')">Smart Energy</a></li>
+          <li><a href="#" onclick="showPage('sectors')">Industrial Networks</a></li>
+          <li><a href="#" onclick="showPage('sectors')">ESG & Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('company')">About Us</a></li>
+          <li><a href="#" onclick="showPage('company')">Our Journey</a></li>
+          <li><a href="#" onclick="showPage('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="showPage('casestudies')">White Papers</a></li>
+          <li><a href="#" onclick="showPage('company')">Contact</a></li>
+          <li><a href="#">ISO Certifications</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Invendis Technologies India Pvt Ltd. All rights reserved.</p>
+      <p>Bangalore · Accra · 54 Partner Countries</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const navEl = document.getElementById('nav-' + id);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  return false;
+}
+
+// Prevent default link behavior for nav
+document.querySelectorAll('a[onclick]').forEach(a => {
+  a.addEventListener('click', e => e.preventDefault());
+});
+</script>
+</body>
+</html>
