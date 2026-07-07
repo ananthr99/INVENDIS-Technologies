@@ -16,8 +16,6 @@
 # 3. Commit and push. The admin UI will be live at /admin.
 # ─────────────────────────────────────────────────────────────────────────────
 
-local_backend: true
-
 backend:
   name: github
   repo: ananthr99/INVENDIS-Technologies
