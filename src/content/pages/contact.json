@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "eyebrow": "Contact Us",
+    "headline": "Let's Build Something",
+    "headlineAccent": "Together",
+    "description": "Reach out to our team of IIoT experts. Whether it's a product enquiry, partnership, or a custom deployment — we're here to help."
+  },
+  "contactItems": [
+    { "icon": "building", "color": "blue", "label": "Headquarters", "content": "No 230, 1st Cross 36th Main, BCOMBCS Layout, BTM 2nd Stage, Bangalore – 560 068, India" },
+    { "icon": "phone", "color": "blue", "label": "Phone", "content": "+91 6361509463", "href": "tel:+916361509463" },
+    { "icon": "mail", "color": "blue", "label": "Email", "content": "sales@invendis.com", "href": "mailto:sales@invendis.com" },
+    { "icon": "globe", "color": "red", "label": "Foreign Office", "content": "Accra, Ghana (West Africa operations)" }
+  ],
+  "quickFacts": ["54+ Countries", "Est. 2007", "Bangalore HQ", "ISO Certified", "Make In India"],
+  "form": {
+    "heading": "Send Us a Message",
+    "nameLabel": "Your Name *",
+    "namePlaceholder": "John Doe",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Your Company",
+    "emailLabel": "Email Address *",
+    "emailPlaceholder": "johndoe@company.com",
+    "messageLabel": "Message *",
+    "messagePlaceholder": "Tell us about your project or requirements…",
+    "submitLabel": "Send Message"
+  },
+  "mapSection": {
+    "eyebrow": "Global Presence",
+    "heading": "Countries",
+    "headingAccent": "We Serve",
+    "description": "Invendis has deployed IIoT solutions across {count}+ countries spanning Africa, the Middle East, Asia Pacific, and beyond."
+  }
+}

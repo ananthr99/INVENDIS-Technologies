@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "eyebrow": "Proven Impact",
+    "headline": "Case Studies &",
+    "headlineAccent": "White Papers",
+    "description": "Real-world deployments, measurable outcomes, and technical insights from 17+ years of IIoT innovation across 26 countries."
+  },
+  "caseStudiesSection": {
+    "eyebrow": "Deployments",
+    "heading": "Case",
+    "headingAccent": "Studies"
+  },
+  "caseStudies": [
+    { "style": "blue", "sector": "Telecom · Africa", "title": "Large-Scale Tower Monitoring for Major TowerCo – Africa", "client": "American Tower Corporation", "desc": "Deployed Invendis iSense RMS controllers across a large portfolio of towers in Sub-Saharan Africa, integrating generator monitoring, fuel management, rectifier parameters, and access control into a single unified platform.", "resultNum": "40%", "resultLabel": "Reduction in unnecessary site visits through remote diagnostics" },
+    { "style": "mix", "sector": "Telecom · India", "title": "Tower OA & Field Efficiency Platform – 70,000+ Sites", "client": "ATC India", "desc": "Invendis monitors tower operations for ATC India across 70,000+ towers. The solution includes process automation, real-time alarm ticketing, and a mobile field interface — driving significant operational efficiency gains.", "resultNum": "70K+", "resultLabel": "Towers actively monitored on Invendis RMS Platform" },
+    { "style": "red", "sector": "Telecom · Myanmar", "title": "Integrated Enterprise Operations – RMS + ERP + WO System", "client": "IGT Myanmar", "desc": "Invendis RMS integrated with AMS (ERP), ClickOnSite WO & TT System, and an Electronic Key System to create a fully automated operations ecosystem. Alarm-to-ticket creation is automatic, end-to-end.", "resultNum": "100%", "resultLabel": "Automated alarm-to-ticket workflow with zero manual intervention" },
+    { "style": "blue", "sector": "Telecom · Global", "title": "Global Frame Agreement for Tower Passive Asset Monitoring", "client": "Nokia", "desc": "Nokia's global frame agreement for Invendis monitoring hardware and software covers tower passive assets across multiple regions. Invendis provides bespoke solutions aligned to Nokia's evolving requirements.", "resultNum": "Global", "resultLabel": "Multi-region deployment under a Strategic Global Agreement" },
+    { "style": "mix", "sector": "Telecom · Saudi Arabia", "title": "3-Year MFA for IIoT Networking Hardware – KSA", "client": "Major Client, Saudi Arabia (2025)", "desc": "Invendis signed a 3-year Master Framework Agreement in 2025 to supply industrial networking devices — routers, gateways, and switches — for a major telecommunications operator in the Kingdom of Saudi Arabia.", "resultNum": "3 Yrs", "resultLabel": "Framework agreement for continuous hardware supply in KSA" },
+    { "style": "red", "sector": "Technology · USA", "title": "Intel-Based Router Development for US Client", "client": "US Technology Client (2024)", "desc": "Invendis designed and delivered a custom Intel-based industrial router for a US technology client — demonstrating in-house hardware R&D capability for bespoke product design and OEM manufacturing.", "resultNum": "OEM", "resultLabel": "Custom Intel-based router designed and manufactured in-house" }
+  ],
+  "whitepapersSection": {
+    "eyebrow": "Technical Resources",
+    "heading": "White Papers &",
+    "headingAccent": "Technical Notes",
+    "description": "In-depth technical documentation, solution architectures, and industry insights from the Invendis engineering team."
+  },
+  "whitepapers": [
+    { "icon": "file_text", "iconBg": "blue", "title": "Telecom RMS Architecture Guide", "desc": "A comprehensive guide to the Invendis Telecom Remote Monitoring Solution — covering architecture, data flows, RMS adapters, analytics layers, and integration with third-party systems." },
+    { "icon": "zap", "iconBg": "red", "title": "iSense Gateway – Technical Datasheet", "desc": "Full technical specification for the iSense RMS Controller including hardware interfaces, firmware capabilities, communication protocols, and third-party equipment compatibility list." },
+    { "icon": "globe", "iconBg": "blue", "title": "SILBO Industrial Networking Catalogue", "desc": "Complete product catalogue for the SILBO brand — routers, gateways, protocol converters, and switches — including specifications, environmental ratings, and deployment scenarios." },
+    { "icon": "sun", "iconBg": "green", "title": "Solar Monitoring Solution Brief", "desc": "Overview of Invendis's solar monitoring platform — covering controller integration, anomaly detection algorithms, energy yield analytics, and billing module integration for renewable energy sites." },
+    { "icon": "bar_chart", "iconBg": "purple", "title": "ESG & Energy Analytics White Paper", "desc": "How IIoT-enabled monitoring supports ESG target setting, carbon footprint measurement, and automated sustainability reporting for large telecom and industrial site portfolios." },
+    { "icon": "lock", "iconBg": "red", "title": "ISO 27001 Security Framework", "desc": "Overview of Invendis's information security management practices, covering secure data transmission, access control, and compliance with ISO/IEC 27001:2022 for remote monitoring systems." }
+  ],
+  "ctaBanner": {
+    "heading": "Want the Full Story?",
+    "description": "Request a detailed case study pack or speak to our team about your specific use case.",
+    "primaryLabel": "Request Case Studies",
+    "primaryTo": "/company"
+  }
+}
