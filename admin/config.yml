@@ -17,7 +17,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 backend:
-  name: git-gateway
+  name: github
+  repo: ananthr99/INVENDIS-Technologies
   branch: main
 
 # Where uploaded images are stored in the repo / served from
