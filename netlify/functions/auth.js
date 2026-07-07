@@ -1,4 +1,4 @@
-exports.handler = async function (event) {
+export const handler = async function (event) {
   const host = event.headers['x-forwarded-host'] || event.headers['host']
   const callbackUrl = `https://${host}/.netlify/functions/callback`
 

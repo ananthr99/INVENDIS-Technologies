@@ -1,4 +1,4 @@
-exports.handler = async function (event) {
+export const handler = async function (event) {
   const { code } = event.queryStringParameters || {}
 
   if (!code) {
@@ -22,7 +22,7 @@ exports.handler = async function (event) {
       window.opener.postMessage(
         'authorization:github:error:' + JSON.stringify({ error: ${JSON.stringify(data.error || 'auth_failed')} }),
         '*'
-      )
+      );
     `)
   }
 
