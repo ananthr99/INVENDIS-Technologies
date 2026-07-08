@@ -100,10 +100,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/15 mt-10 pt-6">
+        <div className="border-t border-white/15 mt-10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-xs text-white/45">
             {footer.copyright}
           </p>
+          <div className="flex gap-5">
+            <Link to="/privacy" className="text-xs text-white/45 hover:text-white/70 transition-colors duration-200">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="text-xs text-white/45 hover:text-white/70 transition-colors duration-200">
+              Terms of Use
+            </Link>
+          </div>
         </div>
 
       </div>

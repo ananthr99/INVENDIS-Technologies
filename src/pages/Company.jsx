@@ -1,4 +1,5 @@
 import CtaBanner from '../components/shared/CTABanner'
+import PageSEO from '../components/shared/PageSEO'
 import content from '../content/pages/company.json'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
@@ -24,6 +25,11 @@ export default function Company() {
 
   return (
     <div className="min-h-screen">
+      <PageSEO
+        title="About Us"
+        description="Invendis Technologies is a Bangalore-based IIoT company with 17+ years of experience, 180+ employees, ISO 9001/14001/27001 certifications, and global operations across 54 countries."
+        path="/company"
+      />
 
       {/* Hero */}
       <section
