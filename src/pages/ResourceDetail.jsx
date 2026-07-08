@@ -205,7 +205,7 @@ export default function ResourceDetail() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12">
           <Link
             to="/resources"
-            className="inline-flex items-center gap-1.5 text-sm text-brand-muted hover:text-brand-blue transition-colors mb-8"
+            className="flex w-fit items-center gap-1.5 text-sm text-brand-muted hover:text-brand-blue transition-colors mb-4"
           >
             <ArrowLeft size={14} /> Back to Resources
           </Link>
