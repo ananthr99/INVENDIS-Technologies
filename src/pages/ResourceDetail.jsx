@@ -240,7 +240,7 @@ export default function ResourceDetail() {
         <MarkdownBody content={content} />
 
         {/* Tags */}
-        {post.tags?.length > 0 && (
+        {Array.isArray(post.tags) && post.tags.length > 0 && (
           <div className="mt-10 pt-6 border-t border-gray-100 flex flex-wrap gap-2">
             {post.tags.map(tag => (
               <span key={tag} className="text-xs px-3 py-1 rounded-full bg-brand-light text-brand-muted border border-gray-200">

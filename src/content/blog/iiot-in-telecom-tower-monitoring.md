@@ -4,7 +4,11 @@ date: "2025-11-10"
 category: "Technical Article"
 excerpt: "Discover how Industrial IoT hardware enables remote visibility, predictive maintenance, and energy efficiency across distributed telecom tower sites."
 author: "Invendis Team"
-tags: ["telecom", "iiot", "remote monitoring", "tower infrastructure"]
+tags:
+- telecom
+- iiot
+- remote monitoring
+- tower infrastructure
 ---
 
 ## The Challenge of Distributed Tower Sites
@@ -40,7 +44,7 @@ A typical deployment connects the iSense RMS to the site's energy meters via RS4
 |---|---|---|
 | Energy (kWh) | Modbus RTU | 15 minutes |
 | DG status | Digital I/O | Real-time |
-| Battery voltage | Analog 0–10V | 5 minutes |
+| Battery voltage | Analog 0-10V | 5 minutes |
 | Temperature | RS485 sensor | 5 minutes |
 
 ## Impact: Results from the Field
