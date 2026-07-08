@@ -680,3 +680,33 @@ collections:
               - { name: heading,       label: Heading,        widget: string }
               - { name: headingAccent, label: Heading Accent, widget: string }
               - { name: description,   label: Description,    widget: text   }
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # BLOG / RESOURCES  →  src/content/blog/*.md
+  # ═══════════════════════════════════════════════════════════════════════════
+  - name: blog
+    label: Blog / Resources
+    folder: src/content/blog
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { name: title,    label: Title,   widget: string }
+      - name: date
+        label: Date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_only: true
+      - name: category
+        label: Category
+        widget: select
+        options: ["Technical Article", "Application Note", "Industry Insight", "Case Study"]
+      - { name: excerpt, label: "Excerpt (shown in listing)", widget: text }
+      - { name: author,  label: Author, widget: string, default: "Invendis Team" }
+      - name: tags
+        label: Tags
+        widget: list
+        allow_add: true
+        field: { name: tag, label: Tag, widget: string }
+      - { name: body, label: Body, widget: markdown }
