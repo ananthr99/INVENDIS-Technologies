@@ -1,6 +1,4 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
 import { getPost, getAllPosts } from '../utils/blog'
@@ -12,6 +10,176 @@ const categoryColors = {
   'Case Study':        'bg-red-50 text-brand-red',
 }
 
+// ── Inline markdown: **bold**, `code`, [link](url) ──────────────────────────
+function Inline({ text }) {
+  const parts = []
+  const pattern = /\*\*(.+?)\*\*|`([^`]+)`|\[([^\]]+)\]\(([^)]+)\)/g
+  let last = 0, m, i = 0
+  while ((m = pattern.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index))
+    if (m[1] !== undefined) {
+      parts.push(<strong key={i++} className="font-semibold text-brand-text">{m[1]}</strong>)
+    } else if (m[2] !== undefined) {
+      parts.push(<code key={i++} className="text-brand-blue bg-brand-light px-1.5 py-0.5 rounded text-sm font-mono">{m[2]}</code>)
+    } else if (m[3] !== undefined) {
+      const href = m[4]
+      parts.push(href.startsWith('/')
+        ? <Link key={i++} to={href} className="text-brand-blue hover:underline">{m[3]}</Link>
+        : <a key={i++} href={href} target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">{m[3]}</a>
+      )
+    }
+    last = m.index + m[0].length
+  }
+  if (last < text.length) parts.push(text.slice(last))
+  return <>{parts}</>
+}
+
+// ── Block-level markdown renderer ────────────────────────────────────────────
+function MarkdownBody({ content }) {
+  const lines = content.split(/\r?\n/)
+  const elements = []
+  let i = 0
+
+  while (i < lines.length) {
+    const line = lines[i]
+
+    // ## Heading
+    if (line.startsWith('## ')) {
+      elements.push(
+        <h2 key={i} className="font-sora font-bold text-2xl text-brand-text mt-10 mb-4 leading-snug">
+          <Inline text={line.slice(3)} />
+        </h2>
+      )
+      i++; continue
+    }
+
+    // ### Heading
+    if (line.startsWith('### ')) {
+      elements.push(
+        <h3 key={i} className="font-sora font-semibold text-xl text-brand-text mt-8 mb-3">
+          <Inline text={line.slice(4)} />
+        </h3>
+      )
+      i++; continue
+    }
+
+    // ``` code block ```
+    if (line.startsWith('```')) {
+      const codeLines = []
+      i++
+      while (i < lines.length && !lines[i].startsWith('```')) {
+        codeLines.push(lines[i])
+        i++
+      }
+      elements.push(
+        <pre key={i} className="bg-brand-text text-gray-100 rounded-xl p-4 text-sm overflow-x-auto my-5 font-mono leading-relaxed">
+          <code>{codeLines.join('\n')}</code>
+        </pre>
+      )
+      i++; continue
+    }
+
+    // | table |
+    if (line.startsWith('|')) {
+      const tableLines = []
+      while (i < lines.length && lines[i].startsWith('|')) {
+        tableLines.push(lines[i])
+        i++
+      }
+      const headers = tableLines[0].split('|').slice(1, -1).map(h => h.trim())
+      // tableLines[1] is the separator row (|---|), skip it
+      const rows = tableLines.slice(2).map(row => row.split('|').slice(1, -1).map(c => c.trim()))
+      elements.push(
+        <div key={i} className="overflow-x-auto my-6">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-brand-light">
+                {headers.map((h, ci) => (
+                  <th key={ci} className="px-4 py-2.5 text-left font-semibold text-brand-text border border-gray-200">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, ri) => (
+                <tr key={ri} className="border-t border-gray-100 hover:bg-gray-50">
+                  {row.map((cell, ci) => (
+                    <td key={ci} className="px-4 py-2.5 text-brand-muted border border-gray-200">
+                      <Inline text={cell} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
+      continue
+    }
+
+    // - unordered list
+    if (line.startsWith('- ')) {
+      const items = []
+      while (i < lines.length && lines[i].startsWith('- ')) {
+        items.push(lines[i].slice(2))
+        i++
+      }
+      elements.push(
+        <ul key={i} className="my-4 space-y-2 pl-5 text-brand-text">
+          {items.map((item, ii) => (
+            <li key={ii} className="leading-relaxed list-disc"><Inline text={item} /></li>
+          ))}
+        </ul>
+      )
+      continue
+    }
+
+    // 1. ordered list
+    if (/^\d+\.\s/.test(line)) {
+      const items = []
+      while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
+        items.push(lines[i].replace(/^\d+\.\s/, ''))
+        i++
+      }
+      elements.push(
+        <ol key={i} className="my-4 space-y-2 pl-5 text-brand-text list-decimal">
+          {items.map((item, ii) => (
+            <li key={ii} className="leading-relaxed"><Inline text={item} /></li>
+          ))}
+        </ol>
+      )
+      continue
+    }
+
+    // blank line
+    if (line.trim() === '') { i++; continue }
+
+    // paragraph — collect until next block element or blank line
+    const paraLines = []
+    while (
+      i < lines.length &&
+      lines[i].trim() !== '' &&
+      !lines[i].startsWith('#') &&
+      !lines[i].startsWith('- ') &&
+      !lines[i].startsWith('|') &&
+      !lines[i].startsWith('```') &&
+      !/^\d+\.\s/.test(lines[i])
+    ) {
+      paraLines.push(lines[i])
+      i++
+    }
+    if (paraLines.length > 0) {
+      elements.push(
+        <p key={i} className="text-brand-text leading-relaxed my-4">
+          <Inline text={paraLines.join(' ')} />
+        </p>
+      )
+    }
+  }
+
+  return <div>{elements}</div>
+}
+
+// ── Page component ───────────────────────────────────────────────────────────
 export default function ResourceDetail() {
   const { slug } = useParams()
   const post = getPost(slug)
@@ -69,23 +237,7 @@ export default function ResourceDetail() {
 
       {/* Article body */}
       <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12">
-        <div className="prose prose-lg max-w-none
-          prose-headings:font-sora prose-headings:text-brand-text
-          prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4
-          prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3
-          prose-p:text-brand-text prose-p:leading-relaxed
-          prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline
-          prose-strong:text-brand-text prose-strong:font-semibold
-          prose-ul:text-brand-text prose-ol:text-brand-text
-          prose-li:my-1
-          prose-blockquote:border-brand-blue prose-blockquote:text-brand-muted
-          prose-code:text-brand-blue prose-code:bg-brand-light prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
-          prose-pre:bg-brand-text prose-pre:text-gray-100 prose-pre:rounded-xl prose-pre:text-sm
-          prose-table:text-sm prose-th:text-brand-text prose-th:font-semibold prose-td:text-brand-muted
-          prose-img:rounded-xl
-        ">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-        </div>
+        <MarkdownBody content={content} />
 
         {/* Tags */}
         {post.tags?.length > 0 && (
