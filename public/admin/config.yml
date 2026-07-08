@@ -710,3 +710,79 @@ collections:
         allow_add: true
         field: { name: tag, label: Tag, widget: string }
       - { name: body, label: Body, widget: markdown }
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CAREERS  →  src/content/pages/careers.json
+  # ═══════════════════════════════════════════════════════════════════════════
+  - name: careers
+    label: Careers Page
+    files:
+      - name: careers
+        label: Careers Page
+        file: src/content/pages/careers.json
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: eyebrow,        label: Eyebrow,         widget: string }
+              - { name: headline,       label: Headline,        widget: string }
+              - { name: headlineAccent, label: Headline Accent, widget: string }
+              - { name: description,    label: Description,     widget: text   }
+
+          - name: cultureSection
+            label: Culture Section Headings
+            widget: object
+            fields:
+              - { name: eyebrow,       label: Eyebrow,        widget: string }
+              - { name: heading,       label: Heading,        widget: string }
+              - { name: headingAccent, label: Heading Accent, widget: string }
+              - { name: description,   label: Description,    widget: text   }
+
+          - name: perks
+            label: Why Join Us — Perks
+            widget: list
+            fields:
+              - name: icon
+                label: Icon
+                widget: select
+                options: *icon_options
+              - name: accent
+                label: Accent Colour
+                widget: select
+                options: *colour_options
+              - { name: title,       label: Title,       widget: string }
+              - { name: description, label: Description, widget: text   }
+
+          - name: openingsSection
+            label: Openings Section Headings
+            widget: object
+            fields:
+              - { name: eyebrow,       label: Eyebrow,        widget: string }
+              - { name: heading,       label: Heading,        widget: string }
+              - { name: headingAccent, label: Heading Accent, widget: string }
+
+          - name: openings
+            label: Open Positions
+            widget: list
+            fields:
+              - { name: title,       label: Job Title,    widget: string }
+              - { name: department,  label: Department,   widget: string }
+              - { name: location,    label: Location,     widget: string }
+              - { name: type,        label: Type,         widget: string, default: "Full-time" }
+              - { name: description, label: Description,  widget: text   }
+              - name: skills
+                label: Skills / Tags
+                widget: list
+                field: { name: item, label: Skill, widget: string }
+
+          - { name: noOpeningsMessage, label: "No Openings Message", widget: text }
+
+          - name: ctaBanner
+            label: CTA Banner
+            widget: object
+            fields:
+              - { name: heading,      label: Heading,              widget: string }
+              - { name: description,  label: Description,          widget: text   }
+              - { name: primaryLabel, label: Button Label,         widget: string }
+              - { name: primaryTo,    label: Button href (mailto), widget: string }

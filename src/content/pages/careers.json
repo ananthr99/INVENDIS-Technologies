@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "eyebrow": "Careers at Invendis",
+    "headline": "Build the Future of",
+    "headlineAccent": "Industrial IoT",
+    "description": "Join a team of engineers and innovators designing hardware that runs critical infrastructure across 26 countries. We build real products that go into the field."
+  },
+  "cultureSection": {
+    "eyebrow": "Why Invendis",
+    "heading": "Where Engineers",
+    "headingAccent": "Build Real Things",
+    "description": "We are a product company at heart. Every engineer at Invendis sees their work deployed in telecom towers, solar farms, and industrial sites — not just in a staging environment."
+  },
+  "perks": [
+    {
+      "icon": "cpu",
+      "accent": "blue",
+      "title": "Hardware That Ships",
+      "description": "Work on embedded systems, PCB design, and cellular connectivity that goes into real deployments across India and Africa."
+    },
+    {
+      "icon": "globe",
+      "accent": "green",
+      "title": "Global Exposure",
+      "description": "Our products operate in 26+ countries. You will engage with international OEM partners, towercos, and utilities."
+    },
+    {
+      "icon": "users",
+      "accent": "purple",
+      "title": "Small Team, Big Impact",
+      "description": "As a lean team, you own your work end to end — from design to production to field deployment."
+    },
+    {
+      "icon": "trending_up",
+      "accent": "amber",
+      "title": "Grow with the Company",
+      "description": "IIoT and 5G are reshaping infrastructure. Join early and grow as the market expands rapidly."
+    }
+  ],
+  "openingsSection": {
+    "eyebrow": "Open Positions",
+    "heading": "Current",
+    "headingAccent": "Openings"
+  },
+  "openings": [
+    {
+      "title": "Embedded Firmware Engineer",
+      "department": "Engineering",
+      "location": "Bangalore",
+      "type": "Full-time",
+      "description": "Design and develop firmware for our iSense RMS controllers and SILBO routers. Work with RTOS, Linux, Modbus RTU, and cellular communication stacks.",
+      "skills": ["C / C++", "RTOS", "Linux", "Modbus", "LTE / 4G"]
+    },
+    {
+      "title": "Hardware Design Engineer",
+      "department": "Engineering",
+      "location": "Bangalore",
+      "type": "Full-time",
+      "description": "Own PCB schematic capture, layout, and bring-up for our next-generation IIoT hardware. Experience with RF and power electronics is a plus.",
+      "skills": ["PCB Layout", "Altium", "RF Design", "Power Electronics", "Signal Integrity"]
+    },
+    {
+      "title": "Application Engineer – IIoT",
+      "department": "Sales & Applications",
+      "location": "Bangalore / Remote",
+      "type": "Full-time",
+      "description": "Work with customers to scope, deploy, and support IIoT solutions. Bridge the gap between technical capability and field requirements for telecom and energy clients.",
+      "skills": ["Networking", "SCADA / Modbus", "Customer-facing", "Technical Writing"]
+    }
+  ],
+  "noOpeningsMessage": "We don't have any open roles right now, but we are always interested in hearing from talented engineers.",
+  "ctaBanner": {
+    "heading": "Don't see the right role?",
+    "description": "Send us your CV and a note about what you want to build. We review every application.",
+    "primaryLabel": "Send your CV",
+    "primaryTo": "mailto:careers@invendis.com"
+  }
+}
