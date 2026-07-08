@@ -19,7 +19,7 @@ export default function Navbar() {
           <Link to="/" onClick={() => setOpen(false)}>
             <img src={asset(logos.invendis)} alt="Invendis Technologies" className="h-12 w-auto" loading="eager" decoding="sync" />
           </Link>
-          <img src={asset(logos.makeInIndia)} alt="Make in India" className="h-18 w-16" loading="eager" decoding="sync" />
+          <img src={asset(logos.makeInIndia)} alt="Make in India" className="h-10 w-auto" loading="eager" decoding="sync" />
         </div>
 
         {/* Centre — desktop nav links */}

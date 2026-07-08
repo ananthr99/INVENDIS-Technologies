@@ -186,7 +186,7 @@ export default function Company() {
             <div key={i} className="flex flex-col items-center text-center group">
               <div className="w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
                 {photo ? (
-                  <img src={photo} alt={name} className="w-full h-full object-cover" />
+                  <img src={photo} alt={name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 ) : (
                   <div
                     className="w-full h-full flex items-center justify-center text-white font-sora font-bold text-2xl"

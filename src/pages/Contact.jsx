@@ -24,7 +24,7 @@ function WorldMap() {
     fetch(`${import.meta.env.BASE_URL}world-110m.json`)
       .then(r => r.json())
       .then(world => setCountries(feature(world, world.objects.countries).features))
-      .catch(console.error)
+      .catch(() => {})
   }, [])
 
   const indPt = PROJ(INDIA_COORDS)
