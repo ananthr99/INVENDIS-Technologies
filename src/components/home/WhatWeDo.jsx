@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import content from '../../content/pages/home.json'
 import { getIcon } from '../../utils/iconMap'
 
@@ -8,7 +9,13 @@ export default function WhatWeDo() {
     <section className="py-20 px-8 lg:px-16 bg-white">
 
       {/* Section header */}
-      <div className="text-center mb-14">
+      <motion.div
+        className="text-center mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
         <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[2px] text-brand-red mb-4">
           <span className="block w-6 h-[2px] bg-brand-red rounded" />
           {whatWeDo.eyebrow}
@@ -19,15 +26,19 @@ export default function WhatWeDo() {
         <p className="text-brand-muted text-lg leading-relaxed max-w-2xl mx-auto">
           {whatWeDo.description}
         </p>
-      </div>
+      </motion.div>
 
       {/* Card grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {whatWeDo.features.map(({ icon, accent, title, description }) => {
+        {whatWeDo.features.map(({ icon, accent, title, description }, i) => {
           const Icon = getIcon(icon)
           return (
-            <div
+            <motion.div
               key={title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.45, delay: i * 0.08, ease: 'easeOut' }}
               className="group relative bg-white border border-brand-blue/10 rounded-2xl p-8 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/20"
             >
               {/* Hover accent line at top */}
@@ -51,7 +62,7 @@ export default function WhatWeDo() {
               <p className="text-brand-muted text-[15px] leading-relaxed">
                 {description}
               </p>
-            </div>
+            </motion.div>
           )
         })}
       </div>

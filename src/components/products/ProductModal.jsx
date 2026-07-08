@@ -115,7 +115,15 @@ export default function ProductModal({
 
           {imgs.length > 0 && (
             <div className="relative flex items-center justify-center bg-gray-50 rounded-xl mb-5 p-6 h-56">
-              <img src={imgs[imgIdx]} alt={p.name} className="max-h-full max-w-full object-contain" />
+              <picture style={{ display: 'contents' }}>
+                <source srcSet={imgs[imgIdx].replace(/\.(png|jpe?g)$/i, '.webp')} type="image/webp" />
+                <img
+                  src={imgs[imgIdx]}
+                  alt={p.name}
+                  className="max-h-full max-w-full object-contain"
+                  decoding="async"
+                />
+              </picture>
               {imgs.length > 1 && (
                 <>
                   <button

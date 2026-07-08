@@ -26,6 +26,10 @@
       { "label": "www.silbonetworks.com", "url": "https://www.silbonetworks.com" }
     ]
   },
+  "whatsapp": {
+    "number": "916361509463",
+    "message": "Hi, I'd like to know more about Invendis IIoT products and solutions."
+  },
   "footer": {
     "tagline": "Industrial IoT hardware — routers, gateways, switches, and energy meters. Made in India.",
     "copyright": "© 2026 Invendis Technologies India Private Limited. All rights reserved.",
