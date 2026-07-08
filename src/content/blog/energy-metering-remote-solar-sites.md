@@ -4,7 +4,12 @@ date: "2025-10-20"
 category: "Application Note"
 excerpt: "A technical guide to deploying Invendis energy meters at off-grid solar hybrid sites for accurate generation, consumption, and export measurement."
 author: "Invendis Team"
-tags: ["solar", "energy metering", "hybrid power", "off-grid", "renewables"]
+tags:
+- solar
+- energy metering
+- hybrid power
+- off-grid
+- renewables
 ---
 
 ## Why Accurate Energy Measurement Matters
@@ -33,19 +38,7 @@ The Invendis multi-function energy meter range supports:
 
 ## Integration with iSense RMS
 
-Pairing energy meters with the iSense RMS controller creates an end-to-end monitoring solution:
-
-```
-Solar Array → Inverter → Energy Meter (PV generation)
-                       ↓
-                 DB / Load → Energy Meter (consumption)
-                       ↓
-                 iSense RMS (Modbus aggregation)
-                       ↓
-                 PizGloria Cloud (reporting, alerts)
-```
-
-The iSense RMS polls each meter via Modbus RTU every 15 minutes, stores readings locally, and uploads to PizGloria where energy dashboards and monthly reports are auto-generated.
+Pairing energy meters with the iSense RMS controller creates an end-to-end monitoring solution. The iSense RMS polls each meter via Modbus RTU every 15 minutes, stores readings locally, and uploads to PizGloria where energy dashboards and monthly reports are auto-generated.
 
 ## Installation Considerations
 
