@@ -15,6 +15,8 @@ const Company         = lazy(() => import('./pages/Company'))
 const Contact         = lazy(() => import('./pages/Contact'))
 const Privacy         = lazy(() => import('./pages/Privacy'))
 const Terms           = lazy(() => import('./pages/Terms'))
+const Resources       = lazy(() => import('./pages/Resources'))
+const ResourceDetail  = lazy(() => import('./pages/ResourceDetail'))
 
 function PageLoader() {
   return (
@@ -50,6 +52,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:slug" element={<ResourceDetail />} />
           </Routes>
         </Suspense>
       </main>
