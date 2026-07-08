@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { geoNaturalEarth1, geoPath } from 'd3-geo'
 import { feature } from 'topojson-client'
-import { Send } from 'lucide-react'
+import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import PageSEO from '../components/shared/PageSEO'
 import content from '../content/pages/contact.json'
 import servedData from '../content/servedCountries.json'
-import site from '../content/siteSettings.json'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
@@ -60,13 +60,26 @@ function WorldMap() {
 export default function Contact() {
   const { hero, contactItems, quickFacts, form, mapSection } = content
   const [formState, setFormState] = useState({ name: '', company: '', email: '', message: '' })
+  const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'success' | 'error'
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    const { name, company, email, message } = formState
-    const sub  = encodeURIComponent(`Enquiry from ${name}${company ? ` (${company})` : ''}`)
-    const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\n\n${message}`)
-    window.open(`mailto:${site.contact.email}?subject=${sub}&body=${body}`)
+    setStatus('sending')
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ 'form-name': 'contact', ...formState }).toString(),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setFormState({ name: '', company: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   const field    = key => e => setFormState(p => ({ ...p, [key]: e.target.value }))
@@ -74,6 +87,11 @@ export default function Contact() {
 
   return (
     <div>
+      <PageSEO
+        title="Contact Us"
+        description="Contact Invendis Technologies for IIoT solutions, product demos, or partnership inquiries. Bangalore HQ, global presence in 54 countries. Email: sales@invendis.com"
+        path="/contact"
+      />
 
       {/* ── Hero ── */}
       <section
@@ -143,45 +161,86 @@ export default function Contact() {
           {/* Right — form */}
           <div>
             <h2 className="font-sora text-2xl font-bold text-brand-text mb-6">{form.heading}</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            {status === 'success' ? (
+              <div className="flex flex-col items-start gap-4 p-6 bg-green-50 border border-green-200 rounded-2xl">
+                <CheckCircle size={32} className="text-green-600" />
                 <div>
-                  <label className="block text-sm font-medium text-brand-text mb-1.5">{form.nameLabel}</label>
-                  <input
-                    required value={formState.name} onChange={field('name')}
-                    placeholder={form.namePlaceholder} className={inputCls}
-                  />
+                  <p className="font-sora font-bold text-brand-text mb-1">Message sent!</p>
+                  <p className="text-sm text-brand-muted leading-relaxed">
+                    Thank you for reaching out. Our team will get back to you within 1–2 business days.
+                  </p>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-brand-text mb-1.5">{form.companyLabel}</label>
-                  <input
-                    value={formState.company} onChange={field('company')}
-                    placeholder={form.companyPlaceholder} className={inputCls}
-                  />
-                </div>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="text-sm text-brand-blue hover:underline"
+                >
+                  Send another message
+                </button>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-text mb-1.5">{form.emailLabel}</label>
-                <input
-                  required type="email" value={formState.email} onChange={field('email')}
-                  placeholder={form.emailPlaceholder} className={inputCls}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-text mb-1.5">{form.messageLabel}</label>
-                <textarea
-                  required rows={5} value={formState.message} onChange={field('message')}
-                  placeholder={form.messagePlaceholder}
-                  className={`${inputCls} resize-none`}
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex items-center gap-2 bg-brand-blue text-white font-sora font-bold text-sm px-6 py-3 rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+            ) : (
+              <form
+                name="contact"
+                onSubmit={handleSubmit}
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                className="space-y-4"
               >
-                {form.submitLabel} <Send size={16} />
-              </button>
-            </form>
+                <input type="hidden" name="form-name" value="contact" />
+                {/* Honeypot — bots fill this in; humans don't see it */}
+                <p className="hidden">
+                  <label>Don't fill this out: <input name="bot-field" /></label>
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-brand-text mb-1.5">{form.nameLabel}</label>
+                    <input
+                      required name="name" value={formState.name} onChange={field('name')}
+                      placeholder={form.namePlaceholder} className={inputCls}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-brand-text mb-1.5">{form.companyLabel}</label>
+                    <input
+                      name="company" value={formState.company} onChange={field('company')}
+                      placeholder={form.companyPlaceholder} className={inputCls}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-brand-text mb-1.5">{form.emailLabel}</label>
+                  <input
+                    required type="email" name="email" value={formState.email} onChange={field('email')}
+                    placeholder={form.emailPlaceholder} className={inputCls}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-brand-text mb-1.5">{form.messageLabel}</label>
+                  <textarea
+                    required rows={5} name="message" value={formState.message} onChange={field('message')}
+                    placeholder={form.messagePlaceholder}
+                    className={`${inputCls} resize-none`}
+                  />
+                </div>
+
+                {status === 'error' && (
+                  <div className="flex items-center gap-2 text-sm text-red-600">
+                    <AlertCircle size={16} />
+                    Something went wrong. Please try again or email us directly.
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="inline-flex items-center gap-2 bg-brand-blue text-white font-sora font-bold text-sm px-6 py-3 rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
+                >
+                  {status === 'sending' ? 'Sending…' : form.submitLabel}
+                  {status !== 'sending' && <Send size={16} />}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>

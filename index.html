@@ -4,20 +4,65 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/invendis_logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INVENDIS Technologies</title>
-    <script>
-      (function(l) {
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&');
-          });
-          window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded[0] +
-            (decoded[1] ? '?' + decoded[1] : '') + l.hash
-          );
+    <title>Invendis Technologies | Industrial IoT Solutions</title>
+    <meta name="description" content="Invendis Technologies delivers industrial IoT hardware, software, and managed services across 26 countries. Telecom tower monitoring, smart energy, and edge computing since 2007." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Invendis Technologies" />
+    <meta property="og:title" content="Invendis Technologies | Industrial IoT Solutions" />
+    <meta property="og:description" content="Invendis Technologies delivers industrial IoT hardware, software, and managed services across 26 countries. Telecom tower monitoring, smart energy, and edge computing since 2007." />
+    <meta property="og:image" content="https://invendis-technologies-cms.netlify.app/invendis_logo.png" />
+    <meta property="og:url" content="https://invendis-technologies-cms.netlify.app/INVENDIS-Technologies/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Invendis Technologies | Industrial IoT Solutions" />
+    <meta name="twitter:description" content="Invendis Technologies delivers industrial IoT hardware, software, and managed services across 26 countries." />
+    <meta name="twitter:image" content="https://invendis-technologies-cms.netlify.app/invendis_logo.png" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Invendis Technologies India Private Limited",
+          "alternateName": "Invendis Technologies",
+          "url": "https://invendis-technologies-cms.netlify.app/INVENDIS-Technologies/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://invendis-technologies-cms.netlify.app/invendis_logo.png"
+          },
+          "description": "Industrial IoT hardware, software, and managed services for telecom, renewable energy, smart utilities, and industrial networks",
+          "foundingDate": "2007",
+          "numberOfEmployees": { "@type": "QuantitativeValue", "value": 180 },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "BCOMBCS Layout, BTM 2nd Stage",
+            "addressLocality": "Bangalore",
+            "addressRegion": "Karnataka",
+            "addressCountry": "IN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-6361509463",
+            "email": "sales@invendis.com",
+            "contactType": "sales",
+            "areaServed": "Worldwide",
+            "availableLanguage": "English"
+          },
+          "sameAs": [
+            "https://ananthr99.github.io/INVENDIS-Technologies/",
+            "https://www.invendis.com",
+            "https://www.silbonetworks.com"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "Invendis Technologies",
+          "url": "https://invendis-technologies-cms.netlify.app/INVENDIS-Technologies/"
         }
-      }(window.location));
+      ]
+    }
     </script>
+    <script src="/spa-redirect.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
@@ -25,5 +70,15 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Netlify Forms detection: Netlify scans the static HTML at build time.
+         This hidden form registers "contact" so Netlify intercepts submissions. -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="company" />
+      <input name="email" />
+      <input name="message" />
+    </form>
   </body>
 </html>

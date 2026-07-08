@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import CtaBanner from '../components/shared/CTABanner'
+import PageSEO from '../components/shared/PageSEO'
 import content from '../content/pages/products.json'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
@@ -16,6 +17,11 @@ export default function Products() {
 
   return (
     <div className="min-h-screen">
+      <PageSEO
+        title="IIoT Products"
+        description="Explore Invendis IIoT products: RMS controllers, energy meters, industrial routers, gateways, and software platforms including PizGloria RMS and SILBO networking solutions."
+        path="/products"
+      />
 
       {/* Hero */}
       <section

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import PageSEO from '../components/shared/PageSEO'
 import content from '../content/pages/caseStudies.json'
 import { getIcon } from '../utils/iconMap'
 import { getGradient, getCardHeader } from '../utils/styleMap'
@@ -12,6 +13,11 @@ export default function CaseStudies() {
 
   return (
     <div className="min-h-screen">
+      <PageSEO
+        title="Case Studies & White Papers"
+        description="Read how Invendis has deployed IIoT solutions for Nokia, American Tower, ATC India, and clients across 26 countries. Browse case studies and technical white papers."
+        path="/case-studies"
+      />
 
       {/* Hero */}
       <section

@@ -4,6 +4,7 @@ import WhatWeDo from '../components/home/WhatWeDo'
 import StatsRow from '../components/home/StatsRow'
 import Testimonials from '../components/home/Testimonials'
 import CTABanner from '../components/shared/CTABanner'
+import PageSEO from '../components/shared/PageSEO'
 import content from '../content/pages/home.json'
 
 export default function Home() {
@@ -11,6 +12,10 @@ export default function Home() {
 
   return (
     <div>
+      <PageSEO
+        description="Invendis Technologies delivers end-to-end IIoT hardware, software, and managed services across 26 countries. Specialising in telecom tower monitoring, smart energy, and industrial IoT since 2007."
+        path="/"
+      />
       <Hero />
       <ClientsBar />
       <WhatWeDo />

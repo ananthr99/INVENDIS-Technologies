@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Allow: /
+
+Sitemap: https://invendis-technologies-cms.netlify.app/sitemap.xml

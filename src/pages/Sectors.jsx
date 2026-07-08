@@ -1,5 +1,6 @@
 import { Globe } from 'lucide-react'
 import CtaBanner from '../components/shared/CTABanner'
+import PageSEO from '../components/shared/PageSEO'
 import content from '../content/pages/sectors.json'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
@@ -12,6 +13,11 @@ export default function Sectors() {
 
   return (
     <div className="min-h-screen">
+      <PageSEO
+        title="Industry Sectors"
+        description="Invendis IIoT solutions serve telecom tower infrastructure, solar & renewable energy, smart utilities, edge computing, and ESG compliance across 54 countries in Africa, Middle East, and Asia."
+        path="/sectors"
+      />
 
       {/* Hero */}
       <section

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import PageSEO from '../components/shared/PageSEO'
 import products from '../data/products'
 import productImages from '../data/productImages'
 import productUseCases from '../data/productUseCases'
@@ -75,6 +76,11 @@ export default function ProductSelector() {
 
   return (
     <div className="min-h-screen bg-brand-light">
+      <PageSEO
+        title="Product Finder"
+        description="Find and compare 40+ Invendis IIoT hardware products — industrial routers, gateways, controllers, and meters. Filter by 5G/4G, WiFi6, ports, and connectivity options."
+        path="/products/product-selector"
+      />
             <div className="bg-brand-blue text-white py-12 px-8 lg:px-16">
         <Link
           to="/products"
