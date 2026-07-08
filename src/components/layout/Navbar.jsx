@@ -17,9 +17,9 @@ export default function Navbar() {
         {/* Left — Invendis logo + Make in India */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <Link to="/" onClick={() => setOpen(false)}>
-            <img src={asset(logos.invendis)} alt="Invendis Technologies" className="h-12 w-auto" />
+            <img src={asset(logos.invendis)} alt="Invendis Technologies" className="h-12 w-auto" loading="eager" decoding="sync" />
           </Link>
-          <img src={asset(logos.makeInIndia)} alt="Make in India" className="h-18 w-16" />
+          <img src={asset(logos.makeInIndia)} alt="Make in India" className="h-18 w-16" loading="eager" decoding="sync" />
         </div>
 
         {/* Centre — desktop nav links */}
@@ -45,7 +45,7 @@ export default function Navbar() {
         {/* Right — SILBO logo + mobile hamburger */}
         <div className="flex items-center gap-4 flex-shrink-0">
           <Link to="/products" className="hidden md:block">
-            <img src={asset(logos.silbo)} alt="SILBO — An Invendis Product" className="h-10 w-auto" />
+            <img src={asset(logos.silbo)} alt="SILBO — An Invendis Product" className="h-10 w-auto" loading="eager" decoding="sync" />
           </Link>
           <button
             className="md:hidden p-2 rounded-lg text-brand-text hover:bg-brand-light transition-colors"

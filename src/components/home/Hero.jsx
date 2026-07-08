@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Globe } from 'lucide-react'
+import { motion } from 'framer-motion'
 import content from '../../content/pages/home.json'
 import { getGradient } from '../../utils/styleMap'
 
@@ -77,16 +78,19 @@ export default function Hero() {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4">
-              {hero.stats.map(({ value, label }) => (
-                <div
+              {hero.stats.map(({ value, label }, i) => (
+                <motion.div
                   key={label}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + i * 0.12, ease: 'easeOut' }}
                   className="bg-white/10 border border-white/15 rounded-2xl px-5 py-5 backdrop-blur-sm"
                 >
                   <div className="font-sora text-3xl font-extrabold text-white leading-none mb-1.5">
                     {value}
                   </div>
                   <div className="text-xs text-white/65 leading-snug">{label}</div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
