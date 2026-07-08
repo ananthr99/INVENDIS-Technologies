@@ -64,6 +64,7 @@
           { "label": "Case Studies", "to": "/case-studies" },
           { "label": "Resources", "to": "/resources" },
           { "label": "White Papers", "to": "/case-studies" },
+          { "label": "Careers", "to": "/careers" },
           { "label": "Contact", "to": "/contact" }
         ]
       }
