@@ -395,7 +395,7 @@ const products = [
     "power": "12 VDC",
     "ports": 4,
     "os": "OpenWRT Linux",
-    "desc": "Dual-modem 4G/3G/2G router with Wi-Fi 2.4 GHz, 1× WAN + 3× LAN",
+    "desc": "Dual-modem 4G/3G/2G router with Wi-Fi 4, 1× WAN + 3× LAN",
     "housing": "Sheet Metal",
     "dims": "123×28×121 mm",
     "weight": "360 g",
@@ -403,7 +403,7 @@ const products = [
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "4G/5G", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi 2.4", "4G", "Dual", "RE44"],
+        ["✓", "Wi-Fi 4", "4G", "Dual", "RE44"],
         ["✓", "—", "4G", "Dual", "RE04"]
       ]
     }
@@ -432,7 +432,7 @@ const products = [
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "4G/5G", "RS485", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi 2.4", "4G", "✓", "Single", "RI44"]
+        ["✓", "Wi-Fi 4", "4G", "✓", "Single", "RI44"]
       ]
     }
   },
@@ -547,11 +547,11 @@ const products = [
     "weight": "280 g",
     "op_temp": "-20–60 °C",
     "variants": {
-      "headers": ["Cellular", "Wi-Fi", "4G/5G", "No. of Modems", "Part Number"],
+      "headers": ["Cellular", "Wi-Fi", "4G/5G", "RS485", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi", "4G", "Single", "IE44-A"],
-        ["✓", "Wi-Fi", "4G", "Single", "IE44-C"],
-        ["✓", "Wi-Fi", "4G", "Single", "IE44-A-EX1 (e-SIM)"]
+        ["✓", "Wi-Fi", "4G", "✓", "Single", "IE44-A"],
+        ["✓", "Wi-Fi", "4G", "✓", "Single", "IE44-C"],
+        ["✓", "Wi-Fi", "4G", "✓", "Single", "IE44-A-EX1 (e-SIM)"]
       ]
     }
   },
@@ -579,10 +579,10 @@ const products = [
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "4G/5G", "RS485", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi 2.4", "4G", "✓", "Single", "IA44-C"],
-        ["✓", "Wi-Fi 2.4", "4G", "✓", "Single", "IA44-B (4 GB eMMC)"],
-        ["✓", "Wi-Fi 2.4", "4G", "—", "Single", "IA44-A"],
-        ["—", "Wi-Fi 2.4", "—", "✓", "—", "IA40-C"]
+        ["✓", "Wi-Fi 4", "4G", "✓", "Single", "IA44-C"],
+        ["✓", "Wi-Fi 4", "4G", "✓", "Single", "IA44-B (4 GB eMMC)"],
+        ["✓", "Wi-Fi 4", "4G", "—", "Single", "IA44-A"],
+        ["—", "Wi-Fi 4", "—", "✓", "—", "IA40-C"]
       ]
     }
   },
@@ -610,9 +610,9 @@ const products = [
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "RS485", "DIO", "4G/5G", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi 2.4", "—", "—", "4G", "Single", "RFN44-A"],
-        ["✓", "Wi-Fi 2.4", "✓", "—", "4G", "Single", "RFN44-B (RS485)"],
-        ["✓", "Wi-Fi 2.4", "—", "✓", "4G", "Single", "RFN44-C (1× DI, 1× DO)"]
+        ["✓", "Wi-Fi 4", "—", "—", "4G", "Single", "RFN44-A"],
+        ["✓", "Wi-Fi 4", "✓", "—", "4G", "Single", "RFN44-B (RS485)"],
+        ["✓", "Wi-Fi 4", "—", "✓", "4G", "Single", "RFN44-C (1× DI, 1× DO)"]
       ]
     }
   },
@@ -640,8 +640,8 @@ const products = [
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "RS485", "RS232", "4G/5G", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi 2.4", "✓", "✓", "4G", "Single", "IAB44-C"],
-        ["✓", "Wi-Fi 2.4", "✓", "✓", "4G", "Single", "IAB44-B (4 GB eMMC)"],
+        ["✓", "Wi-Fi 4", "✓", "✓", "4G", "Single", "IAB44-C"],
+        ["✓", "Wi-Fi 4", "✓", "✓", "4G", "Single", "IAB44-B (4 GB eMMC)"],
         ["✓", "—", "✓", "✓", "4G", "Single", "IAB04-B (4 GB eMMC)"],
         ["✓", "—", "✓", "✓", "4G", "Single", "IAB04-C"]
       ]
@@ -671,8 +671,8 @@ const products = [
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "RS485", "4G/5G", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi 2.4", "✓", "4G", "Single", "IAC44-C"],
-        ["✓", "Wi-Fi 2.4", "—", "4G", "Single", "IAC44-A"],
+        ["✓", "Wi-Fi 4", "✓", "4G", "Single", "IAC44-C"],
+        ["✓", "Wi-Fi 4", "—", "4G", "Single", "IAC44-A"],
         ["✓", "—", "—", "4G", "Single", "IAC04-A"],
         ["✓", "—", "✓", "4G", "Single", "IAC04-C"]
       ]
@@ -702,8 +702,8 @@ const products = [
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "4G/5G", "RS485", "No. of Modems", "Part Number"],
       "rows": [
-        ["✓", "Wi-Fi 2.4", "4G", "—", "Single", "IAF44-C1"],
-        ["✓", "Wi-Fi 2.4", "4G", "✓", "Single", "IAF44-C2"],
+        ["✓", "Wi-Fi 4", "4G", "—", "Single", "IAF44-C1"],
+        ["✓", "Wi-Fi 4", "4G", "✓", "Single", "IAF44-C2"],
         ["✓", "—", "4G", "✓", "Single", "IAF04-C2"],
         ["—", "—", "4G", "—", "Single", "IAF04-C1"]
       ]
@@ -985,7 +985,7 @@ const products = [
     "power": "12–24 VDC",
     "ports": 1,
     "os": "OpenWRT Linux",
-    "desc": "Serial-to-Ethernet converter with 2× RS485 and optional Wi-Fi 2.4 GHz",
+    "desc": "Serial-to-Ethernet converter with 2× RS485 and optional Wi-Fi 4",
     "housing": "Sheet Metal",
     "dims": "80×26×78 mm",
     "weight": "400 g",
@@ -995,123 +995,538 @@ const products = [
       "rows": [
         ["—", "—", "✓", "1", "PC310"],
         ["—", "—", "✓", "2", "PC311"],
-        ["—", "Wi-Fi 2.4", "✓", "1", "PC312"]
+        ["—", "Wi-Fi 4", "✓", "1", "PC312"]
       ]
     }
   },
   {
     "id": "multimeter",
-    "name": "Multi-Function Meter",
+    "name": "ET7022",
     "cat": "Energy Meter",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": false, "rs232": false, "ip": "", "ports": 0,
     "power": "85–270V AC/DC",
-    "ports": 0,
     "os": "—",
     "desc": "3-phase panel meter: voltage (LL/LN), current, kW, kWh, kVA, kVAR, PF, Hz — data storage + RTC",
-    "housing": "Panel mount",
-    "dims": "—",
-    "weight": "—",
-    "op_temp": "—",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
     "variants": null
   },
   {
     "id": "dcmeter",
-    "name": "DC Meter",
+    "name": "ET1641",
     "cat": "Energy Meter",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": true,
-    "rs232": false,
-    "ip": "",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
     "power": "20–60 VDC self-powered",
-    "ports": 0,
     "os": "—",
     "desc": "DC energy meter: 1-channel voltage + 4-channel current (up to 200A), RS485 Modbus, LCD display",
-    "housing": "Panel mount",
-    "dims": "—",
-    "weight": "—",
-    "op_temp": "—",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
     "variants": null
   },
   {
     "id": "acmeter",
-    "name": "AC Meter",
+    "name": "ET4602",
     "cat": "Energy Meter",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": true,
-    "rs232": false,
-    "ip": "",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
     "power": "48 VDC",
-    "ports": 0,
     "os": "—",
     "desc": "3-phase AC meter: V, A, kW, kVA, PF, frequency — RS485 Modbus with 2000V isolation",
-    "housing": "Panel mount",
-    "dims": "—",
-    "weight": "—",
-    "op_temp": "-10–55 °C",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "-10–55 °C",
     "variants": null
   },
   {
     "id": "bcpmeter",
     "name": "Branch Circuit Power Meter",
     "cat": "Energy Meter",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": true,
-    "rs232": false,
-    "ip": "",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
     "power": "85–270V AC/DC",
-    "ports": 0,
     "os": "—",
     "desc": "Single and 3-phase branch circuit meter with RS485 Modbus, DIN rail, LCD + LED indicators",
-    "housing": "DIN rail",
-    "dims": "185×110×30 mm",
-    "weight": "750 g",
-    "op_temp": "0–50 °C",
+    "housing": "DIN rail", "dims": "185×110×30 mm", "weight": "750 g", "op_temp": "0–50 °C",
     "variants": null
+  },
+  {
+    "id": "et0071",
+    "name": "ET0071",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Single phase DIN rail energy meter — kWh, kVAh, power factor, demand, RS485 Modbus RTU",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et0073",
+    "name": "ET0073",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Single phase energy meter with 7-segment vertical display — kWh, kVAh, PF, RS485 Modbus",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et0076",
+    "name": "ET0076",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Single phase CT-type energy meter — kWh, kVAh, PF, RS485 Modbus RTU; available in 32A and 63A current range",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": {
+      "headers": ["Current Range", "Part Number"],
+      "rows": [
+        ["32A", "ET0076 32A"],
+        ["63A", "ET0076 63A"]
+      ]
+    }
+  },
+  {
+    "id": "et0077",
+    "name": "ET0077",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Single phase energy meter with 7-segment horizontal display — kWh, kVAh, PF, RS485 Modbus",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et1300",
+    "name": "ET1300",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase energy meter — V, A, kW, kWh, PF, RS485 Modbus RTU, panel mount",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et1315",
+    "name": "ET1315",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase energy meter with extended measurement — V, A, kW, kWh, demand, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2031",
+    "name": "ET2031",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase multi-function power meter — V, A, kW, kVA, kVAR, PF, kWh, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2033",
+    "name": "ET2033",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase multi-function power meter with data logging — V, A, kW, kVA, PF, kWh, RS485",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2035",
+    "name": "ET2035",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase multi-function meter (ELCOM edition) — V, A, kW, kVA, kVAR, PF, kWh, RS485",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2071",
+    "name": "ET2071",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase multi-function energy meter — V, A, kW, kWh, PF, demand, RS485 Modbus RTU",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2081",
+    "name": "ET2081",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase multi-function energy meter with dual-tariff — V, A, kW, kWh, PF, RS485",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2110",
+    "name": "ET2110",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase advanced power analyzer — V, A, kW, kWh, harmonics (THD), PF, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2111",
+    "name": "ET2111",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase advanced power analyzer with THD measurement — V, A, kW, kVA, PF, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et2113",
+    "name": "ET2113",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase advanced power analyzer with harmonic measurement — V, A, kW, kWh, RS485",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et3061",
+    "name": "ET3061 & ET3062",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Three phase DIN rail energy meters — kW, kWh, PF, V, A, RS485 Modbus RTU",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": {
+      "headers": ["Model", "Part Number"],
+      "rows": [
+        ["ET3061", "ET3061"],
+        ["ET3062", "ET3062"]
+      ]
+    }
+  },
+  {
+    "id": "et4000",
+    "name": "ET4000",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-function panel energy meter — V, A, kW, kVA, kVAR, kWh, PF, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et4001",
+    "name": "ET4001 / ET4001S",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-function energy meter — V, A, kW, kVA, kWh, PF, RS485 Modbus; ET4001S adds surge protection",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": {
+      "headers": ["Type", "Part Number"],
+      "rows": [
+        ["Standard", "ET4001"],
+        ["Surge protected", "ET4001S"]
+      ]
+    }
+  },
+  {
+    "id": "et4002",
+    "name": "ET4002",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-function energy meter — V, A, kW, kVA, kVAR, kWh, PF, RS485 Modbus RTU",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et4021",
+    "name": "ET4021",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-function panel meter — V, A, kW, kVA, kVAR, PF, kWh, RS485 Modbus RTU",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et4031",
+    "name": "ET4031",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-function panel meter with relay output — V, A, kW, kWh, PF, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et4061",
+    "name": "ET4061",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-function energy meter — V, A, kW, kVA, kVAR, kWh, PF, RS485 Modbus RTU",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et4062",
+    "name": "ET4062",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-function energy meter with I/O — V, A, kW, kVA, kWh, PF, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et4600",
+    "name": "ET4600",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced AC energy meter — V, A, kW, kVA, kVAR, kWh, THD, RS485 Modbus, DIN rail mount",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et4602ae",
+    "name": "ET4602AE",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC / 48V DC",
+    "os": "—",
+    "desc": "3-phase AC energy meter (extended edition) — V, A, kW, kVA, PF, frequency, RS485 Modbus, 2000V isolation",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "-10–55 °C",
+    "variants": null
+  },
+  {
+    "id": "et5001",
+    "name": "ET5001",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "High-end multi-function energy analyzer — V, A, kW, kVA, kVAR, harmonics, PF, RS485 Modbus",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et6001",
+    "name": "ET6001",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "High-end IoT-capable multi-function energy meter — V, A, kW, kWh, PF, RS485 Modbus RTU",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et6030",
+    "name": "ET6030",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Advanced multi-channel energy meter — multi-circuit monitoring, V, A, kW, kWh, RS485 Modbus",
+    "housing": "Panel mount / DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et8000",
+    "name": "ET8000 ATS",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Automatic Transfer Switch with energy monitoring — RS485 Modbus, source changeover, panel mount",
+    "housing": "Panel / cabinet mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "iot-ac-meter",
+    "name": "IoT AC Meter",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "IoT-enabled AC energy meter — cloud connectivity, V, A, kW, kWh, PF, RS485 Modbus, DIN rail",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "iot-dc-meter",
+    "name": "IoT DC Meter",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "12–48V DC",
+    "os": "—",
+    "desc": "IoT-enabled DC energy meter — cloud connectivity, voltage, current, kWh monitoring, RS485 Modbus",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "smart-meter-1ph",
+    "name": "Single Phase Smart Meter",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": false, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Smart single-phase electricity meter — AMI-ready, tamper detection, remote meter reading, DIN rail",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "smart-meter-3ph",
+    "name": "Three Phase Smart Meter",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": false, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Smart three-phase electricity meter — AMI-ready, tamper detection, V, A, kW, kWh, remote reading",
+    "housing": "DIN rail", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "elcom-ac-meter",
+    "name": "ELCOM AC Meter",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "AC energy meter to ELCOM specification — 3-phase V, A, kW, kVA, PF, RS485 Modbus RTU",
+    "housing": "Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": null
+  },
+  {
+    "id": "et7021",
+    "name": "ET7021 / ET7023 BCPM",
+    "cat": "Energy Meter",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": true, "rs232": false, "ip": "", "ports": 0,
+    "power": "85–265V AC",
+    "os": "—",
+    "desc": "Branch circuit power meters — ET7021 single-phase, ET7023 three-phase, RS485 Modbus, DIN rail / panel",
+    "housing": "DIN rail / Panel mount", "dims": "—", "weight": "—", "op_temp": "—",
+    "variants": {
+      "headers": ["Phase Type", "Part Number"],
+      "rows": [
+        ["Single phase", "ET7021"],
+        ["Three phase", "ET7023"]
+      ]
+    }
   },
   {
     "id": "mcx",
     "name": "MC-X (Media Converter)",
     "cat": "Other",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "5–12 VDC",
-    "ports": 2,
-    "os": "—",
-    "desc": "Gigabit media converter RJ45 ↔ fiber (SC duplex), up to 10 km, single-mode",
-    "housing": "Steel Metal",
-    "dims": "92×66×26 mm",
-    "weight": "187 g",
-    "op_temp": "0–70 °C",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": false, "rs232": false, "ip": "",
+    "power": "5–12 VDC", "ports": 2, "os": "—",
+    "desc": "Gigabit media converter RJ45 to fiber (SC duplex), up to 10 km, single-mode",
+    "housing": "Steel Metal", "dims": "92×66×26 mm", "weight": "187 g", "op_temp": "0–70 °C",
     "variants": {
       "headers": ["Interface", "Mode", "Max Distance", "Part Number"],
       "rows": [
@@ -1126,22 +1541,12 @@ const products = [
     "name": "RN50-PCBA",
     "cat": "Other",
     "cpu": "MediaTek MT7621, 512 MB DDR3",
-    "ram": "256/512 MB DDR3",
-    "storage": "32/64 MB Flash",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "WiFi5",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "Active PoE 44–57 VDC",
-    "ports": 2,
-    "os": "OpenWRT Linux",
+    "ram": "256/512 MB DDR3", "storage": "32/64 MB Flash",
+    "cell": "none", "cellular_gen": "none", "wifi": "WiFi5",
+    "rs485": false, "rs232": false, "ip": "",
+    "power": "Active PoE 44–57 VDC", "ports": 2, "os": "OpenWRT Linux",
     "desc": "PCB-form router module with M12 connectors, PoE powered — for embedded/vehicle use",
-    "housing": "Industrial Aluminium",
-    "dims": "209×30×154 mm",
-    "weight": "—",
-    "op_temp": "—",
+    "housing": "Industrial Aluminium", "dims": "209×30×154 mm", "weight": "—", "op_temp": "—",
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "4G/5G", "No. of Modems", "Part Number"],
       "rows": [
@@ -1154,22 +1559,12 @@ const products = [
     "name": "RVW 50 with M12",
     "cat": "Other",
     "cpu": "MediaTek MT7621, 512 MB DDR3",
-    "ram": "256/512 MB DDR3",
-    "storage": "32/64 MB Flash",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "WiFi5",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "Active PoE 44–57 VDC",
-    "ports": 4,
-    "os": "OpenWRT Linux",
+    "ram": "256/512 MB DDR3", "storage": "32/64 MB Flash",
+    "cell": "none", "cellular_gen": "none", "wifi": "WiFi5",
+    "rs485": false, "rs232": false, "ip": "",
+    "power": "Active PoE 44–57 VDC", "ports": 4, "os": "OpenWRT Linux",
     "desc": "M12 connector router: 1× WAN + 3× LAN (all M12), Wi-Fi 5 — harsh environment design",
-    "housing": "Industrial Aluminium",
-    "dims": "209×30×154 mm",
-    "weight": "—",
-    "op_temp": "—",
+    "housing": "Industrial Aluminium", "dims": "209×30×154 mm", "weight": "—", "op_temp": "—",
     "variants": {
       "headers": ["Cellular", "Wi-Fi", "4G/5G", "No. of Modems", "Part Number"],
       "rows": [
@@ -1181,46 +1576,24 @@ const products = [
     "id": "nms",
     "name": "NMS",
     "cat": "Other",
-    "cpu": "Software platform",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "—",
-    "ports": 0,
-    "os": "Web-based, OpenWRT compatible",
+    "cpu": "Software platform", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": false, "rs232": false, "ip": "",
+    "power": "—", "ports": 0, "os": "Web-based, OpenWRT compatible",
     "desc": "Network management system: remote monitoring, config push, auto-provisioning, alerts — supports 10 to 10,000+ devices",
-    "housing": "Software / Cloud",
-    "dims": "—",
-    "weight": "—",
-    "op_temp": "—",
+    "housing": "Software / Cloud", "dims": "—", "weight": "—", "op_temp": "—",
     "variants": null
   },
   {
     "id": "miniups",
     "name": "Mini UPS",
     "cat": "Other",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "12V in / 12V out (2A/3A)",
-    "ports": 0,
-    "os": "—",
+    "cpu": "—", "ram": "—", "storage": "—",
+    "cell": "none", "cellular_gen": "none", "wifi": "none",
+    "rs485": false, "rs232": false, "ip": "",
+    "power": "12V in / 12V out (2A/3A)", "ports": 0, "os": "—",
     "desc": "Compact UPS: 19 Whr (3–5 hr) or 38 Whr (9–10 hr) runtime, user-replaceable 18650/26650 cell",
-    "housing": "Plastic",
-    "dims": "—",
-    "weight": "—",
-    "op_temp": "—",
+    "housing": "Plastic", "dims": "—", "weight": "—", "op_temp": "—",
     "variants": {
       "headers": ["Battery", "Capacity", "Backup Time", "Part Number"],
       "rows": [
@@ -1229,6 +1602,6 @@ const products = [
       ]
     }
   }
-];
+]
 
 export default products
