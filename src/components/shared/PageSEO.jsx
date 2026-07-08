@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 
 const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://invendis-technologies-cms.netlify.app'
-const BASE_PATH = '/INVENDIS-Technologies'
+const rawBase = import.meta.env.BASE_URL
+const BASE_PATH = rawBase === '/' ? '' : rawBase.replace(/\/$/, '')
 
 export default function PageSEO({ title, description, path = '', structuredData }) {
   const fullTitle = title

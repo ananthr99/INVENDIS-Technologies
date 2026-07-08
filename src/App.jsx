@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CookieBanner from './components/shared/CookieBanner'
 import WhatsAppButton from './components/shared/WhatsAppButton'
+import ErrorBoundary from './components/ErrorBoundary'
 import { trackPageView } from './utils/analytics'
 
 const Home            = lazy(() => import('./pages/Home'))
@@ -42,6 +43,7 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <main className="pt-20">
+        <ErrorBoundary>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -58,6 +60,7 @@ function App() {
             <Route path="/careers" element={<Careers />} />
           </Routes>
         </Suspense>
+        </ErrorBoundary>
       </main>
       <Footer />
       <WhatsAppButton />
