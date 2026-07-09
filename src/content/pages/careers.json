@@ -42,32 +42,7 @@
     "heading": "Current",
     "headingAccent": "Openings"
   },
-  "openings": [
-    {
-      "title": "Embedded Firmware Engineer",
-      "department": "Engineering",
-      "location": "Bangalore",
-      "type": "Full-time",
-      "description": "Design and develop firmware for our iSense RMS controllers and SILBO routers. Work with RTOS, Linux, Modbus RTU, and cellular communication stacks.",
-      "skills": ["C / C++", "RTOS", "Linux", "Modbus", "LTE / 4G"]
-    },
-    {
-      "title": "Hardware Design Engineer",
-      "department": "Engineering",
-      "location": "Bangalore",
-      "type": "Full-time",
-      "description": "Own PCB schematic capture, layout, and bring-up for our next-generation IIoT hardware. Experience with RF and power electronics is a plus.",
-      "skills": ["PCB Layout", "Altium", "RF Design", "Power Electronics", "Signal Integrity"]
-    },
-    {
-      "title": "Application Engineer – IIoT",
-      "department": "Sales & Applications",
-      "location": "Bangalore / Remote",
-      "type": "Full-time",
-      "description": "Work with customers to scope, deploy, and support IIoT solutions. Bridge the gap between technical capability and field requirements for telecom and energy clients.",
-      "skills": ["Networking", "SCADA / Modbus", "Customer-facing", "Technical Writing"]
-    }
-  ],
+  "openings": [],
   "noOpeningsMessage": "We don't have any open roles right now, but we are always interested in hearing from talented engineers.",
   "ctaBanner": {
     "heading": "Don't see the right role?",
