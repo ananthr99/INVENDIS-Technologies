@@ -9,6 +9,7 @@
       { "label": "Home", "to": "/" },
       { "label": "Sectors", "to": "/sectors" },
       { "label": "Products", "to": "/products" },
+      { "label": "SILBO", "to": "/silbo" },
       { "label": "Case Studies", "to": "/case-studies" },
       { "label": "Resources", "to": "/resources" },
       { "label": "Company", "to": "/company" },
@@ -40,7 +41,7 @@
         "links": [
           { "label": "iSense RMS Controller", "to": "/products" },
           { "label": "Energy Meters", "to": "/products" },
-          { "label": "SILBO Routers", "to": "/products" },
+          { "label": "SILBO Routers", "to": "/silbo" },
           { "label": "Industrial Gateways", "to": "/products" },
           { "label": "PizGloria Platform", "to": "/products" },
           { "label": "Mobile App", "to": "/products" }

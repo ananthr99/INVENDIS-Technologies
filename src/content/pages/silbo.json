@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "eyebrow": "An Invendis Brand",
+    "headline": "Industrial Networking",
+    "headlineAccent": "Built for the Edge",
+    "description": "SILBO delivers rugged routers, gateways, and switches purpose-built for telecom, industrial IoT, and mission-critical edge connectivity.",
+    "primaryCta": { "label": "Browse All Products", "to": "/products/product-selector" },
+    "secondaryCta": { "label": "Talk to Sales", "to": "/contact" }
+  },
+  "latestLaunch": {
+    "productId": "inv-ceb-xx",
+    "badge": "Latest Launch",
+    "highlight": "Dual 5G modems, 6× GbE ports, Intel X7425E — our highest-performance SD-WAN router, built for bandwidth-critical enterprise and telecom deployments."
+  },
+  "intelSection": {
+    "eyebrow": "Edge Compute",
+    "heading": "Intel-Powered",
+    "headingAccent": "Edge Devices",
+    "description": "x86 architecture at the industrial edge — full Ubuntu, Windows, or OpenWRT support with integrated 5G and Wi-Fi 6.",
+    "productIds": ["intel-x6425", "inv-ce-xx", "inv-cea-xx", "inv-ceb-xx", "inv-cd-xx"]
+  },
+  "categoriesSection": {
+    "eyebrow": "Product Range",
+    "heading": "The Complete SILBO",
+    "headingAccent": "Lineup"
+  },
+  "marketFit": {
+    "eyebrow": "Where SILBO Works",
+    "heading": "Designed For",
+    "headingAccent": "Real-World Deployments",
+    "items": [
+      {
+        "icon": "radio",
+        "title": "Telecom Tower Backhaul",
+        "desc": "Purpose-built -48V routers and gateways for tower site connectivity with dual-SIM failover and remote NMS management."
+      },
+      {
+        "icon": "shield",
+        "title": "SD-WAN & Enterprise WAN",
+        "desc": "Intel-based SD-WAN routers with centralised control, traffic prioritisation, and zero-touch provisioning for distributed networks."
+      },
+      {
+        "icon": "factory",
+        "title": "Industrial IoT Edge",
+        "desc": "Gateways with RS485, RS232, DIO, and AI inputs for legacy equipment integration and factory-floor data collection."
+      },
+      {
+        "icon": "map_pin",
+        "title": "Remote & Harsh Environments",
+        "desc": "IP66/IP67-rated outdoor routers and ODUs for oil, gas, utilities, and solar sites with extreme temperature and weather conditions."
+      }
+    ]
+  },
+  "partners": {
+    "eyebrow": "Technology Collaborations",
+    "heading": "Built on",
+    "headingAccent": "Industry-Leading Silicon",
+    "description": "SILBO products are engineered in collaboration with leading semiconductor partners — combining best-in-class compute, connectivity, and networking silicon.",
+    "items": [
+      { "name": "Intel",    "role": "Edge Compute & x86 Processing" },
+      { "name": "MediaTek", "role": "Industrial Networking SoCs" },
+      { "name": "Realtek",  "role": "Network Switching" },
+      { "name": "Qualcomm", "role": "Wireless Connectivity" },
+      { "name": "Telit",    "role": "5G Cellular Modules" }
+    ]
+  },
+  "ctaBanner": {
+    "heading": "Ready to connect your infrastructure?",
+    "description": "Talk to our team about the right SILBO device for your deployment.",
+    "primaryLabel": "Contact Us",
+    "primaryTo": "/contact",
+    "secondaryLabel": "Browse Products",
+    "secondaryTo": "/products/product-selector"
+  }
+}

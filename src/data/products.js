@@ -773,7 +773,7 @@ const products = [
   },
   {
     "id": "isense",
-    "name": "iSense XXX",
+    "name": "iSense Series",
     "cat": "Gateway",
     "cpu": "Dual Core 0.88 GHz, 512 MB RAM, eMMC up to 32 GB",
     "ram": "512 MB + eMMC up to 32 GB",

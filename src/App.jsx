@@ -19,6 +19,7 @@ const Terms           = lazy(() => import('./pages/Terms'))
 const Resources       = lazy(() => import('./pages/Resources'))
 const ResourceDetail  = lazy(() => import('./pages/ResourceDetail'))
 const Careers         = lazy(() => import('./pages/Careers'))
+const Silbo           = lazy(() => import('./pages/Silbo'))
 
 function PageLoader() {
   return (
@@ -29,9 +30,9 @@ function PageLoader() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, state } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
+    if (!state?.noScroll) window.scrollTo(0, 0)
     trackPageView(pathname)
   }, [pathname])
   return null
@@ -50,6 +51,7 @@ function App() {
             <Route path="/sectors" element={<Sectors />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/product-selector" element={<ProductSelector />} />
+            <Route path="/products/product-selector/:id" element={<ProductSelector />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/company" element={<Company />} />
             <Route path="/contact" element={<Contact />} />
@@ -58,6 +60,7 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/:slug" element={<ResourceDetail />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/silbo" element={<Silbo />} />
           </Routes>
         </Suspense>
         </ErrorBoundary>

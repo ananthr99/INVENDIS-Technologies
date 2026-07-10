@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { ArrowLeft } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import PageSEO from '../components/shared/PageSEO'
 import products from '../data/products'
 import productImages from '../data/productImages'
@@ -17,6 +17,8 @@ import CompareModal from '../components/products/CompareModal'
 const PAGE_SIZE = 12
 
 export default function ProductSelector() {
+  const { id } = useParams()
+  const navigate = useNavigate()
   const [search, setSearch] = useState('')
   const [activeCat, setActiveCat] = useState('All')
   const [filters, setFilters] = useState({ cell: '', wifi: '', ports: '', serial: '' })
@@ -24,6 +26,16 @@ export default function ProductSelector() {
   const [compareIds, setCompareIds] = useState(new Set())
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [compareOpen, setCompareOpen] = useState(false)
+
+  useEffect(() => {
+    if (id) {
+      const product = products.find(p => p.id === id)
+      if (product) setSelectedProduct(product)
+      else navigate('/products/product-selector', { replace: true })
+    } else {
+      setSelectedProduct(null)
+    }
+  }, [id])
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim()
@@ -109,7 +121,9 @@ export default function ProductSelector() {
         />
         <ProductGrid
           products={paginated} images={productImages} useCases={productUseCases}
-          compareIds={compareIds} onDetail={setSelectedProduct} onToggleCompare={toggleCompare}
+          compareIds={compareIds}
+          onDetail={p => navigate(`/products/product-selector/${p.id}`, { state: { noScroll: true } })}
+          onToggleCompare={toggleCompare}
           page={safePage} totalPages={totalPages}
           onPage={p => { setPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           filtered={filtered}
@@ -126,7 +140,7 @@ export default function ProductSelector() {
         <ProductModal
           product={selectedProduct} images={productImages} useCases={productUseCases}
           datasheets={productDatasheets} partDatasheets={partDatasheets}
-          compareIds={compareIds} onClose={() => setSelectedProduct(null)}
+          compareIds={compareIds} onClose={() => navigate('/products/product-selector')}
           onToggleCompare={toggleCompare}
         />
       )}

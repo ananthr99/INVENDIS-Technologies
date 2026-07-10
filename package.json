@@ -10,9 +10,11 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "convert-images": "node scripts/convert-to-webp.mjs"
+    "convert-images": "node scripts/convert-to-webp.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@sentry/react": "^10.64.0",
     "@tailwindcss/typography": "^0.5.20",
     "d3-geo": "^3.1.1",
     "framer-motion": "^12.42.2",
@@ -39,6 +41,7 @@
     "postcss": "^8.5.14",
     "sharp": "^0.35.3",
     "tailwindcss": "^3.4.19",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vitest": "^4.1.10"
   }
 }

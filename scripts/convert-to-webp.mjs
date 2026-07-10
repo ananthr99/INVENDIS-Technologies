@@ -17,16 +17,14 @@ function findImages(dir) {
 
 const images = findImages('public')
 let converted = 0
-let skipped = 0
 
 for (const imgPath of images) {
   const webpPath = imgPath.replace(/\.(png|jpg|jpeg)$/i, '.webp')
-  if (fs.existsSync(webpPath)) {
-    skipped++
-    continue
-  }
   try {
-    await sharp(imgPath).webp({ quality: 85 }).toFile(webpPath)
+    await sharp(imgPath)
+      .resize({ width: 800, withoutEnlargement: true })
+      .webp({ quality: 85 })
+      .toFile(webpPath)
     const origKB = (fs.statSync(imgPath).size / 1024).toFixed(0)
     const webpKB = (fs.statSync(webpPath).size / 1024).toFixed(0)
     const saving = Math.round((1 - webpKB / origKB) * 100)
@@ -37,4 +35,4 @@ for (const imgPath of images) {
   }
 }
 
-console.log(`\nDone. Converted: ${converted}  Skipped (already exist): ${skipped}`)
+console.log(`\nDone. Converted: ${converted}`)
