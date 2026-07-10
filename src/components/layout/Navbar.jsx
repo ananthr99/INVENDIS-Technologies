@@ -44,7 +44,7 @@ export default function Navbar() {
 
         {/* Right — SILBO logo + mobile hamburger */}
         <div className="flex items-center gap-4 flex-shrink-0">
-          <Link to="/products" className="hidden md:block">
+          <Link to="/silbo" className="hidden md:block">
             <img src={asset(logos.silbo)} alt="SILBO — An Invendis Product" className="h-10 w-auto" loading="eager" decoding="sync" />
           </Link>
           <button
