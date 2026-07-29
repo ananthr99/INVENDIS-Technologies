@@ -886,3 +886,90 @@ collections:
             label: CTA Banner
             widget: object
             fields: *cta_banner_with_secondary
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PRODUCT CATALOG  →  src/content/products/<id>.json  (one file per product)
+  #
+  # Everything here is fully editable by non-developers: add a brand new
+  # product, edit its specs, add/replace/delete images, swap the datasheet
+  # PDF, delete a discontinued product entirely.
+  #
+  # NOT covered here: per-variant spec tables (the "Product Variants" table
+  # shown for some products, e.g. different part numbers for different
+  # RS485/Wi-Fi/cellular combinations). Those tables have a different column
+  # layout per product and are still added/edited by a developer in
+  # src/data/productVariants.js — ask your developer to add one for a new
+  # product if it needs a variant table.
+  # ═══════════════════════════════════════════════════════════════════════════
+  - name: products
+    label: Products
+    label_singular: Product
+    folder: src/content/products
+    create: true
+    delete: true
+    slug: '{{fields.id}}'
+    identifier_field: id
+    summary: '{{name}} — {{cat}}'
+    fields:
+      - name: id
+        label: 'Product ID (used in the URL — lowercase letters, numbers, hyphens only, e.g. "rn50-4g"). Cannot be changed later without breaking existing links.'
+        widget: string
+        pattern: ['^[a-z0-9-]+$', 'Lowercase letters, numbers, and hyphens only, e.g. rn50-4g']
+
+      - { name: name, label: Product Name, widget: string }
+
+      - name: cat
+        label: Category
+        widget: select
+        options: ['Router', 'Gateway', 'Switch', 'Energy Meter', 'Other']
+
+      - { name: desc, label: Short Description, widget: text }
+
+      - name: images
+        label: Product Images
+        widget: list
+        summary: '{{fields.src}}'
+        field:
+          name: src
+          label: Image
+          widget: image
+          media_folder: /public/products/images
+          public_folder: /products/images
+
+      - name: datasheet
+        label: Datasheet (PDF)
+        widget: file
+        required: false
+        media_folder: /public/products/datasheets
+        public_folder: /products/datasheets
+
+      - name: use_cases
+        label: Typical Use Cases
+        widget: list
+        field: { name: item, label: Use Case, widget: string }
+
+      # Connectivity
+      - { name: cell, label: 'Cellular (display text, e.g. "4G/5G")', widget: string, required: false }
+      - name: cellular_gen
+        label: Cellular Generation (used for filtering)
+        widget: select
+        options: ['none', '4G', '5G']
+      - name: wifi
+        label: Wi-Fi
+        widget: select
+        options: ['none', 'WiFi24', 'WiFi5', 'WiFi6']
+      - { name: ports, label: 'Ethernet Ports (number, 0 if none)', widget: number, value_type: int, default: 0 }
+      - { name: rs485, label: 'Has RS485', widget: boolean, default: false }
+      - { name: rs232, label: 'Has RS232', widget: boolean, default: false }
+
+      # Hardware
+      - { name: cpu, label: CPU, widget: string, required: false }
+      - { name: ram, label: RAM, widget: string, required: false }
+      - { name: storage, label: Storage, widget: string, required: false }
+      - { name: power, label: Power Input, widget: string, required: false }
+      - { name: ip, label: 'IP Rating (e.g. "IP30")', widget: string, required: false }
+      - { name: housing, label: Enclosure, widget: string, required: false }
+      - { name: dims, label: Dimensions, widget: string, required: false }
+      - { name: weight, label: Weight, widget: string, required: false }
+      - { name: op_temp, label: 'Operating Temperature (e.g. "0–50 °C")', widget: string, required: false }
+      - { name: os, label: Operating System, widget: string, required: false }
