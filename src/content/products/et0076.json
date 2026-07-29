@@ -1,0 +1,27 @@
+{
+  "id": "et0076",
+  "name": "ET0076",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "85–265V AC",
+  "os": "—",
+  "desc": "Single phase CT-type energy meter — kWh, kVAh, PF, RS485 Modbus RTU; available in 32A and 63A current range",
+  "housing": "DIN rail",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/AC Meter-2.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}

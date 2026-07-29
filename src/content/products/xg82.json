@@ -1,0 +1,32 @@
+{
+  "id": "xg82",
+  "name": "XG-82-2L",
+  "cat": "Switch",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "44–57 VDC",
+  "ports": 10,
+  "os": "—",
+  "desc": "8-port gigabit managed L2 PoE switch + 2× SFP, 240W budget, VLAN, QoS",
+  "housing": "Industrial Aluminium",
+  "dims": "200×120×55 mm",
+  "weight": "675 g",
+  "op_temp": "—",
+  "images": [
+    "/products/images/xg-82-2l.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Managed Enterprise Networks",
+    "VLAN Segmentation",
+    "QoS-Critical Applications",
+    "IT/OT Convergence"
+  ]
+}

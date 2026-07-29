@@ -1,0 +1,27 @@
+{
+  "id": "et4061",
+  "name": "ET4061",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "85–265V AC",
+  "os": "—",
+  "desc": "Advanced multi-function energy meter — V, A, kW, kVA, kVAR, kWh, PF, RS485 Modbus RTU",
+  "housing": "Panel mount",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/Multi Function Meter-2.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}

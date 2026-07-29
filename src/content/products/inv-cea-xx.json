@@ -1,0 +1,32 @@
+{
+  "id": "inv-cea-xx",
+  "name": "INV-CEA-XX",
+  "cat": "Router",
+  "cpu": "Intel X7425E, 4-core 3.4 GHz",
+  "ram": "Up to 64 GB DDR5",
+  "storage": "Up to 512 GB SSD / 64 GB eMMC",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi6",
+  "rs485": true,
+  "rs232": true,
+  "ip": "",
+  "power": "12V DC",
+  "ports": 4,
+  "os": "Ubuntu / Oracle Linux / OpenWRT / Windows",
+  "desc": "Industrial PC router with 2× isolated RS485, 2× isolated RS232, 4× isolated DIOs, and optional HDMI",
+  "housing": "Aluminium",
+  "dims": "150×250×55 mm",
+  "weight": "—",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/inv-cea-xx.png"
+  ],
+  "datasheet": "/products/datasheets/Brief Specs Intel X7425E Alder Lake Industrial Automation PC (2) (1).pdf",
+  "use_cases": [
+    "Industrial PC Gateway",
+    "SCADA Integration",
+    "Smart Factory Edge",
+    "Multi-protocol Bridge"
+  ]
+}

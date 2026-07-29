@@ -1,0 +1,32 @@
+{
+  "id": "pc3xx",
+  "name": "PC3XX",
+  "cat": "Switch",
+  "cpu": "MediaTek MT7628, 128 MB DDR2",
+  "ram": "128 MB DDR2",
+  "storage": "32 MB Flash",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "WiFi24",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "power": "12–24 VDC",
+  "ports": 1,
+  "os": "OpenWRT Linux",
+  "desc": "Serial-to-Ethernet converter with 2× RS485 and optional Wi-Fi 4",
+  "housing": "Sheet Metal",
+  "dims": "80×26×78 mm",
+  "weight": "400 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/pc3-xx.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Legacy RS485 Integration",
+    "Modbus TCP Conversion",
+    "SCADA Serial-to-IP Bridge",
+    "Industrial Protocol Gateway"
+  ]
+}

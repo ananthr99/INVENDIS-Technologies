@@ -1,0 +1,27 @@
+{
+  "id": "et2033",
+  "name": "ET2033",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "85–265V AC",
+  "os": "—",
+  "desc": "Three phase multi-function power meter with data logging — V, A, kW, kVA, PF, kWh, RS485",
+  "housing": "Panel mount",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/Multi Function Meter-2.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}

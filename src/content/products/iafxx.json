@@ -1,0 +1,32 @@
+{
+  "id": "iafxx",
+  "name": "IAFXX-X",
+  "cat": "Gateway",
+  "cpu": "MediaTek MT7628, 128 MB DDR2, 32 MB Flash",
+  "ram": "128 MB DDR2",
+  "storage": "32 MB Flash",
+  "cell": "4G",
+  "cellular_gen": "4G",
+  "wifi": "WiFi24",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "power": "-48 VDC",
+  "ports": 2,
+  "os": "OpenWRT Linux",
+  "desc": "-48V gateway with 4× AI inputs, 2× RS485, DI/DO, pulse input, USB host",
+  "housing": "Industrial Aluminium",
+  "dims": "110×44×94 mm",
+  "weight": "400 g",
+  "op_temp": "—",
+  "images": [
+    "/products/images/iaf-xx-x.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Energy Sub-metering",
+    "Utility Infrastructure",
+    "Telecom Power Monitoring",
+    "Genset / UPS Monitoring"
+  ]
+}

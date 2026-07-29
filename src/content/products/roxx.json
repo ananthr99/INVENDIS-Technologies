@@ -1,0 +1,32 @@
+{
+  "id": "roxx",
+  "name": "ROXX",
+  "cat": "Router",
+  "cpu": "MediaTek MT7981, 1 GB DDR4, 128 MB NAND",
+  "ram": "1 GB DDR4",
+  "storage": "128 MB NAND",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi6",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "9–30 VDC",
+  "ports": 7,
+  "os": "OpenWRT 21/23",
+  "desc": "Dual-WAN 5G router with Easy Mesh, 4× LAN + 2× WAN + 1× SFP",
+  "housing": "Sheet Metal",
+  "dims": "210×25×135 mm",
+  "weight": "950 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/ro-xx.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "WAN Load Balancing",
+    "Branch Office Failover",
+    "Campus Mesh Network",
+    "Multi-WAN Hub"
+  ]
+}

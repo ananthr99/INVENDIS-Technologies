@@ -1,0 +1,32 @@
+{
+  "id": "rt65odu",
+  "name": "RT65-ODU",
+  "cat": "Router",
+  "cpu": "MediaTek MT7981, 1 GB DDR4, 128 MB NAND",
+  "ram": "1 GB DDR4",
+  "storage": "128 MB NAND",
+  "cell": "5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi6",
+  "rs485": false,
+  "rs232": false,
+  "ip": "IP67",
+  "power": "9–30 VDC",
+  "ports": 5,
+  "os": "OpenWRT Linux",
+  "desc": "Outdoor 5G router with IP67 enclosure, Wi-Fi 6 Easy Mesh, 4× LAN + 1× WAN",
+  "housing": "IP67 Enclosure",
+  "dims": "110×55×144 mm",
+  "weight": "480 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/RT65-ODU.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Outdoor Industrial 5G",
+    "Construction Site Networks",
+    "Stadium / Events",
+    "Port / Logistics Yard"
+  ]
+}

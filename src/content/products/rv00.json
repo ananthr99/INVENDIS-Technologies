@@ -1,0 +1,32 @@
+{
+  "id": "rv00",
+  "name": "RV00",
+  "cat": "Router",
+  "cpu": "MediaTek MT7621, 512 MB DDR3, 32 MB Flash",
+  "ram": "512 MB DDR3",
+  "storage": "32 MB Flash",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "12 VDC",
+  "ports": 5,
+  "os": "OpenWRT Linux",
+  "desc": "Basic wired router, no cellular, no Wi-Fi — 1× WAN + 4× LAN, built-in RTC",
+  "housing": "Industrial Aluminium",
+  "dims": "110×26×95 mm",
+  "weight": "200 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/rv00.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Secure Isolated Networks",
+    "Local LAN Routing",
+    "Industrial Control Segments",
+    "Wired Edge Router"
+  ]
+}

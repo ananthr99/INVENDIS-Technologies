@@ -1,6 +1,8 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
+import Breadcrumbs from '../components/shared/Breadcrumbs'
+import { breadcrumbSchema } from '../utils/breadcrumbSchema'
 import { getPost, getAllPosts } from '../utils/blog'
 
 const categoryColors = {
@@ -192,17 +194,28 @@ export default function ResourceDetail() {
   const allPosts = getAllPosts()
   const related = allPosts.filter(p => p.slug !== slug && p.category === category).slice(0, 2)
 
+  const path = `/resources/${slug}`
+  const breadcrumbs = [
+    { label: 'Home', path: '/' },
+    { label: 'Resources', path: '/resources' },
+    { label: title, path: null },
+  ]
+
   return (
     <div className="min-h-screen bg-white">
       <PageSEO
         title={title}
         description={excerpt}
-        path={`/resources/${slug}`}
+        path={path}
+        structuredData={breadcrumbSchema(breadcrumbs, path)}
       />
 
       {/* Article header */}
       <div className="bg-brand-light border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12">
+          <div className="mb-4">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
           <Link
             to="/resources"
             className="flex w-fit items-center gap-1.5 text-sm text-brand-muted hover:text-brand-blue transition-colors mb-4"

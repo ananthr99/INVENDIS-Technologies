@@ -1,0 +1,32 @@
+{
+  "id": "inv-ce-xx",
+  "name": "INV-CE-XX",
+  "cat": "Router",
+  "cpu": "Intel X7425E, 4-core 3.4 GHz",
+  "ram": "Up to 32 GB DDR5",
+  "storage": "Up to 512 GB SSD / 128 GB eMMC",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi6",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "12V DC",
+  "ports": 4,
+  "os": "OpenWRT / Ubuntu / Windows 11 / Windows IoT",
+  "desc": "Compact SDWAN / Mini-PC router based on Intel X7 platform with modular 4G/5G modem slot",
+  "housing": "Aluminium",
+  "dims": "150×160×55 mm",
+  "weight": "—",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/inv-ce-xx.png"
+  ],
+  "datasheet": "/products/datasheets/Intel X7425E SDWAN Box.pdf",
+  "use_cases": [
+    "SD-WAN Gateway",
+    "Branch Office Router",
+    "Edge Compute Node",
+    "IoT Data Hub"
+  ]
+}

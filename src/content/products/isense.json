@@ -1,0 +1,33 @@
+{
+  "id": "isense",
+  "name": "iSense Series",
+  "cat": "Gateway",
+  "cpu": "Dual Core 0.88 GHz, 512 MB RAM, eMMC up to 32 GB",
+  "ram": "512 MB + eMMC up to 32 GB",
+  "storage": "32 MB Flash",
+  "cell": "4G",
+  "cellular_gen": "4G",
+  "wifi": "WiFi24",
+  "rs485": true,
+  "rs232": true,
+  "ip": "",
+  "power": "20–60 VDC",
+  "ports": 4,
+  "os": "Linux OS",
+  "desc": "Heavy industrial controller: 24× DI, 8× DO (SPDT relay), 4× RS485, 8× AI, 2× RTD, onboard temperature sensor",
+  "housing": "Sheet Metal",
+  "dims": "—",
+  "weight": "1 kg",
+  "op_temp": "-10–70 °C",
+  "images": [
+    "/products/images/isense-violet.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Telecom Tower Monitoring",
+    "Industrial RTU / PLC",
+    "Building Management",
+    "Substation Automation",
+    "SCADA Remote Terminal"
+  ]
+}

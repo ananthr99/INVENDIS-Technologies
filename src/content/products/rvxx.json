@@ -1,0 +1,32 @@
+{
+  "id": "rvxx",
+  "name": "RVXX",
+  "cat": "Router",
+  "cpu": "MediaTek MT7621, 512 MB DDR3, 32 MB Flash",
+  "ram": "512 MB DDR3",
+  "storage": "32 MB Flash",
+  "cell": "4G",
+  "cellular_gen": "4G",
+  "wifi": "WiFi5",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "12 VDC",
+  "ports": 5,
+  "os": "OpenWRT Linux",
+  "desc": "4G dual-SIM router with Wi-Fi 5, 1× WAN + 4× LAN, DIN rail mount",
+  "housing": "Industrial Aluminium",
+  "dims": "110×60×95 mm",
+  "weight": "390 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/rv-xx.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Remote Asset Monitoring",
+    "Industrial IoT Connectivity",
+    "Utility Metering",
+    "Vending Machine Networks"
+  ]
+}

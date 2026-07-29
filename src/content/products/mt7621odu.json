@@ -1,0 +1,32 @@
+{
+  "id": "mt7621odu",
+  "name": "MT7621-01 ODU",
+  "cat": "Router",
+  "cpu": "MediaTek MT7621, 512 MB DDR2, 32 MB Flash",
+  "ram": "512 MB DDR2",
+  "storage": "32 MB Flash",
+  "cell": "4G",
+  "cellular_gen": "4G",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "IP66",
+  "power": "Active PoE 48–57V",
+  "ports": 2,
+  "os": "OpenWRT Linux",
+  "desc": "Outdoor 4G unit, IP66, wall/pole mount, PoE powered — ideal for outdoor tower sites",
+  "housing": "ABS/PC IP66",
+  "dims": "140×75×224 mm",
+  "weight": "950 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/MT7621-01 ODU.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Outdoor CCTV Connectivity",
+    "Smart Street Lighting",
+    "Outdoor Sensor Nodes",
+    "Billboard Networking"
+  ]
+}

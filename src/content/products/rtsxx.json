@@ -1,0 +1,33 @@
+{
+  "id": "rtsxx",
+  "name": "RTSXX",
+  "cat": "Router",
+  "cpu": "MediaTek MT7981, 1 GB DDR4, 128 MB NAND",
+  "ram": "1 GB DDR4",
+  "storage": "128 MB NAND",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi6",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "9–30 VDC",
+  "ports": 7,
+  "os": "OpenWRT Linux",
+  "desc": "Dual-modem 5G/4G router: 4× LAN + 1× WAN + 2× SFP, dual-band Wi-Fi 6",
+  "housing": "Sheet Metal",
+  "dims": "190×45×120 mm",
+  "weight": "700 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/rts-xx-1.png",
+    "/products/images/rts-xx-2.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Industrial Site Connectivity",
+    "Remote Site Monitoring",
+    "Smart Grid Backhaul",
+    "WAN Redundancy"
+  ]
+}

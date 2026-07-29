@@ -1,0 +1,32 @@
+{
+  "id": "iexx",
+  "name": "IEXX-X-XX",
+  "cat": "Gateway",
+  "cpu": "MediaTek MT7628, 128 MB DDR2, 32 MB Flash",
+  "ram": "128 MB DDR2",
+  "storage": "32 MB Flash",
+  "cell": "4G",
+  "cellular_gen": "4G",
+  "wifi": "WiFi24",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "power": "9–36 VDC",
+  "ports": 2,
+  "os": "OpenWRT Linux",
+  "desc": "Compact IoT gateway with eSIM support, RS485, 2× configurable DIO",
+  "housing": "Metal",
+  "dims": "97×28×84 mm",
+  "weight": "280 g",
+  "op_temp": "-20–60 °C",
+  "images": [
+    "/products/images/iexx-x-xx.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Smart Meter Reading",
+    "Remote Sensor Data",
+    "Asset Tracking",
+    "Building Automation"
+  ]
+}
