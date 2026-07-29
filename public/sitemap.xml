@@ -79,205 +79,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/intel-x6425</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/acmeter</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-ce-xx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-cea-xx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-ceb-xx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-cd-xx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rtsxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/ru60</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/roxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rtxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rvxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rv00</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rdxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rexx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/ri44</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/mt7621odu</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rt65odu</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/idfxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iexx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iaxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rfnxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iabxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iacxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iafxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/idxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/idbxx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/isense</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xa82</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xb82</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xc80</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xd50</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xf100</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xg82</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/pc3xx</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/multimeter</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/bcpmeter</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -289,13 +97,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/acmeter</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/bcpmeter</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/elcom-ac-meter</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -463,7 +265,91 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/et7021</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/et8000</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iabxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iacxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iafxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iaxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/idbxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/idfxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/idxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/iexx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/intel-x6425</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-cd-xx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-ce-xx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-cea-xx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/inv-ceb-xx</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -481,6 +367,126 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/isense</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/mcx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/miniups</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/mt7621odu</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/multimeter</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/nms</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/pc3xx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rdxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rexx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rfnxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/ri44</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rn50pcba</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/roxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rt65odu</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rtsxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rtxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/ru60</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rv00</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rvw50</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rvxx</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/smart-meter-1ph</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -493,43 +499,37 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/elcom-ac-meter</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xa82</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/et7021</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xb82</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/mcx</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xc80</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rn50pcba</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xd50</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rvw50</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xf100</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/nms</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/miniups</loc>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/xg82</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
