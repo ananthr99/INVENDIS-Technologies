@@ -1,0 +1,32 @@
+{
+  "id": "xf100",
+  "name": "XF100-1",
+  "cat": "Switch",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "9–30 VDC",
+  "ports": 10,
+  "os": "—",
+  "desc": "10-port fast ethernet unmanaged PoE switch, 240W budget, DIN rail",
+  "housing": "Sheet Metal",
+  "dims": "45×116×90 mm",
+  "weight": "416 g",
+  "op_temp": "—",
+  "images": [
+    "/products/images/xf-100-1.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Large IP Camera Deployments",
+    "Industrial Sensor Networks",
+    "High-Port-Count PoE",
+    "PoE Device Hub"
+  ]
+}

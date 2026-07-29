@@ -1,24 +1,31 @@
 import { useEffect } from 'react'
+import { absoluteUrl } from '../../utils/siteUrl'
 
-const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://invendis-technologies-cms.netlify.app'
-const rawBase = import.meta.env.BASE_URL
-const BASE_PATH = rawBase === '/' ? '' : rawBase.replace(/\/$/, '')
-
-export default function PageSEO({ title, description, path = '', structuredData }) {
+export default function PageSEO({ title, description, path = '', structuredData, image, noindex = false }) {
   const fullTitle = title
     ? `${title} | Invendis Technologies`
     : 'Invendis Technologies | Industrial IoT Solutions'
-  const canonical = `${SITE_URL}${BASE_PATH}${path}`
-  const ogImage = `${SITE_URL}/invendis_logo.png`
+  const canonical = absoluteUrl(path)
+  const ogImage = image ? absoluteUrl(image) : absoluteUrl('/invendis_logo.png')
 
   useEffect(() => {
     if (!structuredData) return
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.textContent = JSON.stringify(structuredData)
-    document.head.appendChild(script)
+    // Accept either a single schema object or an array of them (e.g. Product
+    // schema + BreadcrumbList together) — each gets its own <script> tag,
+    // which is the pattern Google's structured data docs recommend over
+    // combining unrelated types into one block.
+    const blocks = Array.isArray(structuredData) ? structuredData : [structuredData]
+    const scripts = blocks.map(block => {
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.textContent = JSON.stringify(block)
+      document.head.appendChild(script)
+      return script
+    })
     return () => {
-      if (document.head.contains(script)) document.head.removeChild(script)
+      scripts.forEach(script => {
+        if (document.head.contains(script)) document.head.removeChild(script)
+      })
     }
   }, [structuredData])
 
@@ -27,6 +34,7 @@ export default function PageSEO({ title, description, path = '', structuredData 
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />

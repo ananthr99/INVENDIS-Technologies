@@ -1,0 +1,32 @@
+{
+  "id": "rtxx",
+  "name": "RTXX",
+  "cat": "Router",
+  "cpu": "MediaTek MT7981, 1 GB DDR4, 128 MB NAND",
+  "ram": "1 GB DDR4",
+  "storage": "128 MB NAND",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi6",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "9–30 VDC",
+  "ports": 5,
+  "os": "OpenWRT Linux",
+  "desc": "Compact 5G/4G router with dual M.2 modem slots, dual-SIM, Easy Mesh Wi-Fi 6",
+  "housing": "Sheet Metal",
+  "dims": "110×55×144 mm",
+  "weight": "480 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/rt-xx.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Remote Site Connectivity",
+    "Industrial IoT",
+    "Temporary Site Networks",
+    "Machine-to-Cloud"
+  ]
+}

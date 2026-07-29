@@ -1,0 +1,32 @@
+{
+  "id": "iabxx",
+  "name": "IABXX-X",
+  "cat": "Gateway",
+  "cpu": "MediaTek MT7628, 128 MB DDR2, 32 MB Flash",
+  "ram": "128 MB DDR2",
+  "storage": "32 MB Flash",
+  "cell": "4G",
+  "cellular_gen": "4G",
+  "wifi": "WiFi24",
+  "rs485": true,
+  "rs232": true,
+  "ip": "",
+  "power": "9–30 VDC",
+  "ports": 2,
+  "os": "OpenWRT Linux",
+  "desc": "Advanced gateway: RS485, RS232, 4× DIO, 2× AI, ISO 24V out, USB host",
+  "housing": "Industrial Aluminium",
+  "dims": "110×44×94 mm",
+  "weight": "427 g",
+  "op_temp": "0–50 °C",
+  "images": [
+    "/products/images/iab-xx-x.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "SCADA Data Aggregation",
+    "Process Monitoring",
+    "Multi-protocol Integration",
+    "Industrial Control Gateway"
+  ]
+}

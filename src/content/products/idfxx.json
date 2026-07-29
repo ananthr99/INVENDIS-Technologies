@@ -1,0 +1,32 @@
+{
+  "id": "idfxx",
+  "name": "IDFXX",
+  "cat": "Router",
+  "cpu": "MediaTek MT7621, 512 MB DDR, 32 MB Flash",
+  "ram": "512 MB DDR",
+  "storage": "32 MB Flash",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi5",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "power": "-48 VDC",
+  "ports": 4,
+  "os": "OpenWRT Linux",
+  "desc": "-48V telecom router with 5G dual-SIM, RS485, Wi-Fi 5 — designed for tower base stations",
+  "housing": "Industrial Aluminium",
+  "dims": "110×44×94 mm",
+  "weight": "500 g",
+  "op_temp": "-20–60 °C",
+  "images": [
+    "/products/images/idf-xx.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Telecom Tower Equipment",
+    "-48V Telecom Plant",
+    "Base Station Backhaul",
+    "RS485 Serial Integration"
+  ]
+}

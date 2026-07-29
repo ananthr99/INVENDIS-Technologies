@@ -1,0 +1,27 @@
+{
+  "id": "et0077",
+  "name": "ET0077",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "85–265V AC",
+  "os": "—",
+  "desc": "Single phase energy meter with 7-segment horizontal display — kWh, kVAh, PF, RS485 Modbus",
+  "housing": "DIN rail",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/AC Meter-1.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}

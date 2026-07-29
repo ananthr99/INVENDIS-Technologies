@@ -1,0 +1,32 @@
+{
+  "id": "miniups",
+  "name": "Mini UPS",
+  "cat": "Other",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "12V in / 12V out (2A/3A)",
+  "ports": 0,
+  "os": "—",
+  "desc": "Compact UPS: 19 Whr (3–5 hr) or 38 Whr (9–10 hr) runtime, user-replaceable 18650/26650 cell",
+  "housing": "Plastic",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/Mini UPS.png"
+  ],
+  "datasheet": "/products/datasheets/Mini UPS_Metal Enclosure_Datasheet 1.pdf",
+  "use_cases": [
+    "Router Power Backup",
+    "Industrial Device Continuity",
+    "Remote Site Power Resilience",
+    "Gateway Failover Power"
+  ]
+}

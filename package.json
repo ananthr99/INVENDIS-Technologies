@@ -4,13 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-products.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/generate-products.mjs && node scripts/generate-sitemap.mjs",
     "build": "vite build",
+    "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "generate-products": "node scripts/generate-products.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "convert-images": "node scripts/convert-to-webp.mjs",
+    "pretest": "node scripts/generate-products.mjs",
     "test": "vitest run"
   },
   "dependencies": {

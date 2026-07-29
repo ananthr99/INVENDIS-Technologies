@@ -1,0 +1,27 @@
+{
+  "id": "et7021",
+  "name": "ET7021 / ET7023 BCPM",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "85–265V AC",
+  "os": "—",
+  "desc": "Branch circuit power meters — ET7021 single-phase, ET7023 three-phase, RS485 Modbus, DIN rail / panel",
+  "housing": "DIN rail / Panel mount",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/Branch Circuit Power Meter.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}

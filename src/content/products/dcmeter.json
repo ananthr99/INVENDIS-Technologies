@@ -1,0 +1,33 @@
+{
+  "id": "dcmeter",
+  "name": "ET1641",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "20–60 VDC self-powered",
+  "os": "—",
+  "desc": "DC energy meter: 1-channel voltage + 4-channel current (up to 200A), RS485 Modbus, LCD display",
+  "housing": "Panel mount",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/DC Meter-1.png",
+    "/products/images/DC Meter-2.png"
+  ],
+  "datasheet": "/products/datasheets/ET1641 DC Meter.pdf",
+  "use_cases": [
+    "Solar PV Monitoring",
+    "Battery System Monitoring",
+    "DC Plant Energy Metering",
+    "Telecom Power Monitoring"
+  ]
+}

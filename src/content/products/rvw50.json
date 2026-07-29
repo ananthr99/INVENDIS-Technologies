@@ -1,0 +1,32 @@
+{
+  "id": "rvw50",
+  "name": "RVW 50 with M12",
+  "cat": "Other",
+  "cpu": "MediaTek MT7621, 512 MB DDR3",
+  "ram": "256/512 MB DDR3",
+  "storage": "32/64 MB Flash",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "WiFi5",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "Active PoE 44–57 VDC",
+  "ports": 4,
+  "os": "OpenWRT Linux",
+  "desc": "M12 connector router: 1× WAN + 3× LAN (all M12), Wi-Fi 5 — harsh environment design",
+  "housing": "Industrial Aluminium",
+  "dims": "209×30×154 mm",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/RVW 50-M12.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Railcar / Train Wi-Fi",
+    "Agricultural Machinery",
+    "Marine / Vessel Networking",
+    "Military Vehicle Comms"
+  ]
+}

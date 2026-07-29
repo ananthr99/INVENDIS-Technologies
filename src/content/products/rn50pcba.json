@@ -1,0 +1,32 @@
+{
+  "id": "rn50pcba",
+  "name": "RN50-PCBA",
+  "cat": "Other",
+  "cpu": "MediaTek MT7621, 512 MB DDR3",
+  "ram": "256/512 MB DDR3",
+  "storage": "32/64 MB Flash",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "WiFi5",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "Active PoE 44–57 VDC",
+  "ports": 2,
+  "os": "OpenWRT Linux",
+  "desc": "PCB-form router module with M12 connectors, PoE powered — for embedded/vehicle use",
+  "housing": "Industrial Aluminium",
+  "dims": "209×30×154 mm",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/RN50-PCB-A.png"
+  ],
+  "datasheet": "/products/datasheets/RN50.pdf",
+  "use_cases": [
+    "Vehicle / Rolling Stock Networking",
+    "Embedded System Integration",
+    "Harsh Environment Deployment",
+    "M12 Ruggedized Networks"
+  ]
+}

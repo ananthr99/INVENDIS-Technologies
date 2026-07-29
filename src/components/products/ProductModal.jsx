@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { X, ChevronLeft, ChevronRight, FileText } from 'lucide-react'
 import { catColors, wifiLabel, downloadFile } from '../../utils/productHelpers'
 
@@ -93,13 +93,75 @@ export default function ProductModal({
   const mainDs = datasheets[p.id]
   const inCompare = compareIds.has(p.id)
 
+  const dialogRef = useRef(null)
+  const closeBtnRef = useRef(null)
+  const titleId = `product-modal-title-${p.id}`
+
+  // Accessibility: close on Escape, trap Tab focus within the dialog while
+  // open, move focus into the dialog on open, and restore it to whatever
+  // triggered the modal (e.g. a product card) once it closes.
+  useEffect(() => {
+    const previouslyFocused = document.activeElement
+    closeBtnRef.current?.focus()
+
+    function getFocusable() {
+      if (!dialogRef.current) return []
+      return Array.from(
+        dialogRef.current.querySelectorAll(
+          'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      )
+    }
+
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      if (e.key === 'Tab') {
+        const focusable = getFocusable()
+        if (focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = prevOverflow
+      if (previouslyFocused instanceof HTMLElement) previouslyFocused.focus()
+    }
+  }, [onClose])
+
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl shadow-2xl">
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} aria-hidden="true" />
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="relative bg-white w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl shadow-2xl"
+      >
 
         <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-3 flex justify-end z-10">
-          <button onClick={onClose} className="p-1.5 rounded-full hover:bg-gray-100 text-brand-muted transition-colors">
+          <button
+            ref={closeBtnRef}
+            onClick={onClose}
+            aria-label="Close product details"
+            className="p-1.5 rounded-full hover:bg-gray-100 text-brand-muted transition-colors"
+          >
             <X size={18} />
           </button>
         </div>
@@ -109,7 +171,7 @@ export default function ProductModal({
             <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-2 ${catColors[p.cat] || catColors.Other}`}>
               {p.cat}
             </span>
-            <h2 className="font-sora font-bold text-2xl text-brand-text mb-1">{p.name}</h2>
+            <h2 id={titleId} className="font-sora font-bold text-2xl text-brand-text mb-1">{p.name}</h2>
             <p className="text-brand-muted text-sm leading-relaxed">{p.desc}</p>
           </div>
 
@@ -128,12 +190,14 @@ export default function ProductModal({
                 <>
                   <button
                     onClick={() => setImgIdx(i => (i - 1 + imgs.length) % imgs.length)}
+                    aria-label="Previous image"
                     className="absolute left-3 p-1.5 bg-white rounded-full shadow hover:shadow-md"
                   >
                     <ChevronLeft size={16} />
                   </button>
                   <button
                     onClick={() => setImgIdx(i => (i + 1) % imgs.length)}
+                    aria-label="Next image"
                     className="absolute right-3 p-1.5 bg-white rounded-full shadow hover:shadow-md"
                   >
                     <ChevronRight size={16} />

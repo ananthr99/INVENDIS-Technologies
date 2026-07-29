@@ -1,0 +1,32 @@
+{
+  "id": "xc80",
+  "name": "XC80-1",
+  "cat": "Switch",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "9–30 VDC",
+  "ports": 8,
+  "os": "—",
+  "desc": "8-port fast ethernet unmanaged PoE switch, 240W budget, DIN rail",
+  "housing": "Sheet Metal",
+  "dims": "45×110×95 mm",
+  "weight": "386 g",
+  "op_temp": "—",
+  "images": [
+    "/products/images/xc-80-1.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Small IP Camera Systems",
+    "PoE Device Connectivity",
+    "Industrial Field Devices",
+    "DIN Rail PoE Switch"
+  ]
+}

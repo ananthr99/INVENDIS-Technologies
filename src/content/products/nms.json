@@ -1,0 +1,32 @@
+{
+  "id": "nms",
+  "name": "NMS",
+  "cat": "Other",
+  "cpu": "Software platform",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "—",
+  "ports": 0,
+  "os": "Web-based, OpenWRT compatible",
+  "desc": "Network management system: remote monitoring, config push, auto-provisioning, alerts — supports 10 to 10,000+ devices",
+  "housing": "Software / Cloud",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/NMS.jpg"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "ISP Router Management",
+    "Smart City IoT Gateways",
+    "Enterprise Network Monitoring",
+    "Energy & Infrastructure Remote Sites"
+  ]
+}

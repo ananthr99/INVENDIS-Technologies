@@ -1,0 +1,32 @@
+{
+  "id": "idbxx",
+  "name": "IDBXX-X",
+  "cat": "Gateway",
+  "cpu": "MediaTek MT7621, 512 MB DDR3, 32 MB Flash",
+  "ram": "512 MB DDR3",
+  "storage": "32 MB Flash",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
+  "wifi": "WiFi5",
+  "rs485": true,
+  "rs232": true,
+  "ip": "",
+  "power": "9–30 VDC",
+  "ports": 4,
+  "os": "OpenWRT Linux",
+  "desc": "5G gateway with RS485, RS232, 4× DI/O, 2× AI — heavy I/O variant",
+  "housing": "Industrial Aluminium",
+  "dims": "110×44×94 mm",
+  "weight": "400 g",
+  "op_temp": "-20–60 °C",
+  "images": [
+    "/products/images/idb-xx-x.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Industrial Machine Monitoring",
+    "Production Line Data",
+    "Process Automation",
+    "Heavy I/O Control"
+  ]
+}

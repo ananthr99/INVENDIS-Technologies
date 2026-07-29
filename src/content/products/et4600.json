@@ -1,0 +1,27 @@
+{
+  "id": "et4600",
+  "name": "ET4600",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "85–265V AC",
+  "os": "—",
+  "desc": "Advanced AC energy meter — V, A, kW, kVA, kVAR, kWh, THD, RS485 Modbus, DIN rail mount",
+  "housing": "DIN rail",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/Multi Function Meter-2.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}

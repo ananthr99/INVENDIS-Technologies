@@ -1,0 +1,32 @@
+{
+  "id": "ru60",
+  "name": "RU60",
+  "cat": "Router",
+  "cpu": "MediaTek MT7981, 1 GB DDR4, 1 Gb NAND",
+  "ram": "1 GB DDR4",
+  "storage": "1 Gb NAND",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "WiFi6",
+  "rs485": false,
+  "rs232": false,
+  "ip": "IP30",
+  "power": "12 VDC",
+  "ports": 2,
+  "os": "OpenWRT Linux",
+  "desc": "Ceiling-mount Wi-Fi 6 access point with AP/Station/EasyMesh support, no cellular",
+  "housing": "Metal",
+  "dims": "209×30×154 mm",
+  "weight": "950 g",
+  "op_temp": "-20–60 °C",
+  "images": [
+    "/products/images/ru60.png"
+  ],
+  "datasheet": "",
+  "use_cases": [
+    "Indoor Wi-Fi Coverage",
+    "Office Hotspot",
+    "Wi-Fi Mesh Extension",
+    "Guest Network"
+  ]
+}

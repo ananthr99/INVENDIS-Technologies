@@ -2,11 +2,15 @@ import { useState, useMemo, useEffect } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import PageSEO from '../components/shared/PageSEO'
+import Breadcrumbs from '../components/shared/Breadcrumbs'
+import { breadcrumbSchema } from '../utils/breadcrumbSchema'
 import products from '../data/products'
 import productImages from '../data/productImages'
 import productUseCases from '../data/productUseCases'
-import { partDatasheets, productDatasheets } from '../data/productDatasheets'
+import { productDatasheets } from '../data/productDatasheets'
+import { partDatasheets } from '../data/partDatasheets'
 import { CATS } from '../utils/productHelpers'
+import { useCompareList } from '../hooks/useCompareList'
 import CategoryTabs from '../components/products/CategoryTabs'
 import FilterBar from '../components/products/FilterBar'
 import ProductGrid from '../components/products/ProductGrid'
@@ -23,7 +27,8 @@ export default function ProductSelector() {
   const [activeCat, setActiveCat] = useState('All')
   const [filters, setFilters] = useState({ cell: '', wifi: '', ports: '', serial: '' })
   const [page, setPage] = useState(1)
-  const [compareIds, setCompareIds] = useState(new Set())
+  const validProductIds = useMemo(() => new Set(products.map(p => p.id)), [])
+  const { compareIds, toggleCompare, clearCompare } = useCompareList(validProductIds)
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [compareOpen, setCompareOpen] = useState(false)
 
@@ -71,27 +76,66 @@ export default function ProductSelector() {
   function clearFilters() {
     setSearch(''); setFilters({ cell: '', wifi: '', ports: '', serial: '' }); setActiveCat('All'); setPage(1)
   }
-  function toggleCompare(id) {
-    setCompareIds(prev => {
-      const next = new Set(prev)
-      if (next.has(id)) { next.delete(id) }
-      else { if (next.size >= 3) return prev; next.add(id) }
-      return next
-    })
-  }
-
   const catCounts = useMemo(() => {
     const counts = {}
     CATS.forEach(c => { counts[c] = c === 'All' ? products.length : products.filter(p => p.cat === c).length })
     return counts
   }, [])
 
+  // Per-product SEO: when a product is open (via /products/product-selector/:id),
+  // give it its own title, description, canonical, OG image and Product JSON-LD
+  // instead of the generic "Product Finder" metadata every other product shared.
+  const seo = useMemo(() => {
+    const baseCrumbs = [
+      { label: 'Home', path: '/' },
+      { label: 'Products', path: '/products' },
+      { label: 'Product Finder', path: '/products/product-selector' },
+    ]
+
+    if (!selectedProduct) {
+      const path = '/products/product-selector'
+      const breadcrumbs = baseCrumbs.slice(0, -1).concat({ label: 'Product Finder', path: null })
+      return {
+        title: 'Product Finder',
+        description: `Find and compare ${products.length}+ Invendis IIoT hardware products — industrial routers, gateways, controllers, and meters. Filter by 5G/4G, WiFi6, ports, and connectivity options.`,
+        path,
+        image: undefined,
+        breadcrumbs,
+        structuredData: breadcrumbSchema(breadcrumbs, path),
+      }
+    }
+    const p = selectedProduct
+    const image = productImages[p.id]?.[0]
+    const path = `/products/product-selector/${p.id}`
+    const breadcrumbs = baseCrumbs.concat({ label: p.name, path: null })
+    const productSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: p.name,
+      description: p.desc,
+      category: p.cat,
+      image: image ? `${window.location.origin}${image}` : undefined,
+      brand: { '@type': 'Brand', name: 'Invendis Technologies' },
+      manufacturer: { '@type': 'Organization', name: 'Invendis Technologies' },
+    }
+    return {
+      title: p.name,
+      description: `${p.desc} ${p.cat} from Invendis Technologies — view full specs, datasheet, and connectivity options.`.slice(0, 300),
+      path,
+      image,
+      breadcrumbs,
+      structuredData: [productSchema, breadcrumbSchema(breadcrumbs, path)],
+    }
+  }, [selectedProduct])
+
   return (
     <div className="min-h-screen bg-brand-light">
       <PageSEO
-        title="Product Finder"
-        description="Find and compare 40+ Invendis IIoT hardware products — industrial routers, gateways, controllers, and meters. Filter by 5G/4G, WiFi6, ports, and connectivity options."
-        path="/products/product-selector"
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        image={seo.image}
+        structuredData={seo.structuredData}
       />
             <div className="bg-brand-blue text-white py-12 px-8 lg:px-16">
         <Link
@@ -112,6 +156,9 @@ export default function ProductSelector() {
 
 
       <div className="px-8 lg:px-16 py-8 pb-28">
+        <div className="mb-6">
+          <Breadcrumbs items={seo.breadcrumbs} />
+        </div>
         <CategoryTabs cats={CATS} activeCat={activeCat} counts={catCounts} onCat={handleCat} />
         <FilterBar
           search={search} filters={filters} hasActiveFilters={hasActiveFilters}
@@ -132,7 +179,7 @@ export default function ProductSelector() {
 
       <CompareBar
         compareIds={compareIds} products={products}
-        onRemove={toggleCompare} onClear={() => setCompareIds(new Set())}
+        onRemove={toggleCompare} onClear={clearCompare}
         onCompare={() => setCompareOpen(true)}
       />
 

@@ -1,0 +1,32 @@
+{
+  "id": "mcx",
+  "name": "MC-X (Media Converter)",
+  "cat": "Other",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "5–12 VDC",
+  "ports": 2,
+  "os": "—",
+  "desc": "Gigabit media converter RJ45 to fiber (SC duplex), up to 10 km, single-mode",
+  "housing": "Steel Metal",
+  "dims": "92×66×26 mm",
+  "weight": "187 g",
+  "op_temp": "0–70 °C",
+  "images": [
+    "/products/images/mc-x.png"
+  ],
+  "datasheet": "/products/datasheets/MC-1.pdf",
+  "use_cases": [
+    "Long-Distance Fiber Link",
+    "Building-to-Building Network",
+    "Campus Fiber Extension",
+    "Fiber Backhaul"
+  ]
+}

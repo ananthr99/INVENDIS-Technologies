@@ -1,0 +1,27 @@
+{
+  "id": "et4001",
+  "name": "ET4001 / ET4001S",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": true,
+  "rs232": false,
+  "ip": "",
+  "ports": 0,
+  "power": "85–265V AC",
+  "os": "—",
+  "desc": "Advanced multi-function energy meter — V, A, kW, kVA, kWh, PF, RS485 Modbus; ET4001S adds surge protection",
+  "housing": "Panel mount",
+  "dims": "—",
+  "weight": "—",
+  "op_temp": "—",
+  "images": [
+    "/products/images/Multi Function Meter-2.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}
