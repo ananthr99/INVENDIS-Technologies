@@ -19,7 +19,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@sentry/react": "^10.64.0",
+    "@sentry/react": "^10.68.0",
     "@tailwindcss/typography": "^0.5.20",
     "d3-geo": "^3.1.1",
     "framer-motion": "^12.42.2",
