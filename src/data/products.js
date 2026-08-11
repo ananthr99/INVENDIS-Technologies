@@ -2216,7 +2216,7 @@ const products = [
   {
     "id": "rn50pcba",
     "name": "RN50-PCBA",
-    "cat": "Other",
+    "cat": "PCB",
     "cpu": "MediaTek MT7621, 512 MB DDR3",
     "ram": "256/512 MB DDR3",
     "storage": "32/64 MB Flash",
@@ -2650,7 +2650,7 @@ const products = [
   {
     "id": "rvw50",
     "name": "RVW 50 with M12",
-    "cat": "Other",
+    "cat": "Router",
     "cpu": "MediaTek MT7621, 512 MB DDR3",
     "ram": "256/512 MB DDR3",
     "storage": "32/64 MB Flash",

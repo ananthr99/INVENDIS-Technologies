@@ -20,7 +20,7 @@ const CAT_META = {
 }
 
 export default function Silbo() {
-  const { hero, latestLaunch, intelSection, categoriesSection, marketFit, partners, ctaBanner } = content
+  const { aboutSection, capabilities, useCases, hero, latestLaunch, intelSection, categoriesSection, marketFit, partners, ctaBanner } = content
 
   const silboProducts = products.filter(p => SILBO_CATS.includes(p.cat))
   const latestProduct = products.find(p => p.id === latestLaunch.productId)
@@ -98,9 +98,45 @@ export default function Silbo() {
         </div>
       </section>
 
+      {/* About + Capabilities */}
+      <section className="py-14 px-8 lg:px-16 bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <p className="text-brand-blue font-sora text-sm font-semibold uppercase tracking-widest mb-3">
+              {aboutSection.eyebrow}
+            </p>
+            <h2 className="font-sora text-4xl font-bold text-brand-text mb-5">
+              {aboutSection.heading}
+            </h2>
+            <p className="text-brand-muted leading-relaxed">
+              {aboutSection.description}
+            </p>
+          </div>
+          <div className="flex flex-col gap-6">
+            <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest">
+              {capabilities.eyebrow}
+            </p>
+            {capabilities.items.map(({ icon, title, desc }) => {
+              const Icon = getIcon(icon)
+              return (
+                <div key={title} className="flex gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon size={18} strokeWidth={1.75} className="text-brand-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-sora font-bold text-brand-blue mb-1">{title}</h3>
+                    <p className="text-brand-muted text-sm leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Latest Launch */}
       {latestProduct && (
-        <section className="py-20 px-8 lg:px-16 bg-white">
+        <section className="py-14 px-8 lg:px-16 bg-brand-light">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="bg-brand-light rounded-2xl p-10 flex items-center justify-center" style={{ minHeight: '360px' }}>
               {productImages[latestProduct.id]?.[0] && (
@@ -150,8 +186,8 @@ export default function Silbo() {
       )}
 
       {/* Intel-Powered Edge Compute */}
-      <section className="py-20 px-8 lg:px-16 bg-brand-light">
-        <div className="mb-12">
+      <section className="py-14 px-8 lg:px-16 bg-white">
+        <div className="mb-8">
           <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest mb-2">
             {intelSection.eyebrow}
           </p>
@@ -190,8 +226,8 @@ export default function Silbo() {
       </section>
 
       {/* Product Categories */}
-      <section className="py-20 px-8 lg:px-16 bg-white">
-        <div className="mb-12">
+      <section className="py-14 px-8 lg:px-16 bg-brand-light">
+        <div className="mb-8">
           <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest mb-2">
             {categoriesSection.eyebrow}
           </p>
@@ -227,8 +263,8 @@ export default function Silbo() {
       </section>
 
       {/* Market Fit */}
-      <section className="py-20 px-8 lg:px-16 bg-brand-light">
-        <div className="mb-12">
+      <section className="py-14 px-8 lg:px-16 bg-white">
+        <div className="mb-8">
           <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest mb-2">
             {marketFit.eyebrow}
           </p>
@@ -255,9 +291,50 @@ export default function Silbo() {
         </div>
       </section>
 
+      {/* Use Cases */}
+      <section className="py-14 px-8 lg:px-16 bg-brand-light">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest mb-2">
+              {useCases.eyebrow}
+            </p>
+            <h2 className="font-sora text-3xl font-bold text-brand-text">
+              {useCases.heading}{' '}
+              <span className="text-brand-blue">{useCases.headingAccent}</span>
+            </h2>
+          </div>
+          <Link
+            to="/case-studies"
+            className="hidden sm:inline-flex items-center gap-1.5 text-brand-blue font-sora font-semibold text-sm hover:gap-3 transition-all flex-shrink-0"
+          >
+            View all <ArrowRight size={16} />
+          </Link>
+        </div>
+        <div className="flex gap-5 overflow-x-auto pb-4 -mx-8 px-8 lg:-mx-16 lg:px-16 snap-x snap-mandatory scrollbar-hide">
+          {useCases.items.map(({ icon, sector, title, desc }) => {
+            const Icon = getIcon(icon)
+            return (
+              <div
+                key={title}
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all flex flex-col flex-shrink-0 w-72 snap-start"
+              >
+                <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-4">
+                  <Icon size={18} strokeWidth={1.75} className="text-brand-blue" />
+                </div>
+                <h3 className="font-sora font-bold text-brand-text text-sm mb-2 leading-snug">{title}</h3>
+                <p className="text-brand-muted text-xs leading-relaxed flex-1">{desc}</p>
+                <span className="mt-4 inline-block self-start text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-blue/10 text-brand-blue">
+                  {sector}
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
       {/* Technology Collaborations */}
       <section
-        className="py-20 px-8 lg:px-16 relative overflow-hidden"
+        className="py-14 px-8 lg:px-16 relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 50%, #02026b 100%)' }}
       >
         <div
@@ -268,7 +345,7 @@ export default function Silbo() {
           }}
         />
         <div className="relative">
-          <div className="mb-12">
+          <div className="mb-8">
             <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest mb-2">
               {partners.eyebrow}
             </p>

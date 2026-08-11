@@ -21,6 +21,7 @@ import {
   ArrowLeftRight, Shield, Tv, Plug, Settings2,
   BarChart3, Smartphone, Receipt, Bell, TrendingUp, Cloud,
   FileText, Lock, Leaf, ArrowRight, Send, Menu, X,
+  Battery, Droplets, Handshake, ThumbsUp,
 } from 'lucide-react'
 
 const iconMap = {
@@ -66,6 +67,10 @@ const iconMap = {
   send: Send,
   menu: Menu,
   close: X,
+  battery: Battery,
+  droplets: Droplets,
+  handshake: Handshake,
+  thumbs_up: ThumbsUp,
 }
 
 /**
