@@ -3,18 +3,26 @@ import { useMsal } from '@azure/msal-react'
 import { useAdmin } from '../context/AdminContext'
 import Setup from './Setup'
 import SiteSettings from './SiteSettings'
-
+import ContactPage from './editors/ContactPage'
 
 const NAV = [
   { key: 'dashboard', label: 'Dashboard' },
   { type: 'sep', label: 'CONTENT' },
-  { key: 'settings',  label: 'Site Settings' },
-  { key: 'pages',     label: 'Pages',         soon: true },
-  { key: 'products',  label: 'Products',      soon: true },
-  { key: 'blog',      label: 'Blog',          soon: true },
-  { key: 'countries', label: 'Countries',     soon: true },
+  { key: 'settings', label: 'Site Settings' },
+  { type: 'sep', label: 'PAGES' },
+  { key: 'page-contact',    label: 'Contact' },
+  { key: 'page-home',       label: 'Home',        soon: true },
+  { key: 'page-company',    label: 'Company',     soon: true },
+  { key: 'page-sectors',    label: 'Sectors',     soon: true },
+  { key: 'page-products',   label: 'Products',    soon: true },
+  { key: 'page-silbo',      label: 'SILBO',       soon: true },
+  { key: 'page-careers',    label: 'Careers',     soon: true },
+  { key: 'page-casestudies',label: 'Case Studies',soon: true },
   { type: 'sep', label: 'ADMIN' },
-  { key: 'setup', label: 'Setup' },
+  { key: 'products',  label: 'Products Catalogue', soon: true },
+  { key: 'blog',      label: 'Blog',               soon: true },
+  { key: 'countries', label: 'Countries',          soon: true },
+  { key: 'setup',     label: 'Setup' },
 ]
 
 export default function Dashboard() {
@@ -42,10 +50,9 @@ export default function Dashboard() {
           <div style={{ padding: '10px 6px 6px' }}>
             {NAV.map((item, i) => {
               if (item.type === 'sep') {
-                return (
-                  <p key={i} className="sidebar-section-label">{item.label}</p>
-                )
+                return <p key={i} className="sidebar-section-label">{item.label}</p>
               }
+              const isPage = item.key.startsWith('page-')
               return (
                 <div
                   key={item.key}
@@ -54,13 +61,12 @@ export default function Dashboard() {
                     active === item.key ? 'active' : '',
                     item.soon ? 'disabled' : '',
                   ].join(' ').trim()}
+                  style={isPage ? { paddingLeft: 20 } : {}}
                   onClick={() => !item.soon && setActive(item.key)}
                 >
                   {item.label}
                   {item.soon && (
-                    <span style={{ marginLeft: 'auto', fontSize: 10, color: '#9ca3af' }}>
-                      soon
-                    </span>
+                    <span style={{ marginLeft: 'auto', fontSize: 10, color: '#9ca3af' }}>soon</span>
                   )}
                 </div>
               )
@@ -82,11 +88,10 @@ export default function Dashboard() {
             </div>
           )}
 
-          {active === 'dashboard' && <DashboardHome user={user} onSetup={() => setActive('setup')} token={token} />}
-          {active === 'setup'     && <Setup />}
-          {active === 'dashboard' && <DashboardHome user={user} onSetup={() => setActive('setup')} token={token} />}
-          {active === 'setup'     && <Setup />}
-          {active === 'settings'  && <SiteSettings />}
+          {active === 'dashboard'     && <DashboardHome user={user} onSetup={() => setActive('setup')} token={token} />}
+          {active === 'setup'         && <Setup />}
+          {active === 'settings'      && <SiteSettings />}
+          {active === 'page-contact'  && <ContactPage />}
         </div>
       </div>
     </>

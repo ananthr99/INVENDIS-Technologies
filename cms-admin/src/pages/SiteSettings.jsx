@@ -141,7 +141,7 @@ function NavTab({ data, patch }) {
             value={data.nav.contactCta}
             onChange={e => patch(d => { d.nav.contactCta = e.target.value; return d })}
           />
-          <span className="hint">The call-to-action button in the top-right of the header</span>
+            <span className="hint">⚠ Mobile only — this button appears at the bottom of the hamburger menu on small screens. It is not visible on desktop. Test changes by resizing your browser to mobile width.</span>
         </div>
       </div>
     </>

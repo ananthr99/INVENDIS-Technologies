@@ -1,62 +1,13 @@
 [build]
   command = "npm run build"
   publish = "dist"
-  functions = "netlify/functions"
 
-# ── Security headers — main site ─────────────────────────────────────────────
-# Applied to every URL first; the /admin/* block below overrides for the CMS.
 [[headers]]
   for = "/*"
   [headers.values]
-
-    # Prevents your pages being embedded in iframes on other sites (clickjacking).
     X-Frame-Options = "DENY"
-
-    # Stops the browser guessing a file's MIME type — a PDF stays a PDF, not JS.
     X-Content-Type-Options = "nosniff"
-
-    # Tells the browser to always use HTTPS for this domain for the next 2 years.
-    # Remove "preload" if you ever need to move off HTTPS temporarily.
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-
-    # Controls how much of your URL is sent to external sites in the Referer header.
-    # "strict-origin-when-cross-origin" = send only the domain, not the full path.
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-    # Locks down browser APIs your site doesn't use.
-    # Prevents a rogue script from accessing camera, microphone, location, or payment.
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
-
-    # Master content whitelist. The browser blocks anything not listed here.
-    #
-    # default-src 'none'             — block everything unless explicitly allowed below
-    # script-src 'self' + GTM       — your own JS + Google Tag Manager (loads GA4)
-    # style-src                     — your compiled CSS + Google Fonts stylesheet
-    # font-src                      — Google Fonts actual font files
-    # img-src                       — your own images + GA4 measurement pixel
-    # connect-src                   — fetch/XHR: same origin + Fonts + GA4 endpoints
-    # frame-ancestors               — redundant with X-Frame-Options but CSP3 standard
-    # base-uri 'self'               — prevents attackers changing <base href> to hijack links
-    # form-action 'self'            — contact form POSTs to same origin (Netlify intercepts it)
-    # object-src 'none'             — blocks Flash/plugins entirely
     Content-Security-Policy = "default-src 'none'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
-
-# ── Security headers — CMS admin ─────────────────────────────────────────────
-# Decap CMS loads from unpkg.com and calls the GitHub API, so it needs a
-# wider allowlist than the main site. This block overrides the one above for
-# any URL under /admin/.
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
-
-    # script-src: unpkg.com (Decap CMS bundle) + unsafe-eval (CMS internals need it)
-    # style-src:  unpkg.com (CMS styles) + unsafe-inline (CMS injects its own styles)
-    # font-src:   unpkg.com + data URIs (CMS icon fonts)
-    # img-src:    GitHub avatars, raw file previews, blob URLs for image uploads
-    # connect-src: GitHub REST API, raw content, uploads, our own Netlify Functions
-    # worker-src: blob: (Decap CMS uses web workers for some operations)
-    Content-Security-Policy = "default-src 'none'; script-src 'self' https://unpkg.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data: https://unpkg.com; img-src 'self' data: blob: https://avatars.githubusercontent.com https://raw.githubusercontent.com https://unpkg.com; connect-src 'self' https://api.github.com https://raw.githubusercontent.com https://github.com https://uploads.github.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://github.com; object-src 'none'; worker-src blob:;"
