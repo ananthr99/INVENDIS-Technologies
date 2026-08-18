@@ -6,16 +6,40 @@
   },
   "nav": {
     "links": [
-      { "label": "Home", "to": "/" },
-      { "label": "Sectors", "to": "/sectors" },
-      { "label": "Products", "to": "/products" },
-      { "label": "SILBO", "to": "/silbo" },
-      { "label": "Case Studies", "to": "/case-studies" },
-      { "label": "Resources", "to": "/resources" },
-      { "label": "Company", "to": "/company" },
-      { "label": "Contact", "to": "/contact" }
+      {
+        "label": "Home",
+        "to": "/"
+      },
+      {
+        "label": "Sectors",
+        "to": "/sectors"
+      },
+      {
+        "label": "Products",
+        "to": "/products"
+      },
+      {
+        "label": "SILBO",
+        "to": "/silbo"
+      },
+      {
+        "label": "Case Studies",
+        "to": "/case-studies"
+      },
+      {
+        "label": "Resources",
+        "to": "/resources"
+      },
+      {
+        "label": "Company",
+        "to": "/company"
+      },
+      {
+        "label": "Contact",
+        "to": "/contact"
+      }
     ],
-    "contactCta": "Contact Us"
+    "contactCta": "Contact Me"
   },
   "contact": {
     "email": "sales@invendis.com",
@@ -24,8 +48,14 @@
     "address": "No. 230, 1st Cross, 38th Main, BOOHBCS Layout, BTM 2nd Stage, Bangalore – 560 068",
     "foreignOffice": "Accra, Ghana (West Africa operations)",
     "websites": [
-      { "label": "www.invendis.com", "url": "https://www.invendis.com" },
-      { "label": "www.silbonetworks.com", "url": "https://www.silbonetworks.com" }
+      {
+        "label": "www.invendis.com",
+        "url": "https://www.invendis.com"
+      },
+      {
+        "label": "www.silbonetworks.com",
+        "url": "https://www.silbonetworks.com"
+      }
     ]
   },
   "whatsapp": {
@@ -39,34 +69,88 @@
       {
         "title": "Products",
         "links": [
-          { "label": "iSense RMS Controller", "to": "/products" },
-          { "label": "Energy Meters", "to": "/products" },
-          { "label": "SILBO Routers", "to": "/silbo" },
-          { "label": "Industrial Gateways", "to": "/products" },
-          { "label": "PizGloria Platform", "to": "/products" },
-          { "label": "Mobile App", "to": "/products" }
+          {
+            "label": "iSense RMS Controller",
+            "to": "/products"
+          },
+          {
+            "label": "Energy Meters",
+            "to": "/products"
+          },
+          {
+            "label": "SILBO Routers",
+            "to": "/silbo"
+          },
+          {
+            "label": "Industrial Gateways",
+            "to": "/products"
+          },
+          {
+            "label": "PizGloria Platform",
+            "to": "/products"
+          },
+          {
+            "label": "Mobile App",
+            "to": "/products"
+          }
         ]
       },
       {
         "title": "Sectors",
         "links": [
-          { "label": "Telecom Infrastructure", "to": "/sectors" },
-          { "label": "Solar & Renewables", "to": "/sectors" },
-          { "label": "Smart Energy", "to": "/sectors" },
-          { "label": "Industrial Networks", "to": "/sectors" },
-          { "label": "ESG & Sustainability", "to": "/sectors" }
+          {
+            "label": "Telecom Infrastructure",
+            "to": "/sectors"
+          },
+          {
+            "label": "Solar & Renewables",
+            "to": "/sectors"
+          },
+          {
+            "label": "Smart Energy",
+            "to": "/sectors"
+          },
+          {
+            "label": "Industrial Networks",
+            "to": "/sectors"
+          },
+          {
+            "label": "ESG & Sustainability",
+            "to": "/sectors"
+          }
         ]
       },
       {
         "title": "Company",
         "links": [
-          { "label": "About Us", "to": "/company" },
-          { "label": "Our Journey", "to": "/company" },
-          { "label": "Case Studies", "to": "/case-studies" },
-          { "label": "Resources", "to": "/resources" },
-          { "label": "White Papers", "to": "/case-studies" },
-          { "label": "Careers", "to": "/careers" },
-          { "label": "Contact", "to": "/contact" }
+          {
+            "label": "About Us",
+            "to": "/company"
+          },
+          {
+            "label": "Our Journey",
+            "to": "/company"
+          },
+          {
+            "label": "Case Studies",
+            "to": "/case-studies"
+          },
+          {
+            "label": "Resources",
+            "to": "/resources"
+          },
+          {
+            "label": "White Papers",
+            "to": "/case-studies"
+          },
+          {
+            "label": "Careers",
+            "to": "/careers"
+          },
+          {
+            "label": "Contact",
+            "to": "/contact"
+          }
         ]
       }
     ]
