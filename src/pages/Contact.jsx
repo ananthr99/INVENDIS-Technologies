@@ -14,10 +14,11 @@ const INDIA_ID     = '356'
 const INDIA_COORDS = [78.9, 20.6]
 
 const servedData = useContent('servedCountries.json')
-const SERVED = servedData?.countries ?? []
-const servedSet = new Set(SERVED.map(c => c.id))
 
 function WorldMap() {
+  const servedData = useContent('servedCountries.json')
+  const SERVED = servedData?.countries ?? []
+  const servedSet = new Set(SERVED.map(c => c.id))
   const [countries, setCountries] = useState([])
 
   useEffect(() => {
