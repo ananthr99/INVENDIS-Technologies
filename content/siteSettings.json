@@ -1,0 +1,158 @@
+{
+  "logos": {
+    "invendis": "/images/logos/invendis-logo.png",
+    "silbo": "/images/logos/silbo-logo.png",
+    "makeInIndia": "/images/logos/make-in-india.png"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Home",
+        "to": "/"
+      },
+      {
+        "label": "Sectors",
+        "to": "/sectors"
+      },
+      {
+        "label": "Products",
+        "to": "/products"
+      },
+      {
+        "label": "SILBO",
+        "to": "/silbo"
+      },
+      {
+        "label": "Case Studies",
+        "to": "/case-studies"
+      },
+      {
+        "label": "Resources",
+        "to": "/resources"
+      },
+      {
+        "label": "Company",
+        "to": "/company"
+      },
+      {
+        "label": "Contact",
+        "to": "/contact"
+      }
+    ],
+    "contactCta": "Contact Me"
+  },
+  "contact": {
+    "email": "sales@invendis.com",
+    "phone": "+91 6361509463",
+    "phoneHref": "tel:+916361509463",
+    "address": "No. 230, 1st Cross, 38th Main, BOOHBCS Layout, BTM 2nd Stage, Bangalore – 560 068",
+    "foreignOffice": "Accra, Ghana (West Africa operations)",
+    "websites": [
+      {
+        "label": "www.invendis.com",
+        "url": "https://www.invendis.com"
+      },
+      {
+        "label": "www.silbonetworks.com",
+        "url": "https://www.silbonetworks.com"
+      }
+    ]
+  },
+  "whatsapp": {
+    "number": "916361509463",
+    "message": "Hi, I'd like to know more about Invendis IIoT products and solutions."
+  },
+  "footer": {
+    "tagline": "Industrial IoT hardware — routers, gateways, switches, and energy meters. Made in India.",
+    "copyright": "© 2026 Invendis Technologies India Private Limited. All rights reserved.",
+    "linkGroups": [
+      {
+        "title": "Products",
+        "links": [
+          {
+            "label": "iSense RMS Controller",
+            "to": "/products"
+          },
+          {
+            "label": "Energy Meters",
+            "to": "/products"
+          },
+          {
+            "label": "SILBO Routers",
+            "to": "/silbo"
+          },
+          {
+            "label": "Industrial Gateways",
+            "to": "/products"
+          },
+          {
+            "label": "PizGloria Platform",
+            "to": "/products"
+          },
+          {
+            "label": "Mobile App",
+            "to": "/products"
+          }
+        ]
+      },
+      {
+        "title": "Sectors",
+        "links": [
+          {
+            "label": "Telecom Infrastructure",
+            "to": "/sectors"
+          },
+          {
+            "label": "Solar & Renewables",
+            "to": "/sectors"
+          },
+          {
+            "label": "Smart Energy",
+            "to": "/sectors"
+          },
+          {
+            "label": "Industrial Networks",
+            "to": "/sectors"
+          },
+          {
+            "label": "ESG & Sustainability",
+            "to": "/sectors"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About Us",
+            "to": "/company"
+          },
+          {
+            "label": "Our Journey",
+            "to": "/company"
+          },
+          {
+            "label": "Case Studies",
+            "to": "/case-studies"
+          },
+          {
+            "label": "Resources",
+            "to": "/resources"
+          },
+          {
+            "label": "White Papers",
+            "to": "/case-studies"
+          },
+          {
+            "label": "Careers",
+            "to": "/careers"
+          },
+          {
+            "label": "Contact",
+            "to": "/contact"
+          }
+        ]
+      }
+    ]
+  }
+}

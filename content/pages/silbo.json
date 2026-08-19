@@ -1,0 +1,151 @@
+{
+  "aboutSection": {
+    "eyebrow": "About Us",
+    "heading": "We Are Silbo",
+    "description": "Introducing SILBO, the product of Invendis Technologies, a trailblazer in manufacturing networking, IoT, and edge computing products tailored to meet diverse industrial needs. SILBO products stand out for their flexibility in adapting to evolving technology and providing seamless deployment solutions. Designed for global deployment, these products transcend geographical and environmental constraints, offering compatibility across various landscapes. Our commitment extends to delivering advanced technologies, such as 5G ready Routers, Gateways, and IoT products, equipped with enhanced capabilities to empower businesses with uninterrupted connectivity through multi-WAN functionality. These products encompass a wide range of features including support for industrial protocols, networking functionalities like VPN, cloud communication, and a planned integration of SD-WAN to cater to market demands. SILBO isn't just a product, it embodies a transformative journey, driven by innovation, aiming to reshape industries and lead businesses into a connected and technologically advanced future."
+  },
+  "capabilities": {
+    "eyebrow": "What We Offer",
+    "heading": "Built to",
+    "headingAccent": "Deliver Results",
+    "items": [
+      {
+        "icon": "cpu",
+        "title": "Innovative Products",
+        "desc": "We specialize in manufacturing versatile IoT, M2M, and Edge computing hardware and software products. Our hardware solutions are adaptable for deployment in diverse global use cases, while our software solution is primed for deployment both on-premises and in the cloud."
+      },
+      {
+        "icon": "shield",
+        "title": "Smart & Secure Sites",
+        "desc": "Our products serve the dual purpose of transforming remote site equipment into smart systems while ensuring their security through advanced encryption algorithms. Additionally, they offer uninterrupted connectivity for real-time monitoring."
+      },
+      {
+        "icon": "smartphone",
+        "title": "Empower Field Force",
+        "desc": "Our range of products and software solutions have the potential to enhance field force productivity through local, remote, and cloud connectivity, facilitating effortless remote management and enabling convenient access to remote machines and their data."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Applications",
+    "heading": "Explore All The",
+    "headingAccent": "Use Cases",
+    "items": [
+      {
+        "icon": "zap",
+        "sector": "Energy and Utility",
+        "title": "Remote Monitoring Solution for EV Charging Station",
+        "desc": "The rapid EV uptake implicates the difficult provision of robust and efficient charging infrastructures. SILBO enables remote visibility and control of charging assets."
+      },
+      {
+        "icon": "plug",
+        "sector": "Energy and Utility",
+        "title": "Streamlined EV Charging Infrastructure Monitoring and Management",
+        "desc": "In response to the increasing demand for electric vehicle charging infrastructure across India, SILBO delivers the connectivity for deployment at scale."
+      },
+      {
+        "icon": "battery",
+        "sector": "Energy and Utility",
+        "title": "Optimizing Battery Swapping Infrastructure",
+        "desc": "Organizations increasingly deploying battery swapping stations for 2 and 3 wheelers rely on SILBO for secure, real-time data from mobile and fixed sites."
+      },
+      {
+        "icon": "flask",
+        "sector": "Food Processing",
+        "title": "IOT-based Monitoring for Efficient Milk Collection & Management",
+        "desc": "In the dairy industry, efficient milk collection and management are essential for ensuring product quality and operational efficiency across distributed sites."
+      },
+      {
+        "icon": "power",
+        "sector": "Energy and Utility",
+        "title": "Remote Battery Monitoring: A Proactive Approach for Enhanced Performance",
+        "desc": "Batteries are indispensable components within the infrastructure of critical facilities, especially those situated in remote locations requiring 24/7 visibility."
+      },
+      {
+        "icon": "droplets",
+        "sector": "Water Management",
+        "title": "Water Storage and Distribution Data Collection via Secure Network",
+        "desc": "In modern-day water industries, projects face critical challenges regarding data collection, operations management, security, and fulfilling regulatory requirements."
+      },
+      {
+        "icon": "radio",
+        "sector": "Industry 4.0",
+        "title": "Real-time Monitoring of Telecom Towers",
+        "desc": "Telecom towers are critical infrastructure that support communication networks, requiring continuous power supply to ensure uninterrupted operation and coverage."
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "An Invendis Brand",
+    "headline": "Industrial Networking",
+    "headlineAccent": "Built for the Edge",
+    "description": "SILBO delivers rugged routers, gateways, and switches purpose-built for telecom, industrial IoT, and mission-critical edge connectivity.",
+    "primaryCta": { "label": "Browse All Products", "to": "/products/product-selector" },
+    "secondaryCta": { "label": "Talk to Sales", "to": "/contact" }
+  },
+  "latestLaunch": {
+    "productId": "inv-ceb-xx",
+    "badge": "Latest Launch",
+    "highlight": "Dual 5G modems, 6× GbE ports, Intel X7425E — our highest-performance SD-WAN router, built for bandwidth-critical enterprise and telecom deployments."
+  },
+  "intelSection": {
+    "eyebrow": "Edge Compute",
+    "heading": "Intel-Powered",
+    "headingAccent": "Edge Devices",
+    "description": "x86 architecture at the industrial edge — full Ubuntu, Windows, or OpenWRT support with integrated 5G and Wi-Fi 6.",
+    "productIds": ["intel-x6425", "inv-ce-xx", "inv-cea-xx", "inv-ceb-xx", "inv-cd-xx"]
+  },
+  "categoriesSection": {
+    "eyebrow": "Product Range",
+    "heading": "The Complete SILBO",
+    "headingAccent": "Lineup"
+  },
+  "marketFit": {
+    "eyebrow": "Where SILBO Works",
+    "heading": "Designed For",
+    "headingAccent": "Real-World Deployments",
+    "items": [
+      {
+        "icon": "radio",
+        "title": "Telecom Tower Backhaul",
+        "desc": "Purpose-built -48V routers and gateways for tower site connectivity with dual-SIM failover and remote NMS management."
+      },
+      {
+        "icon": "shield",
+        "title": "SD-WAN & Enterprise WAN",
+        "desc": "Intel-based SD-WAN routers with centralised control, traffic prioritisation, and zero-touch provisioning for distributed networks."
+      },
+      {
+        "icon": "factory",
+        "title": "Industrial IoT Edge",
+        "desc": "Gateways with RS485, RS232, DIO, and AI inputs for legacy equipment integration and factory-floor data collection."
+      },
+      {
+        "icon": "map_pin",
+        "title": "Remote & Harsh Environments",
+        "desc": "IP66/IP67-rated outdoor routers and ODUs for oil, gas, utilities, and solar sites with extreme temperature and weather conditions."
+      }
+    ]
+  },
+  "partners": {
+    "eyebrow": "Technology Collaborations",
+    "heading": "Built on",
+    "headingAccent": "Industry-Leading Silicon",
+    "description": "SILBO products are engineered in collaboration with leading semiconductor partners — combining best-in-class compute, connectivity, and networking silicon.",
+    "items": [
+      { "name": "Intel",    "role": "Edge Compute & x86 Processing" },
+      { "name": "MediaTek", "role": "Industrial Networking SoCs" },
+      { "name": "Realtek",  "role": "Network Switching" },
+      { "name": "Qualcomm", "role": "Wireless Connectivity" },
+      { "name": "Telit",    "role": "5G Cellular Modules" }
+    ]
+  },
+  "ctaBanner": {
+    "heading": "Ready to connect your infrastructure?",
+    "description": "Talk to our team about the right SILBO device for your deployment.",
+    "primaryLabel": "Contact Us",
+    "primaryTo": "/contact",
+    "secondaryLabel": "Browse Products",
+    "secondaryTo": "/products/product-selector"
+  }
+}
