@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-19T10:16:37.663Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.cards",
+        "from": "[list modified]",
+        "to": "[list modified]"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-19T07:34:14.045Z",
     "user": "ananth.r@invendis.com",
     "page": "Contact",
