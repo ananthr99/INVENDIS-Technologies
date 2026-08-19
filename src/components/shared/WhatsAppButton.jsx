@@ -1,7 +1,10 @@
-import site from '../../content/siteSettings.json'
+import { useContent } from '../../hooks/useContent'
 
 export default function WhatsAppButton() {
+  const site = useContent('siteSettings.json')
+  if (!site) return null
   const { number, message } = site.whatsapp
+
   const href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`
 
   return (

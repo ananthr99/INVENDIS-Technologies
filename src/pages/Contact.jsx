@@ -3,8 +3,7 @@ import { geoNaturalEarth1, geoPath } from 'd3-geo'
 import { feature } from 'topojson-client'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
-import content from '../content/pages/contact.json'
-import servedData from '../content/servedCountries.json'
+import { useContent } from '../hooks/useContent'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
@@ -14,7 +13,8 @@ const PATH = geoPath(PROJ)
 const INDIA_ID     = '356'
 const INDIA_COORDS = [78.9, 20.6]
 
-const SERVED = servedData.countries
+const servedData = useContent('servedCountries.json')
+const SERVED = servedData?.countries ?? []
 const servedSet = new Set(SERVED.map(c => c.id))
 
 function WorldMap() {
@@ -58,6 +58,9 @@ function WorldMap() {
 }
 
 export default function Contact() {
+  const content = useContent('pages/contact.json')
+  const servedData = useContent('servedCountries.json')
+  if (!content || !servedData) return <div className="min-h-screen" />
   const { hero, contactItems, quickFacts, form, mapSection } = content
   const [formState, setFormState] = useState({ name: '', company: '', email: '', message: '' })
   const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'success' | 'error'

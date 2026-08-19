@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../context/AdminContext'
-import { readFile, writeFile } from '../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect } from '../github/githubApi'
 
-const FILE_PATH = 'src/content/siteSettings.json'
+const FILE_PATH = 'public/content/siteSettings.json'
+const GH_PAGES_PATH = 'content/siteSettings.json'
 const TABS = ['Navigation', 'Contact', 'WhatsApp', 'Footer', 'Logos']
 
 export default function SiteSettings() {
@@ -31,21 +32,25 @@ export default function SiteSettings() {
   async function handleSave() {
     setSaving(true)
     try {
-      const result = await writeFile(
-        FILE_PATH,
-        JSON.stringify(data, null, 2),
-        'CMS: update site settings',
-        sha,
-        token
-      )
+      const json = JSON.stringify(data, null, 2)
+
+      // Write directly to gh-pages → live in seconds, no build needed
+      let ghSha = null
+      try { ghSha = (await readFileDirect(GH_PAGES_PATH, token)).sha } catch {}
+      await writeFileDirect(GH_PAGES_PATH, json, 'CMS: update site settings', ghSha, token)
+
+      // Write to main with [skip ci] → keeps source in sync, no rebuild triggered
+      const result = await writeFile(FILE_PATH, json, 'CMS: update site settings [skip ci]', sha, token)
       setSha(result.content.sha)
-      toast('Site settings saved — publishing in ~1 min', 'ok')
+
+      toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')
     } finally {
       setSaving(false)
     }
   }
+
 
   function patch(updater) {
     setData(prev => updater(structuredClone(prev)))

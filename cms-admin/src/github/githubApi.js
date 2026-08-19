@@ -45,3 +45,32 @@ export async function writeFile(path, content, commitMsg, sha, token) {
   }
   return res.json()
 }
+
+export async function readFileDirect(path, token) {
+  const res = await fetch(`${BASE}/contents/${path}?ref=gh-pages`, {
+    headers: headers(token),
+  })
+  if (!res.ok) throw new Error(`Could not read ${path} from gh-pages (${res.status})`)
+  const data = await res.json()
+  const decoded = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))))
+  return { content: decoded, sha: data.sha }
+}
+
+export async function writeFileDirect(path, content, commitMsg, sha, token) {
+  const body = {
+    message: commitMsg,
+    content: btoa(unescape(encodeURIComponent(content))),
+    branch: 'gh-pages',
+    ...(sha ? { sha } : {}),
+  }
+  const res = await fetch(`${BASE}/contents/${path}`, {
+    method: 'PUT',
+    headers: { ...headers(token), 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.message ?? `Could not write ${path} (${res.status})`)
+  }
+  return res.json()
+}

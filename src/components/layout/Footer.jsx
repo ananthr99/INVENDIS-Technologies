@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import site from '../../content/siteSettings.json'
+import { useContent } from '../../hooks/useContent'
 
 const base = import.meta.env.BASE_URL
 const asset = (path) => base + path.replace(/^\//, '')
@@ -27,7 +27,10 @@ function FooterLinkGroup({ title, links }) {
 }
 
 export default function Footer() {
+  const site = useContent('siteSettings.json')
+  if (!site) return <footer className="bg-brand-blue border-t-4 border-brand-red h-40" />
   const { logos, footer, contact } = site
+
 
   return (
     <footer className="bg-brand-blue border-t-4 border-brand-red">

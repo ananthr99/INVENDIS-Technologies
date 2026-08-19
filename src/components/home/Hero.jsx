@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Globe } from 'lucide-react'
 import { motion } from 'framer-motion'
-import content from '../../content/pages/home.json'
+import { useContent } from '../../hooks/useContent'
 import { getGradient } from '../../utils/styleMap'
 
 export default function Hero() {
+  const content = useContent('pages/home.json')
+  if (!content) return null
   const { hero } = content
+
 
   return (
     <section

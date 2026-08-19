@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import CtaBanner from '../components/shared/CTABanner'
 import PageSEO from '../components/shared/PageSEO'
-import content from '../content/pages/products.json'
+import { useContent } from '../hooks/useContent'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
 export default function Products() {
+  const content = useContent('pages/products.json')
+  if (!content) return <div className="min-h-screen" />
+
   const {
     hero, hardwareSection, hardwareProducts,
     silboSection, silboProducts,

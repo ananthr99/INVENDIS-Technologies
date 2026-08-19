@@ -5,10 +5,13 @@ import StatsRow from '../components/home/StatsRow'
 import Testimonials from '../components/home/Testimonials'
 import CTABanner from '../components/shared/CTABanner'
 import PageSEO from '../components/shared/PageSEO'
-import content from '../content/pages/home.json'
+import { useContent } from '../hooks/useContent'
 
 export default function Home() {
+  const content = useContent('pages/home.json')
+  if (!content) return <div className="min-h-screen" />
   const { ctaBanner } = content
+
 
   return (
     <div>

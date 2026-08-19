@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion'
-import content from '../../content/pages/home.json'
+import { useContent } from '../../hooks/useContent'
 
 function parseValue(str) {
   const match = str.match(/^(\d+)(.*)$/)
@@ -26,7 +26,10 @@ function AnimatedCounter({ value, className }) {
 }
 
 export default function StatsRow() {
+  const content = useContent('pages/home.json')
+  if (!content) return null
   const { stats } = content
+
 
   return (
     <section className="bg-brand-light py-4 border-y border-brand-blue/8">

@@ -1,6 +1,6 @@
 import CtaBanner from '../components/shared/CTABanner'
 import PageSEO from '../components/shared/PageSEO'
-import content from '../content/pages/company.json'
+import { useContent } from '../hooks/useContent'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
@@ -17,6 +17,9 @@ function initials(name) {
 }
 
 export default function Company() {
+  const content = useContent('pages/company.json')
+  if (!content) return <div className="min-h-screen" />
+
   const {
     hero, missionSection, mission, valuesSection, values,
     timelineSection, timeline, facilitiesSection, facilities,

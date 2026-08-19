@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
 import CtaBanner from '../components/shared/CTABanner'
-import content from '../content/pages/silbo.json'
-import site from '../content/siteSettings.json'
+import { useContent } from '../hooks/useContent'
 import products from '../data/products'
 import productImages from '../data/productImages'
 import { getIcon } from '../utils/iconMap'
@@ -20,6 +19,10 @@ const CAT_META = {
 }
 
 export default function Silbo() {
+  const content = useContent('pages/silbo.json')
+  const site = useContent('siteSettings.json')
+  if (!content || !site) return <div className="min-h-screen" />
+
   const { aboutSection, capabilities, useCases, hero, latestLaunch, intelSection, categoriesSection, marketFit, partners, ctaBanner } = content
 
   const silboProducts = products.filter(p => SILBO_CATS.includes(p.cat))

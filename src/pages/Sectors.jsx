@@ -1,11 +1,14 @@
 import { Globe } from 'lucide-react'
 import CtaBanner from '../components/shared/CTABanner'
 import PageSEO from '../components/shared/PageSEO'
-import content from '../content/pages/sectors.json'
+import { useContent } from '../hooks/useContent'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
 export default function Sectors() {
+  const content = useContent('pages/sectors.json')
+  if (!content) return <div className="min-h-screen" />
+
   const { hero, sectors, globalReachSection, regions, ctaBanner } = content
   const featured = sectors[0]
   const rest = sectors.slice(1)

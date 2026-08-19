@@ -1,6 +1,6 @@
 import { ArrowRight, MapPin, Briefcase, Clock } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
-import content from '../content/pages/careers.json'
+import { useContent } from '../hooks/useContent'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
@@ -73,6 +73,9 @@ function JobCard({ title, department, location, type, description, skills }) {
 }
 
 export default function Careers() {
+  const content = useContent('pages/careers.json')
+  if (!content) return <div className="min-h-screen" />
+
   const { hero, cultureSection, perks, openingsSection, openings, noOpeningsMessage, ctaBanner } = content
 
   return (

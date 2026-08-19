@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
-import { readFile, writeFile } from '../../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
 
-const FILE_PATH = 'src/content/pages/contact.json'
+const FILE_PATH = 'public/content/pages/contact.json'
+const GH_PAGES_PATH = 'content/pages/contact.json'
 const TABS = ['Hero', 'Contact Items', 'Quick Facts', 'Form Labels', 'Map Section']
 
 export default function ContactPage() {
@@ -31,15 +32,18 @@ export default function ContactPage() {
   async function handleSave() {
     setSaving(true)
     try {
-      const result = await writeFile(
-        FILE_PATH,
-        JSON.stringify(data, null, 2),
-        'CMS: update contact page',
-        sha,
-        token
-      )
+      const json = JSON.stringify(data, null, 2)
+
+      // Write directly to gh-pages → live in seconds, no build needed
+      let ghSha = null
+      try { ghSha = (await readFileDirect(GH_PAGES_PATH, token)).sha } catch {}
+      await writeFileDirect(GH_PAGES_PATH, json, 'CMS: update contact page', ghSha, token)
+
+      // Write to main with [skip ci] → keeps source in sync, no rebuild triggered
+      const result = await writeFile(FILE_PATH, json, 'CMS: update contact page [skip ci]', sha, token)
       setSha(result.content.sha)
-      toast('Contact page saved — publishing in ~1 min', 'ok')
+
+      toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')
     } finally {

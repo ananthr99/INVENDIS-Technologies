@@ -1,6 +1,8 @@
-import content from '../../content/pages/home.json'
+import { useContent } from '../../hooks/useContent'
 
 export default function Testimonials() {
+  const content = useContent('pages/home.json')
+  if (!content) return null
   const { testimonials } = content
 
   return (

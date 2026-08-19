@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import site from '../../content/siteSettings.json'
+import { useContent } from '../../hooks/useContent'
 
 const base = import.meta.env.BASE_URL
 const asset = (path) => base + path.replace(/^\//, '')
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const site = useContent('siteSettings.json')
+  if (!site) return <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-white/95 backdrop-blur-md border-b border-brand-blue/10 shadow-sm" />
   const { logos, nav } = site
+
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-blue/10 shadow-sm">

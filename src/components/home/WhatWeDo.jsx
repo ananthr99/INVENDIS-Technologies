@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
-import content from '../../content/pages/home.json'
+import { useContent } from '../../hooks/useContent'
 import { getIcon } from '../../utils/iconMap'
 
 export default function WhatWeDo() {
+  const content = useContent('pages/home.json')
+  if (!content) return null
   const { whatWeDo } = content
 
   return (
