@@ -106,3 +106,41 @@ export async function appendToChangelog(entry, token) {
     token
   )
 }
+
+export async function writeFileRaw(path, base64Content, commitMsg, sha, token) {
+  const body = {
+    message: commitMsg,
+    content: base64Content,
+    branch: BRANCH,
+    ...(sha ? { sha } : {}),
+  }
+  const res = await fetch(`${BASE}/contents/${path}`, {
+    method: 'PUT',
+    headers: { ...headers(token), 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.message ?? `Could not write ${path} (${res.status})`)
+  }
+  return res.json()
+}
+
+export async function writeFileRawDirect(path, base64Content, commitMsg, sha, token) {
+  const body = {
+    message: commitMsg,
+    content: base64Content,
+    branch: 'gh-pages',
+    ...(sha ? { sha } : {}),
+  }
+  const res = await fetch(`${BASE}/contents/${path}`, {
+    method: 'PUT',
+    headers: { ...headers(token), 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.message ?? `Could not write ${path} (${res.status})`)
+  }
+  return res.json()
+}

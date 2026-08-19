@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
 
 const FILE_PATH     = 'public/content/pages/company.json'
@@ -321,11 +321,52 @@ function FacilitiesTab({ data, patch }) {
 }
 
 /* ── Team ── */
+const PREVIEW_BASE = 'https://raw.githubusercontent.com/ananthr99/INVENDIS-Technologies/gh-pages/'
+
 function TeamTab({ data, patch }) {
+  const { token, toast } = useAdmin()
   const sh = (f, v) => patch(d => { d.teamSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.team[i][f] = v; return d }) }
   function add()    { patch(d => { d.team.push({ name: '', role: '', photo: null }); return d }) }
   function remove(i){ patch(d => { d.team.splice(i, 1); return d }) }
+  function removePhoto(i) { patch(d => { d.team[i].photo = null; return d }) }
+
+  async function handlePhotoUpload(i, file) {
+    if (!file) return
+    const name = data.team[i].name || `member-${i + 1}`
+    const slug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+    const ext  = file.name.split('.').pop().toLowerCase()
+    const filename = `${slug}.${ext}`
+
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload  = () => resolve(reader.result.split(',')[1])
+      reader.onerror = reject
+      reader.readAsDataURL(file)
+    })
+
+    try {
+      toast('Uploading photo…', '')
+
+      let ghSha = null
+      try { ghSha = (await readFileDirect(`images/team/${filename}`, token)).sha } catch {}
+      await writeFileRawDirect(`images/team/${filename}`, base64, `CMS: upload team photo ${filename}`, ghSha, token)
+
+      let mainSha = null
+      try { mainSha = (await readFile(`public/images/team/${filename}`, token)).sha } catch {}
+      await writeFileRaw(`public/images/team/${filename}`, base64, `CMS: upload team photo ${filename} [skip ci]`, mainSha, token)
+
+      patch(d => { d.team[i].photo = `images/team/${filename}`; return d })
+      toast('Photo uploaded — click Save & Publish to store the path', 'ok')
+    } catch (e) {
+      toast(e.message, 'err')
+    }
+  }
+
+  function previewInitials(name) {
+    if (!name) return '?'
+    return name.split(' ').map(n => n[0]).filter(Boolean).join('').slice(0, 2).toUpperCase()
+  }
 
   return (
     <>
@@ -338,19 +379,52 @@ function TeamTab({ data, patch }) {
         </div>
         <div className="field"><label>Description</label><textarea rows={2} value={data.teamSection.description} onChange={e => sh('description', e.target.value)} /></div>
       </div>
+
       <div className="form-section">
         <p className="form-section-title">Team Members</p>
         {data.team.map((member, i) => (
-          <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'flex-end' }}>
-            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
-              {i === 0 && <label>Name</label>}
-              <input value={member.name} onChange={e => update(i, 'name', e.target.value)} placeholder="Full name" />
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+
+              {/* Photo upload */}
+              <div style={{ flexShrink: 0, textAlign: 'center', width: 72 }}>
+                <div style={{ width: 72, height: 72, borderRadius: 12, overflow: 'hidden', background: '#e5e7eb', marginBottom: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {member.photo ? (
+                    <img
+                      src={`${PREVIEW_BASE}${member.photo}`}
+                      alt={member.name}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={e => { e.target.style.display = 'none' }}
+                    />
+                  ) : (
+                    <span style={{ fontSize: 20, fontWeight: 700, color: '#9ca3af' }}>{previewInitials(member.name)}</span>
+                  )}
+                </div>
+                <label style={{ fontSize: 11, color: '#2563eb', cursor: 'pointer', textDecoration: 'underline', display: 'block' }}>
+                  {member.photo ? 'Change' : 'Upload'}
+                  <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => handlePhotoUpload(i, e.target.files?.[0])} />
+                </label>
+                {member.photo && (
+                  <button onClick={() => removePhoto(i)} style={{ fontSize: 11, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: '2px 0', width: '100%' }}>
+                    Remove
+                  </button>
+                )}
+              </div>
+
+              {/* Name + Role */}
+              <div style={{ flex: 1 }}>
+                <div className="field" style={{ marginBottom: 8 }}>
+                  <label>Name</label>
+                  <input value={member.name} onChange={e => update(i, 'name', e.target.value)} placeholder="Full name" />
+                </div>
+                <div className="field" style={{ marginBottom: 0 }}>
+                  <label>Role</label>
+                  <input value={member.role} onChange={e => update(i, 'role', e.target.value)} placeholder="CEO" />
+                </div>
+              </div>
+
+              <button className="btn-del" onClick={() => remove(i)} style={{ marginTop: 20 }}>Remove</button>
             </div>
-            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
-              {i === 0 && <label>Role</label>}
-              <input value={member.role} onChange={e => update(i, 'role', e.target.value)} placeholder="Founder & CEO" />
-            </div>
-            <button className="btn-del" style={{ marginTop: i === 0 ? 18 : 0 }} onClick={() => remove(i)}>Remove</button>
           </div>
         ))}
         <button className="btn-add" style={{ marginTop: 8 }} onClick={add}>+ Add Member</button>
@@ -358,6 +432,7 @@ function TeamTab({ data, patch }) {
     </>
   )
 }
+
 
 /* ── CTA Banner ── */
 function CTABannerTab({ data, patch }) {
