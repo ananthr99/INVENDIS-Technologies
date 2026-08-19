@@ -74,3 +74,35 @@ export async function writeFileDirect(path, content, commitMsg, sha, token) {
   }
   return res.json()
 }
+
+const CHANGELOG_PATH = 'cms-admin/changelog.json'
+
+export async function readChangelog(token) {
+  try {
+    const { content } = await readFile(CHANGELOG_PATH, token)
+    return JSON.parse(content)
+  } catch {
+    return []
+  }
+}
+
+export async function appendToChangelog(entry, token) {
+  let sha = null
+  let entries = []
+  try {
+    const file = await readFile(CHANGELOG_PATH, token)
+    entries = JSON.parse(file.content)
+    sha = file.sha
+  } catch {}
+
+  entries.unshift(entry)
+  if (entries.length > 500) entries = entries.slice(0, 500)
+
+  await writeFile(
+    CHANGELOG_PATH,
+    JSON.stringify(entries, null, 2),
+    'CMS: update changelog [skip ci]',
+    sha,
+    token
+  )
+}

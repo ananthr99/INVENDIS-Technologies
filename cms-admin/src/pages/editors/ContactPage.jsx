@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
+import { logChange } from '../../utils/logChange'
 
 const FILE_PATH = 'public/content/pages/contact.json'
 const GH_PAGES_PATH = 'content/pages/contact.json'
 const TABS = ['Hero', 'Contact Items', 'Quick Facts', 'Form Labels', 'Map Section']
 
 export default function ContactPage() {
-  const { token, toast } = useAdmin()
+  const { token, toast, userEmail } = useAdmin()
   const [data,      setData]      = useState(null)
   const [sha,       setSha]       = useState('')
   const [loading,   setLoading]   = useState(true)
   const [saving,    setSaving]    = useState(false)
   const [activeTab, setActiveTab] = useState('Hero')
+  const [originalData, setOriginalData] = useState(null)
 
   useEffect(() => {
     async function load() {
       try {
         const result = await readFile(FILE_PATH, token)
-        setData(JSON.parse(result.content))
+                const parsed = JSON.parse(result.content)
+        setData(parsed)
+        setOriginalData(parsed)
         setSha(result.sha)
       } catch (e) {
         toast(e.message, 'err')
@@ -43,7 +47,10 @@ export default function ContactPage() {
       const result = await writeFile(FILE_PATH, json, 'CMS: update contact page [skip ci]', sha, token)
       setSha(result.content.sha)
 
+      logChange({ userEmail, page: 'Contact', section: activeTab, token, before: originalData, after: data })
+      setOriginalData(structuredClone(data))
       toast('Saved — live in seconds', 'ok')
+
     } catch (e) {
       toast(e.message, 'err')
     } finally {

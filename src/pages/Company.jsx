@@ -184,9 +184,9 @@ export default function Company() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {team.map(({ name, role, photo }, i) => (
-            <div key={i} className="flex flex-col items-center text-center group">
+            <div key={i} className="flex flex-col items-center text-center group w-36">
               <div className="w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
                 {photo ? (
                   <img src={photo} alt={name} className="w-full h-full object-cover" loading="lazy" decoding="async" />

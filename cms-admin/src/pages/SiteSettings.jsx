@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect } from '../github/githubApi'
+import { logChange } from '../utils/logChange'
 
 const FILE_PATH = 'public/content/siteSettings.json'
 const GH_PAGES_PATH = 'content/siteSettings.json'
 const TABS = ['Navigation', 'Contact', 'WhatsApp', 'Footer', 'Logos']
 
 export default function SiteSettings() {
-  const { token, toast } = useAdmin()
+  const { token, toast, userEmail } = useAdmin()
   const [data,      setData]      = useState(null)
   const [sha,       setSha]       = useState('')
   const [loading,   setLoading]   = useState(true)
   const [saving,    setSaving]    = useState(false)
   const [activeTab, setActiveTab] = useState('Navigation')
+  const [originalData, setOriginalData] = useState(null)
 
   useEffect(() => {
     async function load() {
       try {
         const result = await readFile(FILE_PATH, token)
-        setData(JSON.parse(result.content))
+                const parsed = JSON.parse(result.content)
+        setData(parsed)
+        setOriginalData(parsed)
         setSha(result.sha)
       } catch (e) {
         toast(e.message, 'err')
@@ -43,6 +47,8 @@ export default function SiteSettings() {
       const result = await writeFile(FILE_PATH, json, 'CMS: update site settings [skip ci]', sha, token)
       setSha(result.content.sha)
 
+      logChange({ userEmail, page: 'Site Settings', section: activeTab, token, before: originalData, after: data })
+      setOriginalData(structuredClone(data))
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')
