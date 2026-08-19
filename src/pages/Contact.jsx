@@ -13,8 +13,6 @@ const PATH = geoPath(PROJ)
 const INDIA_ID     = '356'
 const INDIA_COORDS = [78.9, 20.6]
 
-const servedData = useContent('servedCountries.json')
-
 function WorldMap() {
   const servedData = useContent('servedCountries.json')
   const SERVED = servedData?.countries ?? []
@@ -61,10 +59,12 @@ function WorldMap() {
 export default function Contact() {
   const content = useContent('pages/contact.json')
   const servedData = useContent('servedCountries.json')
-  if (!content || !servedData) return <div className="min-h-screen" />
-  const { hero, contactItems, quickFacts, form, mapSection } = content
   const [formState, setFormState] = useState({ name: '', company: '', email: '', message: '' })
-  const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'success' | 'error'
+  const [status, setStatus] = useState('idle')
+
+  if (!content) return <div className="min-h-screen" />
+  const { hero, contactItems, quickFacts, form, mapSection } = content
+  const SERVED = servedData?.countries ?? []
 
   async function handleSubmit(e) {
     e.preventDefault()
