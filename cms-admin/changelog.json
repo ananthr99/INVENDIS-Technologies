@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-08-19T10:20:31.632Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "CTA Banner",
+    "action": "Updated Home — CTA Banner",
+    "changes": [
+      {
+        "field": "hero.stats",
+        "from": "[list modified]",
+        "to": "[list modified]"
+      },
+      {
+        "field": "stats",
+        "from": "[list modified]",
+        "to": "[list modified]"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-19T10:16:37.663Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
