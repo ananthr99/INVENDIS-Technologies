@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-19T10:38:20.703Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.eyebrow",
+        "from": "IIoT Solutions · 18+ Years · 26 Countries",
+        "to": "IIoT Solutions · 18+ Years · 25+ Countries"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-19T10:20:31.632Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
