@@ -48,7 +48,7 @@ export default function Dashboard() {
     <>
       <header className="admin-header">
         <img src={`${import.meta.env.BASE_URL}invendis_logo.png`} alt="Invendis" onError={e => e.currentTarget.style.display = 'none'} />
-        <span className="admin-header-title">INVENDIS CMS</span>
+        <span className="admin-header-title">Invendis CMS</span>
         <span className="admin-header-user">{user?.name ?? user?.username}</span>
         <button className="btn-signout" onClick={handleSignOut}>Sign out</button>
       </header>
