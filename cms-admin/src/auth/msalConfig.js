@@ -10,7 +10,7 @@ export const msalConfig = {
       : 'http://localhost:5173/cms-admin/',
   },
   cache: {
-    cacheLocation: 'localStorage',
+    cacheLocation: 'sessionStorage',
     storeAuthStateInCookie: false,
   },
 }

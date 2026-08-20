@@ -11,8 +11,14 @@ export default function LoginPage() {
   return (
     <div className="login-root">
       <div className="login-box">
-        <p className="login-title">INVENDIS CMS</p>
-        <p className="login-subtitle">Sign in to manage website content</p>
+        <img
+          src={`${import.meta.env.BASE_URL}invendis_logo.png`}
+          className="login-logo"
+          alt="Invendis"
+          onError={e => e.currentTarget.style.display = 'none'}
+        />
+        <h1 className="login-title">Invendis Technologies Admin</h1>
+        <p className="login-subtitle">Sign in with your Microsoft account to manage Invendis website</p>
         <button className="btn-ms" onClick={handleLogin}>
           <svg width="20" height="20" viewBox="0 0 21 21" fill="none">
             <rect x="1" y="1" width="9" height="9" fill="#F25022"/>
@@ -22,7 +28,6 @@ export default function LoginPage() {
           </svg>
           Sign in with Microsoft
         </button>
-        <p className="login-note">Access restricted to authorised users only</p>
       </div>
     </div>
   )

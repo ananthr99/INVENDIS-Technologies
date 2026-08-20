@@ -33,24 +33,24 @@ const NAV = [
 ]
 
 export default function Dashboard() {
-  const { accounts, instance } = useMsal()
+  const { accounts } = useMsal()
   const { token } = useAdmin()
   const [active, setActive] = useState('dashboard')
   const [collapsed, setCollapsed] = useState({ CONTENT: false, PAGES: false, ADMIN: false })
   const user = accounts[0]
 
   function handleSignOut() {
-    instance.logoutRedirect()
+    sessionStorage.clear()
+    window.location.reload()
   }
 
   return (
     <>
       <header className="admin-header">
+        <img src={`${import.meta.env.BASE_URL}invendis_logo.png`} alt="Invendis" onError={e => e.currentTarget.style.display = 'none'} />
         <span className="admin-header-title">INVENDIS CMS</span>
-        <div className="admin-header-user">
-          <span>{user?.name ?? user?.username}</span>
-          <button className="btn-signout" onClick={handleSignOut}>Sign out</button>
-        </div>
+        <span className="admin-header-user">{user?.name ?? user?.username}</span>
+        <button className="btn-signout" onClick={handleSignOut}>Sign out</button>
       </header>
 
       <div className="dash-body">

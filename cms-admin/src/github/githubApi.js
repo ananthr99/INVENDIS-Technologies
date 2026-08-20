@@ -107,6 +107,22 @@ export async function appendToChangelog(entry, token) {
   )
 }
 
+export async function writeChangelog(entries, token) {
+  let sha = null
+  try {
+    const file = await readFile(CHANGELOG_PATH, token)
+    sha = file.sha
+  } catch {}
+
+  await writeFile(
+    CHANGELOG_PATH,
+    JSON.stringify(entries, null, 2),
+    'CMS: update changelog [skip ci]',
+    sha,
+    token
+  )
+}
+
 export async function writeFileRaw(path, base64Content, commitMsg, sha, token) {
   const body = {
     message: commitMsg,
