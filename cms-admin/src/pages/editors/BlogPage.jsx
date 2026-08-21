@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import {
   readFile, writeFile,
@@ -64,6 +64,7 @@ export default function BlogPage() {
   const [isNew, setIsNew]       = useState(true)
   const [postSha, setPostSha]   = useState('')
   const [slugLocked, setSlugLocked] = useState(false)
+  const bodyRef = useRef(null)
 
   useEffect(() => { loadIndex() }, [])
 
@@ -208,6 +209,36 @@ export default function BlogPage() {
     setSlugLocked(false)
     setPostSha('')
   }
+
+    function insertMarkdown(before, after) {
+        const el = bodyRef.current
+        if (!el) return
+        const s = el.selectionStart, e = el.selectionEnd, v = el.value
+        const aft = after !== undefined ? after : before
+        patch('body', v.slice(0, s) + before + v.slice(s, e) + aft + v.slice(e))
+        requestAnimationFrame(() => { el.focus(); el.setSelectionRange(s + before.length, e + before.length) })
+    }
+
+    function insertPrefix(prefix) {
+        const el = bodyRef.current
+        if (!el) return
+        const s = el.selectionStart, v = el.value
+        const ls = v.lastIndexOf('\n', s - 1) + 1
+        patch('body', v.slice(0, ls) + prefix + v.slice(ls))
+        requestAnimationFrame(() => { el.focus(); el.setSelectionRange(s + prefix.length, s + prefix.length) })
+    }
+
+    function insertLink() {
+        const el = bodyRef.current
+        if (!el) return
+        const s = el.selectionStart, e = el.selectionEnd, v = el.value
+        const text = v.slice(s, e) || 'link text'
+        const url = window.prompt('Enter URL:')
+        if (!url) return
+        const ins = `[${text}](${url})`
+        patch('body', v.slice(0, s) + ins + v.slice(e))
+        requestAnimationFrame(() => { el.focus(); el.setSelectionRange(s, s + ins.length) })
+    }
 
   if (loading) return (
     <div className="tab-panel" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -381,31 +412,64 @@ export default function BlogPage() {
             </div>
           </div>
 
-          {/* ── Body card ── */}
-          <div style={card}>
-            <p style={sectionTitle}>
-              Article Body
-              {form.body && (
-                <span style={{ marginLeft: 8, fontWeight: 500, color: '#6b7280', textTransform: 'none', letterSpacing: 0 }}>
-                  · ~{readingTime(form.body)} min read · {form.body.trim().split(/\s+/).length} words
-                </span>
-              )}
-            </p>
+        {/* ── Body card ── */}
+        <div style={card}>
+        <p style={sectionTitle}>
+            Article Body
+            {form.body && (
+            <span style={{ marginLeft: 8, fontWeight: 500, color: '#6b7280', textTransform: 'none', letterSpacing: 0 }}>
+                · ~{readingTime(form.body)} min read · {form.body.trim().split(/\s+/).length} words
+            </span>
+            )}
+        </p>
 
-            <div className="field" style={{ marginBottom: 0 }}>
-              <label>
-                Content *
-                <span className="hint"> — Markdown: ## Heading, **bold**, `code`, - list item, | table |</span>
-              </label>
-              <textarea
-                rows={28}
-                value={form.body}
-                onChange={e => patch('body', e.target.value)}
-                placeholder={'## Introduction\n\nWrite the full article content here using Markdown...\n\n## Section 1\n\nYour content...'}
-                style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, lineHeight: 1.7 }}
-              />
+        <div className="field" style={{ marginBottom: 0 }}>
+            <label>Content *</label>
+
+            {/* Toolbar */}
+            <div style={{ display: 'flex', gap: 3, padding: '7px 10px', background: '#f9fafb', border: '1.5px solid #e5e7eb', borderBottom: '1px solid #eaecef', borderRadius: '7px 7px 0 0', flexWrap: 'wrap', alignItems: 'center' }}>
+            {[
+                { label: 'B',        title: 'Bold',          style: { fontWeight: 800 },               action: () => insertMarkdown('**') },
+                { label: 'I',        title: 'Italic',        style: { fontStyle: 'italic' },            action: () => insertMarkdown('*') },
+                null,
+                { label: 'H2',       title: 'Heading',       style: {},                                 action: () => insertPrefix('## ') },
+                { label: 'H3',       title: 'Sub-heading',   style: { color: '#6b7280' },               action: () => insertPrefix('### ') },
+                null,
+                { label: '• List',   title: 'Bullet list',   style: {},                                 action: () => insertPrefix('- ') },
+                { label: '1. List',  title: 'Numbered list', style: {},                                 action: () => insertPrefix('1. ') },
+                null,
+                { label: '`code`',   title: 'Inline code',   style: { fontFamily: 'monospace' },        action: () => insertMarkdown('`') },
+                { label: '``` Block',title: 'Code block',    style: { fontFamily: 'monospace' },        action: () => insertMarkdown('```\n', '\n```') },
+                null,
+                { label: '🔗 Link',  title: 'Insert link',   style: {},                                 action: insertLink },
+            ].map((btn, i) => btn === null ? (
+                <div key={i} style={{ width: 1, height: 16, background: '#d1d5db', margin: '0 3px' }} />
+            ) : (
+                <button
+                key={i}
+                type="button"
+                title={btn.title}
+                onClick={btn.action}
+                style={{ padding: '3px 9px', fontSize: 11, fontFamily: 'inherit', fontWeight: 600, border: '1px solid #e5e7eb', borderRadius: 4, background: '#fff', color: '#374151', cursor: 'pointer', lineHeight: 1.5, transition: 'background .1s', ...btn.style }}
+                onMouseEnter={e => e.currentTarget.style.background = '#f3f4f6'}
+                onMouseLeave={e => e.currentTarget.style.background = '#fff'}
+                >
+                {btn.label}
+                </button>
+            ))}
             </div>
-          </div>
+
+            {/* Editor */}
+            <textarea
+            ref={bodyRef}
+            rows={28}
+            value={form.body}
+            onChange={e => patch('body', e.target.value)}
+            placeholder={'## Introduction\n\nWrite your article here. Use the toolbar above for formatting.\n\n## Section 1\n\nYour content...'}
+            style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, lineHeight: 1.7, borderRadius: '0 0 7px 7px', borderTop: 'none' }}
+            />
+        </div>
+        </div>
 
           {/* ── Tags card ── */}
           <div style={{ ...card, marginBottom: 0 }}>
