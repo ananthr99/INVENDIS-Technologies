@@ -13,8 +13,8 @@ export default function ProductCard({ product: p, images, useCases, compareIds, 
     >
       {imgs?.length > 0 && (
         <div className="h-40 flex items-center justify-center p-4 border-b border-gray-100 bg-gray-50 rounded-t-xl">
-          <picture style={{ display: 'contents' }}>
-            <source srcSet={imgs[0].replace(/\.(png|jpe?g)$/i, '.webp')} type="image/webp" />
+          <div className="h-40 flex items-center justify-center p-4 border-b border-gray-100 bg-gray-50 rounded-t-xl">
+          {imgs[0].startsWith('http') ? (
             <img
               src={imgs[0]}
               alt={p.name}
@@ -22,7 +22,19 @@ export default function ProductCard({ product: p, images, useCases, compareIds, 
               loading="lazy"
               decoding="async"
             />
-          </picture>
+          ) : (
+            <picture style={{ display: 'contents' }}>
+              <source srcSet={imgs[0].replace(/\.(png|jpe?g)$/i, '.webp')} type="image/webp" />
+              <img
+                src={imgs[0]}
+                alt={p.name}
+                className="max-h-full max-w-full object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          )}
+        </div>
         </div>
       )}
 
