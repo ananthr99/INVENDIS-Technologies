@@ -1,13 +1,15 @@
-export const CATS = ['All', 'Router', 'Gateway', 'Switch', 'Energy Meter', 'PCB', 'Other']
+export const CATS = ['All', 'Router', 'Gateway', 'Switch', 'Energy Meter', 'PCB', 'Intel Based Devices', 'Other']
 
 export const catColors = {
-  Router:         'bg-blue-100 text-blue-700',
-  Gateway:        'bg-violet-100 text-violet-700',
-  Switch:         'bg-emerald-100 text-emerald-700',
-  'Energy Meter': 'bg-amber-100 text-amber-700',
-  PCB:            'bg-teal-100 text-teal-700',
-  Other:          'bg-gray-100 text-gray-600',
+  Router:                'bg-blue-100 text-blue-700',
+  Gateway:               'bg-violet-100 text-violet-700',
+  Switch:                'bg-emerald-100 text-emerald-700',
+  'Energy Meter':        'bg-amber-100 text-amber-700',
+  PCB:                   'bg-teal-100 text-teal-700',
+  'Intel Based Devices': 'bg-red-100 text-red-700',
+  Other:                 'bg-gray-100 text-gray-600',
 }
+
 
 export function wifiLabel(w) {
   return { WiFi6: 'Wi-Fi 6', WiFi5: 'Wi-Fi 5', WiFi24: 'Wi-Fi 2.4 GHz', none: '—' }[w] || w

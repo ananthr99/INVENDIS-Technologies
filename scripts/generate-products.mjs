@@ -55,7 +55,7 @@ writeFileSync(
   `const base = import.meta.env.BASE_URL\n\n` +
   `const productImages = {\n` +
   Object.entries(imagesObj)
-    .map(([id, imgs]) => `  ${JSON.stringify(id)}: [${imgs.map(i => `\`\${base}${i.replace(/^\//, '')}\``).join(', ')}],`)
+    .map(([id, imgs]) => `  ${JSON.stringify(id)}: [${imgs.map(i => i.startsWith('http') ? JSON.stringify(i) : `\`\${base}${i.replace(/^\//, '')}\``).join(', ')}],`)
     .join('\n') +
   `\n}\n\n` +
   `export default productImages\n`
@@ -73,7 +73,7 @@ writeFileSync(
   `const base = import.meta.env.BASE_URL\n\n` +
   `export const productDatasheets = {\n` +
   Object.entries(datasheetsObj)
-    .map(([id, ds]) => `  ${JSON.stringify(id)}: \`\${base}${ds.replace(/^\//, '')}\`,`)
+    .map(([id, ds]) => `  ${JSON.stringify(id)}: ${ds.startsWith('http') ? JSON.stringify(ds) : `\`\${base}${ds.replace(/^\//, '')}\``},`)
     .join('\n') +
   `\n}\n`
 )

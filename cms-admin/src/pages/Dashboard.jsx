@@ -9,27 +9,31 @@ import HomePage from './editors/HomePage'
 import CompanyPage from './editors/CompanyPage'
 import SectorsPage from './editors/SectorsPage'
 import CareersPage from './editors/CareersPage'
-
+import SilboPage from './editors/SilboPage'
+import Countries from './Countries'
+import ProductsPage from './editors/ProductsPage'
+import CaseStudiesPage from './editors/CaseStudiesPage'
+import SpecialCharsBar from '../components/SpecialCharsBar'
 
 const NAV = [
-  { key: 'dashboard', label: 'Dashboard' },
-  { type: 'sep', label: 'CONTENT' },
-  { key: 'settings', label: 'Site Settings' },
-  { type: 'sep', label: 'PAGES' },
-  { key: 'page-contact',    label: 'Contact' },
-  { key: 'page-home',       label: 'Home' },
-  { key: 'page-company',    label: 'Company' },
-  { key: 'page-sectors',    label: 'Sectors' },
-  { key: 'page-products',   label: 'Products',    soon: true },
-  { key: 'page-silbo',      label: 'SILBO',       soon: true },
-  { key: 'page-careers',    label: 'Careers' },
-  { key: 'page-casestudies',label: 'Case Studies',soon: true },
-  { type: 'sep', label: 'ADMIN' },
-  { key: 'products',  label: 'Products Catalogue', soon: true },
+  { key: 'dashboard', label: 'Dashboard'},
+  { type: 'sep', label: 'CONTENT'},
+  { key: 'settings', label: 'Site Settings'},
+  { type: 'sep', label: 'PAGES'},
+  { key: 'page-contact',    label: 'Contact'},
+  { key: 'page-home',       label: 'Home'},
+  { key: 'page-company',    label: 'Company'},
+  { key: 'page-sectors',    label: 'Sectors'},
+  { key: 'page-products',   label: 'Products'},
+  { key: 'page-silbo',      label: 'SILBO'},
+  { key: 'page-careers',    label: 'Careers'},
+  { key: 'page-casestudies',label: 'Case Studies'},
+  { type: 'sep', label: 'ADMIN'},
+  { key: 'products',  label: 'Products Catalogue',soon: true  },
   { key: 'blog',      label: 'Blog',               soon: true },
-  { key: 'countries', label: 'Countries',          soon: true },
-  { key: 'setup',     label: 'Setup' },
-  { key: 'activity-log', label: 'Activity Log' },
+  { key: 'countries', label: 'Countries'},
+  { key: 'setup',     label: 'Setup'},
+  { key: 'activity-log', label: 'Activity Log'},
 ]
 
 export default function Dashboard() {
@@ -110,6 +114,7 @@ export default function Dashboard() {
         </aside>
 
         <div className="content">
+          {active !== 'dashboard' && active !== 'setup' && active !== 'activity-log' && <SpecialCharsBar />}
           {!token && active !== 'setup' && (
             <div className="token-banner">
               ⚠ GitHub token not configured —{' '}
@@ -128,10 +133,14 @@ export default function Dashboard() {
           {active === 'settings'      && <SiteSettings />}
           {active === 'page-contact'  && <ContactPage />}
           {active === 'page-home'     && <HomePage />}
+          {active === 'page-products'  && <ProductsPage />}
           {active === 'page-company'   && <CompanyPage />}
           {active === 'page-sectors'   && <SectorsPage />}
+          {active === 'page-silbo'     && <SilboPage />}
           {active === 'page-careers'   && <CareersPage />}
+          {active === 'page-casestudies' && <CaseStudiesPage />}
           {active === 'activity-log' && <ActivityLog />}
+          {active === 'countries'    && <Countries />}
         </div>
       </div>
     </>
