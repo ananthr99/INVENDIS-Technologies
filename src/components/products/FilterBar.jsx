@@ -1,77 +1,83 @@
-import { Search, X } from 'lucide-react'
+import { Search } from 'lucide-react'
 
-export default function FilterBar({
-  search, filters, hasActiveFilters, filtered,
-  onSearch, onFilter, onClear,
-  page, totalPages,
-}) {
-  const PAGE_SIZE = 12
-  const start = filtered.length ? (page - 1) * PAGE_SIZE + 1 : 0
-  const end = Math.min(page * PAGE_SIZE, filtered.length)
-
+export default function FilterBar({ search, filters, onSearch, onFilter, view, onView }) {
   const selectCls = active =>
-    `px-3 py-2 text-sm border rounded-lg focus:outline-none focus:border-brand-blue cursor-pointer transition-colors
-     ${active ? 'border-brand-blue text-brand-blue bg-blue-50' : 'border-gray-200 text-brand-muted bg-white'}`
+    `h-[38px] px-3 pr-8 text-[13px] border rounded-[6px] focus:outline-none cursor-pointer transition-colors bg-[#F7F9FC] appearance-none
+     ${active
+       ? 'border-[#1A6FC4] bg-[#EAF2FB] text-[#05059b] font-medium'
+       : 'border-[#DDE5EF] text-[#0B1F3A]'}`
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-4 mb-6 shadow-sm">
-      <div className="flex flex-wrap gap-3 items-center">
-        <div className="relative flex-1 min-w-48">
-          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted pointer-events-none" />
-          <input
-            type="text"
-            value={search}
-            onChange={e => onSearch(e.target.value)}
-            placeholder="Search products…"
-            className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-brand-blue"
-          />
-        </div>
-
-        <select value={filters.cell} onChange={e => onFilter('cell', e.target.value)} className={selectCls(filters.cell)}>
-          <option value="">Cellular: All</option>
-          <option value="5G">5G</option>
-          <option value="4G">4G</option>
-          <option value="none">No cellular</option>
-        </select>
-
-        <select value={filters.wifi} onChange={e => onFilter('wifi', e.target.value)} className={selectCls(filters.wifi)}>
-          <option value="">Wi-Fi: All</option>
-          <option value="WiFi6">Wi-Fi 6</option>
-          <option value="WiFi5">Wi-Fi 5</option>
-          <option value="WiFi24">Wi-Fi 2.4 GHz</option>
-          <option value="none">No Wi-Fi</option>
-        </select>
-
-        <select value={filters.ports} onChange={e => onFilter('ports', e.target.value)} className={selectCls(filters.ports)}>
-          <option value="">Ports: All</option>
-          <option value="2">1–2 ports</option>
-          <option value="5">3–5 ports</option>
-          <option value="8">6–8 ports</option>
-          <option value="10">9+ ports</option>
-        </select>
-
-        <select value={filters.serial} onChange={e => onFilter('serial', e.target.value)} className={selectCls(filters.serial)}>
-          <option value="">Serial: All</option>
-          <option value="rs485">RS485</option>
-          <option value="rs232">RS232</option>
-          <option value="both">RS485 + RS232</option>
-        </select>
-
-        {hasActiveFilters && (
-          <button
-            onClick={onClear}
-            className="flex items-center gap-1.5 px-3 py-2 text-sm text-brand-red hover:bg-red-50 rounded-lg transition-colors"
-          >
-            <X size={14} /> Clear
-          </button>
-        )}
+    <div className="bg-white border border-[#DDE5EF] rounded-[14px] px-5 py-[18px] mb-[22px] shadow-sm flex flex-wrap gap-[10px] items-center">
+      <div className="relative flex-1 min-w-[220px]">
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8DA0B8] pointer-events-none" />
+        <input
+          type="text"
+          value={search}
+          onChange={e => onSearch(e.target.value)}
+          placeholder="Search by name, model, keyword..."
+          className="w-full h-[38px] pl-10 pr-3 text-[14px] border border-[#DDE5EF] rounded-[6px] focus:outline-none focus:border-[#1A6FC4] focus:shadow-[0_0_0_3px_rgba(26,111,196,0.12)] bg-[#F7F9FC] focus:bg-white placeholder:text-[#8DA0B8] text-[#0B1F3A]"
+        />
       </div>
 
-      <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-brand-muted">
-        {filtered.length
-          ? <>Showing <strong className="text-brand-text">{start}–{end}</strong> of <strong className="text-brand-text">{filtered.length}</strong> products</>
-          : <strong className="text-brand-text">0 products found</strong>
-        }
+      <select value={filters.cell} onChange={e => onFilter('cell', e.target.value)} className={selectCls(filters.cell)}>
+        <option value="">Any cellular</option>
+        <option value="5G">5G capable</option>
+        <option value="4G">4G only</option>
+        <option value="none">No cellular</option>
+      </select>
+
+      <select value={filters.wifi} onChange={e => onFilter('wifi', e.target.value)} className={selectCls(filters.wifi)}>
+        <option value="">Any Wi-Fi</option>
+        <option value="WiFi6">Wi-Fi 6 (ax)</option>
+        <option value="WiFi5">Wi-Fi 5 (ac)</option>
+        <option value="WiFi24">Wi-Fi 4/2.4 GHz</option>
+        <option value="none">No Wi-Fi</option>
+      </select>
+
+      <select value={filters.ports} onChange={e => onFilter('ports', e.target.value)} className={selectCls(filters.ports)}>
+        <option value="">Any port count</option>
+        <option value="2">1–2 ports</option>
+        <option value="5">3–5 ports</option>
+        <option value="8">6–8 ports</option>
+        <option value="10">9+ ports</option>
+      </select>
+
+      <select value={filters.serial} onChange={e => onFilter('serial', e.target.value)} className={selectCls(filters.serial)}>
+        <option value="">Any serial I/O</option>
+        <option value="rs485">Has RS485</option>
+        <option value="rs232">Has RS232</option>
+        <option value="both">RS485 + RS232</option>
+      </select>
+
+      <div className="w-px h-6 bg-[#DDE5EF] shrink-0" />
+
+      <div className="flex border border-[#DDE5EF] rounded-[6px] overflow-hidden shrink-0">
+        <button
+          onClick={() => onView('grid')}
+          title="Grid view"
+          className={`w-9 h-[38px] border-r border-[#DDE5EF] flex items-center justify-center transition-colors
+            ${view === 'grid' ? 'bg-brand-blue text-white' : 'bg-white text-[#8DA0B8] hover:bg-gray-50'}`}
+        >
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="currentColor">
+            <rect x="1" y="1" width="5" height="5" rx="1"/>
+            <rect x="9" y="1" width="5" height="5" rx="1"/>
+            <rect x="1" y="9" width="5" height="5" rx="1"/>
+            <rect x="9" y="9" width="5" height="5" rx="1"/>
+          </svg>
+        </button>
+        <button
+          onClick={() => onView('list')}
+          title="List view"
+          className={`w-9 h-[38px] flex items-center justify-center transition-colors
+            ${view === 'list' ? 'bg-brand-blue text-white' : 'bg-white text-[#8DA0B8] hover:bg-gray-50'}`}
+        >
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="currentColor">
+            <rect x="1" y="2" width="13" height="2" rx="1"/>
+            <rect x="1" y="6.5" width="13" height="2" rx="1"/>
+            <rect x="1" y="11" width="13" height="2" rx="1"/>
+          </svg>
+        </button>
       </div>
     </div>
   )

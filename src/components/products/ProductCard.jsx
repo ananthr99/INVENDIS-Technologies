@@ -4,83 +4,80 @@ export default function ProductCard({ product: p, images, useCases, compareIds, 
   const imgs = images[p.id]
   const uc = useCases[p.id] || []
   const inCompare = compareIds.has(p.id)
+  const isHf = k => (p.hidden_fields || []).includes(k)
 
   return (
     <div
       onClick={() => onDetail(p)}
-      className={`bg-white rounded-xl border transition-all cursor-pointer group hover:-translate-y-1 hover:shadow-lg
-        ${inCompare ? 'border-brand-blue ring-2 ring-brand-blue/20' : 'border-gray-200'}`}
+      className={`bg-white rounded-[14px] border cursor-pointer transition-all flex flex-col gap-2 relative p-[18px]
+        hover:shadow-[0_4px_20px_rgba(11,31,58,0.10)] hover:border-[#B8CCE4] hover:-translate-y-px
+        ${inCompare
+          ? 'border-2 border-[#1A6FC4] shadow-[0_0_0_3px_rgba(26,111,196,0.12)]'
+          : 'border-[#DDE5EF]'}`}
     >
       {imgs?.length > 0 && (
-        <div className="h-40 flex items-center justify-center p-4 border-b border-gray-100 bg-gray-50 rounded-t-xl">
-          <div className="h-40 flex items-center justify-center p-4 border-b border-gray-100 bg-gray-50 rounded-t-xl">
+        <div className="mx-[-18px] mt-[-18px] mb-1 rounded-t-[14px] overflow-hidden border-b border-[#DDE5EF] h-40 flex items-center justify-center bg-white">
           {imgs[0].startsWith('http') ? (
-            <img
-              src={imgs[0]}
-              alt={p.name}
-              className="max-h-full max-w-full object-contain"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src={imgs[0]} alt={p.name} className="w-full h-full object-contain p-3 box-border" loading="lazy" decoding="async" />
           ) : (
             <picture style={{ display: 'contents' }}>
               <source srcSet={imgs[0].replace(/\.(png|jpe?g)$/i, '.webp')} type="image/webp" />
-              <img
-                src={imgs[0]}
-                alt={p.name}
-                className="max-h-full max-w-full object-contain"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src={imgs[0]} alt={p.name} className="w-full h-full object-contain p-3 box-border" loading="lazy" decoding="async" />
             </picture>
           )}
         </div>
+      )}
+
+      <span className={`self-start text-[10px] font-semibold px-2 py-0.5 rounded tracking-[0.04em] uppercase ${catColors[p.cat] || catColors.Other}`}>
+        {p.cat}
+      </span>
+
+      <div className="text-[15px] font-semibold text-[#0B1F3A] leading-tight">{p.name}</div>
+      <div className="text-[12px] text-[#5A6E87] leading-[1.5] min-w-0 break-words">{p.desc}</div>
+
+      <div className="flex flex-wrap gap-1 mt-1">
+        {p.cellular_gen !== 'none' && !isHf('cellular_gen') && (
+          <span className="text-[11px] px-2 py-0.5 rounded border bg-[#E8F7EE] text-[#1A6B3C] border-[#B4DFC5]">{p.cellular_gen}</span>
+        )}
+        {p.wifi !== 'none' && !isHf('wifi') && (
+          <span className="text-[11px] px-2 py-0.5 rounded border bg-[#E8F7EE] text-[#1A6B3C] border-[#B4DFC5]">{wifiLabel(p.wifi)}</span>
+        )}
+        {p.rs485 && !isHf('rs485') && (
+          <span className="text-[11px] px-2 py-0.5 rounded border bg-[#FFF4E0] text-[#7A5000] border-[#F0D090]">RS485</span>
+        )}
+        {p.rs232 && !isHf('rs232') && (
+          <span className="text-[11px] px-2 py-0.5 rounded border bg-[#FFF4E0] text-[#7A5000] border-[#F0D090]">RS232</span>
+        )}
+        {p.ports > 0 && !isHf('ports') && (
+          <span className="text-[11px] px-2 py-0.5 rounded border border-[#DDE5EF] text-[#5A6E87] bg-[#F7F9FC]">{p.ports} ports</span>
+        )}
+        {p.ip && !isHf('ip') && (
+          <span className="text-[11px] px-2 py-0.5 rounded border border-[#DDE5EF] text-[#5A6E87] bg-[#F7F9FC]">{p.ip}</span>
+        )}
+      </div>
+
+      {uc.length > 0 && (
+        <div className="flex flex-wrap gap-1 my-1">
+          {uc.slice(0, 2).map(u => (
+            <span key={u} className="text-[10px] font-medium px-[7px] py-0.5 rounded-full bg-[#EAF2FB] text-[#1A6FC4] border border-[#C4DCF5] whitespace-nowrap">{u}</span>
+          ))}
         </div>
       )}
 
-      <div className="p-4">
-        <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-2 ${catColors[p.cat] || catColors.Other}`}>
-          {p.cat}
-        </span>
-        <div className="font-sora font-semibold text-brand-text text-sm mb-1">{p.name}</div>
-        <div className="text-brand-muted text-xs leading-relaxed line-clamp-2 mb-3">{p.desc}</div>
-
-        <div className="flex flex-wrap gap-1 mb-3">
-          {p.cellular_gen !== 'none' && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-brand-blue text-white font-medium">{p.cellular_gen}</span>
-          )}
-          {p.wifi !== 'none' && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-brand-blue/10 text-brand-blue font-medium">{wifiLabel(p.wifi)}</span>
-          )}
-          {p.rs485 && <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-medium">RS485</span>}
-          {p.rs232 && <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-medium">RS232</span>}
-          {p.ports > 0 && <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{p.ports} ports</span>}
-          {p.ip && <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{p.ip}</span>}
-        </div>
-
-        {uc.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
-            {uc.slice(0, 2).map(u => (
-              <span key={u} className="text-xs px-2 py-0.5 rounded-full border border-dashed border-gray-300 text-brand-muted">{u}</span>
-            ))}
-          </div>
-        )}
-
-        <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-          <label
-            className="flex items-center gap-1.5 cursor-pointer text-xs text-brand-muted hover:text-brand-blue"
-            onClick={e => e.stopPropagation()}
-          >
-            <input
-              type="checkbox"
-              checked={inCompare}
-              onChange={() => onToggleCompare(p.id)}
-              className="accent-brand-blue w-3.5 h-3.5"
-            />
-            Compare
-          </label>
-          <span className="text-xs font-medium text-brand-blue group-hover:underline">Details →</span>
-        </div>
+      <div className="mt-auto pt-2.5 border-t border-[#DDE5EF] flex items-center gap-2">
+        <label
+          className="flex items-center gap-[5px] text-[12px] text-[#5A6E87] cursor-pointer select-none"
+          onClick={e => e.stopPropagation()}
+        >
+          <input
+            type="checkbox"
+            checked={inCompare}
+            onChange={() => onToggleCompare(p.id)}
+            className="w-[14px] h-[14px] accent-[#1A6FC4] cursor-pointer"
+          />
+          Compare
+        </label>
+        <span className="ml-auto text-[12px] text-[#1A6FC4] font-medium hover:underline">Details →</span>
       </div>
     </div>
   )

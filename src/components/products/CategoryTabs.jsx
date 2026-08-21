@@ -1,21 +1,19 @@
-import { catColors } from '../../utils/productHelpers'
-
 export default function CategoryTabs({ cats, activeCat, counts, onCat }) {
   return (
-    <div className="flex flex-wrap gap-2 mb-6">
+    <div className="flex flex-wrap gap-[6px] mb-5">
       {cats.map(cat => (
         <button
           key={cat}
           onClick={() => onCat(cat)}
-          className={`px-4 py-2 rounded-full text-sm font-medium font-sora transition-all border
+          className={`px-[14px] py-[6px] rounded-[20px] text-[13px] font-medium transition-all border flex items-center gap-[6px]
             ${activeCat === cat
-              ? 'bg-brand-blue text-white border-brand-blue shadow-md'
-              : 'bg-white text-brand-muted border-gray-200 hover:border-brand-blue hover:text-brand-blue'
+              ? 'bg-brand-blue border-brand-blue text-white'
+              : 'bg-white text-[#5A6E87] border-[#DDE5EF] hover:border-[#1A6FC4] hover:text-[#1A6FC4]'
             }`}
         >
           {cat}
-          <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full
-            ${activeCat === cat ? 'bg-white/20 text-white' : 'bg-gray-100 text-brand-muted'}`}>
+          <span className={`text-[11px] px-[6px] py-px rounded-[10px]
+            ${activeCat === cat ? 'bg-white/20 text-white' : 'bg-[#F7F9FC] text-[#8DA0B8]'}`}>
             {counts[cat]}
           </span>
         </button>
