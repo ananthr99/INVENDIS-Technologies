@@ -27,5 +27,12 @@
     "High-Bandwidth Smart Factory Connectivity",
     "Multi-Site Enterprise Network Extension",
     "Smart Energy & Utility Field Automation"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 19
 }

@@ -27,5 +27,54 @@
     "Router & Modem Power Backup",
     "CCTV & Security Continuity",
     "Smart Device Power Resilience"
-  ]
+  ],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "wifi",
+    "cpu",
+    "ram",
+    "storage",
+    "ip",
+    "power",
+    "ports",
+    "os",
+    "rs485",
+    "rs232",
+    "housing",
+    "dims",
+    "weight",
+    "op_temp"
+  ],
+  "additional_specs": [
+    {
+      "k": "Input/Output",
+      "v": "12 V Input, 12V/2A/3A Output"
+    },
+    {
+      "k": "Output Port",
+      "v": "Dual Output port"
+    },
+    {
+      "k": "Battery",
+      "v": "User replaceable (18650/26650), overcharge and discharge protection. Thermal protection"
+    },
+    {
+      "k": "Power",
+      "v": "19 Whr, backup time 3-5 hours/ 38 Whr, backup time 9-10 hours"
+    },
+    {
+      "k": "On/Off",
+      "v": "Auto turn on feature"
+    },
+    {
+      "k": "LED Indicators",
+      "v": "Charging and output power status indicators"
+    },
+    {
+      "k": "Protection",
+      "v": "Short Circuit Protection"
+    }
+  ],
+  "order": 36
 }

@@ -27,5 +27,8 @@
   "use_cases": [
     "SD-WAN & Branch Network Connectivity",
     "Secure VPN & Surveillance Network Deployment"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 5
 }

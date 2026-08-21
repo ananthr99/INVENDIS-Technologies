@@ -27,5 +27,11 @@
     "Multi-Site Enterprise WAN Management",
     "Video Surveillance & Security Networks",
     "Industrial Gateway / Edge Computing"
-  ]
+  ],
+  "hidden_fields": [
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 4
 }

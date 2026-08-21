@@ -26,5 +26,14 @@
   "use_cases": [
     "Vehicle & Transportation Systems",
     "Passengers Infotainment AP for Railways"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "rs485",
+    "rs232",
+    "housing",
+    "weight"
+  ],
+  "additional_specs": [],
+  "order": 32
 }

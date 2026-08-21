@@ -27,5 +27,14 @@
     "Energy Meter & Utility Device Integration",
     "Building Automation Connectivity",
     "Legacy Device Network Enablement"
-  ]
+  ],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 28
 }

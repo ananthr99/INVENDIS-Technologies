@@ -27,5 +27,42 @@
     "Telecom Power Monitoring",
     "Solar & Battery System Analytics",
     "EV Charging & DC Infrastructure"
-  ]
+  ],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "wifi",
+    "cpu",
+    "ram",
+    "storage",
+    "ip",
+    "power",
+    "ports",
+    "os",
+    "rs485",
+    "rs232",
+    "housing",
+    "dims",
+    "weight",
+    "op_temp"
+  ],
+  "additional_specs": [
+    {
+      "k": "Range of Measurement Parameters-DC Voltage",
+      "v": "20-60 VDC"
+    },
+    {
+      "k": "Range of Measurement Parameters-DC Current",
+      "v": "1-100A/200A DC"
+    },
+    {
+      "k": "Resolution of Measurement Parameters-DC Voltage",
+      "v": "0.1V or better"
+    },
+    {
+      "k": "Resolution of Measurement Parameters-DC Current",
+      "v": "0.2A or better"
+    }
+  ],
+  "order": 39
 }

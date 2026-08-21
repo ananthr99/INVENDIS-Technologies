@@ -27,5 +27,11 @@
     "Energy Monitoring & Power Management",
     "Process Automation & Industrial Control",
     "Smart Infrastructure & Remote Asset Intelligence"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "ports"
+  ],
+  "additional_specs": [],
+  "order": 21
 }

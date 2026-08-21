@@ -27,5 +27,8 @@
     "Remote Sensor & Transducer data to cloud",
     "Drinking Water Treatment plant data to remote Cloud SCADA",
     "Industrial Alarm & Event Monitoring"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 18
 }

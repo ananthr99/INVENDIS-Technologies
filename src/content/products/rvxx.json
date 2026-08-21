@@ -27,5 +27,8 @@
     "M2M Communication & Remote Asset Connectivity",
     "Transportation & Fleet Connectivity",
     "Backup Connectivity for Small Industrial Remote Sites"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 9
 }

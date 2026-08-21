@@ -27,5 +27,8 @@
     "Digital Signage & Remote Display Networks",
     "Environmental & Field Data Collection",
     "Secure Enterprise Backup Network"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 12
 }

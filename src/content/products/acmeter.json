@@ -28,5 +28,69 @@
     "Grid & Generator Energy Tracking",
     "Industrial Power Monitoring",
     "Facility Energy Auditing"
-  ]
+  ],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "wifi",
+    "cpu",
+    "ram",
+    "storage",
+    "ip",
+    "power",
+    "ports",
+    "os",
+    "rs485",
+    "rs232",
+    "housing",
+    "dims",
+    "weight"
+  ],
+  "additional_specs": [
+    {
+      "k": "AC Current Measurement",
+      "v": "Average, AR, AY, AB"
+    },
+    {
+      "k": "AC Voltage Measurement",
+      "v": "Average VLL (RY, YB, BR), VLN (RN, YN, BN)"
+    },
+    {
+      "k": "Power Factor",
+      "v": "Average and Phase Wise"
+    },
+    {
+      "k": "Active Power (kW)",
+      "v": "Total and Phase Wise"
+    },
+    {
+      "k": "Apparent Power (kVA)",
+      "v": "Total and Phase Wise T"
+    },
+    {
+      "k": "Frequency (Hz)",
+      "v": "45 to 65 Hz"
+    },
+    {
+      "k": "Active Energy(kWh)",
+      "v": "Both EB and DG"
+    },
+    {
+      "k": "Isolation (RS485)",
+      "v": "2000 VAC Isolation for 1 min between communication and other circuits"
+    },
+    {
+      "k": "Power Input",
+      "v": "48 VDC"
+    },
+    {
+      "k": "Storage temperature",
+      "v": "-25°C to 70°C"
+    },
+    {
+      "k": "Humidity",
+      "v": "5% to 95% non condensing"
+    }
+  ],
+  "order": 38
 }

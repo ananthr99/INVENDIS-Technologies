@@ -27,5 +27,16 @@
     "CCTV & Video Surveillance Deployment",
     "Enterprise & Smart Building Connectivity",
     "Industrial Cabinet & Field Network Expansion"
-  ]
+  ],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "wifi",
+    "cpu",
+    "ram",
+    "storage",
+    "os"
+  ],
+  "additional_specs": [],
+  "order": 22
 }

@@ -27,5 +27,11 @@
     "Telecom Tower Connectivity",
     "Smart Utility & Street Cabinet Networking",
     "Remote Industrial Monitoring"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 34
 }

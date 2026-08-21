@@ -27,5 +27,8 @@
     "Smart Transportation Connectivity",
     "Smart Infrastructure & Utility Monitoring",
     "Smart Kiosk & ATM Connectivity"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 11
 }

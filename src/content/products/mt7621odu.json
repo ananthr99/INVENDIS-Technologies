@@ -27,5 +27,8 @@
     "Outdoor CCTV & Perimeter Surveillance",
     "Smart Transportation & Roadside Infrastructure",
     "Remote Outdoor Asset Connectivity"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 30
 }

@@ -29,5 +29,11 @@
     "Industrial Machine Vision & Quality Inspection",
     "Smart Traffic & Transportation Edge Nodes",
     "Edge Security & Surveillance with AI Analytics"
-  ]
+  ],
+  "hidden_fields": [
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 5
 }

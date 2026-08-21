@@ -27,5 +27,26 @@
     "Branch-Level Energy Monitoring",
     "Data Centre & Facility Load Profiling",
     "Energy Cost Allocation"
-  ]
+  ],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "wifi",
+    "cpu",
+    "ram",
+    "storage",
+    "ip",
+    "power",
+    "ports",
+    "os",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "RS485",
+      "v": "1"
+    }
+  ],
+  "order": 40
 }

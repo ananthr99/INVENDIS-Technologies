@@ -25,5 +25,12 @@
   "datasheet": "",
   "use_cases": [
     "CCTV & Video Surveillance Connectivity for ISP communication Tower"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 13
 }

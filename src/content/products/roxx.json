@@ -26,5 +26,8 @@
   "use_cases": [
     "Telecom Backhaul & Site Connectivity",
     "Enterprise Edge Network with Dual Active for Load Balancing"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 7
 }

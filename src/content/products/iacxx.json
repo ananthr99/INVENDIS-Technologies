@@ -27,5 +27,11 @@
     "OEM Embedded Connectivity Solutions",
     "Factory Floor Network Integration",
     "Infrastructure Equipment Connectivity"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 17
 }

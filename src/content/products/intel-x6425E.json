@@ -28,5 +28,11 @@
     "Healthcare",
     "Defence and Intelligence",
     "Small & Mid-Sized Enterprises (SMEs)"
-  ]
+  ],
+  "hidden_fields": [
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 1
 }

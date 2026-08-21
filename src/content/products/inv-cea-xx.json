@@ -27,5 +27,12 @@
   "use_cases": [
     "Industrial Automation & Control",
     "Machine Monitoring & OEE System"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 3
 }

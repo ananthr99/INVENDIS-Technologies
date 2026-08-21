@@ -27,5 +27,8 @@
     "Enterprise & Office Wireless Connectivity",
     "Retail & Commercial Space Networking",
     "Industrial Wireless Network Extension"
-  ]
+  ],
+  "hidden_fields": [],
+  "additional_specs": [],
+  "order": 6
 }

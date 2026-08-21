@@ -21,5 +21,31 @@
   "op_temp": "",
   "images": [],
   "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/itx-arl-board-datasheet.pdf",
-  "use_cases": []
+  "use_cases": [],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "wifi",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Cellular",
+      "v": "One M.2( B Key, supports both types 3042 and 3052) with USB2.0, USB3.0 and PCIe x 1 Supporting both 4G and 5G Modems."
+    },
+    {
+      "k": "Sim",
+      "v": "2x Nano SIM"
+    },
+    {
+      "k": "Graphics",
+      "v": "Intel® Arc™ 140T GPU, 1 x 8 PCIe Gen 5 Discreet Graphics Support (Optional)"
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "One M.2 ( E Key, 3052 for Wifi/BLE Module 802.11b/g/n/ac/ax (1 x PCIe, 1 X USB2.0)"
+    }
+  ],
+  "order": 6
 }

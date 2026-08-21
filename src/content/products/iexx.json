@@ -27,5 +27,12 @@
     "Smart Metering & Utility Data Collection using eSIM",
     "Remote Equipment Monitoring using dual profile eSIM",
     "Kiosk & Self-Service Terminal Connectivity using Multi profile eSIM"
-  ]
+  ],
+  "hidden_fields": [
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 13
 }

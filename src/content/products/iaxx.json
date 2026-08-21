@@ -27,5 +27,10 @@
     "Industrial Machine Data Communication",
     "Remote Infrastructure Management",
     "Smart Building Network Management"
-  ]
+  ],
+  "hidden_fields": [
+    "rs232"
+  ],
+  "additional_specs": [],
+  "order": 14
 }
