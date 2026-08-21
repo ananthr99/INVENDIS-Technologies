@@ -38,12 +38,19 @@ const NAV = [
 
 export default function Dashboard() {
   const { accounts } = useMsal()
-  const { token } = useAdmin()
+  const { token, isDirty, showConfirm } = useAdmin()
   const [active, setActive] = useState('dashboard')
   const [collapsed, setCollapsed] = useState({ CONTENT: false, PAGES: false, ADMIN: false })
   const user = accounts[0]
 
   function handleSignOut() {
+    if (isDirty()) {
+      showConfirm('You have unsaved changes. Leave anyway?', () => {
+        sessionStorage.clear()
+        window.location.reload()
+      })
+      return
+    }
     sessionStorage.clear()
     window.location.reload()
   }
@@ -100,7 +107,14 @@ export default function Dashboard() {
                       item.soon ? 'disabled' : '',
                     ].join(' ').trim()}
                     style={isPage ? { paddingLeft: 20 } : {}}
-                    onClick={() => !item.soon && setActive(item.key)}
+                    onClick={() => {
+                      if (item.soon) return
+                      if (isDirty()) {
+                        showConfirm('You have unsaved changes. Discard them?', () => setActive(item.key))
+                      } else {
+                        setActive(item.key)
+                      }
+                    }}
                   >
                     {item.label}
                     {item.soon && (
