@@ -1,4 +1,4 @@
-const BLOG_BASE = '/content/blog'
+const BLOG_BASE = `${import.meta.env.BASE_URL}content/blog`
 
 export const CATEGORIES = ['All', 'Technical Article', 'Application Note', 'Industry Insight', 'Case Study']
 
