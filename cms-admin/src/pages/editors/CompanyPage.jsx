@@ -8,7 +8,7 @@ const GH_PAGES_PATH = 'content/pages/company.json'
 const TABS = ['Hero', 'Mission', 'Values', 'Timeline', 'Facilities', 'Team', 'CTA Banner']
 
 export default function CompanyPage() {
-  const { token, toast, userEmail } = useAdmin()
+  const { token, toast, userEmail, setDirty } = useAdmin()
   const [data,         setData]         = useState(null)
   const [originalData, setOriginalData] = useState(null)
   const [sha,          setSha]          = useState('')
@@ -32,6 +32,14 @@ export default function CompanyPage() {
     }
     load()
   }, [])
+
+  useEffect(() => {
+    if (data && originalData) {
+      setDirty(JSON.stringify(data) !== JSON.stringify(originalData))
+    }
+  }, [data, originalData])
+
+  useEffect(() => () => setDirty(false), [])
 
   async function handleSave() {
     setSaving(true)

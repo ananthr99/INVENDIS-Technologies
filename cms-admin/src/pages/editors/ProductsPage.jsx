@@ -8,7 +8,7 @@ const GH_PAGES_PATH = 'content/pages/products.json'
 const TABS = ['Hero', 'Hardware', 'SILBO Products', 'Software', 'Design Partners', 'CTA Banner']
 
 export default function ProductsPage() {
-  const { token, toast, userEmail } = useAdmin()
+  const { token, toast, userEmail, setDirty } = useAdmin()
   const [data,         setData]         = useState(null)
   const [originalData, setOriginalData] = useState(null)
   const [sha,          setSha]          = useState('')
@@ -32,6 +32,14 @@ export default function ProductsPage() {
     }
     load()
   }, [])
+
+  useEffect(() => {
+    if (data && originalData) {
+      setDirty(JSON.stringify(data) !== JSON.stringify(originalData))
+    }
+  }, [data, originalData])
+
+  useEffect(() => () => setDirty(false), [])
 
   async function handleSave() {
     setSaving(true)

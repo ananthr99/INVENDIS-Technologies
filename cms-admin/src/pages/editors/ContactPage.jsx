@@ -8,7 +8,7 @@ const GH_PAGES_PATH = 'content/pages/contact.json'
 const TABS = ['Hero', 'Contact Items', 'Quick Facts', 'Form Labels', 'Map Section']
 
 export default function ContactPage() {
-  const { token, toast, userEmail } = useAdmin()
+  const { token, toast, userEmail, setDirty } = useAdmin()
   const [data,      setData]      = useState(null)
   const [sha,       setSha]       = useState('')
   const [loading,   setLoading]   = useState(true)
@@ -32,6 +32,15 @@ export default function ContactPage() {
     }
     load()
   }, [])
+  
+  useEffect(() => {
+    if (data && originalData) {
+      setDirty(JSON.stringify(data) !== JSON.stringify(originalData))
+    }
+  }, [data, originalData])
+
+  useEffect(() => () => setDirty(false), [])
+
 
   async function handleSave() {
     setSaving(true)

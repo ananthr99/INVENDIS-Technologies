@@ -18,7 +18,7 @@ function toBase64(file) {
 }
 
 export default function SilboPage() {
-  const { token, toast, userEmail } = useAdmin()
+  const { token, toast, userEmail, setDirty } = useAdmin()
   const [data,         setData]         = useState(null)
   const [originalData, setOriginalData] = useState(null)
   const [sha,          setSha]          = useState('')
@@ -55,6 +55,14 @@ export default function SilboPage() {
     }
     load()
   }, [])
+
+  useEffect(() => {
+    if (data && originalData) {
+      setDirty(JSON.stringify(data) !== JSON.stringify(originalData))
+    }
+  }, [data, originalData])
+
+  useEffect(() => () => setDirty(false), [])
 
   async function handleSave() {
     setSaving(true)
