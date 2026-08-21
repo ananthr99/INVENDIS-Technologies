@@ -1,33 +1,31 @@
 {
   "id": "isense",
-  "name": "iSense Series",
+  "name": "iSense XXX",
   "cat": "Gateway",
-  "cpu": "Dual Core 0.88 GHz, 512 MB RAM, eMMC up to 32 GB",
+  "cpu": "Dual Core 0.88 GHz",
   "ram": "512 MB + eMMC up to 32 GB",
   "storage": "32 MB Flash",
   "cell": "4G",
   "cellular_gen": "4G",
-  "wifi": "WiFi24",
+  "wifi": "WiFi5",
   "rs485": true,
   "rs232": true,
   "ip": "",
-  "power": "20–60 VDC",
-  "ports": 4,
+  "power": "20-60 VDC",
+  "ports": 0,
   "os": "Linux OS",
-  "desc": "Heavy industrial controller: 24× DI, 8× DO (SPDT relay), 4× RS485, 8× AI, 2× RTD, onboard temperature sensor",
+  "desc": "The iSense is purpose-built for data-heavy industrial environments, combining 24 isolated digital inputs, 8 relay outputs, 4x RS485, analog voltage/current sensing, and dual external temperature probes into a single converged gateway. This density of I/O — backed by a dual-core processor with up to 32GB eMMC and native Modbus, SNMP, and MQTT support — makes it the go-to solution for energy monitoring, process automation, and smart infrastructure projects where deep field-level visibility drives operational decisions.",
   "housing": "Sheet Metal",
-  "dims": "—",
-  "weight": "1 kg",
-  "op_temp": "-10–70 °C",
+  "dims": "309 x 221 x 58 mm (L x W x H)",
+  "weight": "1853 g",
+  "op_temp": "-10°C to 70°C",
   "images": [
-    "/products/images/isense-violet.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/isense-1786612536077-wooc.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "Telecom Tower Monitoring",
-    "Industrial RTU / PLC",
-    "Building Management",
-    "Substation Automation",
-    "SCADA Remote Terminal"
+    "Energy Monitoring & Power Management",
+    "Process Automation & Industrial Control",
+    "Smart Infrastructure & Remote Asset Intelligence"
   ]
 }

@@ -2,7 +2,7 @@
   "id": "idbxx",
   "name": "IDBXX-X",
   "cat": "Gateway",
-  "cpu": "MediaTek MT7621, 512 MB DDR3, 32 MB Flash",
+  "cpu": "MediaTek MT7621",
   "ram": "512 MB DDR3",
   "storage": "32 MB Flash",
   "cell": "4G/5G",
@@ -11,22 +11,21 @@
   "rs485": true,
   "rs232": true,
   "ip": "",
-  "power": "9–30 VDC",
+  "power": "9-30 VDC",
   "ports": 4,
   "os": "OpenWRT Linux",
-  "desc": "5G gateway with RS485, RS232, 4× DI/O, 2× AI — heavy I/O variant",
+  "desc": "Where the IDB54 stands out is its configurable WAN/LAN port — giving network administrators the flexibility to repurpose a Gigabit port based on deployment needs — paired with 512MB RAM and dual-band 802.11 b/g/n/ac Wi-Fi for high-throughput performance. Housed in a rugged aluminium shell rated for -20 to 60°C operation, it is tailored for enterprises and system integrators who need a versatile, high-performance edge router that adapts to evolving network topologies across commercial and industrial sites.",
   "housing": "Industrial Aluminium",
-  "dims": "110×44×94 mm",
+  "dims": "110 x 44 x 94 mm (W x H x D)",
   "weight": "400 g",
-  "op_temp": "-20–60 °C",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/idb-xx-x.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/idbxx-1786604353861-053y.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "Industrial Machine Monitoring",
-    "Production Line Data",
-    "Process Automation",
-    "Heavy I/O Control"
+    "Custom Industrial Edge Application Development",
+    "Industrial Equipment Integration & Control",
+    "Adaptive Enterprise & Industrial Networking"
   ]
 }

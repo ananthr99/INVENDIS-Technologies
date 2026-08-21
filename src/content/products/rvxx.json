@@ -2,7 +2,7 @@
   "id": "rvxx",
   "name": "RVXX",
   "cat": "Router",
-  "cpu": "MediaTek MT7621, 512 MB DDR3, 32 MB Flash",
+  "cpu": "MediaTek MT7621",
   "ram": "512 MB DDR3",
   "storage": "32 MB Flash",
   "cell": "4G",
@@ -14,19 +14,18 @@
   "power": "12 VDC",
   "ports": 5,
   "os": "OpenWRT Linux",
-  "desc": "4G dual-SIM router with Wi-Fi 5, 1× WAN + 4× LAN, DIN rail mount",
+  "desc": "The RVXX is a compact industrial router built on MediaTek MT7621 featuring dual-band Wi-Fi 5, 4G/3G/2G cellular with dual SIM, and five Gigabit Ethernet ports. Running OpenWRT Linux, it supports VPN, VLAN, advanced routing and NMS remote management, making it ideal for industrial IoT, M2M, and edge-networking deployments. It ships in a fanless industrial aluminium enclosure with 12 V DC input and optional DIN rail mounting.",
   "housing": "Industrial Aluminium",
-  "dims": "110×60×95 mm",
+  "dims": "110 x 60 x 95 mm (W x H x D)",
   "weight": "390 g",
-  "op_temp": "0–50 °C",
+  "op_temp": "0-50 ˚C",
   "images": [
-    "/products/images/rv-xx.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvxx-1786526209549-0r85.jpg"
   ],
   "datasheet": "",
   "use_cases": [
-    "Remote Asset Monitoring",
-    "Industrial IoT Connectivity",
-    "Utility Metering",
-    "Vending Machine Networks"
+    "M2M Communication & Remote Asset Connectivity",
+    "Transportation & Fleet Connectivity",
+    "Backup Connectivity for Small Industrial Remote Sites"
   ]
 }

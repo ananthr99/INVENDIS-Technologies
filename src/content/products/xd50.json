@@ -2,31 +2,30 @@
   "id": "xd50",
   "name": "XD50-1",
   "cat": "Switch",
-  "cpu": "—",
-  "ram": "—",
-  "storage": "—",
+  "cpu": "â",
+  "ram": "â",
+  "storage": "â",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
   "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "9–30 VDC",
+  "power": "9-30 VDC",
   "ports": 5,
   "os": "—",
-  "desc": "5-port fast ethernet unmanaged PoE switch, 240W budget, compact",
+  "desc": "The XD-80-1 cuts through network complexity by delivering plug-and-play Gigabit switching with zero configuration overhead — five PoE-capable ports, two SFP uplinks, and a 240W total PoE budget ready to power cameras, access points, and IP phones straight out of the box. Its wide 9-57Vdc input range and DIN rail-mountable aluminium body make it equally at home in a control cabinet or a harsh field enclosure, serving installers and contractors who need reliable, no-fuss layer-2 connectivity without the cost of managed switch complexity.",
   "housing": "Sheet Metal",
-  "dims": "27×112×94 mm",
+  "dims": "27 mm x 112 mm x 94 mm (W x H x D)",
   "weight": "307 g",
-  "op_temp": "—",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/xd-50-1.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xd50-1786618369532-d69m.png"
   ],
-  "datasheet": "",
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/xd50-datasheet.pdf",
   "use_cases": [
-    "Compact PoE Deployment",
-    "Single Cabinet Networking",
-    "Small Device Clusters",
-    "Edge PoE Switching"
+    "EV Charger controller connectivity",
+    "Edge Cabinet Network Integration",
+    "Smart Kiosk & Edge Device Networking"
   ]
 }

@@ -2,31 +2,30 @@
   "id": "xc80",
   "name": "XC80-1",
   "cat": "Switch",
-  "cpu": "—",
-  "ram": "—",
-  "storage": "—",
+  "cpu": "â",
+  "ram": "â",
+  "storage": "â",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
   "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "9–30 VDC",
+  "power": "9-30 VDC",
   "ports": 8,
-  "os": "—",
-  "desc": "8-port fast ethernet unmanaged PoE switch, 240W budget, DIN rail",
+  "os": "â",
+  "desc": "The XC-80-1 cuts through network complexity by delivering plug-and-play Gigabit switching with zero configuration overhead — eight PoE-capable ports, two SFP uplinks, and a 240W total PoE budget ready to power cameras, access points, and IP phones straight out of the box. Its wide 9-57Vdc input range and DIN rail-mountable aluminium body make it equally at home in a control cabinet or a harsh field enclosure, serving installers and contractors who need reliable, no-fuss layer-2 connectivity without the cost of managed switch complexity.",
   "housing": "Sheet Metal",
-  "dims": "45×110×95 mm",
+  "dims": "45 mm x 110 mm x 95 mm (W x H x D)",
   "weight": "386 g",
-  "op_temp": "—",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/xc-80-1.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xc80-1786699708540-nzt4.png"
   ],
-  "datasheet": "",
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/xc80-datasheet.pdf",
   "use_cases": [
-    "Small IP Camera Systems",
-    "PoE Device Connectivity",
-    "Industrial Field Devices",
-    "DIN Rail PoE Switch"
+    "Factory Floor Device Connectivity",
+    "Smart Security Infrastructure",
+    "Industrial Workstation Connectivity"
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "id": "bcpm",
+  "name": "ET7022 (BCPM)",
+  "cat": "Energy Meter",
+  "cpu": "â",
+  "ram": "â",
+  "storage": "â",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "85â270V AC/DC",
+  "ports": 0,
+  "os": "â",
+  "desc": "Designed to bring circuit-level visibility to distribution boards, the Branch Circuit Power Meter tracks active power, energy, and power factor across individual single and three-phase branches — giving electrical teams a granular breakdown of consumption that a single main meter cannot provide. Its DIN rail form factor, Modbus RS485 communication, and wide 85-270V auxiliary supply make it a straightforward retrofit into existing panels for data centres, commercial buildings, and industrial facilities focused on load profiling and energy cost allocation.",
+  "housing": "Panel mount",
+  "dims": "185 x 110 x 30 (WXHXD)",
+  "weight": "750gm (approx.)",
+  "op_temp": "-10-75°C",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/bcpm-1787139262779-6be3.png"
+  ],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/bcpm-datasheet.pdf",
+  "use_cases": [
+    "Branch-Level Energy Monitoring",
+    "Data Centre & Facility Load Profiling",
+    "Energy Cost Allocation"
+  ]
+}

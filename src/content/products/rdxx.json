@@ -2,31 +2,30 @@
   "id": "rdxx",
   "name": "RDXX",
   "cat": "Router",
-  "cpu": "MediaTek MT7628, 128 MB DDR2, 32 MB Flash",
+  "cpu": "MediaTek MT7628",
   "ram": "128 MB DDR2",
   "storage": "32 MB Flash",
   "cell": "4G",
   "cellular_gen": "4G",
   "wifi": "WiFi24",
-  "rs485": true,
-  "rs232": true,
+  "rs485": false,
+  "rs232": false,
   "ip": "",
-  "power": "9–30 VDC",
-  "ports": 5,
+  "power": "9-30 VDC",
+  "ports": 0,
   "os": "OpenWRT Linux",
-  "desc": "4G router with RS485, RS232, gateway software option; 1× WAN + 4× LAN",
+  "desc": "This is a rugged, industrial-grade cellular router designed to provide reliable wired and wireless connectivity for remote and mission-critical deployments. Key differentiators include dual SIM failover, OpenWRT-based flexibility, extensive VPN support, and advanced routing/firewall capabilities in a compact, fanless metal enclosure. It is ideal for industries such as IoT, smart infrastructure, transportation, and enterprise branch networking requiring secure, always-on connectivity.",
   "housing": "Sheet Metal",
-  "dims": "123×28×121 mm",
+  "dims": "123.2 x 28 x 120.6mm (W x H x D)",
   "weight": "370 g",
-  "op_temp": "0–50 °C",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/rd-xx.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rdxx-1787138585077-wcqd.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "SCADA / Modbus Gateway",
-    "Meter Data Collection",
-    "PLC Connectivity",
-    "Industrial Data Bridge"
+    "Smart Transportation Connectivity",
+    "Smart Infrastructure & Utility Monitoring",
+    "Smart Kiosk & ATM Connectivity"
   ]
 }

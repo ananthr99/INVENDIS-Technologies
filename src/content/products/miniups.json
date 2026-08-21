@@ -2,9 +2,9 @@
   "id": "miniups",
   "name": "Mini UPS",
   "cat": "Other",
-  "cpu": "—",
-  "ram": "—",
-  "storage": "—",
+  "cpu": "â",
+  "ram": "â",
+  "storage": "â",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
@@ -13,20 +13,19 @@
   "ip": "",
   "power": "12V in / 12V out (2A/3A)",
   "ports": 0,
-  "os": "—",
-  "desc": "Compact UPS: 19 Whr (3–5 hr) or 38 Whr (9–10 hr) runtime, user-replaceable 18650/26650 cell",
+  "os": "â",
+  "desc": "The Mini UPS keeps low-voltage devices alive through power cuts, delivering up to 10 hours of backup from its user-replaceable 38Whr battery via dual 12V output ports. With auto turn-on, built-in short circuit and thermal protection, it is a practical fit for network installers and system integrators looking to add affordable power resilience to routers, IP cameras, and access points without the bulk of a traditional UPS.",
   "housing": "Plastic",
-  "dims": "—",
-  "weight": "—",
-  "op_temp": "—",
+  "dims": "â",
+  "weight": "â",
+  "op_temp": "â",
   "images": [
-    "/products/images/Mini UPS.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/miniups-1787031823007-0u2g.png"
   ],
-  "datasheet": "/products/datasheets/Mini UPS_Metal Enclosure_Datasheet 1.pdf",
+  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/Mini UPS_Metal Enclosure_Datasheet 1.pdf",
   "use_cases": [
-    "Router Power Backup",
-    "Industrial Device Continuity",
-    "Remote Site Power Resilience",
-    "Gateway Failover Power"
+    "Router & Modem Power Backup",
+    "CCTV & Security Continuity",
+    "Smart Device Power Resilience"
   ]
 }

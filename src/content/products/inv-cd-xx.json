@@ -1,33 +1,33 @@
 {
   "id": "inv-cd-xx",
   "name": "INV-CD-XX",
-  "cat": "Router",
-  "cpu": "Intel X7425E, 4-core 3.4 GHz",
-  "ram": "Up to 64 GB DDR5",
-  "storage": "Up to 512 GB SSD / 64 GB eMMC",
+  "cat": "Intel Based Devices",
+  "cpu": "Intel N150/x7425E/x7433RE/x7835RE/i3-N305/N355, 4/8 cores with 3.4GHz Turbo Frequency",
+  "ram": "64GB DDR5 SODIMM (Max) (Memory to be Separately Ordered)",
+  "storage": "1x M.2 (Key-B), 512 GB SATA SSD Module (Up to 1 TB",
   "cell": "4G/5G",
   "cellular_gen": "5G",
   "wifi": "WiFi6",
   "rs485": false,
-  "rs232": true,
-  "ip": "",
+  "rs232": false,
+  "ip": "IP30",
   "power": "12V DC",
   "ports": 2,
-  "os": "Oracle Linux / Ubuntu 23 / Windows 10+",
-  "desc": "Ultra-compact mini-PC with dual HDMI, LVDS display, 2× USB 3.0, 4× USB 2.0",
-  "housing": "Aluminium",
-  "dims": "150×123×35 mm",
+  "os": "Oracle Linux v.9.5 and above Ubuntu 23, Windows 10 and above",
+  "desc": "This compact, fanless edge computing system is designed for AI inference, networking, and industrial applications, combining an Intel® Core™ N350 processor with flexible expansion for AI accelerators or NVMe storage. Key differentiators include dual Gigabit LAN, multiple display outputs (up to 4K), wide OS support, and robust I/O in a small form factor. It targets edge AI deployments, smart retail, industrial automation, and network security solutions.",
+  "housing": "Aluminum Heat Sink with CRCA Enclosure (Fanless Design), Sheet Metal (Fan Design)",
+  "dims": "150mmx210mmx65mm (LxWxH)",
   "weight": "995 g",
-  "op_temp": "0–50 °C",
+  "op_temp": "0 -50°C",
   "images": [
-    "/products/images/inv-cd-xx-1.png",
-    "/products/images/inv-cd-xx-2.png"
+    "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/images/inv-cd-xx-1.png",
+    "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/images/inv-cd-xx-2.png",
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-cd-xx-1786515792452-i9dg.png"
   ],
-  "datasheet": "/products/datasheets/INV-CD-N350_Datasheet.pdf",
+  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/INV-CD-N350_Datasheet.pdf",
   "use_cases": [
-    "Digital Kiosk / HMI",
-    "Edge Mini-PC",
-    "Video Wall Controller",
-    "Industrial Desktop"
+    "Industrial Machine Vision & Quality Inspection",
+    "Smart Traffic & Transportation Edge Nodes",
+    "Edge Security & Surveillance with AI Analytics"
   ]
 }

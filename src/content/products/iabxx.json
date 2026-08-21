@@ -2,31 +2,30 @@
   "id": "iabxx",
   "name": "IABXX-X",
   "cat": "Gateway",
-  "cpu": "MediaTek MT7628, 128 MB DDR2, 32 MB Flash",
+  "cpu": "MediaTek MT7628",
   "ram": "128 MB DDR2",
   "storage": "32 MB Flash",
   "cell": "4G",
   "cellular_gen": "4G",
-  "wifi": "WiFi24",
+  "wifi": "WiFi4",
   "rs485": true,
   "rs232": true,
   "ip": "",
-  "power": "9–30 VDC",
+  "power": "9-30 VDC",
   "ports": 2,
   "os": "OpenWRT Linux",
-  "desc": "Advanced gateway: RS485, RS232, 4× DIO, 2× AI, ISO 24V out, USB host",
+  "desc": "The IABXX-X is a rugged cellular router designed for reliable industrial connectivity, featuring a MediaTek MT7628 CPU with 128MB RAM and dual Nano SIM slots for flexible network redundancy. Running on OpenWRT-based Linux, it operates seamlessly across harsh environments — from -30 to 70°C storage temperatures — making it an ideal fit for IoT deployments, remote infrastructure monitoring, and industrial automation where uptime and durability are non-negotiable.",
   "housing": "Industrial Aluminium",
-  "dims": "110×44×94 mm",
+  "dims": "110 x 44 x 94 mm (W x H x D)",
   "weight": "427 g",
-  "op_temp": "0–50 °C",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/iab-xx-x.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/iabxx-1787122808489-w1hl.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "SCADA Data Aggregation",
-    "Process Monitoring",
-    "Multi-protocol Integration",
-    "Industrial Control Gateway"
+    "Smart Energy & Utility Automation",
+    "Industrial Process Monitoring",
+    "Remote Environmental & Field Monitoring"
   ]
 }

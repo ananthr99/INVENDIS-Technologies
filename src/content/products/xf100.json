@@ -2,31 +2,30 @@
   "id": "xf100",
   "name": "XF100-1",
   "cat": "Switch",
-  "cpu": "—",
-  "ram": "—",
-  "storage": "—",
+  "cpu": "â",
+  "ram": "â",
+  "storage": "â",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
   "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "9–30 VDC",
+  "power": "9-30 VDC",
   "ports": 10,
-  "os": "—",
-  "desc": "10-port fast ethernet unmanaged PoE switch, 240W budget, DIN rail",
+  "os": "â",
+  "desc": "The XF-80-1 cuts through network complexity by delivering plug-and-play Gigabit switching with zero configuration overhead — five PoE-capable ports, two SFP uplinks, and a 240W total PoE budget ready to power cameras, access points, and IP phones straight out of the box. Its wide 9-57Vdc input range and DIN rail-mountable aluminium body make it equally at home in a control cabinet or a harsh field enclosure, serving installers and contractors who need reliable, no-fuss layer-2 connectivity without the cost of managed switch complexity.",
   "housing": "Sheet Metal",
-  "dims": "45×116×90 mm",
+  "dims": "45 mm x 116 mm x 90 mm (W x H x D)",
   "weight": "416 g",
-  "op_temp": "—",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/xf-100-1.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xf100-1786701452959-v1y6.png"
   ],
-  "datasheet": "",
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/xf100-datasheet.pdf",
   "use_cases": [
-    "Large IP Camera Deployments",
-    "Industrial Sensor Networks",
-    "High-Port-Count PoE",
-    "PoE Device Hub"
+    "Large Camera & Surveillance Networks",
+    "Smart Office & Campus Device Connectivity",
+    "Industrial Automation Network Expansion"
   ]
 }

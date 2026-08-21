@@ -2,31 +2,30 @@
   "id": "iexx",
   "name": "IEXX-X-XX",
   "cat": "Gateway",
-  "cpu": "MediaTek MT7628, 128 MB DDR2, 32 MB Flash",
+  "cpu": "MT7628",
   "ram": "128 MB DDR2",
   "storage": "32 MB Flash",
   "cell": "4G",
   "cellular_gen": "4G",
-  "wifi": "WiFi24",
-  "rs485": true,
+  "wifi": "WiFi4",
+  "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "9–36 VDC",
+  "power": "9-36 VDC",
   "ports": 2,
   "os": "OpenWRT Linux",
-  "desc": "Compact IoT gateway with eSIM support, RS485, 2× configurable DIO",
+  "desc": "This compact industrial gateway is designed to provide reliable cellular and Wi-Fi connectivity for lightweight, distributed networking applications. Its key strengths include flexible SIM options (eSIM/physical), wide input voltage range, rugged fanless design, and a versatile OpenWRT platform with strong VPN and security support. It is well-suited for IoT use cases such as remote monitoring, smart utilities, kiosks, and small-scale industrial or enterprise edge deployments.",
   "housing": "Metal",
-  "dims": "97×28×84 mm",
+  "dims": "97 x 28 x 84mm (W x H x D)",
   "weight": "280 g",
-  "op_temp": "-20–60 °C",
+  "op_temp": "-20 ~ 60 ˚C",
   "images": [
-    "/products/images/iexx-x-xx.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/iexx-1786535373955-vsb7.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "Smart Meter Reading",
-    "Remote Sensor Data",
-    "Asset Tracking",
-    "Building Automation"
+    "Smart Metering & Utility Data Collection using eSIM",
+    "Remote Equipment Monitoring using dual profile eSIM",
+    "Kiosk & Self-Service Terminal Connectivity using Multi profile eSIM"
   ]
 }

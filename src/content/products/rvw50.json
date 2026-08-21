@@ -1,8 +1,8 @@
 {
   "id": "rvw50",
   "name": "RVW 50 with M12",
-  "cat": "Router",
-  "cpu": "MediaTek MT7621, 512 MB DDR3",
+  "cat": "PCB",
+  "cpu": "MediaTek MT7621",
   "ram": "256/512 MB DDR3",
   "storage": "32/64 MB Flash",
   "cell": "none",
@@ -11,22 +11,21 @@
   "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "Active PoE 44–57 VDC",
+  "power": "Active PoE 44-57 VDC",
   "ports": 4,
   "os": "OpenWRT Linux",
-  "desc": "M12 connector router: 1× WAN + 3× LAN (all M12), Wi-Fi 5 — harsh environment design",
+  "desc": "Engineered for vehicle and transit applications, the RVW 50 with M12 swaps standard RJ45 ports for vibration-resistant M12 connectors across its 1+3 Gigabit interfaces, making it inherently suited to the shock and movement demands of rolling stock, fleet vehicles, and mobile command units. Powered over a single PoE cable at 44-57VDC and supporting Multi-WAN failover with Easy Mesh Wi-Fi, it delivers uninterrupted in-vehicle connectivity without the connector reliability concerns that plague conventional router deployments in motion.",
   "housing": "Industrial Aluminium",
-  "dims": "209×30×154 mm",
-  "weight": "—",
-  "op_temp": "—",
+  "dims": "209 x 30 x 154 mm (W x H x D)",
+  "weight": "",
+  "op_temp": "0 ~ 50˚C",
   "images": [
-    "/products/images/RVW 50-M12.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvw50-1787139223379-b4ct.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "Railcar / Train Wi-Fi",
-    "Agricultural Machinery",
-    "Marine / Vessel Networking",
-    "Military Vehicle Comms"
+    "Transit & Passenger Connectivity",
+    "Mobile Field Operations",
+    "Industrial Fleet Networking"
   ]
 }

@@ -1,33 +1,32 @@
 {
   "id": "acmeter",
-  "name": "ET4602",
+  "name": "ET4602 (AC Meter)",
   "cat": "Energy Meter",
-  "cpu": "—",
-  "ram": "—",
-  "storage": "—",
+  "cpu": "â",
+  "ram": "â",
+  "storage": "â",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
   "rs485": true,
   "rs232": false,
   "ip": "",
-  "ports": 0,
   "power": "48 VDC",
-  "os": "—",
-  "desc": "3-phase AC meter: V, A, kW, kVA, PF, frequency — RS485 Modbus with 2000V isolation",
+  "ports": 0,
+  "os": "â",
+  "desc": "Where the AC Meter (INV 4602) earns its place is in dual-source energy environments — separately tracking kWh consumption from both grid (EB) and diesel generator (DG) supplies across all three phases, giving operators a clear split of utility versus backup power costs. With 2000VAC-isolated RS485 communication, phase-wise voltage and current breakdowns, and a wide 45-65Hz frequency tolerance, it serves energy auditors, building managers, and industrial plants looking to bring accountability and precision to their power monitoring without deploying multiple devices.",
   "housing": "Panel mount",
-  "dims": "—",
-  "weight": "—",
-  "op_temp": "-10–55 °C",
+  "dims": "â",
+  "weight": "â",
+  "op_temp": "-10°C to 55°C",
   "images": [
-    "/products/images/AC Meter-1.png",
-    "/products/images/AC Meter-2.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/acmeter-1787030758710-uo1u.png",
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/acmeter-1787030761403-lpj7.png"
   ],
-  "datasheet": "/products/datasheets/ET4602 AC Meter.pdf",
+  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/ET4602 AC Meter.pdf",
   "use_cases": [
-    "AC Distribution Monitoring",
-    "Motor Current Monitoring",
-    "Power Quality Analysis",
-    "Generator Output Metering"
+    "Grid & Generator Energy Tracking",
+    "Industrial Power Monitoring",
+    "Facility Energy Auditing"
   ]
 }

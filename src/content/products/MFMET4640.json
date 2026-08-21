@@ -1,0 +1,31 @@
+{
+  "id": "MFMET4640",
+  "name": "ET 4640 (Multi-Function Meter)",
+  "cat": "Energy Meter",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "",
+  "ports": 0,
+  "os": "—",
+  "desc": "The Multi-Function Meter puts comprehensive three-phase power visibility into a single panel-mountable unit, simultaneously tracking voltage, current, active/reactive/apparent power, energy consumption, and power factor across all phases with quadrant-wise reactive energy breakdown. With a programmable CT primary, onboard RTC, and data storage, it gives energy managers, facility engineers, and utilities the granular electrical insight needed to drive efficiency, detect anomalies, and meet metering compliance requirements across commercial and industrial installations.",
+  "housing": "",
+  "dims": "",
+  "weight": "",
+  "op_temp": "",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/MFMET4640-1787136837806-6zw4.png"
+  ],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/MFMET4640-datasheet.pdf",
+  "use_cases": [
+    "Energy Consumption Monitoring",
+    "Industrial Power Quality Analysis",
+    "Utility & Compliance Metering"
+  ]
+}

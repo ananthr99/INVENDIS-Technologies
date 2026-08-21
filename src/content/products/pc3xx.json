@@ -2,31 +2,30 @@
   "id": "pc3xx",
   "name": "PC3XX",
   "cat": "Switch",
-  "cpu": "MediaTek MT7628, 128 MB DDR2",
+  "cpu": "MediaTek MT7628",
   "ram": "128 MB DDR2",
   "storage": "32 MB Flash",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "WiFi24",
-  "rs485": true,
+  "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "12–24 VDC",
+  "power": "12V-24V",
   "ports": 1,
   "os": "OpenWRT Linux",
-  "desc": "Serial-to-Ethernet converter with 2× RS485 and optional Wi-Fi 4",
+  "desc": "Stripped back to the essentials, the PC310 is a ultra-compact serial-to-IP gateway that bridges RS485 field devices with modern IP networks through a minimal yet capable footprint of just 80 x 26 x 78 mm. Running OpenWRT Linux on a 12-24V supply, it slots effortlessly into existing DIN rail enclosures across building automation, metering, and light industrial applications where space is tight and simplicity of deployment matters most.",
   "housing": "Sheet Metal",
-  "dims": "80×26×78 mm",
+  "dims": "80 x  26  x  78 mm (W x H x D)",
   "weight": "400 g",
-  "op_temp": "0–50 °C",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/pc3-xx.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/pc3xx-1786620992114-lmpi.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "Legacy RS485 Integration",
-    "Modbus TCP Conversion",
-    "SCADA Serial-to-IP Bridge",
-    "Industrial Protocol Gateway"
+    "Energy Meter & Utility Device Integration",
+    "Building Automation Connectivity",
+    "Legacy Device Network Enablement"
   ]
 }

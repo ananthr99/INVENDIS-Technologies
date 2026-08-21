@@ -3,30 +3,29 @@
   "name": "NMS",
   "cat": "Other",
   "cpu": "Software platform",
-  "ram": "—",
-  "storage": "—",
+  "ram": "â",
+  "storage": "â",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
   "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "—",
+  "power": "â",
   "ports": 0,
   "os": "Web-based, OpenWRT compatible",
-  "desc": "Network management system: remote monitoring, config push, auto-provisioning, alerts — supports 10 to 10,000+ devices",
+  "desc": "An NMS (Network Management System) provides centralized visibility and control of network devices, enabling real-time monitoring of device health, performance, configuration, firmware, and connectivity. It supports remote configuration, auto-provisioning, alerts, analytics, secure access, and scalable management of large device networks.",
   "housing": "Software / Cloud",
-  "dims": "—",
-  "weight": "—",
-  "op_temp": "—",
+  "dims": "â",
+  "weight": "â",
+  "op_temp": "â",
   "images": [
-    "/products/images/NMS.jpg"
+    "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/images/NMS.jpg"
   ],
   "datasheet": "",
   "use_cases": [
-    "ISP Router Management",
-    "Smart City IoT Gateways",
-    "Enterprise Network Monitoring",
-    "Energy & Infrastructure Remote Sites"
+    "Remote Monitoring for EV Charging Stations",
+    "IoT-Based Milk Collection & Distribution Monitoring",
+    "Water Storage & Distribution Monitoring"
   ]
 }

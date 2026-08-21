@@ -2,31 +2,30 @@
   "id": "rfnxx",
   "name": "RFNXX",
   "cat": "Gateway",
-  "cpu": "MediaTek MT7628, 128 MB DDR2, 32 MB Flash",
+  "cpu": "MediaTek MT7628",
   "ram": "128 MB DDR2",
   "storage": "32 MB Flash",
   "cell": "4G",
   "cellular_gen": "4G",
-  "wifi": "WiFi24",
+  "wifi": "WiFi4",
   "rs485": true,
   "rs232": false,
   "ip": "IP30",
-  "power": "9–30 VDC",
+  "power": "9-30Vdc",
   "ports": 2,
   "os": "OpenWRT Linux",
-  "desc": "4G gateway with configurable RS485 or DI/DO — choose interface at order time",
+  "desc": "The RFN44-A is an industrial-grade cellular router built on a MediaTek MT7628 platform with dual Nano SIM support, running an OpenWRT-based Linux OS for flexible and reliable connectivity. Housed in a fanless aluminium enclosure with a wide operating temperature range, it targets industrial automation, remote site management, and IoT deployments where rugged, dependable hardware is essential.",
   "housing": "Industrial Aluminium",
-  "dims": "112×35×99 mm",
+  "dims": "112 x 35 x 99 mm (W x H x D)",
   "weight": "297 g",
-  "op_temp": "0–50 °C",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/rfn-xx.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rfnxx-1786599944641-kv06.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "Alarm / Security Systems",
-    "Door & Gate Control",
-    "Digital I/O Monitoring",
-    "Field Automation"
+    "Industrial Panel & PLC Connectivity",
+    "Telecom & Remote Site Uptime Monitoring",
+    "IoT Sensor Network Gateway"
   ]
 }

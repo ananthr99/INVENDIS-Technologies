@@ -2,31 +2,28 @@
   "id": "ri44",
   "name": "RI44",
   "cat": "Router",
-  "cpu": "Qualcomm QCA9531, 128 MB DDR, 32 MB Flash",
-  "ram": "128 MB DDR",
-  "storage": "32 MB Flash",
+  "cpu": "MediaTek MT7628",
+  "ram": "128MB",
+  "storage": "32 MB",
   "cell": "4G",
   "cellular_gen": "4G",
-  "wifi": "WiFi24",
-  "rs485": true,
+  "wifi": "WiFi4",
+  "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "-48 VDC",
+  "power": "9-30 VDC",
   "ports": 5,
   "os": "OpenWRT Linux",
-  "desc": "-48V telecom-grade router with 2× RS485, passive PoE WAN port",
+  "desc": "This high-performance industrial router is designed to enable reliable, high-speed connectivity across wired, Wi-Fi, and cellular networks in demanding environments. It differentiates itself with a powerful Qualcomm chipset, higher RAM capacity, PoE support, dual SIM resilience, and a feature-rich OpenWRT platform with extensive VPN and security capabilities. The device is well-suited for data-intensive applications in sectors such as smart infrastructure, surveillance, transportation, and large-scale enterprise or industrial IoT deployments.",
   "housing": "Sheet Metal",
-  "dims": "281×34×119 mm",
-  "weight": "985 g",
-  "op_temp": "0–50 °C",
+  "dims": "123.2 x 28 x 120.6mm (W x H x D)",
+  "weight": "370 g",
+  "op_temp": "0~ 50 ˚C",
   "images": [
-    "/products/images/ri44.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/ri44-1787138741728-063w.png"
   ],
   "datasheet": "",
   "use_cases": [
-    "Telecom Tower Backhaul",
-    "Street Cabinet Networking",
-    "-48V Plant Equipment",
-    "RS485 Serial Gateway"
+    "CCTV & Video Surveillance Connectivity for ISP communication Tower"
   ]
 }

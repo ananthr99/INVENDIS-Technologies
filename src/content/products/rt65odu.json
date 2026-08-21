@@ -2,7 +2,7 @@
   "id": "rt65odu",
   "name": "RT65-ODU",
   "cat": "Router",
-  "cpu": "MediaTek MT7981, 1 GB DDR4, 128 MB NAND",
+  "cpu": "MediaTek MT7981 1.3GHz dual core ARM Cortex A53",
   "ram": "1 GB DDR4",
   "storage": "128 MB NAND",
   "cell": "5G",
@@ -11,22 +11,21 @@
   "rs485": false,
   "rs232": false,
   "ip": "IP67",
-  "power": "9–30 VDC",
+  "power": "9-30 VDC",
   "ports": 5,
   "os": "OpenWRT Linux",
-  "desc": "Outdoor 5G router with IP67 enclosure, Wi-Fi 6 Easy Mesh, 4× LAN + 1× WAN",
+  "desc": "Built for high-demand edge deployments, the RT65 ODU steps up where entry-level routers fall short — a 1GHz dual-core ARM Cortex A53, 1GB DDR4 RAM, and 802.11b/g/n/ac/ax Wi-Fi with Easy Mesh support give it the processing muscle to handle simultaneous MultiWAN failover across Ethernet, cellular, and Wi-Fi links. Housed in an IP67-rated enclosure with 8 cellular and 5 Wi-Fi antenna connectors, it is engineered for high-availability outdoor and industrial installations — from smart transportation hubs to mission-critical remote sites — where network resilience and raw throughput cannot be left to chance.",
   "housing": "IP67 Enclosure",
-  "dims": "110×55×144 mm",
+  "dims": "110 x 55 x 144 mm (W x H x D)",
   "weight": "480 g",
-  "op_temp": "0–50 °C",
+  "op_temp": "0 ~ 50˚C",
   "images": [
-    "/products/images/RT65-ODU.png"
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rt65odu-1787119700265-ewjt.png"
   ],
-  "datasheet": "",
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/rt65odu-datasheet.pdf",
   "use_cases": [
-    "Outdoor Industrial 5G",
-    "Construction Site Networks",
-    "Stadium / Events",
-    "Port / Logistics Yard"
+    "Smart Transportation & Traffic Connectivity",
+    "Mission-Critical Remote Site Networking",
+    "High-Availability Outdoor Wi-Fi Coverage"
   ]
 }

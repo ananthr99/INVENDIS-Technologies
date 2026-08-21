@@ -1,0 +1,27 @@
+{
+  "id": "GPONONU",
+  "name": "GPON ONU",
+  "cat": "Router",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "none",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "",
+  "ports": 0,
+  "os": "—",
+  "desc": "",
+  "housing": "",
+  "dims": "",
+  "weight": "",
+  "op_temp": "",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/GPONONU-1787223696594-jx1x.png"
+  ],
+  "datasheet": "",
+  "use_cases": []
+}
