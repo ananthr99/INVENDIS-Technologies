@@ -221,29 +221,67 @@ export default function ProductModal({
             </div>
           )}
 
-          <SpecSection title="Connectivity">
-            <SpecRow label="Cellular" value={p.cellular_gen === 'none' ? 'None' : p.cell} />
-            <SpecRow label="Wi-Fi" value={wifiLabel(p.wifi)} />
-            <SpecRow label="Ethernet ports" value={p.ports > 0 ? `${p.ports} ports` : 'N/A'} />
-            <SpecRow label="RS485" value={p.rs485 ? 'Yes' : 'No'} />
-            <SpecRow label="RS232" value={p.rs232 ? 'Yes' : 'No'} />
-          </SpecSection>
+          {(() => {
+            const hf = new Set(p.hidden_fields || [])
+            const isHf = k => hf.has(k)
 
-          <SpecSection title="Hardware">
-            <SpecRow label="CPU" value={p.cpu} />
-            <SpecRow label="RAM" value={p.ram || '—'} />
-            <SpecRow label="Storage" value={p.storage || '—'} />
-            <SpecRow label="Power input" value={p.power} />
-            <SpecRow label="IP / Housing" value={p.ip || 'Not specified'} />
-            <SpecRow label="Enclosure" value={p.housing} />
-            <SpecRow label="Dimensions" value={p.dims || '—'} />
-            <SpecRow label="Weight" value={p.weight || '—'} />
-            <SpecRow label="Operating temp" value={p.op_temp || '—'} />
-          </SpecSection>
+            if (p.cat === 'Energy Meter') return (
+              <>
+                {['rs485','rs232','power'].some(k => !isHf(k)) && (
+                  <SpecSection title="Communication">
+                    {!isHf('rs485') && <SpecRow label="RS485 / Modbus" value={p.rs485 ? 'Yes' : 'No'} />}
+                    {!isHf('rs232') && <SpecRow label="RS232" value={p.rs232 ? 'Yes' : 'No'} />}
+                    {!isHf('power') && <SpecRow label="Power supply" value={p.power} />}
+                  </SpecSection>
+                )}
+                {['housing','ip','dims','weight','op_temp'].some(k => !isHf(k)) && (
+                  <SpecSection title="Physical">
+                    {!isHf('housing')  && <SpecRow label="Enclosure" value={p.housing} />}
+                    {!isHf('ip') && p.ip && <SpecRow label="IP Rating" value={p.ip} />}
+                    {!isHf('dims')     && <SpecRow label="Dimensions" value={p.dims || '—'} />}
+                    {!isHf('weight')   && <SpecRow label="Weight" value={p.weight || '—'} />}
+                    {!isHf('op_temp')  && <SpecRow label="Operating temp" value={p.op_temp || '—'} />}
+                  </SpecSection>
+                )}
+              </>
+            )
 
-          {p.os && p.os !== '—' && (
-            <SpecSection title="Software">
-              <SpecRow label="Operating system" value={p.os} />
+            return (
+              <>
+                {['cellular_gen','wifi','ports','rs485','rs232'].some(k => !isHf(k)) && (
+                  <SpecSection title="Connectivity">
+                    {!isHf('cellular_gen') && <SpecRow label="Cellular" value={p.cellular_gen === 'none' ? 'None' : p.cell} />}
+                    {!isHf('wifi')  && <SpecRow label="Wi-Fi" value={wifiLabel(p.wifi)} />}
+                    {!isHf('ports') && <SpecRow label="Ethernet ports" value={p.ports > 0 ? `${p.ports} ports` : 'N/A'} />}
+                    {!isHf('rs485') && <SpecRow label="RS485" value={p.rs485 ? 'Yes' : 'No'} />}
+                    {!isHf('rs232') && <SpecRow label="RS232" value={p.rs232 ? 'Yes' : 'No'} />}
+                  </SpecSection>
+                )}
+                {['cpu','ram','storage','power','ip','housing','dims','weight','op_temp'].some(k => !isHf(k)) && (
+                  <SpecSection title="Hardware">
+                    {!isHf('cpu')     && <SpecRow label="CPU" value={p.cpu} />}
+                    {!isHf('ram')     && <SpecRow label="RAM" value={p.ram || '—'} />}
+                    {!isHf('storage') && <SpecRow label="Storage" value={p.storage || '—'} />}
+                    {!isHf('power')   && <SpecRow label="Power input" value={p.power} />}
+                    {!isHf('ip')      && <SpecRow label="IP / Housing" value={p.ip || 'Not specified'} />}
+                    {!isHf('housing') && <SpecRow label="Enclosure" value={p.housing} />}
+                    {!isHf('dims')    && <SpecRow label="Dimensions" value={p.dims || '—'} />}
+                    {!isHf('weight')  && <SpecRow label="Weight" value={p.weight || '—'} />}
+                    {!isHf('op_temp') && <SpecRow label="Operating temp" value={p.op_temp || '—'} />}
+                  </SpecSection>
+                )}
+                {p.os && p.os !== '—' && !isHf('os') && (
+                  <SpecSection title="Software">
+                    <SpecRow label="Operating system" value={p.os} />
+                  </SpecSection>
+                )}
+              </>
+            )
+          })()}
+
+          {p.additional_specs?.length > 0 && (
+            <SpecSection title="Additional Specifications">
+              {p.additional_specs.map((s, i) => <SpecRow key={i} label={s.k} value={s.v || '—'} />)}
             </SpecSection>
           )}
 

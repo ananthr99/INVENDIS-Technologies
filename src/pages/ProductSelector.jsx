@@ -63,6 +63,13 @@ export default function ProductSelector() {
       if (filters.serial === 'rs232' && !p.rs232) return false
       if (filters.serial === 'both' && !(p.rs485 && p.rs232)) return false
       return true
+    }).sort((a, b) => {
+      const aO = a.order ?? Infinity
+      const bO = b.order ?? Infinity
+      if (aO !== bO) return aO - bO
+      const aImg = !!(productImages[a.id]?.length)
+      const bImg = !!(productImages[b.id]?.length)
+      return aImg === bImg ? 0 : aImg ? -1 : 1
     })
   }, [search, activeCat, filters])
 

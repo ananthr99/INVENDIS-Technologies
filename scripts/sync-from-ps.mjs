@@ -50,11 +50,15 @@ function normalize(p) {
     dims:         p.dims     || '',
     weight:       p.weight   || '',
     op_temp:      p.op_temp  || '',
-    images:       (p.images  || []).map(fullUrl),
-    datasheet:    fullUrl(p.datasheet),
-    use_cases:    p.use_cases || [],
+    images:           (p.images  || []).map(fullUrl),
+    datasheet:        fullUrl(p.datasheet),
+    use_cases:        p.use_cases        || [],
+    hidden_fields:    p.hidden_fields    || [],
+    additional_specs: p.additional_specs || [],
+    order:            p.order            ?? null,
   }
 }
+
 
 async function main() {
   console.log('Fetching from Product Selector…')
