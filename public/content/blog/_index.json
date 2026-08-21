@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "iiot-in-telecom-tower-monitoring",
+    "title": "IIoT in Telecom: Real-Time Monitoring of Tower Infrastructure",
+    "date": "2025-11-10",
+    "category": "Technical Article",
+    "author": "Invendis Team",
+    "excerpt": "Discover how Industrial IoT hardware enables remote visibility, predictive maintenance, and energy efficiency across distributed telecom tower sites.",
+    "readTime": 2
+  },
+  {
+    "slug": "energy-metering-remote-solar-sites",
+    "title": "Energy Metering for Remote Solar and Hybrid Power Sites",
+    "date": "2025-10-20",
+    "category": "Application Note",
+    "author": "Invendis Team",
+    "excerpt": "A technical guide to deploying Invendis energy meters at off-grid solar hybrid sites for accurate generation, consumption, and export measurement.",
+    "readTime": 2
+  },
+  {
+    "slug": "choosing-industrial-router-remote-sites",
+    "title": "How to Choose the Right Industrial Router for Remote Site Connectivity",
+    "date": "2025-09-05",
+    "category": "Industry Insight",
+    "author": "Invendis Team",
+    "excerpt": "A practical framework for selecting industrial LTE/5G routers based on environment, bandwidth requirements, redundancy needs, and fleet manageability.",
+    "readTime": 3
+  }
+]

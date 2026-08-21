@@ -160,3 +160,29 @@ export async function writeFileRawDirect(path, base64Content, commitMsg, sha, to
   }
   return res.json()
 }
+
+export async function deleteFile(path, sha, commitMsg, token) {
+  const res = await fetch(`${BASE}/contents/${path}`, {
+    method: 'DELETE',
+    headers: { ...headers(token), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: commitMsg, sha, branch: BRANCH }),
+  })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.message ?? `Could not delete ${path} (${res.status})`)
+  }
+  return res.json()
+}
+
+export async function deleteFileDirect(path, sha, commitMsg, token) {
+  const res = await fetch(`${BASE}/contents/${path}`, {
+    method: 'DELETE',
+    headers: { ...headers(token), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: commitMsg, sha, branch: 'gh-pages' }),
+  })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.message ?? `Could not delete ${path} from gh-pages (${res.status})`)
+  }
+  return res.json()
+}

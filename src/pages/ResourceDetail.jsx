@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
@@ -12,7 +13,6 @@ const categoryColors = {
   'Case Study':        'bg-red-50 text-brand-red',
 }
 
-// ── Inline markdown: **bold**, `code`, [link](url) ──────────────────────────
 function Inline({ text }) {
   const parts = []
   const pattern = /\*\*(.+?)\*\*|`([^`]+)`|\[([^\]]+)\]\(([^)]+)\)/g
@@ -36,7 +36,6 @@ function Inline({ text }) {
   return <>{parts}</>
 }
 
-// ── Block-level markdown renderer ────────────────────────────────────────────
 function MarkdownBody({ content }) {
   const lines = content.split(/\r?\n/)
   const elements = []
@@ -45,7 +44,6 @@ function MarkdownBody({ content }) {
   while (i < lines.length) {
     const line = lines[i]
 
-    // ## Heading
     if (line.startsWith('## ')) {
       elements.push(
         <h2 key={i} className="font-sora font-bold text-2xl text-brand-text mt-10 mb-4 leading-snug">
@@ -55,7 +53,6 @@ function MarkdownBody({ content }) {
       i++; continue
     }
 
-    // ### Heading
     if (line.startsWith('### ')) {
       elements.push(
         <h3 key={i} className="font-sora font-semibold text-xl text-brand-text mt-8 mb-3">
@@ -65,7 +62,6 @@ function MarkdownBody({ content }) {
       i++; continue
     }
 
-    // ``` code block ```
     if (line.startsWith('```')) {
       const codeLines = []
       i++
@@ -81,7 +77,6 @@ function MarkdownBody({ content }) {
       i++; continue
     }
 
-    // | table |
     if (line.startsWith('|')) {
       const tableLines = []
       while (i < lines.length && lines[i].startsWith('|')) {
@@ -89,7 +84,6 @@ function MarkdownBody({ content }) {
         i++
       }
       const headers = tableLines[0].split('|').slice(1, -1).map(h => h.trim())
-      // tableLines[1] is the separator row (|---|), skip it
       const rows = tableLines.slice(2).map(row => row.split('|').slice(1, -1).map(c => c.trim()))
       elements.push(
         <div key={i} className="overflow-x-auto my-6">
@@ -118,7 +112,6 @@ function MarkdownBody({ content }) {
       continue
     }
 
-    // - unordered list
     if (line.startsWith('- ')) {
       const items = []
       while (i < lines.length && lines[i].startsWith('- ')) {
@@ -135,7 +128,6 @@ function MarkdownBody({ content }) {
       continue
     }
 
-    // 1. ordered list
     if (/^\d+\.\s/.test(line)) {
       const items = []
       while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
@@ -152,10 +144,8 @@ function MarkdownBody({ content }) {
       continue
     }
 
-    // blank line
     if (line.trim() === '') { i++; continue }
 
-    // paragraph — collect until next block element or blank line
     const paraLines = []
     while (
       i < lines.length &&
@@ -181,19 +171,34 @@ function MarkdownBody({ content }) {
   return <div>{elements}</div>
 }
 
-// ── Page component ───────────────────────────────────────────────────────────
 export default function ResourceDetail() {
   const { slug } = useParams()
-  const post = getPost(slug)
+  const [post, setPost]       = useState(null)
+  const [related, setRelated] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [notFound, setNotFound] = useState(false)
 
-  if (!post) return <Navigate to="/resources" replace />
+  useEffect(() => {
+    Promise.all([getPost(slug), getAllPosts()]).then(([p, all]) => {
+      if (!p) {
+        setNotFound(true)
+      } else {
+        setPost(p)
+        setRelated(all.filter(a => a.slug !== slug && a.category === p.category).slice(0, 2))
+      }
+      setLoading(false)
+    })
+  }, [slug])
 
-  const { title, date, category, author, readTime, content, excerpt } = post
+  if (loading) return (
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-brand-blue border-t-transparent rounded-full animate-spin" />
+    </div>
+  )
+  if (notFound || !post) return <Navigate to="/resources" replace />
+
+  const { title, date, category, author, readTime, content, excerpt, tags } = post
   const formatted = new Date(date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
-
-  const allPosts = getAllPosts()
-  const related = allPosts.filter(p => p.slug !== slug && p.category === category).slice(0, 2)
-
   const path = `/resources/${slug}`
   const breadcrumbs = [
     { label: 'Home', path: '/' },
@@ -210,7 +215,6 @@ export default function ResourceDetail() {
         structuredData={breadcrumbSchema(breadcrumbs, path)}
       />
 
-      {/* Article header */}
       <div className="bg-brand-light border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12">
           <div className="mb-4">
@@ -232,30 +236,19 @@ export default function ResourceDetail() {
           </h1>
 
           <div className="flex flex-wrap items-center gap-5 text-sm text-brand-muted">
-            <span className="flex items-center gap-1.5">
-              <User size={14} />
-              {author}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Calendar size={14} />
-              {formatted}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock size={14} />
-              {readTime} min read
-            </span>
+            <span className="flex items-center gap-1.5"><User size={14} />{author}</span>
+            <span className="flex items-center gap-1.5"><Calendar size={14} />{formatted}</span>
+            <span className="flex items-center gap-1.5"><Clock size={14} />{readTime} min read</span>
           </div>
         </div>
       </div>
 
-      {/* Article body */}
       <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12">
-        <MarkdownBody content={content} />
+        <MarkdownBody content={content || ''} />
 
-        {/* Tags */}
-        {Array.isArray(post.tags) && post.tags.length > 0 && (
+        {Array.isArray(tags) && tags.length > 0 && (
           <div className="mt-10 pt-6 border-t border-gray-100 flex flex-wrap gap-2">
-            {post.tags.map(tag => (
+            {tags.map(tag => (
               <span key={tag} className="text-xs px-3 py-1 rounded-full bg-brand-light text-brand-muted border border-gray-200">
                 #{tag}
               </span>
@@ -263,7 +256,6 @@ export default function ResourceDetail() {
           </div>
         )}
 
-        {/* Related articles */}
         {related.length > 0 && (
           <div className="mt-12 pt-8 border-t border-gray-100">
             <h3 className="font-sora font-bold text-brand-text mb-5">Related Articles</h3>
@@ -286,7 +278,6 @@ export default function ResourceDetail() {
           </div>
         )}
 
-        {/* CTA */}
         <div className="mt-12 p-6 rounded-2xl bg-brand-light border border-gray-200 text-center">
           <p className="font-sora font-bold text-brand-text mb-2">Ready to discuss your application?</p>
           <p className="text-brand-muted text-sm mb-4">Our team can recommend the right hardware and integration approach for your site.</p>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Clock, Calendar } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
@@ -54,8 +54,16 @@ function ArticleCard({ post }) {
 }
 
 export default function Resources() {
-  const allPosts = getAllPosts()
+  const [allPosts, setAllPosts] = useState([])
+  const [loading, setLoading] = useState(true)
   const [activeCategory, setActiveCategory] = useState('All')
+
+  useEffect(() => {
+    getAllPosts().then(posts => {
+      setAllPosts(posts)
+      setLoading(false)
+    })
+  }, [])
 
   const filtered = activeCategory === 'All'
     ? allPosts
@@ -95,36 +103,43 @@ export default function Resources() {
 
       {/* Filter + Grid */}
       <section className="py-16 px-8 lg:px-16 bg-brand-light min-h-[50vh]">
-        {/* Category filters */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          {usedCategories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === cat
-                  ? 'bg-brand-blue text-white shadow-md'
-                  : 'bg-white text-brand-muted border border-gray-200 hover:border-brand-blue hover:text-brand-blue'
-              }`}
-            >
-              {cat}
-              {cat !== 'All' && (
-                <span className={`ml-1.5 text-xs ${activeCategory === cat ? 'opacity-70' : 'text-brand-muted'}`}>
-                  ({allPosts.filter(p => p.category === cat).length})
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
-
-        {filtered.length === 0 ? (
-          <p className="text-brand-muted text-center py-20">No articles in this category yet.</p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map(post => (
-              <ArticleCard key={post.slug} post={post} />
-            ))}
+        {loading ? (
+          <div className="flex justify-center py-20">
+            <div className="w-8 h-8 border-2 border-brand-blue border-t-transparent rounded-full animate-spin" />
           </div>
+        ) : (
+          <>
+            <div className="flex flex-wrap gap-2 mb-10">
+              {usedCategories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    activeCategory === cat
+                      ? 'bg-brand-blue text-white shadow-md'
+                      : 'bg-white text-brand-muted border border-gray-200 hover:border-brand-blue hover:text-brand-blue'
+                  }`}
+                >
+                  {cat}
+                  {cat !== 'All' && (
+                    <span className={`ml-1.5 text-xs ${activeCategory === cat ? 'opacity-70' : 'text-brand-muted'}`}>
+                      ({allPosts.filter(p => p.category === cat).length})
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {filtered.length === 0 ? (
+              <p className="text-brand-muted text-center py-20">No articles in this category yet.</p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filtered.map(post => (
+                  <ArticleCard key={post.slug} post={post} />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </section>
 

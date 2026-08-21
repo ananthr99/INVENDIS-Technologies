@@ -14,6 +14,7 @@ import Countries from './Countries'
 import ProductsPage from './editors/ProductsPage'
 import CaseStudiesPage from './editors/CaseStudiesPage'
 import SpecialCharsBar from '../components/SpecialCharsBar'
+import BlogPage from './editors/BlogPage'
 
 const NAV = [
   { key: 'dashboard', label: 'Dashboard'},
@@ -29,8 +30,7 @@ const NAV = [
   { key: 'page-careers',    label: 'Careers'},
   { key: 'page-casestudies',label: 'Case Studies'},
   { type: 'sep', label: 'ADMIN'},
-  { key: 'products',  label: 'Products Catalogue',soon: true  },
-  { key: 'blog',      label: 'Blog',               soon: true },
+  { key: 'blog',      label: 'Blog'},
   { key: 'countries', label: 'Countries'},
   { key: 'setup',     label: 'Setup'},
   { key: 'activity-log', label: 'Activity Log'},
@@ -141,6 +141,8 @@ export default function Dashboard() {
           {active === 'page-casestudies' && <CaseStudiesPage />}
           {active === 'activity-log' && <ActivityLog />}
           {active === 'countries'    && <Countries />}
+          {active === 'countries'    && <Countries />}
+          {active === 'blog'         && <BlogPage />}
         </div>
       </div>
     </>
