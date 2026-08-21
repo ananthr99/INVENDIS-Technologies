@@ -7,7 +7,7 @@
 // Consider wiring this into the build ("prebuild") or CMS-publish CI step
 // so it regenerates automatically whenever content or the catalog changes.
 
-import { writeFileSync, readdirSync } from 'fs'
+import { writeFileSync, readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import products from '../src/data/products.js'
@@ -22,11 +22,14 @@ const SITE_URL = process.env.SITEMAP_URL || 'https://invendis-technologies-cms.n
 const today = new Date().toISOString().slice(0, 10)
 
 function blogSlugs() {
-  const dir = join(ROOT, 'src/content/blog')
-  return readdirSync(dir)
-    .filter(f => f.endsWith('.md'))
-    .map(f => f.replace(/\.md$/, ''))
+  try {
+    const index = JSON.parse(readFileSync(join(ROOT, 'public/content/blog/_index.json'), 'utf8'))
+    return index.map(e => e.slug)
+  } catch {
+    return []
+  }
 }
+
 
 const staticRoutes = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
