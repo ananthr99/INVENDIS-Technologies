@@ -66,24 +66,14 @@ export default function Contact() {
   const { hero, contactItems, quickFacts, form, mapSection } = content
   const SERVED = servedData?.countries ?? []
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault()
-    setStatus('sending')
-    try {
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ 'form-name': 'contact', ...formState }).toString(),
-      })
-      if (res.ok) {
-        setStatus('success')
-        setFormState({ name: '', company: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
+    const { name, company, email, message } = formState
+    const subject = encodeURIComponent(`Website enquiry from ${name}${company ? ` (${company})` : ''}`)
+    const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nReply-to: ${email}\n\nMessage:\n${message}`)
+    window.location.href = `mailto:sales@invendis.com?subject=${subject}&body=${body}`
+    setStatus('success')
+    setFormState({ name: '', company: '', email: '', message: '' })
   }
 
   const field    = key => e => setFormState(p => ({ ...p, [key]: e.target.value }))
@@ -186,15 +176,8 @@ export default function Contact() {
               <form
                 name="contact"
                 onSubmit={handleSubmit}
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
                 className="space-y-4"
               >
-                <input type="hidden" name="form-name" value="contact" />
-                {/* Honeypot — bots fill this in; humans don't see it */}
-                <p className="hidden">
-                  <label>Don't fill this out: <input name="bot-field" /></label>
-                </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>

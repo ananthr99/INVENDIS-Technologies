@@ -20,7 +20,6 @@ const Resources       = lazy(() => import('./pages/Resources'))
 const ResourceDetail  = lazy(() => import('./pages/ResourceDetail'))
 const Careers         = lazy(() => import('./pages/Careers'))
 const Silbo           = lazy(() => import('./pages/Silbo'))
-const Admin           = lazy(() => import('./pages/Admin'))
 const NotFound        = lazy(() => import('./pages/NotFound'))
 
 function PageLoader() {
@@ -63,7 +62,6 @@ function App() {
             <Route path="/resources/:slug" element={<ResourceDetail />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/silbo" element={<Silbo />} />
-            <Route path="/content-admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

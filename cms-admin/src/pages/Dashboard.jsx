@@ -155,7 +155,6 @@ export default function Dashboard() {
           {active === 'page-casestudies' && <CaseStudiesPage />}
           {active === 'activity-log' && <ActivityLog />}
           {active === 'countries'    && <Countries />}
-          {active === 'countries'    && <Countries />}
           {active === 'blog'         && <BlogPage />}
         </div>
       </div>

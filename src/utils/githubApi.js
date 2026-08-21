@@ -1,9 +1,8 @@
 // src/utils/githubApi.js
 //
-// Thin wrapper around the GitHub Contents API. This is what the custom
-// admin uses instead of Decap CMS. Auth is a per-person fine-grained
-// Personal Access Token (see AdminAuth.jsx) — never a shared secret,
-// never an OAuth backend. Token lives in sessionStorage only.
+// Thin wrapper around the GitHub Contents API used by the main site
+// for any direct GitHub reads. Auth uses a fine-grained Personal Access
+// Token stored in sessionStorage — never a shared secret.
 
 const OWNER = 'ananthr99'
 const REPO = 'INVENDIS-Technologies'
@@ -65,7 +64,7 @@ export async function listDir(path) {
 /** Get a file's decoded text content + its sha (sha is required to update it). */
 export async function getFile(path) {
   const data = await ghFetch(`/contents/${path}?ref=${BRANCH}`)
-  const content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))))
+  const content = new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g, '')), c => c.charCodeAt(0)))
   return { content, sha: data.sha }
 }
 
@@ -80,7 +79,7 @@ export async function getFileBase64(path) {
  * `sha` when updating an existing file; omit it when creating a new one.
  */
 export async function putTextFile(path, textContent, message, sha) {
-  const base64 = btoa(unescape(encodeURIComponent(textContent)))
+  const base64 = btoa(String.fromCharCode(...new TextEncoder().encode(textContent)))
   return ghFetch(`/contents/${path}`, {
     method: 'PUT',
     body: JSON.stringify({
