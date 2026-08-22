@@ -15,6 +15,7 @@ import ProductsPage from './editors/ProductsPage'
 import CaseStudiesPage from './editors/CaseStudiesPage'
 import SpecialCharsBar from '../components/SpecialCharsBar'
 import BlogPage from './editors/BlogPage'
+import GalleryPage from './editors/GalleryPage'
 
 const NAV = [
   { key: 'dashboard', label: 'Dashboard'},
@@ -29,6 +30,7 @@ const NAV = [
   { key: 'page-silbo',      label: 'SILBO'},
   { key: 'page-careers',    label: 'Careers'},
   { key: 'page-casestudies',label: 'Case Studies'},
+  { key: 'page-gallery',    label: 'Gallery'},
   { type: 'sep', label: 'ADMIN'},
   { key: 'blog',      label: 'Blog'},
   { key: 'countries', label: 'Countries'},
@@ -153,6 +155,7 @@ export default function Dashboard() {
           {active === 'page-silbo'     && <SilboPage />}
           {active === 'page-careers'   && <CareersPage />}
           {active === 'page-casestudies' && <CaseStudiesPage />}
+          {active === 'page-gallery'     && <GalleryPage />}
           {active === 'activity-log' && <ActivityLog />}
           {active === 'countries'    && <Countries />}
           {active === 'blog'         && <BlogPage />}

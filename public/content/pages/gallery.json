@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "eyebrow": "Our Gallery",
+    "headline": "Moments That",
+    "headlineAccent": "Define Us",
+    "description": "From industry expos to team milestones — a visual journey through the events, achievements, and people that make Invendis."
+  },
+  "gallerySection": {
+    "eyebrow": "Photo Gallery",
+    "heading": "Behind the",
+    "headingAccent": "Scenes"
+  },
+  "categories": [
+    { "id": "all",       "label": "All" },
+    { "id": "events",    "label": "Events" },
+    { "id": "expos",     "label": "Expos & Trade Shows" },
+    { "id": "awards",    "label": "Awards" },
+    { "id": "team",      "label": "Team Outings" },
+    { "id": "festivals", "label": "Festivals" }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "category": "expos",
+      "title": "India Telecom Expo 2024",
+      "caption": "Showcasing SILBO routers and iSense RMS at India Telecom Expo, New Delhi.",
+      "src": null
+    },
+    {
+      "id": 2,
+      "category": "awards",
+      "title": "IoT Innovator Award 2023",
+      "caption": "Team Invendis receiving the IoT Innovator of the Year award.",
+      "src": null
+    },
+    {
+      "id": 3,
+      "category": "events",
+      "title": "Product Launch — SILBO Gen 3",
+      "caption": "Launch event for the third generation SILBO router series.",
+      "src": null
+    },
+    {
+      "id": 4,
+      "category": "team",
+      "title": "Annual Team Outing 2024",
+      "caption": "The Invendis family on our annual team outing in Coorg.",
+      "src": null
+    },
+    {
+      "id": 5,
+      "category": "festivals",
+      "title": "Diwali Celebrations 2024",
+      "caption": "Celebrating Diwali together at the Bangalore office.",
+      "src": null
+    },
+    {
+      "id": 6,
+      "category": "expos",
+      "title": "Africa Tech Summit 2024",
+      "caption": "Invendis at the Africa Tech Summit in Kigali, Rwanda.",
+      "src": null
+    },
+    {
+      "id": 7,
+      "category": "events",
+      "title": "Customer Seminar — Bangalore",
+      "caption": "Hosting a technical seminar for telecom infrastructure customers.",
+      "src": null
+    },
+    {
+      "id": 8,
+      "category": "team",
+      "title": "R&D Team Workshop",
+      "caption": "Cross-functional workshop with the R&D and product teams.",
+      "src": null
+    }
+  ],
+  "ctaBanner": {
+    "heading": "Want to Connect with the Invendis Team?",
+    "description": "Reach out to us for partnerships, product inquiries, or to explore IIoT solutions for your business.",
+    "primaryLabel": "Get in Touch",
+    "primaryTo": "/contact",
+    "secondaryLabel": "About Us",
+    "secondaryTo": "/company"
+  }
+}

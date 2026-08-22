@@ -35,6 +35,10 @@
         "to": "/company"
       },
       {
+        "label": "Gallery",
+        "to": "/gallery"
+      },
+      {
         "label": "Contact",
         "to": "/contact"
       }
