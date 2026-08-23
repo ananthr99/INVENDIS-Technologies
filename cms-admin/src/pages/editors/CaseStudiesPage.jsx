@@ -154,43 +154,44 @@ function CaseStudiesTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="Case Studies" count={data.caseStudies.length} onAdd={() => setAddModal(true)} addLabel="+ Add Case Study" />
         {pageItems.map(({ item: cs, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Case Study {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Case Study {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
-                <label>Card Style</label>
+            <div style={{ display: 'grid', gridTemplateColumns: '80px 160px 1fr 180px', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Style</label>
                 <select value={cs.style} onChange={e => update(i, 'style', e.target.value)} style={{ width: '100%' }}>
                   <option value="blue">blue</option>
                   <option value="red">red</option>
                   <option value="mix">mix</option>
                 </select>
               </div>
-              <div className="field">
-                <label>Sector <span className="hint">— e.g. Telecom · Africa</span></label>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Sector</label>
                 <input value={cs.sector} onChange={e => update(i, 'sector', e.target.value)} placeholder="Telecom · Africa" />
               </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={cs.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Client</label>
+                <input value={cs.client} onChange={e => update(i, 'client', e.target.value)} />
+              </div>
             </div>
-            <div className="field">
-              <label>Title</label>
-              <input value={cs.title} onChange={e => update(i, 'title', e.target.value)} />
-            </div>
-            <div className="field">
-              <label>Client</label>
-              <input value={cs.client} onChange={e => update(i, 'client', e.target.value)} placeholder="American Tower Corporation" />
-            </div>
-            <div className="field">
+            <div className="field" style={{ marginBottom: 8 }}>
               <label>Description</label>
-              <textarea rows={3} value={cs.desc} onChange={e => update(i, 'desc', e.target.value)} />
+              <textarea rows={2} value={cs.desc} onChange={e => update(i, 'desc', e.target.value)} />
             </div>
-            <div className="field-grid">
-              <div className="field">
-                <label>Result Number <span className="hint">— e.g. 40% or 70K+</span></label>
+            <div className="field-grid" style={{ marginBottom: 0 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Result # <span className="hint">— e.g. 40%</span></label>
                 <input value={cs.resultNum} onChange={e => update(i, 'resultNum', e.target.value)} placeholder="40%" />
               </div>
-              <div className="field">
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Result Label</label>
                 <input value={cs.resultLabel} onChange={e => update(i, 'resultLabel', e.target.value)} placeholder="Reduction in site visits" />
               </div>
@@ -314,18 +315,19 @@ function WhitePapersTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="White Papers" count={data.whitepapers.length} onAdd={() => setAddModal(true)} addLabel="+ Add White Paper" />
         {pageItems.map(({ item: wp, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Paper {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Paper {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 110px 1fr', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Icon</label>
                 <input value={wp.icon} onChange={e => update(i, 'icon', e.target.value)} placeholder="file_text" />
               </div>
-              <div className="field">
-                <label>Icon Background</label>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>BG Color</label>
                 <select value={wp.iconBg} onChange={e => update(i, 'iconBg', e.target.value)} style={{ width: '100%' }}>
                   <option value="blue">blue</option>
                   <option value="red">red</option>
@@ -334,12 +336,12 @@ function WhitePapersTab({ data, patch }) {
                   <option value="amber">amber</option>
                 </select>
               </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={wp.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
             </div>
-            <div className="field">
-              <label>Title</label>
-              <input value={wp.title} onChange={e => update(i, 'title', e.target.value)} />
-            </div>
-            <div className="field">
+            <div className="field" style={{ marginBottom: 0 }}>
               <label>Description</label>
               <textarea rows={2} value={wp.desc} onChange={e => update(i, 'desc', e.target.value)} />
             </div>

@@ -109,65 +109,90 @@ function HeroTab({ data, patch }) {
 
 /* ── Sectors ── */
 function SectorsTab({ data, patch }) {
-  const [addModal, setAddModal] = useState(false)
   const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.sectors, 5)
+  const [addModal, setAddModal] = useState(false)
+
   function update(i, f, v) { patch(d => { d.sectors[i][f] = v; return d }) }
   function updateSolution(i, si, v) { patch(d => { d.sectors[i].solutions[si] = v; return d }) }
-  function addSolution(i)  { patch(d => { d.sectors[i].solutions.push(''); return d }) }
+  function addSolution(i) { patch(d => { d.sectors[i].solutions.push(''); return d }) }
   function removeSolution(i, si) { patch(d => { d.sectors[i].solutions.splice(si, 1); return d }) }
-  function handleAdd(item) {
-    patch(d => { d.sectors.push({ ...item, solutions: [] }); return d })
-    setAddModal(false)
-  }
-  function remove(i){ patch(d => { d.sectors.splice(i, 1); return d }) }
+  function handleAdd(item) { patch(d => { d.sectors.push({ ...item, solutions: [] }); return d }); setAddModal(false) }
+  function remove(i) { patch(d => { d.sectors.splice(i, 1); return d }) }
 
   return (
     <div className="form-section">
       <ListHeader title="Sector Cards" count={data.sectors.length} onAdd={() => setAddModal(true)} addLabel="+ Add Sector" />
       {pageItems.map(({ item: sector, index: i }) => (
-        <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 12 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-            <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Sector {i + 1}</span>
-            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: '#374151', cursor: 'pointer' }}>
-                <input type="checkbox" checked={!!sector.featured} onChange={e => update(i, 'featured', e.target.checked)} />
-                Featured
-              </label>
-              <button className="btn-del" onClick={() => remove(i)}>Remove</button>
-            </div>
+        <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 10 }}>
+
+          {/* Header row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Sector {i + 1}</span>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#374151', cursor: 'pointer' }}>
+              <input type="checkbox" checked={!!sector.featured} onChange={e => update(i, 'featured', e.target.checked)} />
+              Featured
+            </label>
+            <div style={{ flex: 1 }} />
+            <button className="btn-del" onClick={() => remove(i)}>Remove</button>
           </div>
-          <div className="field-grid">
-            <div className="field">
-              <label>Icon <span className="hint">— radio · sun · zap · cpu · leaf</span></label>
-              <input value={sector.icon} onChange={e => update(i, 'icon', e.target.value)} />
+
+          {/* Metadata row: icon | bg | title | chip */}
+          <div style={{ display: 'grid', gridTemplateColumns: '90px 90px 1fr 180px', gap: 8, marginBottom: 8 }}>
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Icon <span className="hint">cpu · zap…</span></label>
+              <input value={sector.icon} onChange={e => update(i, 'icon', e.target.value)} placeholder="cpu" />
             </div>
-            <div className="field">
-              <label>Icon Background <span className="hint">— blue · amber · green · red</span></label>
-              <input value={sector.iconBg} onChange={e => update(i, 'iconBg', e.target.value)} />
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>BG Color</label>
+              <input value={sector.iconBg} onChange={e => update(i, 'iconBg', e.target.value)} placeholder="blue" />
             </div>
-          </div>
-          <div className="field-grid">
-            <div className="field">
+            <div className="field" style={{ marginBottom: 0 }}>
               <label>Title</label>
               <input value={sector.title} onChange={e => update(i, 'title', e.target.value)} />
             </div>
-            <div className="field">
-              <label>Chip <span className="hint">— optional badge (e.g. "Core Vertical")</span></label>
-              <input value={sector.chip ?? ''} onChange={e => update(i, 'chip', e.target.value)} placeholder="optional" />
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Chip <span className="hint">— optional</span></label>
+              <input value={sector.chip ?? ''} onChange={e => update(i, 'chip', e.target.value)} placeholder="Core Vertical" />
             </div>
           </div>
-          <div className="field"><label>Clients <span className="hint">— optional, shown below solutions</span></label><input value={sector.clients ?? ''} onChange={e => update(i, 'clients', e.target.value)} placeholder="Nokia · Ericsson" /></div>
-          <div className="field"><label>Description</label><textarea rows={3} value={sector.desc} onChange={e => update(i, 'desc', e.target.value)} /></div>
-          <p style={{ fontSize: 11, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 6 }}>Solutions</p>
-          {sector.solutions.map((sol, si) => (
-            <div key={si} style={{ display: 'flex', gap: 8, marginBottom: 5, alignItems: 'center' }}>
-              <div className="field" style={{ flex: 1, marginBottom: 0 }}>
-                <input value={sol} onChange={e => updateSolution(i, si, e.target.value)} placeholder="Solution name" />
-              </div>
-              <button className="btn-del" onClick={() => removeSolution(i, si)}>×</button>
+
+          {/* Clients + Description side by side */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 8, marginBottom: 10 }}>
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Clients <span className="hint">— optional</span></label>
+              <textarea rows={3} value={sector.clients ?? ''} onChange={e => update(i, 'clients', e.target.value)} placeholder="Nokia · Ericsson" />
             </div>
-          ))}
-          <button className="btn-add" style={{ marginTop: 4 }} onClick={() => addSolution(i)}>+ Add Solution</button>
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Description</label>
+              <textarea rows={3} value={sector.desc} onChange={e => update(i, 'desc', e.target.value)} />
+            </div>
+          </div>
+
+          {/* Solutions — inline chips */}
+          <div>
+            <p style={{ fontSize: 11, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 6 }}>Solutions</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
+              {sector.solutions.map((sol, si) => (
+                <div key={si} style={{ display: 'flex', alignItems: 'center', background: '#fff', border: '1px solid #e5e7eb', borderRadius: 6, overflow: 'hidden' }}>
+                  <input
+                    value={sol}
+                    onChange={e => updateSolution(i, si, e.target.value)}
+                    placeholder="Solution name"
+                    style={{ border: 'none', background: 'transparent', fontSize: 12, padding: '5px 8px', width: 150, outline: 'none', fontFamily: 'inherit' }}
+                  />
+                  <button
+                    onClick={() => removeSolution(i, si)}
+                    style={{ border: 'none', borderLeft: '1px solid #e5e7eb', background: 'none', color: '#9ca3af', cursor: 'pointer', padding: '4px 8px', fontSize: 14, lineHeight: 1 }}
+                  >×</button>
+                </div>
+              ))}
+              <button
+                className="btn-add"
+                style={{ width: 'auto', padding: '5px 12px', fontSize: 12 }}
+                onClick={() => addSolution(i)}
+              >+ Solution</button>
+            </div>
+          </div>
         </div>
       ))}
       <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
@@ -175,6 +200,7 @@ function SectorsTab({ data, patch }) {
     </div>
   )
 }
+
 
 function AddSectorModal({ onSave, onCancel }) {
   const [icon,     setIcon]     = useState('cpu')

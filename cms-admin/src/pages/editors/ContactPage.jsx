@@ -163,34 +163,31 @@ function ContactItemsTab({ data, patch }) {
       </p>
 
       {data.contactItems.map((item, i) => (
-        <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 10 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-            <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Item {i + 1}
-            </span>
+        <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+            <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Item {i + 1}</span>
+            <div style={{ flex: 1 }} />
             <button className="btn-del" onClick={() => remove(i)}>Remove</button>
           </div>
-          <div className="field-grid">
-            <div className="field">
-              <label>Icon <span className="hint">— {ICON_OPTIONS}</span></label>
+          <div style={{ display: 'grid', gridTemplateColumns: '90px 90px 1fr 1fr', gap: 8, marginBottom: 8 }}>
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Icon</label>
               <input value={item.icon} onChange={e => update(i, 'icon', e.target.value)} />
             </div>
-            <div className="field">
-              <label>Color <span className="hint">— {COLOR_OPTIONS}</span></label>
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Color</label>
               <input value={item.color} onChange={e => update(i, 'color', e.target.value)} />
             </div>
-          </div>
-          <div className="field-grid">
-            <div className="field">
+            <div className="field" style={{ marginBottom: 0 }}>
               <label>Label</label>
               <input value={item.label} onChange={e => update(i, 'label', e.target.value)} />
             </div>
-            <div className="field">
-              <label>Href <span className="hint">— optional (e.g. tel:+91… or mailto:…)</span></label>
-              <input value={item.href ?? ''} onChange={e => update(i, 'href', e.target.value)} placeholder="optional" />
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Href <span className="hint">— optional</span></label>
+              <input value={item.href ?? ''} onChange={e => update(i, 'href', e.target.value)} placeholder="tel:… or mailto:…" />
             </div>
           </div>
-          <div className="field">
+          <div className="field" style={{ marginBottom: 0 }}>
             <label>Content</label>
             <textarea rows={2} value={item.content} onChange={e => update(i, 'content', e.target.value)} />
           </div>

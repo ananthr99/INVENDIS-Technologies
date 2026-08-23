@@ -134,22 +134,32 @@ function CultureTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="Perks / Benefits" count={data.perks.length} onAdd={() => setAddModal(true)} addLabel="+ Add Perk" />
         {pageItems.map(({ item: perk, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 8 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Perk {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Perk {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field"><label>Icon</label><input value={perk.icon} onChange={e => update(i, 'icon', e.target.value)} /></div>
-              <div className="field">
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 100px 1fr', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Icon</label>
+                <input value={perk.icon} onChange={e => update(i, 'icon', e.target.value)} />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Accent</label>
                 <select value={perk.accent} onChange={e => update(i, 'accent', e.target.value)} style={{ width: '100%' }}>
                   {ACCENTS.map(a => <option key={a} value={a}>{a}</option>)}
                 </select>
               </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={perk.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
             </div>
-            <div className="field"><label>Title</label><input value={perk.title} onChange={e => update(i, 'title', e.target.value)} /></div>
-            <div className="field"><label>Description</label><textarea rows={2} value={perk.description} onChange={e => update(i, 'description', e.target.value)} /></div>
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Description</label>
+              <textarea rows={2} value={perk.description} onChange={e => update(i, 'description', e.target.value)} />
+            </div>
           </div>
         ))}
         <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
@@ -246,20 +256,34 @@ function OpeningsTab({ data, patch }) {
           Leave empty to show the "no openings" message above.
         </p>
         {pageItems.map(({ item: job, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Position {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Position {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field"><label>Job Title</label><input value={job.title} onChange={e => update(i, 'title', e.target.value)} /></div>
-              <div className="field"><label>Department</label><input value={job.department ?? ''} onChange={e => update(i, 'department', e.target.value)} /></div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 160px 160px 100px', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Job Title</label>
+                <input value={job.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Department</label>
+                <input value={job.department ?? ''} onChange={e => update(i, 'department', e.target.value)} />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Location</label>
+                <input value={job.location ?? ''} onChange={e => update(i, 'location', e.target.value)} placeholder="Bangalore, India" />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Type</label>
+                <input value={job.type ?? ''} onChange={e => update(i, 'type', e.target.value)} placeholder="Full-time" />
+              </div>
             </div>
-            <div className="field-grid">
-              <div className="field"><label>Location</label><input value={job.location ?? ''} onChange={e => update(i, 'location', e.target.value)} placeholder="Bangalore, India" /></div>
-              <div className="field"><label>Type</label><input value={job.type ?? ''} onChange={e => update(i, 'type', e.target.value)} placeholder="Full-time" /></div>
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Description</label>
+              <textarea rows={2} value={job.description ?? ''} onChange={e => update(i, 'description', e.target.value)} />
             </div>
-            <div className="field"><label>Description</label><textarea rows={3} value={job.description ?? ''} onChange={e => update(i, 'description', e.target.value)} /></div>
           </div>
         ))}
         <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />

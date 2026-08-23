@@ -334,28 +334,29 @@ function UseCasesTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="Use Case Cards" count={data.useCases.items.length} onAdd={() => setAddModal(true)} addLabel="+ Add Use Case" />
         {pageItems.map(({ item, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Use Case {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Use Case {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 180px 1fr', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Icon</label>
                 <input value={item.icon} onChange={e => update(i, 'icon', e.target.value)} placeholder="zap" />
               </div>
-              <div className="field">
-                <label>Sector <span className="hint">— e.g. Energy and Utility</span></label>
-                <input value={item.sector} onChange={e => update(i, 'sector', e.target.value)} />
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Sector</label>
+                <input value={item.sector} onChange={e => update(i, 'sector', e.target.value)} placeholder="Energy and Utility" />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={item.title} onChange={e => update(i, 'title', e.target.value)} />
               </div>
             </div>
-            <div className="field">
-              <label>Title</label>
-              <input value={item.title} onChange={e => update(i, 'title', e.target.value)} />
-            </div>
-            <div className="field">
+            <div className="field" style={{ marginBottom: 0 }}>
               <label>Description</label>
-              <textarea rows={3} value={item.desc} onChange={e => update(i, 'desc', e.target.value)} />
+              <textarea rows={2} value={item.desc} onChange={e => update(i, 'desc', e.target.value)} />
             </div>
           </div>
         ))}
@@ -811,16 +812,26 @@ function PartnersTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="Technology Partners" count={data.partners.items.length} onAdd={add} addLabel="+ Add Partner" />
         {pageItems.map(({ item, index: i }) => (
-          <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'flex-end' }}>
-            <div className="field" style={{ width: 160, marginBottom: 0 }}>
-              {i === 0 && <label>Partner Name</label>}
-              <input value={item.name} onChange={e => update(i, 'name', e.target.value)} placeholder="Intel" />
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Card {i + 1}</span>
+              <div style={{ flex: 1 }} />
+              <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
-              {i === 0 && <label>Role / Contribution</label>}
-              <input value={item.role} onChange={e => update(i, 'role', e.target.value)} placeholder="Edge Compute & x86 Processing" />
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 1fr 2fr', gap: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Icon</label>
+                <input value={item.icon} onChange={e => update(i, 'icon', e.target.value)} placeholder="cpu" />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={item.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Description</label>
+                <textarea rows={2} value={item.desc} onChange={e => update(i, 'desc', e.target.value)} />
+              </div>
             </div>
-            <button className="btn-del" style={{ marginTop: i === 0 ? 18 : 0 }} onClick={() => remove(i)}>Remove</button>
           </div>
         ))}
         <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />

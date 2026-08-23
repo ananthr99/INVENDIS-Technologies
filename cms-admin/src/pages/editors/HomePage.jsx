@@ -296,30 +296,31 @@ function WhatWeDoTab({ data, patch }) {
 
       <div className="form-section">
         <p className="form-section-title">Feature Cards</p>
-        {w.features.map((f, i) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Feature {i + 1}</span>
+        {data.whatWeDo.features.map((f, i) => (
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Feature {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
-                <label>Icon <span className="hint">— {ICON_OPTIONS}</span></label>
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 90px 1fr', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Icon</label>
                 <input value={f.icon} onChange={e => update(i, 'icon', e.target.value)} />
               </div>
-              <div className="field">
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Accent</label>
                 <select value={f.accent} onChange={e => update(i, 'accent', e.target.value)} style={{ width: '100%' }}>
                   <option value="blue">blue</option>
                   <option value="red">red</option>
                 </select>
               </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={f.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
             </div>
-            <div className="field">
-              <label>Title</label>
-              <input value={f.title} onChange={e => update(i, 'title', e.target.value)} />
-            </div>
-            <div className="field">
+            <div className="field" style={{ marginBottom: 0 }}>
               <label>Description</label>
               <textarea rows={2} value={f.description} onChange={e => update(i, 'description', e.target.value)} />
             </div>
@@ -457,29 +458,30 @@ function TestimonialsTab({ data, patch }) {
 
       <div className="form-section">
         <p className="form-section-title">Testimonials</p>
-        {t.items.map((item, i) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Testimonial {i + 1}</span>
+        {data.testimonials.items.map((item, i) => (
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Testimonial {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
-                <label>Initials <span className="hint">— shown in avatar circle</span></label>
-                <input style={{ maxWidth: 80 }} value={item.initials} onChange={e => update(i, 'initials', e.target.value)} placeholder="SI" />
+            <div style={{ display: 'grid', gridTemplateColumns: '70px 1fr 1fr', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Initials</label>
+                <input value={item.initials} onChange={e => update(i, 'initials', e.target.value)} placeholder="SI" />
               </div>
-              <div className="field">
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Name</label>
                 <input value={item.name} onChange={e => update(i, 'name', e.target.value)} />
               </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Role / Company</label>
+                <input value={item.role} onChange={e => update(i, 'role', e.target.value)} placeholder="VP Technology, ATC India" />
+              </div>
             </div>
-            <div className="field">
-              <label>Role / Company</label>
-              <input value={item.role} onChange={e => update(i, 'role', e.target.value)} placeholder="VP Technology, ATC India" />
-            </div>
-            <div className="field">
+            <div className="field" style={{ marginBottom: 0 }}>
               <label>Quote</label>
-              <textarea rows={3} value={item.quote} onChange={e => update(i, 'quote', e.target.value)} />
+              <textarea rows={2} value={item.quote} onChange={e => update(i, 'quote', e.target.value)} />
             </div>
           </div>
         ))}

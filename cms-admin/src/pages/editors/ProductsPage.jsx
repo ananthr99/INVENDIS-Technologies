@@ -181,32 +181,31 @@ function HardwareTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="Hardware Products" count={data.hardwareProducts.length} onAdd={() => setAddModal(true)} addLabel="+ Add Product" />
         {pageItems.map(({ item: product, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Product {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Product {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 150px auto 1fr', gap: 8, alignItems: 'end', marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Icon</label>
                 <input value={product.icon} onChange={e => update(i, 'icon', e.target.value)} placeholder="monitor" />
               </div>
-              <div className="field">
-                <label>Badge <span className="hint">— leave empty for no badge</span></label>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Badge <span className="hint">— optional</span></label>
                 <input value={product.badge ?? ''} onChange={e => update(i, 'badge', e.target.value)} placeholder="Flagship" />
+              </div>
+              <label style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: '#374151', cursor: 'pointer', paddingBottom: 7, whiteSpace: 'nowrap' }}>
+                <input type="checkbox" checked={product.badgeRed} onChange={e => update(i, 'badgeRed', e.target.checked)} />
+                Red badge
+              </label>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={product.title} onChange={e => update(i, 'title', e.target.value)} />
               </div>
             </div>
             <div className="field" style={{ marginBottom: 8 }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
-                <input type="checkbox" checked={product.badgeRed} onChange={e => update(i, 'badgeRed', e.target.checked)} />
-                Red badge <span className="hint">— unchecked = blue badge</span>
-              </label>
-            </div>
-            <div className="field">
-              <label>Title</label>
-              <input value={product.title} onChange={e => update(i, 'title', e.target.value)} />
-            </div>
-            <div className="field">
               <label>Description</label>
               <textarea rows={2} value={product.desc} onChange={e => update(i, 'desc', e.target.value)} />
             </div>
@@ -393,29 +392,30 @@ function SoftwareTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="Software Platforms" count={data.softwarePlatforms.length} onAdd={() => setAddModal(true)} addLabel="+ Add Platform" />
         {pageItems.map(({ item: platform, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Platform {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Platform {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 90px 1fr', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Icon</label>
                 <input value={platform.icon} onChange={e => update(i, 'icon', e.target.value)} placeholder="bar_chart" />
               </div>
-              <div className="field">
+              <div className="field" style={{ marginBottom: 0 }}>
                 <label>Accent</label>
                 <select value={platform.accent} onChange={e => update(i, 'accent', e.target.value)} style={{ width: '100%' }}>
                   <option value="blue">blue</option>
                   <option value="red">red</option>
                 </select>
               </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={platform.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
             </div>
-            <div className="field">
-              <label>Title</label>
-              <input value={platform.title} onChange={e => update(i, 'title', e.target.value)} />
-            </div>
-            <div className="field">
+            <div className="field" style={{ marginBottom: 0 }}>
               <label>Description</label>
               <textarea rows={2} value={platform.desc} onChange={e => update(i, 'desc', e.target.value)} />
             </div>

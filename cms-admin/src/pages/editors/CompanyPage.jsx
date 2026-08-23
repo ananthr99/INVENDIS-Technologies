@@ -150,30 +150,37 @@ function MissionTab({ data, patch }) {
       <div className="form-section">
         <ListHeader title="Mission Cards" count={data.mission.length} onAdd={() => setAddModal(true)} addLabel="+ Add Card" />
         {pageItems.map(({ item, index: i }) => (
-          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 10 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Card {i + 1}</span>
+          <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Card {i + 1}</span>
+              <div style={{ flex: 1 }} />
               <button className="btn-del" onClick={() => remove(i)}>Remove</button>
             </div>
-            <div className="field-grid">
-              <div className="field">
-                <label>Icon <span className="hint">— target · eye · lightbulb · etc.</span></label>
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 90px 1fr 1fr', gap: 8, marginBottom: 8 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Icon</label>
                 <input value={item.icon} onChange={e => update(i, 'icon', e.target.value)} />
               </div>
-              <div className="field">
-                <label>Background <span className="hint">— blue or red</span></label>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>BG</label>
                 <select value={item.bg} onChange={e => update(i, 'bg', e.target.value)} style={{ width: '100%' }}>
                   <option value="blue">blue</option>
                   <option value="red">red</option>
                 </select>
               </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Title</label>
+                <input value={item.title} onChange={e => update(i, 'title', e.target.value)} />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Tagline <span className="hint">— optional</span></label>
+                <input value={item.tagline ?? ''} onChange={e => update(i, 'tagline', e.target.value)} placeholder='"Invent. Discover."' />
+              </div>
             </div>
-            <div className="field"><label>Title</label><input value={item.title} onChange={e => update(i, 'title', e.target.value)} /></div>
-            <div className="field">
-              <label>Tagline <span className="hint">— optional, shown in quotes above body</span></label>
-              <input value={item.tagline ?? ''} onChange={e => update(i, 'tagline', e.target.value)} placeholder='e.g. "Invent. Discover."' />
+            <div className="field" style={{ marginBottom: 0 }}>
+              <label>Body</label>
+              <textarea rows={2} value={item.body} onChange={e => update(i, 'body', e.target.value)} />
             </div>
-            <div className="field"><label>Body</label><textarea rows={3} value={item.body} onChange={e => update(i, 'body', e.target.value)} /></div>
           </div>
         ))}
         <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
