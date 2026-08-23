@@ -105,7 +105,7 @@ export default function Countries() {
     : data.countries.map((c, i) => ({ c, i }))
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
 
       {/* Toolbar */}
       <div className="tab-bar" style={{ flexShrink: 0 }}>

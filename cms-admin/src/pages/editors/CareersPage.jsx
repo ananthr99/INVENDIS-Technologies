@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
+import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
 const FILE_PATH     = 'public/content/pages/careers.json'
 const GH_PAGES_PATH = 'content/pages/careers.json'
@@ -108,9 +109,14 @@ function HeroTab({ data, patch }) {
 
 /* ── Culture & Perks ── */
 function CultureTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.perks, 5)
+  const [addModal, setAddModal] = useState(false)
   const sh = (f, v) => patch(d => { d.cultureSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.perks[i][f] = v; return d }) }
-  function add()    { patch(d => { d.perks.push({ icon: 'star', accent: 'blue', title: '', description: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.perks.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.perks.splice(i, 1); return d }) }
 
   const ACCENTS = ['blue', 'green', 'purple', 'amber', 'red']
@@ -126,8 +132,8 @@ function CultureTab({ data, patch }) {
         <div className="field"><label>Description</label><textarea rows={2} value={data.cultureSection.description} onChange={e => sh('description', e.target.value)} /></div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Perks / Benefits</p>
-        {data.perks.map((perk, i) => (
+        <ListHeader title="Perks / Benefits" count={data.perks.length} onAdd={() => setAddModal(true)} addLabel="+ Add Perk" />
+        {pageItems.map(({ item: perk, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 8 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Perk {i + 1}</span>
@@ -146,17 +152,75 @@ function CultureTab({ data, patch }) {
             <div className="field"><label>Description</label><textarea rows={2} value={perk.description} onChange={e => update(i, 'description', e.target.value)} /></div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Perk</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddPerkModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}      
       </div>
     </>
   )
 }
 
+function AddPerkModal({ onSave, onCancel }) {
+  const [icon,        setIcon]        = useState('star')
+  const [accent,      setAccent]      = useState('blue')
+  const [title,       setTitle]       = useState('')
+  const [description, setDescription] = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 460, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Perk / Benefit</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon</label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} placeholder="star" autoFocus />
+            </div>
+            <div className="field" style={{ width: 150, marginBottom: 0 }}>
+              <label>Accent</label>
+              <select value={accent} onChange={e => setAccent(e.target.value)} style={{ width: '100%' }}>
+                {['blue','green','purple','amber','red'].map(a => <option key={a} value={a}>{a}</option>)}
+              </select>
+            </div>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={3} value={description} onChange={e => setDescription(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, accent, title, description })} style={{ minWidth: 100 }}>Add Perk</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 /* ── Openings ── */
 function OpeningsTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.openings, 5)
+  const [addModal, setAddModal] = useState(false)
   const sh = (f, v) => patch(d => { d.openingsSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.openings[i][f] = v; return d }) }
-  function add()    { patch(d => { d.openings.push({ title: '', department: '', location: 'Bangalore, India', type: 'Full-time', description: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.openings.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.openings.splice(i, 1); return d }) }
 
   return (
@@ -177,11 +241,11 @@ function OpeningsTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Open Positions</p>
+        <ListHeader title="Open Positions" count={data.openings.length} onAdd={() => setAddModal(true)} addLabel="+ Add Position" />
         <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 12 }}>
           Leave empty to show the "no openings" message above.
         </p>
-        {data.openings.map((job, i) => (
+        {pageItems.map(({ item: job, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Position {i + 1}</span>
@@ -198,9 +262,66 @@ function OpeningsTab({ data, patch }) {
             <div className="field"><label>Description</label><textarea rows={3} value={job.description ?? ''} onChange={e => update(i, 'description', e.target.value)} /></div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Position</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddOpeningModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}    
       </div>
     </>
+  )
+}
+
+function AddOpeningModal({ onSave, onCancel }) {
+  const [title,       setTitle]       = useState('')
+  const [department,  setDepartment]  = useState('')
+  const [location,    setLocation]    = useState('Bangalore, India')
+  const [type,        setType]        = useState('Full-time')
+  const [description, setDescription] = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 520, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Open Position</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Job Title</label>
+              <input value={title} onChange={e => setTitle(e.target.value)} autoFocus />
+            </div>
+            <div className="field" style={{ width: 160, marginBottom: 0 }}>
+              <label>Department</label>
+              <input value={department} onChange={e => setDepartment(e.target.value)} />
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Location</label>
+              <input value={location} onChange={e => setLocation(e.target.value)} placeholder="Bangalore, India" />
+            </div>
+            <div className="field" style={{ width: 150, marginBottom: 0 }}>
+              <label>Type</label>
+              <input value={type} onChange={e => setType(e.target.value)} placeholder="Full-time" />
+            </div>
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={4} value={description} onChange={e => setDescription(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ title, department, location, type, description })} style={{ minWidth: 120 }}>Add Position</button>
+        </div>
+      </div>
+    </div>
   )
 }
 

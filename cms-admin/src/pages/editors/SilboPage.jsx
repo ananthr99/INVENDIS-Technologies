@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
+import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
 const FILE_PATH     = 'public/content/pages/silbo.json'
 const GH_PAGES_PATH = 'content/pages/silbo.json'
@@ -195,9 +196,14 @@ function AboutTab({ data, patch }) {
 
 /* ── Capabilities ── */
 function CapabilitiesTab({ data, patch }) {
+  const [addModal, setAddModal] = useState(false)
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.capabilities.items, 5)
   const sh = (f, v) => patch(d => { d.capabilities[f] = v; return d })
   function update(i, f, v) { patch(d => { d.capabilities.items[i][f] = v; return d }) }
-  function add()     { patch(d => { d.capabilities.items.push({ icon: 'cpu', title: '', desc: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.capabilities.items.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i) { patch(d => { d.capabilities.items.splice(i, 1); return d }) }
 
   return (
@@ -220,8 +226,8 @@ function CapabilitiesTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Capability Cards</p>
-        {data.capabilities.items.map((item, i) => (
+        <ListHeader title="Capability Cards" count={data.capabilities.items.length} onAdd={() => setAddModal(true)} addLabel="+ Add Card" />
+        {pageItems.map(({ item, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Card {i + 1}</span>
@@ -243,17 +249,67 @@ function CapabilitiesTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Card</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddCapabilityModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}  
       </div>
     </>
   )
 }
 
+function AddCapabilityModal({ onSave, onCancel }) {
+  const [icon,  setIcon]  = useState('cpu')
+  const [title, setTitle] = useState('')
+  const [desc,  setDesc]  = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 460, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Capability</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ width: 140, marginBottom: 0 }}>
+              <label>Icon</label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} placeholder="cpu" autoFocus />
+            </div>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Title</label>
+              <input value={title} onChange={e => setTitle(e.target.value)} />
+            </div>
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={4} value={desc} onChange={e => setDesc(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, title, desc })} style={{ minWidth: 120 }}>Add Capability</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ── Use Cases ── */
 function UseCasesTab({ data, patch }) {
+  const [addModal, setAddModal] = useState(false)
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.useCases.items, 5)
   const sh = (f, v) => patch(d => { d.useCases[f] = v; return d })
   function update(i, f, v) { patch(d => { d.useCases.items[i][f] = v; return d }) }
-  function add()     { patch(d => { d.useCases.items.push({ icon: 'zap', sector: '', title: '', desc: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.useCases.items.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i) { patch(d => { d.useCases.items.splice(i, 1); return d }) }
 
   return (
@@ -276,8 +332,8 @@ function UseCasesTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Use Case Cards</p>
-        {data.useCases.items.map((item, i) => (
+        <ListHeader title="Use Case Cards" count={data.useCases.items.length} onAdd={() => setAddModal(true)} addLabel="+ Add Use Case" />
+        {pageItems.map(({ item, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Use Case {i + 1}</span>
@@ -303,14 +359,70 @@ function UseCasesTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Use Case</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddUseCaseModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}    
       </div>
     </>
   )
 }
 
+function AddUseCaseModal({ onSave, onCancel }) {
+  const [icon,   setIcon]   = useState('zap')
+  const [sector, setSector] = useState('')
+  const [title,  setTitle]  = useState('')
+  const [desc,   setDesc]   = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 480, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Use Case</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ width: 130, marginBottom: 0 }}>
+              <label>Icon</label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} placeholder="zap" autoFocus />
+            </div>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Sector</label>
+              <input value={sector} onChange={e => setSector(e.target.value)} placeholder="Energy and Utility" />
+            </div>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={4} value={desc} onChange={e => setDesc(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, sector, title, desc })} style={{ minWidth: 120 }}>Add Use Case</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 /* ── Products (Latest Launch + Intel Edge + Product Range) ── */
 function ProductsTab({ data, patch, token, toast }) {
+  const products   = data.intelSection.products || []
+  const launchTags = data.latestLaunch.tags     || []
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(products, 5)
+  const [addProductModal, setAddProductModal] = useState(false)
+
   const sl = (f, v) => patch(d => { d.latestLaunch[f] = v; return d })
   const si = (f, v) => patch(d => { d.intelSection[f] = v; return d })
 
@@ -339,7 +451,10 @@ function ProductsTab({ data, patch, token, toast }) {
   const removeLaunchTag = i         => patch(d => { d.latestLaunch.tags.splice(i, 1); return d })
 
   /* ── Intel products ── */
-  const addProduct    = ()        => patch(d => { d.intelSection.products.push({ id: '', title: '', image: null, tags: [] }); return d })
+  function handleAddProduct(item) {
+    patch(d => { d.intelSection.products.push({ ...item, tags: [] }); return d })
+    setAddProductModal(false)
+  }
   const removeProduct = i         => patch(d => { d.intelSection.products.splice(i, 1); return d })
   const updateProduct = (i, f, v) => patch(d => { d.intelSection.products[i][f] = v; return d })
   const addTag        = i         => patch(d => { d.intelSection.products[i].tags.push(''); return d })
@@ -365,9 +480,6 @@ function ProductsTab({ data, patch, token, toast }) {
       toast('Uploaded — click Save & Publish', 'ok')
     } catch (e) { toast(e.message, 'err') }
   }
-
-  const products   = data.intelSection.products || []
-  const launchTags = data.latestLaunch.tags     || []
 
   return (
     <>
@@ -454,8 +566,8 @@ function ProductsTab({ data, patch, token, toast }) {
           <textarea rows={2} value={data.intelSection.description} onChange={e => si('description', e.target.value)} />
         </div>
 
-        <p className="form-section-title" style={{ marginTop: 8 }}>Products</p>
-        {products.map((product, i) => (
+        <ListHeader title="Products" count={products.length} onAdd={() => setAddProductModal(true)} addLabel="+ Add Product" />
+        {pageItems.map(({ item: product, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Product {i + 1}</span>
@@ -514,12 +626,105 @@ function ProductsTab({ data, patch, token, toast }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={addProduct}>+ Add Product</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addProductModal && (
+          <AddSilboProductModal token={token} toast={toast} onSave={handleAddProduct} onCancel={() => setAddProductModal(false)} />
+        )}    
       </div>
-
     </>
   )
 }
+
+function AddSilboProductModal({ token, toast, onSave, onCancel }) {
+  const [id,         setId]         = useState('')
+  const [title,      setTitle]      = useState('')
+  const [file,       setFile]       = useState(null)
+  const [previewUrl, setPreviewUrl] = useState(null)
+  const [uploading,  setUploading]  = useState(false)
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  function pickFile(f) {
+    if (!f || !f.type.startsWith('image/')) return
+    setFile(f); setPreviewUrl(URL.createObjectURL(f))
+  }
+
+  async function handleSave() {
+    setUploading(true)
+    try {
+      let image = null
+      if (file) {
+        const slug = id.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || `product-${Date.now()}`
+        const ext  = file.name.split('.').pop().toLowerCase()
+        const name = `${slug}.${ext}`
+        const b64  = await toBase64(file)
+        toast('Uploading…', '')
+        let ghSha = null
+        try { ghSha = (await readFileDirect(`images/silbo/${name}`, token)).sha } catch {}
+        await writeFileRawDirect(`images/silbo/${name}`, b64, `CMS: upload SILBO product image ${name}`, ghSha, token)
+        let mainSha = null
+        try { mainSha = (await readFile(`public/images/silbo/${name}`, token)).sha } catch {}
+        await writeFileRaw(`public/images/silbo/${name}`, b64, `CMS: upload SILBO product image ${name} [skip ci]`, mainSha, token)
+        image = `images/silbo/${name}`
+      }
+      onSave({ id: id.trim(), title: title.trim(), image })
+      toast(image ? 'Product added — click Save & Publish' : 'Product added', 'ok')
+    } catch (e) {
+      toast(e.message, 'err')
+      setUploading(false)
+    }
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 460, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Product</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ marginBottom: 16 }}>
+            <label style={{ display: 'block', fontSize: 12, fontWeight: 500, color: '#374151', marginBottom: 6 }}>
+              Product Image <span className="hint">— optional</span>
+            </label>
+            <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: `2px dashed ${previewUrl ? '#10b981' : '#d1d5db'}`, borderRadius: 10, cursor: 'pointer', background: previewUrl ? '#f0fdf4' : '#f9fafb', minHeight: previewUrl ? 0 : 100, overflow: 'hidden' }}>
+              {previewUrl
+                ? <img src={previewUrl} alt="preview" style={{ width: '100%', maxHeight: 160, objectFit: 'contain', display: 'block' }} />
+                : <div style={{ padding: '20px 16px', textAlign: 'center' }}>
+                    <div style={{ fontSize: 28, marginBottom: 6 }}>🖼️</div>
+                    <div style={{ fontSize: 13, color: '#374151' }}>Click to upload image</div>
+                  </div>
+              }
+              <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => pickFile(e.target.files?.[0])} />
+            </label>
+            {previewUrl && <button onClick={() => { setFile(null); setPreviewUrl(null) }} style={{ fontSize: 11, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', marginTop: 4, padding: 0 }}>Remove image</button>}
+          </div>
+          <div className="field">
+            <label>Product ID</label>
+            <input value={id} onChange={e => setId(e.target.value)} placeholder="inv-ce-xx" autoFocus />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Intel Edge Gateway" />
+          </div>
+          <p style={{ fontSize: 11, color: '#9ca3af', marginTop: 8 }}>Tags can be added after saving.</p>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} disabled={uploading} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={handleSave} disabled={uploading} style={{ minWidth: 110 }}>
+            {uploading ? 'Uploading…' : 'Add Product'}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 
 /* ── Market Fit ── */
 function MarketFitTab({ data, patch }) {
@@ -574,6 +779,7 @@ function MarketFitTab({ data, patch }) {
 
 /* ── Partners ── */
 function PartnersTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.partners.items, 10)
   const sh = (f, v) => patch(d => { d.partners[f] = v; return d })
   function update(i, f, v) { patch(d => { d.partners.items[i][f] = v; return d }) }
   function add()     { patch(d => { d.partners.items.push({ name: '', role: '' }); return d }) }
@@ -603,8 +809,8 @@ function PartnersTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Technology Partners</p>
-        {data.partners.items.map((item, i) => (
+        <ListHeader title="Technology Partners" count={data.partners.items.length} onAdd={add} addLabel="+ Add Partner" />
+        {pageItems.map(({ item, index: i }) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'flex-end' }}>
             <div className="field" style={{ width: 160, marginBottom: 0 }}>
               {i === 0 && <label>Partner Name</label>}
@@ -617,7 +823,7 @@ function PartnersTab({ data, patch }) {
             <button className="btn-del" style={{ marginTop: i === 0 ? 18 : 0 }} onClick={() => remove(i)}>Remove</button>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 8 }} onClick={add}>+ Add Partner</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
       </div>
     </>
   )

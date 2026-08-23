@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
+import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
 const FILE_PATH     = 'public/content/pages/products.json'
 const GH_PAGES_PATH = 'content/pages/products.json'
@@ -138,6 +139,8 @@ function HeroTab({ data, patch }) {
 
 /* ── Hardware ── */
 function HardwareTab({ data, patch }) {
+  const [addModal, setAddModal] = useState(false)
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.hardwareProducts, 5)
   const sh = (f, v) => patch(d => { d.hardwareSection[f] = v; return d })
   function update(i, f, v) {
     patch(d => { d.hardwareProducts[i][f] = (f === 'badge' && v === '') ? null : v; return d })
@@ -145,7 +148,10 @@ function HardwareTab({ data, patch }) {
   function addTag(i)          { patch(d => { d.hardwareProducts[i].tags.push(''); return d }) }
   function updateTag(i, ti, v){ patch(d => { d.hardwareProducts[i].tags[ti] = v; return d }) }
   function removeTag(i, ti)   { patch(d => { d.hardwareProducts[i].tags.splice(ti, 1); return d }) }
-  function add()   { patch(d => { d.hardwareProducts.push({ icon: 'cpu', badge: null, badgeRed: false, title: '', desc: '', tags: [] }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.hardwareProducts.push({ ...item, tags: [] }); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.hardwareProducts.splice(i, 1); return d }) }
 
   return (
@@ -173,8 +179,8 @@ function HardwareTab({ data, patch }) {
       </div>
 
       <div className="form-section">
-        <p className="form-section-title">Hardware Products</p>
-        {data.hardwareProducts.map((product, i) => (
+        <ListHeader title="Hardware Products" count={data.hardwareProducts.length} onAdd={() => setAddModal(true)} addLabel="+ Add Product" />
+        {pageItems.map(({ item: product, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Product {i + 1}</span>
@@ -223,14 +229,73 @@ function HardwareTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Product</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddHardwareProductModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
       </div>
     </>
   )
 }
 
+function AddHardwareProductModal({ onSave, onCancel }) {
+  const [icon,     setIcon]     = useState('cpu')
+  const [badge,    setBadge]    = useState('')
+  const [badgeRed, setBadgeRed] = useState(false)
+  const [title,    setTitle]    = useState('')
+  const [desc,     setDesc]     = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 480, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Hardware Product</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon</label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} placeholder="monitor" autoFocus />
+            </div>
+            <div className="field" style={{ width: 170, marginBottom: 0 }}>
+              <label>Badge <span className="hint">— leave empty for none</span></label>
+              <input value={badge} onChange={e => setBadge(e.target.value)} placeholder="Flagship" />
+            </div>
+          </div>
+          <div className="field" style={{ marginBottom: 12 }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
+              <input type="checkbox" checked={badgeRed} onChange={e => setBadgeRed(e.target.checked)} />
+              Red badge <span className="hint">— unchecked = blue</span>
+            </label>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={3} value={desc} onChange={e => setDesc(e.target.value)} />
+          </div>
+          <p style={{ fontSize: 11, color: '#9ca3af', marginTop: 8 }}>Tags can be added after saving.</p>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, badge: badge || null, badgeRed, title, desc })} style={{ minWidth: 120 }}>Add Product</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ── SILBO Products ── */
 function SilboProductsTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.silboProducts, 10)
   const sh = (f, v) => patch(d => { d.silboSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.silboProducts[i][f] = v; return d }) }
   function add()    { patch(d => { d.silboProducts.push({ icon: 'signal', title: '', desc: '' }); return d }) }
@@ -265,8 +330,8 @@ function SilboProductsTab({ data, patch }) {
       </div>
 
       <div className="form-section">
-        <p className="form-section-title">SILBO Products</p>
-        {data.silboProducts.map((product, i) => (
+        <ListHeader title="SILBO Products" count={data.silboProducts.length} onAdd={add} addLabel="+ Add Product" />
+        {pageItems.map(({ item: product, index: i }) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'flex-end', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 14px' }}>
             <div className="field" style={{ width: 110, marginBottom: 0 }}>
               {i === 0 && <label>Icon</label>}
@@ -283,7 +348,7 @@ function SilboProductsTab({ data, patch }) {
             <button className="btn-del" onClick={() => remove(i)}>Remove</button>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 4 }} onClick={add}>+ Add Product</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
       </div>
     </>
   )
@@ -291,9 +356,14 @@ function SilboProductsTab({ data, patch }) {
 
 /* ── Software ── */
 function SoftwareTab({ data, patch }) {
+  const [addModal, setAddModal] = useState(false)
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.softwarePlatforms, 5)
   const sh = (f, v) => patch(d => { d.softwareSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.softwarePlatforms[i][f] = v; return d }) }
-  function add()    { patch(d => { d.softwarePlatforms.push({ icon: 'bar_chart', accent: 'blue', title: '', desc: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.softwarePlatforms.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.softwarePlatforms.splice(i, 1); return d }) }
 
   return (
@@ -321,8 +391,8 @@ function SoftwareTab({ data, patch }) {
       </div>
 
       <div className="form-section">
-        <p className="form-section-title">Software Platforms</p>
-        {data.softwarePlatforms.map((platform, i) => (
+        <ListHeader title="Software Platforms" count={data.softwarePlatforms.length} onAdd={() => setAddModal(true)} addLabel="+ Add Platform" />
+        {pageItems.map(({ item: platform, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Platform {i + 1}</span>
@@ -351,14 +421,68 @@ function SoftwareTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Platform</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddSoftwarePlatformModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
       </div>
     </>
   )
 }
 
+function AddSoftwarePlatformModal({ onSave, onCancel }) {
+  const [icon,   setIcon]   = useState('bar_chart')
+  const [accent, setAccent] = useState('blue')
+  const [title,  setTitle]  = useState('')
+  const [desc,   setDesc]   = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 480, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Software Platform</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon</label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} placeholder="bar_chart" autoFocus />
+            </div>
+            <div className="field" style={{ width: 130, marginBottom: 0 }}>
+              <label>Accent</label>
+              <select value={accent} onChange={e => setAccent(e.target.value)} style={{ width: '100%' }}>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+              </select>
+            </div>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={3} value={desc} onChange={e => setDesc(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, accent, title, desc })} style={{ minWidth: 120 }}>Add Platform</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ── Design Partners ── */
 function DesignPartnersTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.designPartners, 10)
   const sh = (f, v) => patch(d => { d.designPartnersSection[f] = v; return d })
   function update(i, v) { patch(d => { d.designPartners[i] = v; return d }) }
   function add()    { patch(d => { d.designPartners.push(''); return d }) }
@@ -385,9 +509,9 @@ function DesignPartnersTab({ data, patch }) {
       </div>
 
       <div className="form-section">
-        <p className="form-section-title">Design Partners</p>
+        <ListHeader title="Design Partners" count={data.designPartners.length} onAdd={add} addLabel="+ Add Partner" />
         <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 12 }}>Chip and silicon partners shown as logo/name badges.</p>
-        {data.designPartners.map((partner, i) => (
+        {pageItems.map(({ item: partner, index: i }) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'center' }}>
             <div className="field" style={{ flex: 1, marginBottom: 0 }}>
               {i === 0 && <label>Partner Name</label>}
@@ -396,7 +520,7 @@ function DesignPartnersTab({ data, patch }) {
             <button className="btn-del" style={{ marginTop: i === 0 ? 18 : 0 }} onClick={() => remove(i)}>Remove</button>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 8 }} onClick={add}>+ Add Partner</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
       </div>
     </>
   )

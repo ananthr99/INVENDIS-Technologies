@@ -261,9 +261,13 @@ const ICON_OPTIONS = 'signal · sun · zap · network · dashboard · cpu · bui
 function WhatWeDoTab({ data, patch }) {
   const w = data.whatWeDo
   const s = (field, val) => patch(d => { d.whatWeDo[field] = val; return d })
+  const [addModal, setAddModal] = useState(false)
 
   function update(i, field, val) { patch(d => { d.whatWeDo.features[i][field] = val; return d }) }
-  function add()                  { patch(d => { d.whatWeDo.features.push({ icon: 'cpu', accent: 'blue', title: '', description: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.whatWeDo.features.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i)              { patch(d => { d.whatWeDo.features.splice(i, 1); return d }) }
 
   return (
@@ -321,11 +325,65 @@ function WhatWeDoTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Feature</button>
+        <button className="btn-add" onClick={() => setAddModal(true)}>+ Add Feature</button>
+        {addModal && <AddFeatureModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
       </div>
     </>
   )
 }
+
+function AddFeatureModal({ onSave, onCancel }) {
+  const [icon,        setIcon]        = useState('cpu')
+  const [accent,      setAccent]      = useState('blue')
+  const [title,       setTitle]       = useState('')
+  const [description, setDescription] = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 480, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Feature</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon <span className="hint">— signal · sun · zap · cpu · globe</span></label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} autoFocus />
+            </div>
+            <div className="field" style={{ width: 130, marginBottom: 0 }}>
+              <label>Accent</label>
+              <select value={accent} onChange={e => setAccent(e.target.value)} style={{ width: '100%' }}>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+              </select>
+            </div>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={3} value={description} onChange={e => setDescription(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, accent, title, description })} style={{ minWidth: 110 }}>Add Feature</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 
 /* ── Stats ─────────────────────────────────────────────── */
 
@@ -368,9 +426,13 @@ function StatsTab({ data, patch }) {
 function TestimonialsTab({ data, patch }) {
   const t = data.testimonials
   const s = (field, val) => patch(d => { d.testimonials[field] = val; return d })
+  const [addModal, setAddModal] = useState(false)
 
   function update(i, field, val) { patch(d => { d.testimonials.items[i][field] = val; return d }) }
-  function add()                  { patch(d => { d.testimonials.items.push({ initials: '', name: '', role: '', quote: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.testimonials.items.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i)              { patch(d => { d.testimonials.items.splice(i, 1); return d }) }
 
   return (
@@ -421,9 +483,59 @@ function TestimonialsTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Testimonial</button>
+        <button className="btn-add" onClick={() => setAddModal(true)}>+ Add Testimonial</button>
+        {addModal && <AddTestimonialModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
       </div>
     </>
+  )
+}
+
+function AddTestimonialModal({ onSave, onCancel }) {
+  const [initials, setInitials] = useState('')
+  const [name,     setName]     = useState('')
+  const [role,     setRole]     = useState('')
+  const [quote,    setQuote]    = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 480, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Testimonial</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ width: 100, marginBottom: 0 }}>
+              <label>Initials</label>
+              <input value={initials} onChange={e => setInitials(e.target.value)} placeholder="AB" autoFocus />
+            </div>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Name</label>
+              <input value={name} onChange={e => setName(e.target.value)} />
+            </div>
+          </div>
+          <div className="field">
+            <label>Role / Company</label>
+            <input value={role} onChange={e => setRole(e.target.value)} placeholder="VP Technology, ATC India" />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Quote</label>
+            <textarea rows={4} value={quote} onChange={e => setQuote(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ initials, name, role, quote })} style={{ minWidth: 130 }}>Add Testimonial</button>
+        </div>
+      </div>
+    </div>
   )
 }
 

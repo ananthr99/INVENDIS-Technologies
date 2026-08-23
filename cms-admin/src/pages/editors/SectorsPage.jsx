@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
+import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
 const FILE_PATH     = 'public/content/pages/sectors.json'
 const GH_PAGES_PATH = 'content/pages/sectors.json'
@@ -108,17 +109,22 @@ function HeroTab({ data, patch }) {
 
 /* ── Sectors ── */
 function SectorsTab({ data, patch }) {
+  const [addModal, setAddModal] = useState(false)
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.sectors, 5)
   function update(i, f, v) { patch(d => { d.sectors[i][f] = v; return d }) }
   function updateSolution(i, si, v) { patch(d => { d.sectors[i].solutions[si] = v; return d }) }
   function addSolution(i)  { patch(d => { d.sectors[i].solutions.push(''); return d }) }
   function removeSolution(i, si) { patch(d => { d.sectors[i].solutions.splice(si, 1); return d }) }
-  function add()    { patch(d => { d.sectors.push({ icon: 'cpu', iconBg: 'blue', title: '', desc: '', solutions: [] }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.sectors.push({ ...item, solutions: [] }); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.sectors.splice(i, 1); return d }) }
 
   return (
     <div className="form-section">
-      <p className="form-section-title">Sector Cards</p>
-      {data.sectors.map((sector, i) => (
+      <ListHeader title="Sector Cards" count={data.sectors.length} onAdd={() => setAddModal(true)} addLabel="+ Add Sector" />
+      {pageItems.map(({ item: sector, index: i }) => (
         <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 12 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
             <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Sector {i + 1}</span>
@@ -164,13 +170,82 @@ function SectorsTab({ data, patch }) {
           <button className="btn-add" style={{ marginTop: 4 }} onClick={() => addSolution(i)}>+ Add Solution</button>
         </div>
       ))}
-      <button className="btn-add" onClick={add}>+ Add Sector</button>
+      <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+      {addModal && <AddSectorModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
     </div>
   )
 }
 
+function AddSectorModal({ onSave, onCancel }) {
+  const [icon,     setIcon]     = useState('cpu')
+  const [iconBg,   setIconBg]   = useState('blue')
+  const [title,    setTitle]    = useState('')
+  const [chip,     setChip]     = useState('')
+  const [clients,  setClients]  = useState('')
+  const [desc,     setDesc]     = useState('')
+  const [featured, setFeatured] = useState(false)
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 500, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Sector</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon <span className="hint">— radio · sun · zap · cpu · leaf</span></label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} autoFocus />
+            </div>
+            <div className="field" style={{ width: 150, marginBottom: 0 }}>
+              <label>Icon Background</label>
+              <input value={iconBg} onChange={e => setIconBg(e.target.value)} placeholder="blue · amber · green" />
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Title</label>
+              <input value={title} onChange={e => setTitle(e.target.value)} />
+            </div>
+            <div className="field" style={{ width: 160, marginBottom: 0 }}>
+              <label>Chip <span className="hint">— optional badge</span></label>
+              <input value={chip} onChange={e => setChip(e.target.value)} placeholder="Core Vertical" />
+            </div>
+          </div>
+          <div className="field">
+            <label>Clients <span className="hint">— optional</span></label>
+            <input value={clients} onChange={e => setClients(e.target.value)} placeholder="Nokia · Ericsson" />
+          </div>
+          <div className="field">
+            <label>Description</label>
+            <textarea rows={3} value={desc} onChange={e => setDesc(e.target.value)} />
+          </div>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#374151', cursor: 'pointer' }}>
+            <input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} />
+            Mark as Featured
+          </label>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, iconBg, title, chip: chip || undefined, clients: clients || undefined, desc, featured })} style={{ minWidth: 110 }}>Add Sector</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 /* ── Global Reach ── */
 function GlobalReachTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.regions, 10)
   const sh = (f, v) => patch(d => { d.globalReachSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.regions[i][f] = v; return d }) }
   function add()    { patch(d => { d.regions.push({ title: '', countries: '' }); return d }) }
@@ -188,8 +263,8 @@ function GlobalReachTab({ data, patch }) {
         <div className="field"><label>Description</label><input value={data.globalReachSection.description} onChange={e => sh('description', e.target.value)} /></div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Regions</p>
-        {data.regions.map((region, i) => (
+        <ListHeader title="Regions" count={data.regions.length} onAdd={add} addLabel="+ Add Region" />
+        {pageItems.map(({ item: region, index: i }) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'flex-end', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 14px' }}>
             <div className="field" style={{ width: 160, marginBottom: 0 }}>
               {i === 0 && <label>Region</label>}
@@ -202,7 +277,7 @@ function GlobalReachTab({ data, patch }) {
             <button className="btn-del" onClick={() => remove(i)}>Remove</button>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 4 }} onClick={add}>+ Add Region</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
       </div>
     </>
   )

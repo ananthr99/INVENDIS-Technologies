@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
+import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
 const FILE_PATH     = 'public/content/pages/caseStudies.json'
 const GH_PAGES_PATH = 'content/pages/caseStudies.json'
@@ -120,9 +121,14 @@ function HeroTab({ data, patch }) {
 
 /* ── Case Studies ── */
 function CaseStudiesTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.caseStudies, 5)
+  const [addModal, setAddModal] = useState(false)
   const sh = (f, v) => patch(d => { d.caseStudiesSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.caseStudies[i][f] = v; return d }) }
-  function add()    { patch(d => { d.caseStudies.push({ style: 'blue', sector: '', title: '', client: '', desc: '', resultNum: '', resultLabel: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.caseStudies.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.caseStudies.splice(i, 1); return d }) }
 
   return (
@@ -146,8 +152,8 @@ function CaseStudiesTab({ data, patch }) {
       </div>
 
       <div className="form-section">
-        <p className="form-section-title">Case Studies</p>
-        {data.caseStudies.map((cs, i) => (
+        <ListHeader title="Case Studies" count={data.caseStudies.length} onAdd={() => setAddModal(true)} addLabel="+ Add Case Study" />
+        {pageItems.map(({ item: cs, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Case Study {i + 1}</span>
@@ -191,17 +197,94 @@ function CaseStudiesTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Case Study</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddCaseStudyModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}    
       </div>
     </>
   )
 }
 
+function AddCaseStudyModal({ onSave, onCancel }) {
+  const [style,       setStyle]       = useState('blue')
+  const [sector,      setSector]      = useState('')
+  const [title,       setTitle]       = useState('')
+  const [client,      setClient]      = useState('')
+  const [desc,        setDesc]        = useState('')
+  const [resultNum,   setResultNum]   = useState('')
+  const [resultLabel, setResultLabel] = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 540, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Case Study</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ width: 130, marginBottom: 0 }}>
+              <label>Card Style</label>
+              <select value={style} onChange={e => setStyle(e.target.value)} style={{ width: '100%' }}>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+                <option value="mix">mix</option>
+              </select>
+            </div>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Sector <span className="hint">— e.g. Telecom · Africa</span></label>
+              <input value={sector} onChange={e => setSector(e.target.value)} placeholder="Telecom · Africa" autoFocus />
+            </div>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field">
+            <label>Client</label>
+            <input value={client} onChange={e => setClient(e.target.value)} placeholder="American Tower Corporation" />
+          </div>
+          <div className="field">
+            <label>Description</label>
+            <textarea rows={3} value={desc} onChange={e => setDesc(e.target.value)} />
+          </div>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Result Number <span className="hint">— e.g. 40%</span></label>
+              <input value={resultNum} onChange={e => setResultNum(e.target.value)} placeholder="40%" />
+            </div>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Result Label</label>
+              <input value={resultLabel} onChange={e => setResultLabel(e.target.value)} placeholder="Reduction in site visits" />
+            </div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ style, sector, title, client, desc, resultNum, resultLabel })} style={{ minWidth: 130 }}>Add Case Study</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 /* ── White Papers ── */
 function WhitePapersTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.whitepapers, 5)
+  const [addModal, setAddModal] = useState(false)
   const sh = (f, v) => patch(d => { d.whitepapersSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.whitepapers[i][f] = v; return d }) }
-  function add()    { patch(d => { d.whitepapers.push({ icon: 'file_text', iconBg: 'blue', title: '', desc: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.whitepapers.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.whitepapers.splice(i, 1); return d }) }
 
   return (
@@ -229,8 +312,8 @@ function WhitePapersTab({ data, patch }) {
       </div>
 
       <div className="form-section">
-        <p className="form-section-title">White Papers</p>
-        {data.whitepapers.map((wp, i) => (
+        <ListHeader title="White Papers" count={data.whitepapers.length} onAdd={() => setAddModal(true)} addLabel="+ Add White Paper" />
+        {pageItems.map(({ item: wp, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Paper {i + 1}</span>
@@ -262,11 +345,64 @@ function WhitePapersTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add White Paper</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddWhitePaperModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}    
       </div>
     </>
   )
 }
+
+function AddWhitePaperModal({ onSave, onCancel }) {
+  const [icon,   setIcon]   = useState('file_text')
+  const [iconBg, setIconBg] = useState('blue')
+  const [title,  setTitle]  = useState('')
+  const [desc,   setDesc]   = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 460, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add White Paper</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon</label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} placeholder="file_text" autoFocus />
+            </div>
+            <div className="field" style={{ width: 160, marginBottom: 0 }}>
+              <label>Icon Background</label>
+              <select value={iconBg} onChange={e => setIconBg(e.target.value)} style={{ width: '100%' }}>
+                {['blue','red','green','purple','amber'].map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Description</label>
+            <textarea rows={3} value={desc} onChange={e => setDesc(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, iconBg, title, desc })} style={{ minWidth: 120 }}>Add White Paper</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 
 /* ── CTA Banner ── */
 function CTABannerTab({ data, patch }) {

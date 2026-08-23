@@ -143,11 +143,13 @@ const ICON_OPTIONS  = 'building · phone · mail · globe · map-pin · clock ·
 const COLOR_OPTIONS = 'blue · red · green · purple · amber'
 
 function ContactItemsTab({ data, patch }) {
+  const [addModal, setAddModal] = useState(false)
   function update(i, field, val) {
     patch(d => { d.contactItems[i][field] = val; return d })
   }
-  function add() {
-    patch(d => { d.contactItems.push({ icon: 'mail', color: 'blue', label: '', content: '' }); return d })
+  function handleAdd(item) {
+    patch(d => { d.contactItems.push(item); return d })
+    setAddModal(false)
   }
   function remove(i) {
     patch(d => { d.contactItems.splice(i, 1); return d })
@@ -195,10 +197,71 @@ function ContactItemsTab({ data, patch }) {
         </div>
       ))}
 
-      <button className="btn-add" onClick={add}>+ Add Contact Item</button>
+      <button className="btn-add" onClick={() => setAddModal(true)}>+ Add Contact Item</button>
+      {addModal && <AddContactItemModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
     </div>
   )
 }
+
+function AddContactItemModal({ onSave, onCancel }) {
+  const [icon,    setIcon]    = useState('mail')
+  const [color,   setColor]   = useState('blue')
+  const [label,   setLabel]   = useState('')
+  const [href,    setHref]    = useState('')
+  const [content, setContent] = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 480, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Contact Item</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon <span className="hint">— building · phone · mail · globe · map-pin · clock</span></label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} autoFocus />
+            </div>
+            <div className="field" style={{ width: 140, marginBottom: 0 }}>
+              <label>Color</label>
+              <select value={color} onChange={e => setColor(e.target.value)} style={{ width: '100%' }}>
+                {['blue','red','green','purple','amber'].map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Label</label>
+              <input value={label} onChange={e => setLabel(e.target.value)} placeholder="e.g. Email" />
+            </div>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Href <span className="hint">— optional</span></label>
+              <input value={href} onChange={e => setHref(e.target.value)} placeholder="mailto:…" />
+            </div>
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Content</label>
+            <textarea rows={3} value={content} onChange={e => setContent(e.target.value)} placeholder="info@invendis.com" />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, color, label, href: href || undefined, content })} style={{ minWidth: 100 }}>Add Item</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 
 /* ── Quick Facts ────────────────────────────────────── */
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
 import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
+import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
 const FILE_PATH     = 'public/content/pages/company.json'
 const GH_PAGES_PATH = 'content/pages/company.json'
@@ -123,9 +124,14 @@ function HeroTab({ data, patch }) {
 
 /* ── Mission ── */
 function MissionTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.mission, 5)
+  const [addModal, setAddModal] = useState(false)
   const sh = (f, v) => patch(d => { d.missionSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.mission[i][f] = v; return d }) }
-  function add()    { patch(d => { d.mission.push({ icon: 'target', bg: 'blue', title: '', body: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.mission.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.mission.splice(i, 1); return d }) }
 
   return (
@@ -142,8 +148,8 @@ function MissionTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Mission Cards</p>
-        {data.mission.map((item, i) => (
+        <ListHeader title="Mission Cards" count={data.mission.length} onAdd={() => setAddModal(true)} addLabel="+ Add Card" />
+        {pageItems.map(({ item, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '16px 18px', marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Card {i + 1}</span>
@@ -170,14 +176,74 @@ function MissionTab({ data, patch }) {
             <div className="field"><label>Body</label><textarea rows={3} value={item.body} onChange={e => update(i, 'body', e.target.value)} /></div>
           </div>
         ))}
-        <button className="btn-add" onClick={add}>+ Add Card</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
       </div>
+      {addModal && <AddMissionCardModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
     </>
   )
 }
 
+function AddMissionCardModal({ onSave, onCancel }) {
+  const [icon,    setIcon]    = useState('target')
+  const [bg,      setBg]      = useState('blue')
+  const [title,   setTitle]   = useState('')
+  const [tagline, setTagline] = useState('')
+  const [body,    setBody]    = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 480, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Mission Card</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Icon <span className="hint">— target · eye · lightbulb</span></label>
+              <input value={icon} onChange={e => setIcon(e.target.value)} autoFocus />
+            </div>
+            <div className="field" style={{ width: 130, marginBottom: 0 }}>
+              <label>Background</label>
+              <select value={bg} onChange={e => setBg(e.target.value)} style={{ width: '100%' }}>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+              </select>
+            </div>
+          </div>
+          <div className="field">
+            <label>Title</label>
+            <input value={title} onChange={e => setTitle(e.target.value)} />
+          </div>
+          <div className="field">
+            <label>Tagline <span className="hint">— optional</span></label>
+            <input value={tagline} onChange={e => setTagline(e.target.value)} placeholder='"Invent. Discover."' />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Body</label>
+            <textarea rows={4} value={body} onChange={e => setBody(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ icon, bg, title, tagline: tagline || undefined, body })} style={{ minWidth: 100 }}>Add Card</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 /* ── Values ── */
 function ValuesTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.values, 10)
   const sh = (f, v) => patch(d => { d.valuesSection[f] = v; return d })
   function update(i, f, v) { patch(d => { d.values[i][f] = v; return d }) }
   function add()    { patch(d => { d.values.push({ icon: 'star', title: '', body: '' }); return d }) }
@@ -194,8 +260,8 @@ function ValuesTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Values</p>
-        {data.values.map((v, i) => (
+        <ListHeader title="Values" count={data.values.length} onAdd={add} addLabel="+ Add Value" />
+        {pageItems.map(({ item: v, index: i }) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'flex-end', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 16px' }}>
             <div className="field" style={{ width: 130, marginBottom: 0 }}>
               {i === 0 && <label>Icon</label>}
@@ -212,7 +278,7 @@ function ValuesTab({ data, patch }) {
             <button className="btn-del" onClick={() => remove(i)}>Remove</button>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 4 }} onClick={add}>+ Add Value</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
       </div>
     </>
   )
@@ -220,9 +286,14 @@ function ValuesTab({ data, patch }) {
 
 /* ── Timeline ── */
 function TimelineTab({ data, patch }) {
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.timeline, 5)
   const sh = (f, v) => patch(d => { d.timelineSection[f] = v; return d })
+  const [addModal, setAddModal] = useState(false)
   function update(i, f, v) { patch(d => { d.timeline[i][f] = v; return d }) }
-  function add()    { patch(d => { d.timeline.push({ year: '', title: '', body: '' }); return d }) }
+  function handleAdd(item) {
+    patch(d => { d.timeline.push(item); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.timeline.splice(i, 1); return d }) }
 
   return (
@@ -236,8 +307,8 @@ function TimelineTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Timeline Events</p>
-        {data.timeline.map((item, i) => (
+        <ListHeader title="Timeline Events" count={data.timeline.length} onAdd={() => setAddModal(true)} addLabel="+ Add Event" />
+        {pageItems.map(({ item, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 8 }}>
             <div style={{ display: 'flex', gap: 8, alignItems: 'flex-end', marginBottom: 8 }}>
               <div className="field" style={{ width: 110, marginBottom: 0 }}>
@@ -256,14 +327,61 @@ function TimelineTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 4 }} onClick={add}>+ Add Event</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && <AddTimelineEventModal onSave={handleAdd} onCancel={() => setAddModal(false)} />}
       </div>
     </>
   )
 }
 
+function AddTimelineEventModal({ onSave, onCancel }) {
+  const [year,  setYear]  = useState('')
+  const [title, setTitle] = useState('')
+  const [body,  setBody]  = useState('')
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 440, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Timeline Event</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ width: 110, marginBottom: 0 }}>
+              <label>Year</label>
+              <input value={year} onChange={e => setYear(e.target.value)} placeholder="2007" autoFocus />
+            </div>
+            <div className="field" style={{ flex: 1, marginBottom: 0 }}>
+              <label>Title</label>
+              <input value={title} onChange={e => setTitle(e.target.value)} />
+            </div>
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Body</label>
+            <textarea rows={3} value={body} onChange={e => setBody(e.target.value)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={() => onSave({ year, title, body })} style={{ minWidth: 110 }}>Add Event</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ── Facilities ── */
 function FacilitiesTab({ data, patch }) {
+  const facPag  = usePagination(data.facilities, 10)
+  const certPag = usePagination(data.certifications, 10)
   const sh = (f, v) => patch(d => { d.facilitiesSection[f] = v; return d })
   function updateFac(i, f, v) { patch(d => { d.facilities[i][f] = v; return d }) }
   function addFac()    { patch(d => { d.facilities.push({ icon: 'building', color: 'blue', label: '', detail: '' }); return d }) }
@@ -283,8 +401,8 @@ function FacilitiesTab({ data, patch }) {
         </div>
       </div>
       <div className="form-section">
-        <p className="form-section-title">Facilities</p>
-        {data.facilities.map((f, i) => (
+        <ListHeader title="Facilities" count={data.facilities.length} onAdd={addFac} addLabel="+ Add Facility" />
+        {facPag.pageItems.map(({ item: f, index: i }) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'flex-end', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 14px' }}>
             <div className="field" style={{ width: 110, marginBottom: 0 }}>
               {i === 0 && <label>Icon</label>}
@@ -309,11 +427,11 @@ function FacilitiesTab({ data, patch }) {
             <button className="btn-del" onClick={() => removeFac(i)}>Remove</button>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 4 }} onClick={addFac}>+ Add Facility</button>
+        <Pager page={facPag.page} setPage={facPag.setPage} pageCount={facPag.pageCount} start={facPag.start} end={facPag.end} total={facPag.total} />
       </div>
       <div className="form-section">
-        <p className="form-section-title">Certifications</p>
-        {data.certifications.map((cert, i) => (
+        <ListHeader title="Certifications" count={data.certifications.length} onAdd={addCert} addLabel="+ Add Certification" />
+        {certPag.pageItems.map(({ item: cert, index: i }) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'center' }}>
             <div className="field" style={{ flex: 1, marginBottom: 0 }}>
               {i === 0 && <label>Certification</label>}
@@ -322,7 +440,7 @@ function FacilitiesTab({ data, patch }) {
             <button className="btn-del" style={{ marginTop: i === 0 ? 18 : 0 }} onClick={() => removeCert(i)}>Remove</button>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 8 }} onClick={addCert}>+ Add Certification</button>
+        <Pager page={certPag.page} setPage={certPag.setPage} pageCount={certPag.pageCount} start={certPag.start} end={certPag.end} total={certPag.total} />
       </div>
     </>
   )
@@ -333,9 +451,14 @@ const PREVIEW_BASE = 'https://raw.githubusercontent.com/ananthr99/INVENDIS-Techn
 
 function TeamTab({ data, patch }) {
   const { token, toast } = useAdmin()
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.team, 5)
   const sh = (f, v) => patch(d => { d.teamSection[f] = v; return d })
+  const [addModal, setAddModal] = useState(false)
   function update(i, f, v) { patch(d => { d.team[i][f] = v; return d }) }
-  function add()    { patch(d => { d.team.push({ name: '', role: '', photo: null }); return d }) }
+  function handleAdd(member) {
+    patch(d => { d.team.push(member); return d })
+    setAddModal(false)
+  }
   function remove(i){ patch(d => { d.team.splice(i, 1); return d }) }
   function removePhoto(i) { patch(d => { d.team[i].photo = null; return d }) }
 
@@ -389,8 +512,8 @@ function TeamTab({ data, patch }) {
       </div>
 
       <div className="form-section">
-        <p className="form-section-title">Team Members</p>
-        {data.team.map((member, i) => (
+        <ListHeader title="Team Members" count={data.team.length} onAdd={() => setAddModal(true)} addLabel="+ Add Member" />
+        {pageItems.map(({ item: member, index: i }) => (
           <div key={i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 8 }}>
             <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
 
@@ -435,9 +558,111 @@ function TeamTab({ data, patch }) {
             </div>
           </div>
         ))}
-        <button className="btn-add" style={{ marginTop: 8 }} onClick={add}>+ Add Member</button>
+        <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
+        {addModal && (
+          <AddTeamMemberModal token={token} toast={toast} onSave={handleAdd} onCancel={() => setAddModal(false)} />
+        )}
       </div>
     </>
+  )
+}
+
+function AddTeamMemberModal({ token, toast, onSave, onCancel }) {
+  const [name,       setName]       = useState('')
+  const [role,       setRole]       = useState('')
+  const [file,       setFile]       = useState(null)
+  const [previewUrl, setPreviewUrl] = useState(null)
+  const [uploading,  setUploading]  = useState(false)
+
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  function pickFile(f) {
+    if (!f || !f.type.startsWith('image/')) return
+    setFile(f); setPreviewUrl(URL.createObjectURL(f))
+  }
+
+  function initials() {
+    if (!name) return '?'
+    return name.split(' ').map(n => n[0]).filter(Boolean).join('').slice(0, 2).toUpperCase()
+  }
+
+  async function handleSave() {
+    setUploading(true)
+    try {
+      let photo = null
+      if (file) {
+        const slug = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || `member-${Date.now()}`
+        const ext  = file.name.split('.').pop().toLowerCase()
+        const filename = `${slug}.${ext}`
+        const base64 = await new Promise((res, rej) => {
+          const reader = new FileReader()
+          reader.onload = () => res(reader.result.split(',')[1])
+          reader.onerror = rej
+          reader.readAsDataURL(file)
+        })
+        toast('Uploading photo…', '')
+        let ghSha = null
+        try { ghSha = (await readFileDirect(`images/team/${filename}`, token)).sha } catch {}
+        await writeFileRawDirect(`images/team/${filename}`, base64, `CMS: upload team photo ${filename}`, ghSha, token)
+        let mainSha = null
+        try { mainSha = (await readFile(`public/images/team/${filename}`, token)).sha } catch {}
+        await writeFileRaw(`public/images/team/${filename}`, base64, `CMS: upload team photo ${filename} [skip ci]`, mainSha, token)
+        photo = `images/team/${filename}`
+      }
+      onSave({ name: name.trim(), role: role.trim(), photo })
+      toast(photo ? 'Member added — click Save & Publish' : 'Member added', 'ok')
+    } catch (e) {
+      toast(e.message, 'err')
+      setUploading(false)
+    }
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}
+      onClick={e => { if (e.target === e.currentTarget) onCancel() }}>
+      <div style={{ background: '#fff', borderRadius: 12, width: '100%', maxWidth: 440, boxShadow: '0 24px 64px rgba(0,0,0,.3)', display: 'flex', flexDirection: 'column', maxHeight: '92vh' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px 14px', borderBottom: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>Add Team Member</span>
+          <button onClick={onCancel} style={{ background: 'none', border: 'none', fontSize: 24, color: '#9ca3af', cursor: 'pointer', lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 16 }}>
+            <div style={{ width: 72, height: 72, borderRadius: 12, overflow: 'hidden', background: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              {previewUrl
+                ? <img src={previewUrl} alt="preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                : <span style={{ fontSize: 22, fontWeight: 700, color: '#9ca3af' }}>{initials()}</span>}
+            </div>
+            <div>
+              <label style={{ fontSize: 12, color: '#2563eb', cursor: 'pointer', textDecoration: 'underline', display: 'block', marginBottom: 4 }}>
+                {previewUrl ? 'Change photo' : 'Upload photo'} <span className="hint">— optional</span>
+                <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => pickFile(e.target.files?.[0])} />
+              </label>
+              {previewUrl && (
+                <button onClick={() => { setFile(null); setPreviewUrl(null) }} style={{ fontSize: 11, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>Remove</button>
+              )}
+            </div>
+          </div>
+          <div className="field">
+            <label>Name</label>
+            <input value={name} onChange={e => setName(e.target.value)} placeholder="Full name" autoFocus />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Role</label>
+            <input value={role} onChange={e => setRole(e.target.value)} placeholder="CEO" />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
+          <button onClick={onCancel} disabled={uploading} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
+          <button className="btn-save" onClick={handleSave} disabled={uploading} style={{ minWidth: 120 }}>
+            {uploading ? 'Uploading…' : 'Add Member'}
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
 
