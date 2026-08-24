@@ -13,15 +13,26 @@
       "chip": "Core Vertical",
       "title": "Telecom Tower Infrastructure",
       "desc": "Invendis's flagship vertical with 150,000+ sites deployed across Africa, the Middle East, and South & Southeast Asia. Our end-to-end telecom OA solution covers passive infrastructure monitoring, energy management, battery optimisation, and predictive maintenance.",
-      "solutions": ["Remote Monitoring (RMS)", "Battery & Rectifier Optimisation", "Power Source Management", "Site Visit Efficiency", "Energy Measurement & Billing", "Equipment Performance Prediction"],
-      "clients": "Nokia · Ericsson · American Tower · Airtel · Helios Towers"
+      "solutions": [
+        "Remote Monitoring (RMS)",
+        "Battery & Rectifier Optimisation",
+        "Power Source Management",
+        "Site Visit Efficiency",
+        "Energy Measurement & Billing",
+        "Equipment Performance Prediction"
+      ],
+      "clients": "· Telecel · Jio · Airtel · Econet · American Tower Corporation (ATC) · Irrawaddy Green Towers  (IGT) · ISON · Altius · Tower of Africa · Tawal · Indus Africa"
     },
     {
       "icon": "sun",
       "iconBg": "amber",
       "title": "Solar & Renewable Energy",
       "desc": "Comprehensive solar monitoring with real-time data on generation, consumption, and anomaly detection. Launched in 2016 with ongoing deployments for telecom and utility clients.",
-      "solutions": ["Solar Controller Monitoring", "Anomaly Detection", "Energy Analytics"]
+      "solutions": [
+        "Solar Controller Monitoring",
+        "Anomaly Detection",
+        "Energy Analytics"
+      ]
     },
     {
       "icon": "zap",
@@ -29,14 +40,24 @@
       "alt": true,
       "title": "Smart Energy & Utilities",
       "desc": "Smart metering, tariff-grade energy measurement, and utility billing platforms for distribution companies and industrial consumers.",
-      "solutions": ["Smart Energy Meters", "Generator ATS Control", "Utility Billing Platform", "Energy Monitoring"]
+      "solutions": [
+        "Smart Energy Meters",
+        "Generator ATS Control",
+        "Utility Billing Platform",
+        "Energy Monitoring"
+      ]
     },
     {
       "icon": "cpu",
       "iconBg": "green",
       "title": "Edge Compute & Industrial Networks",
       "desc": "Industrial networking solutions for edge computation, protocol bridging, and secure connectivity — including 4G/5G routers, SD-WAN, and Modbus/DNP3 converters.",
-      "solutions": ["Multi-WAN Routers", "SD-WAN Gateways", "Protocol Converters", "Cloud NMS"]
+      "solutions": [
+        "Multi-WAN Routers",
+        "SD-WAN Gateways",
+        "Protocol Converters",
+        "Cloud NMS"
+      ]
     },
     {
       "icon": "leaf",
@@ -44,7 +65,11 @@
       "alt": true,
       "title": "ESG & Sustainability",
       "desc": "Enabling customers to meet ESG targets through real-time energy monitoring, carbon tracking, and automated sustainability reporting across large site portfolios.",
-      "solutions": ["Carbon Footprint Tracking", "ESG Reporting", "Energy Efficiency Analytics"]
+      "solutions": [
+        "Carbon Footprint Tracking",
+        "ESG Reporting",
+        "Energy Efficiency Analytics"
+      ]
     }
   ],
   "globalReachSection": {
@@ -54,9 +79,18 @@
     "description": "Partner ecosystem spanning Africa, Middle East, South & Southeast Asia, and North America."
   },
   "regions": [
-    { "title": "Africa", "countries": "Nigeria, Ghana, Tanzania, Niger, Malawi, Kenya, South Africa" },
-    { "title": "Middle East", "countries": "Oman, Qatar, Saudi Arabia" },
-    { "title": "South & SE Asia", "countries": "India, Bangladesh, Sri Lanka, Myanmar, Malaysia, Indonesia, Philippines" }
+    {
+      "title": "Africa",
+      "countries": "Nigeria, Ghana, Tanzania, Niger, Malawi, Kenya, South Africa"
+    },
+    {
+      "title": "Middle East",
+      "countries": "Oman, Qatar, Saudi Arabia"
+    },
+    {
+      "title": "South & SE Asia",
+      "countries": "India, Bangladesh, Sri Lanka, Myanmar, Malaysia, Indonesia, Philippines"
+    }
   ],
   "ctaBanner": {
     "heading": "Solving Challenges in Your Industry?",
