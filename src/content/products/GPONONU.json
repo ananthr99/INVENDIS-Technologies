@@ -3,7 +3,7 @@
   "name": "GPON ONU",
   "cat": "Router",
   "cpu": "—",
-  "ram": "—",
+  "ram": "64MB SD RAM",
   "storage": "—",
   "cell": "none",
   "cellular_gen": "none",
@@ -11,20 +11,35 @@
   "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "",
-  "ports": 0,
+  "power": "12 VDC",
+  "ports": 1,
   "os": "—",
   "desc": "",
-  "housing": "",
-  "dims": "",
-  "weight": "",
-  "op_temp": "",
+  "housing": "Plastic",
+  "dims": "90 x 27 x 80 mm (W x H x D)",
+  "weight": "300 g",
+  "op_temp": "0~ 70 ˚C",
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/GPONONU-1787223696594-jx1x.png"
   ],
   "datasheet": "",
   "use_cases": [],
-  "hidden_fields": [],
-  "additional_specs": [],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "wifi",
+    "cpu",
+    "storage",
+    "ip",
+    "os",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Controller",
+      "v": "RTL9601D"
+    }
+  ],
   "order": 78
 }
