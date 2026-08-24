@@ -57,7 +57,8 @@
         "SD-WAN Gateways",
         "Protocol Converters",
         "Cloud NMS"
-      ]
+      ],
+      "clients": "Harman"
     },
     {
       "icon": "leaf",
