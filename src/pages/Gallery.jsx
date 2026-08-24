@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Camera } from 'lucide-react'
+import { useState, useEffect, useCallback } from 'react'
+import { Camera, ChevronLeft, ChevronRight } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
 import CTABanner from '../components/shared/CTABanner'
 import { useContent } from '../hooks/useContent'
@@ -13,17 +13,60 @@ const categoryGradients = {
   festivals: 'crimson',
 }
 
+function getItemsPerPage() {
+  const w = window.innerWidth
+  if (w >= 1024) return 9   
+  if (w >= 640)  return 6   
+  return 4                   
+}
+
+
 export default function Gallery() {
   const content = useContent('pages/gallery.json')
   const [activeCategory, setActiveCategory] = useState('all')
+  const [currentPage, setCurrentPage]       = useState(1)
+  const [itemsPerPage, setItemsPerPage]     = useState(getItemsPerPage)
+
+  const updateItemsPerPage = useCallback(() => {
+    setItemsPerPage(getItemsPerPage())
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('resize', updateItemsPerPage)
+    return () => window.removeEventListener('resize', updateItemsPerPage)
+  }, [updateItemsPerPage])
 
   if (!content) return <div className="min-h-screen" />
 
   const { hero, gallerySection, categories, photos, ctaBanner } = content
 
   const filtered = activeCategory === 'all'
-    ? photos
-    : photos.filter(p => p.category === activeCategory)
+  ? photos
+  : photos.filter(p => p.category === activeCategory)
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / itemsPerPage))
+  const safePage   = Math.min(currentPage, totalPages)
+  const pagePhotos = filtered.slice((safePage - 1) * itemsPerPage, safePage * itemsPerPage)
+
+  function handleCategoryChange(id) {
+    setActiveCategory(id)
+    setCurrentPage(1)
+  }
+
+  function goTo(page) {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  function buildPages() {
+    if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1)
+    const pages = [1]
+    if (safePage > 3) pages.push('…')
+    for (let p = Math.max(2, safePage - 1); p <= Math.min(totalPages - 1, safePage + 1); p++) pages.push(p)
+    if (safePage < totalPages - 2) pages.push('…')
+    pages.push(totalPages)
+    return pages
+  }
 
   return (
     <div className="min-h-screen">
@@ -66,7 +109,7 @@ export default function Gallery() {
             {categories.map(({ id, label }) => (
               <button
                 key={id}
-                onClick={() => setActiveCategory(id)}
+                onClick={() => handleCategoryChange(id)}
                 className={`px-4 py-2 rounded-full font-sora text-sm font-semibold transition-all ${
                   activeCategory === id
                     ? 'bg-brand-blue text-white shadow-md'
@@ -81,7 +124,7 @@ export default function Gallery() {
 
         {/* Photo grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((photo) => (
+          {pagePhotos.map((photo) => (
             <div
               key={photo.id}
               className="rounded-2xl overflow-hidden border border-gray-100 group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
@@ -117,6 +160,53 @@ export default function Gallery() {
             </div>
           ))}
         </div>
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-12 flex items-center justify-center gap-2">
+            <button
+              onClick={() => goTo(safePage - 1)}
+              disabled={safePage === 1}
+              className="p-2 rounded-lg border border-gray-200 text-brand-muted hover:text-brand-blue hover:border-brand-blue disabled:opacity-30 disabled:pointer-events-none transition-all"
+              aria-label="Previous page"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            {buildPages().map((item, i) =>
+              item === '…' ? (
+                <span key={`ellipsis-${i}`} className="px-1 text-brand-muted font-sora text-sm select-none">…</span>
+              ) : (
+                <button
+                  key={item}
+                  onClick={() => goTo(item)}
+                  className={`w-9 h-9 rounded-lg font-sora text-sm font-semibold transition-all ${
+                    item === safePage
+                      ? 'bg-brand-blue text-white shadow-md'
+                      : 'border border-gray-200 text-brand-muted hover:text-brand-blue hover:border-brand-blue'
+                  }`}
+                >
+                  {item}
+                </button>
+              )
+            )}
+
+            <button
+              onClick={() => goTo(safePage + 1)}
+              disabled={safePage === totalPages}
+              className="p-2 rounded-lg border border-gray-200 text-brand-muted hover:text-brand-blue hover:border-brand-blue disabled:opacity-30 disabled:pointer-events-none transition-all"
+              aria-label="Next page"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* Page count summary */}
+        {totalPages > 1 && (
+          <p className="mt-4 text-center text-brand-muted font-sora text-xs">
+            Showing {(safePage - 1) * itemsPerPage + 1}–{Math.min(safePage * itemsPerPage, filtered.length)} of {filtered.length} photos
+          </p>
+        )}
       </section>
 
       <CTABanner
