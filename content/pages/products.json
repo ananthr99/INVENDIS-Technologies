@@ -181,6 +181,12 @@
       "accent": "red",
       "title": "NMS – Network Management",
       "desc": "Centralised network management system for SILBO devices, providing configuration management, performance monitoring, and fault management."
+    },
+    {
+      "icon": "bar_chart",
+      "accent": "blue",
+      "title": "Workforce Management Software",
+      "desc": ""
     }
   ],
   "designPartnersSection": {
