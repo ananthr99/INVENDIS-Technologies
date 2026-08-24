@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-24T04:27:32.616Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Site Settings",
+    "section": "Logos",
+    "action": "Updated Site Settings — Logos",
+    "changes": [
+      {
+        "field": "logos.makeInIndia",
+        "from": "/images/logos/make-in-india.png",
+        "to": "images/logos/make-in-india.png"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T04:20:39.554Z",
     "user": "ananth.r@invendis.com",
     "page": "Site Settings",
