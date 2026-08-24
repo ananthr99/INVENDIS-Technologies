@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-24T10:04:27.272Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Timeline",
+    "action": "Updated Company — Timeline",
+    "changes": [
+      {
+        "field": "timeline[\"Expansion & New Products\"].body",
+        "from": "5G routers, switches, tariff-grade meters, Intel-based rout…",
+        "to": "Billing and Reconciliation for a Major Saudi Arabia Client"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T09:43:04.734Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Home",
