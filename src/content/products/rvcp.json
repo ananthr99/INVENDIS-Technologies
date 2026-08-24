@@ -15,13 +15,11 @@
   "ports": 4,
   "os": "Open-WRT based Linux OS",
   "desc": "",
-  "housing": "",
-  "dims": "",
-  "weight": "",
+  "housing": "Sheet Metal",
+  "dims": "190 x 30 x 100 mm (W x H x D)",
+  "weight": "520",
   "op_temp": "",
-  "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcp-1787568766978-rk3v.png"
-  ],
+  "images": [],
   "datasheet": "",
   "use_cases": [],
   "hidden_fields": [
