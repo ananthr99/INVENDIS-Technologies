@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "eyebrow": "Resources",
+    "headline": "Technical Articles",
+    "headlineAccent": "& Insights",
+    "description": "Deep-dives into IIoT hardware, industrial connectivity, energy metering, and infrastructure monitoring — written by the Invendis engineering team."
+  },
+  "ctaBanner": {
+    "heading": "Have a Technical Question?",
+    "description": "Our engineering team is happy to discuss your application, recommend the right hardware, or share application notes specific to your use case.",
+    "buttonLabel": "Contact the team",
+    "buttonTo": "/contact"
+  }
+}

@@ -9,6 +9,8 @@ import { logChange } from '../../utils/logChange'
 
 const INDEX_MAIN = 'public/content/blog/_index.json'
 const INDEX_GH   = 'content/blog/_index.json'
+const RESOURCES_MAIN = 'public/content/pages/resources.json'
+const RESOURCES_GH   = 'content/pages/resources.json'
 
 const CATEGORIES = ['Technical Article', 'Application Note', 'Industry Insight', 'Case Study']
 
@@ -65,6 +67,10 @@ export default function BlogPage() {
   const [isNew, setIsNew]           = useState(true)
   const [postSha, setPostSha]       = useState('')
   const [slugLocked, setSlugLocked] = useState(false)
+  const [activeTab, setActiveTab]   = useState('Hero')
+  const [settings,      setSettings]      = useState(null)
+  const [settingsSha,   setSettingsSha]   = useState('')
+  const [savingSettings,setSavingSettings]= useState(false)
   const bodyRef = useRef(null)
 
   useEffect(() => { loadIndex() }, [])
@@ -84,6 +90,16 @@ export default function BlogPage() {
       const parsed = JSON.parse(result.content)
       setPosts(parsed.sort((a, b) => new Date(b.date) - new Date(a.date)))
       setIndexSha(result.sha)
+      try {
+        const res = await readFile(RESOURCES_MAIN, token)
+        setSettings(JSON.parse(res.content))
+        setSettingsSha(res.sha)
+      } catch {
+        setSettings({
+          hero: { eyebrow: 'Resources', headline: 'Technical Articles', headlineAccent: '& Insights', description: '' },
+          ctaBanner: { heading: '', description: '', buttonLabel: 'Contact the team', buttonTo: '/contact' },
+        })
+      }
     } catch {
       setPosts([])
       setIndexSha('')
@@ -236,6 +252,36 @@ export default function BlogPage() {
     }
   }
 
+  async function handleSaveSettings() {
+    setSavingSettings(true)
+    try {
+      const json = JSON.stringify(settings, null, 2)
+      let ghSha = null
+      try { ghSha = (await readFileDirect(RESOURCES_GH, token)).sha } catch {}
+      await writeFileDirect(RESOURCES_GH, json, 'CMS: update resources page settings', ghSha, token)
+      const result = await writeFile(RESOURCES_MAIN, json, 'CMS: update resources page settings [skip ci]', settingsSha || undefined, token)
+      setSettingsSha(result.content.sha)
+      logChange({ userEmail, page: 'Resources', section: 'CTA Banner', token, before: null, after: settings })
+      toast('Saved — live in seconds', 'ok')
+    } catch (e) {
+      toast(e.message, 'err')
+    } finally {
+      setSavingSettings(false)
+    }
+  }
+
+  function patchSettings(path, val) {
+    setSettings(prev => {
+      const next = structuredClone(prev)
+      const keys = path.split('.')
+      let obj = next
+      keys.slice(0, -1).forEach(k => obj = obj[k])
+      obj[keys.at(-1)] = val
+      return next
+    })
+  }
+
+
   function insertMarkdown(before, after) {
     const el = bodyRef.current
     if (!el) return
@@ -273,88 +319,8 @@ export default function BlogPage() {
     </div>
   )
 
-  // ── List view ────────────────────────────────────────────────────────────────
-  if (view === 'list') return (
-    <>
-      <div className="tab-bar">
-        <span style={{ padding: '0 4px', fontSize: 14, fontWeight: 600, color: '#111827', display: 'flex', alignItems: 'center' }}>
-          Blog Posts
-          {posts.length > 0 && (
-            <span style={{ marginLeft: 8, fontSize: 11, fontWeight: 500, background: '#f3f4f6', color: '#6b7280', padding: '1px 7px', borderRadius: 10 }}>
-              {posts.length}
-            </span>
-          )}
-        </span>
-        <div style={{ flex: 1 }} />
-        <div style={{ display: 'flex', alignItems: 'center', padding: '0 12px' }}>
-          <button className="btn-save" onClick={handleNew}>+ New Post</button>
-        </div>
-      </div>
-
-      <div className="tab-panel">
-        {posts.length === 0 ? (
-          <div style={{ ...card, textAlign: 'center', padding: '56px 28px' }}>
-            <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: 22 }}>✍️</div>
-            <p style={{ fontSize: 15, fontWeight: 600, color: '#1a1d23', marginBottom: 6 }}>No blog posts yet</p>
-            <p style={{ fontSize: 13, color: '#6b7280', marginBottom: 20 }}>Create your first article to start publishing content.</p>
-            <button className="btn-save" onClick={handleNew}>+ New Post</button>
-          </div>
-        ) : (
-          <div style={card}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
-              <thead>
-                <tr style={{ borderBottom: '1px solid #f3f4f6' }}>
-                  {[['Date', '120px'], ['Category', '160px'], ['Title', ''], ['Author', '130px'], ['', '100px']].map(([h, w]) => (
-                    <th key={h} style={{ padding: '8px 12px', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', fontSize: 10, letterSpacing: '0.06em', textAlign: h === '' ? 'right' : 'left', width: w || undefined }}>
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {posts.map(post => {
-                  const cc = CAT_COLORS[post.category] || { bg: '#f3f4f6', color: '#374151' }
-                  return (
-                    <tr key={post.slug} style={{ borderBottom: '1px solid #f9fafb' }}>
-                      <td style={{ padding: '12px 12px', color: '#6b7280', whiteSpace: 'nowrap', fontSize: 12 }}>{post.date}</td>
-                      <td style={{ padding: '12px 12px' }}>
-                        <span style={{ fontSize: 11, fontWeight: 600, padding: '3px 8px', borderRadius: 5, background: cc.bg, color: cc.color }}>
-                          {post.category}
-                        </span>
-                      </td>
-                      <td style={{ padding: '12px 12px' }}>
-                        <p style={{ fontWeight: 600, color: '#111827', marginBottom: 2 }}>{post.title}</p>
-                        <p style={{ fontSize: 12, color: '#9ca3af', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 340 }}>{post.excerpt}</p>
-                      </td>
-                      <td style={{ padding: '12px 12px', color: '#6b7280', fontSize: 12 }}>{post.author}</td>
-                      <td style={{ padding: '12px 12px', textAlign: 'right', whiteSpace: 'nowrap' }}>
-                        <button
-                          onClick={() => handleEdit(post)}
-                          style={{ fontSize: 12, padding: '5px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff', color: '#374151', cursor: 'pointer', marginRight: 6, fontFamily: 'inherit', transition: 'border-color .15s' }}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() => handleDelete(post)}
-                          disabled={deleting === post.slug}
-                          style={{ fontSize: 12, padding: '5px 12px', borderRadius: 6, border: '1px solid #fca5a5', background: '#fff', color: '#dc2626', cursor: 'pointer', fontFamily: 'inherit' }}
-                        >
-                          {deleting === post.slug ? '…' : 'Delete'}
-                        </button>
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
-    </>
-  )
-
-  // ── Edit view ─────────────────────────────────────────────────────────────────
-  return (
+  // ── Edit view ────────────────────────────────────────────────────────────────
+  if (view === 'edit') return (
     <>
       <div className="tab-bar">
         <button
@@ -378,19 +344,12 @@ export default function BlogPage() {
       <div className="tab-panel">
         <div style={{ maxWidth: 840 }}>
 
-          {/* ── Basic info card ── */}
           <div style={card}>
             <p style={sectionTitle}>Basic Information</p>
-
             <div className="field">
               <label>Title *</label>
-              <input
-                value={form.title}
-                onChange={e => patch('title', e.target.value)}
-                placeholder="e.g. How to Deploy an IIoT Gateway in a Remote Site"
-              />
+              <input value={form.title} onChange={e => patch('title', e.target.value)} placeholder="e.g. How to Deploy an IIoT Gateway in a Remote Site" />
             </div>
-
             <div className="field">
               <label>
                 Slug (URL path)
@@ -406,7 +365,6 @@ export default function BlogPage() {
                 placeholder="auto-generated-from-title"
               />
             </div>
-
             <div className="field-grid-3">
               <div className="field">
                 <label>Date *</label>
@@ -423,22 +381,12 @@ export default function BlogPage() {
                 <input value={form.author} onChange={e => patch('author', e.target.value)} placeholder="e.g. Invendis Team" />
               </div>
             </div>
-
             <div className="field" style={{ marginBottom: 0 }}>
-              <label>
-                Excerpt *
-                <span className="hint"> — 1–2 sentences shown on the listing page</span>
-              </label>
-              <textarea
-                rows={3}
-                value={form.excerpt}
-                onChange={e => patch('excerpt', e.target.value)}
-                placeholder="A short summary of what this article covers and why it's useful."
-              />
+              <label>Excerpt * <span className="hint">— 1–2 sentences shown on the listing page</span></label>
+              <textarea rows={3} value={form.excerpt} onChange={e => patch('excerpt', e.target.value)} placeholder="A short summary of what this article covers and why it's useful." />
             </div>
           </div>
 
-          {/* ── Body card ── */}
           <div style={card}>
             <p style={sectionTitle}>
               Article Body
@@ -448,11 +396,8 @@ export default function BlogPage() {
                 </span>
               )}
             </p>
-
             <div className="field" style={{ marginBottom: 0 }}>
               <label>Content *</label>
-
-              {/* Toolbar */}
               <div style={{ display: 'flex', gap: 3, padding: '7px 10px', background: '#f9fafb', border: '1.5px solid #e5e7eb', borderBottom: '1px solid #eaecef', borderRadius: '7px 7px 0 0', flexWrap: 'wrap', alignItems: 'center' }}>
                 {[
                   { label: 'B',         title: 'Bold',          style: { fontWeight: 800 },         action: () => insertMarkdown('**') },
@@ -471,21 +416,13 @@ export default function BlogPage() {
                 ].map((btn, i) => btn === null ? (
                   <div key={i} style={{ width: 1, height: 16, background: '#d1d5db', margin: '0 3px' }} />
                 ) : (
-                  <button
-                    key={i}
-                    type="button"
-                    title={btn.title}
-                    onClick={btn.action}
+                  <button key={i} type="button" title={btn.title} onClick={btn.action}
                     style={{ padding: '3px 9px', fontSize: 11, fontFamily: 'inherit', fontWeight: 600, border: '1px solid #e5e7eb', borderRadius: 4, background: '#fff', color: '#374151', cursor: 'pointer', lineHeight: 1.5, transition: 'background .1s', ...btn.style }}
                     onMouseEnter={e => e.currentTarget.style.background = '#f3f4f6'}
                     onMouseLeave={e => e.currentTarget.style.background = '#fff'}
-                  >
-                    {btn.label}
-                  </button>
+                  >{btn.label}</button>
                 ))}
               </div>
-
-              {/* Editor */}
               <textarea
                 ref={bodyRef}
                 rows={28}
@@ -497,19 +434,143 @@ export default function BlogPage() {
             </div>
           </div>
 
-          {/* ── Tags card ── */}
           <div style={{ ...card, marginBottom: 0 }}>
             <p style={sectionTitle}>Tags <span style={{ fontWeight: 400, textTransform: 'none', letterSpacing: 0, color: '#b0b8c4' }}>(optional)</span></p>
             <div className="field" style={{ marginBottom: 0 }}>
-              <label>
-                Tags
-                <span className="hint"> — comma-separated, e.g. IIoT, Gateway, 5G, Energy Meter</span>
-              </label>
+              <label>Tags <span className="hint">— comma-separated, e.g. IIoT, Gateway, 5G, Energy Meter</span></label>
               <input value={form.tags} onChange={e => patch('tags', e.target.value)} placeholder="IIoT, Gateway, 5G" />
             </div>
           </div>
 
         </div>
+      </div>
+    </>
+  )
+
+  // ── Main tabbed view (Hero / Blogs / CTA Banner) ──────────────────────────────
+  return (
+    <>
+      <div className="tab-bar">
+        {['Hero', 'Blogs', 'CTA Banner'].map(t => (
+          <button key={t} className={`tab${activeTab === t ? ' active' : ''}`} onClick={() => setActiveTab(t)}>
+            {t}
+          </button>
+        ))}
+        <div style={{ flex: 1 }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '0 12px' }}>
+          {activeTab === 'Blogs' ? (
+            <button className="btn-save" onClick={handleNew}>+ New Post</button>
+          ) : (
+            <button className="btn-save" onClick={handleSaveSettings} disabled={savingSettings}>
+              {savingSettings ? 'Saving…' : 'Save & Publish'}
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="tab-panel">
+
+        {activeTab === 'Hero' && (
+          <div style={{ maxWidth: 640 }}>
+            <div style={card}>
+              <p style={sectionTitle}>Hero Section</p>
+              <div className="field">
+                <label>Eyebrow <span className="hint">— small label above the headline</span></label>
+                <input value={settings?.hero?.eyebrow ?? ''} onChange={e => patchSettings('hero.eyebrow', e.target.value)} placeholder="Resources" />
+              </div>
+              <div className="field-grid">
+                <div className="field">
+                  <label>Headline</label>
+                  <input value={settings?.hero?.headline ?? ''} onChange={e => patchSettings('hero.headline', e.target.value)} placeholder="Technical Articles" />
+                </div>
+                <div className="field">
+                  <label>Headline Accent <span className="hint">— highlighted part</span></label>
+                  <input value={settings?.hero?.headlineAccent ?? ''} onChange={e => patchSettings('hero.headlineAccent', e.target.value)} placeholder="& Insights" />
+                </div>
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Description</label>
+                <textarea rows={3} value={settings?.hero?.description ?? ''} onChange={e => patchSettings('hero.description', e.target.value)} placeholder="A brief description of the resources page..." />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'Blogs' && (
+          posts.length === 0 ? (
+            <div style={{ ...card, textAlign: 'center', padding: '56px 28px' }}>
+              <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: 22 }}>✍️</div>
+              <p style={{ fontSize: 15, fontWeight: 600, color: '#1a1d23', marginBottom: 6 }}>No blog posts yet</p>
+              <p style={{ fontSize: 13, color: '#6b7280', marginBottom: 20 }}>Create your first article to start publishing content.</p>
+              <button className="btn-save" onClick={handleNew}>+ New Post</button>
+            </div>
+          ) : (
+            <div style={card}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid #f3f4f6' }}>
+                    {[['Date', '120px'], ['Category', '160px'], ['Title', ''], ['Author', '130px'], ['', '100px']].map(([h, w]) => (
+                      <th key={h} style={{ padding: '8px 12px', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', fontSize: 10, letterSpacing: '0.06em', textAlign: h === '' ? 'right' : 'left', width: w || undefined }}>
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {posts.map(post => {
+                    const cc = CAT_COLORS[post.category] || { bg: '#f3f4f6', color: '#374151' }
+                    return (
+                      <tr key={post.slug} style={{ borderBottom: '1px solid #f9fafb' }}>
+                        <td style={{ padding: '12px 12px', color: '#6b7280', whiteSpace: 'nowrap', fontSize: 12 }}>{post.date}</td>
+                        <td style={{ padding: '12px 12px' }}>
+                          <span style={{ fontSize: 11, fontWeight: 600, padding: '3px 8px', borderRadius: 5, background: cc.bg, color: cc.color }}>{post.category}</span>
+                        </td>
+                        <td style={{ padding: '12px 12px' }}>
+                          <p style={{ fontWeight: 600, color: '#111827', marginBottom: 2 }}>{post.title}</p>
+                          <p style={{ fontSize: 12, color: '#9ca3af', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 340 }}>{post.excerpt}</p>
+                        </td>
+                        <td style={{ padding: '12px 12px', color: '#6b7280', fontSize: 12 }}>{post.author}</td>
+                        <td style={{ padding: '12px 12px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                          <button onClick={() => handleEdit(post)} style={{ fontSize: 12, padding: '5px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff', color: '#374151', cursor: 'pointer', marginRight: 6, fontFamily: 'inherit' }}>
+                            Edit
+                          </button>
+                          <button onClick={() => handleDelete(post)} disabled={deleting === post.slug} style={{ fontSize: 12, padding: '5px 12px', borderRadius: 6, border: '1px solid #fca5a5', background: '#fff', color: '#dc2626', cursor: 'pointer', fontFamily: 'inherit' }}>
+                            {deleting === post.slug ? '…' : 'Delete'}
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )
+        )}
+
+        {activeTab === 'CTA Banner' && (
+          <div style={{ maxWidth: 640 }}>
+            <div style={card}>
+              <p style={sectionTitle}>CTA Banner</p>
+              <div className="field">
+                <label>Heading</label>
+                <input value={settings?.ctaBanner?.heading ?? ''} onChange={e => patchSettings('ctaBanner.heading', e.target.value)} placeholder="Have a Technical Question?" />
+              </div>
+              <div className="field">
+                <label>Description</label>
+                <textarea rows={3} value={settings?.ctaBanner?.description ?? ''} onChange={e => patchSettings('ctaBanner.description', e.target.value)} placeholder="A short description..." />
+              </div>
+              <div className="field">
+                <label>Button Label</label>
+                <input value={settings?.ctaBanner?.buttonLabel ?? ''} onChange={e => patchSettings('ctaBanner.buttonLabel', e.target.value)} placeholder="Contact the team" />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Button Link</label>
+                <input value={settings?.ctaBanner?.buttonTo ?? ''} onChange={e => patchSettings('ctaBanner.buttonTo', e.target.value)} placeholder="/contact" />
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     </>
   )

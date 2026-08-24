@@ -31,8 +31,8 @@ const NAV = [
   { key: 'page-careers',    label: 'Careers'},
   { key: 'page-casestudies',label: 'Case Studies'},
   { key: 'page-gallery',    label: 'Gallery'},
+  { key: 'page-blog', label: 'Resources'},
   { type: 'sep', label: 'ADMIN'},
-  { key: 'blog',      label: 'Blog'},
   { key: 'countries', label: 'Countries'},
   { key: 'setup',     label: 'Setup'},
   { key: 'activity-log', label: 'Activity Log'},
@@ -158,7 +158,7 @@ export default function Dashboard() {
           {active === 'page-gallery'     && <GalleryPage />}
           {active === 'activity-log' && <ActivityLog />}
           {active === 'countries'    && <Countries />}
-          {active === 'blog'         && <BlogPage />}
+          {active === 'page-blog'    && <BlogPage />}
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@ import { ArrowRight, Clock, Calendar } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
 import { getAllPosts, CATEGORIES } from '../utils/blog'
 import { getGradient } from '../utils/styleMap'
+import { useContent } from '../hooks/useContent'
 
 const categoryColors = {
   'Technical Article': 'bg-brand-blue/10 text-brand-blue',
@@ -57,6 +58,8 @@ export default function Resources() {
   const [allPosts, setAllPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [activeCategory, setActiveCategory] = useState('All')
+  const pageContent = useContent('pages/resources.json')
+  const ctaBanner = pageContent?.ctaBanner
 
   useEffect(() => {
     getAllPosts().then(posts => {
@@ -90,13 +93,14 @@ export default function Resources() {
         />
         <div className="relative max-w-3xl">
           <p className="text-blue-200 font-sora text-sm font-semibold uppercase tracking-widest mb-3">
-            Resources
+            {pageContent?.hero?.eyebrow ?? 'Resources'}
           </p>
           <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
-            Technical Articles <span className="text-blue-200">&amp; Insights</span>
+            {pageContent?.hero?.headline ?? 'Technical Articles'}{' '}
+            <span className="text-blue-200">{pageContent?.hero?.headlineAccent ?? '& Insights'}</span>
           </h1>
           <p className="text-blue-100 text-lg leading-relaxed max-w-2xl">
-            Deep-dives into IIoT hardware, industrial connectivity, energy metering, and infrastructure monitoring — written by the Invendis engineering team.
+            {pageContent?.hero?.description ?? ''}
           </p>
         </div>
       </section>
@@ -152,16 +156,16 @@ export default function Resources() {
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%)' }} />
           <div className="relative z-10">
             <h2 className="font-sora text-3xl lg:text-4xl font-bold text-white mb-4">
-              Have a Technical Question?
+              {ctaBanner?.heading ?? 'Have a Technical Question?'}
             </h2>
             <p className="text-lg text-white/75 mb-10 max-w-xl mx-auto leading-relaxed">
-              Our engineering team is happy to discuss your application, recommend the right hardware, or share application notes specific to your use case.
+              {ctaBanner?.description ?? ''}
             </p>
             <Link
-              to="/contact"
+              to={ctaBanner?.buttonTo ?? '/contact'}
               className="inline-flex items-center gap-2 bg-white text-brand-blue font-sora font-bold text-base px-7 py-3.5 rounded-xl hover:-translate-y-0.5 hover:shadow-xl transition-all"
             >
-              Contact the team <ArrowRight size={18} />
+              {ctaBanner?.buttonLabel ?? 'Contact the team'} <ArrowRight size={18} />
             </Link>
           </div>
         </div>
