@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-24T09:22:28.791Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Sectors",
+    "section": "Sectors",
+    "action": "Updated Sectors — Sectors",
+    "changes": [
+      {
+        "field": "sectors",
+        "from": "[list modified]",
+        "to": "[list modified]"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T09:17:56.831Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Home",
