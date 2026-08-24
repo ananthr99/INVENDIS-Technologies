@@ -123,6 +123,18 @@
           {
             "label": "Towerco: Indus Africa",
             "accent": true
+          },
+          {
+            "label": "Energy Sector: OMC Power",
+            "accent": false
+          },
+          {
+            "label": "Fibre: MicroScan",
+            "accent": true
+          },
+          {
+            "label": "Fibre: Savanna",
+            "accent": false
           }
         ]
       }
