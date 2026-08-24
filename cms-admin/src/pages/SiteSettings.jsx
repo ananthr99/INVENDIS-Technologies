@@ -38,12 +38,21 @@ export default function SiteSettings() {
     try {
       const json = JSON.stringify(data, null, 2)
 
-      // Write directly to gh-pages → live in seconds, no build needed
-      let ghSha = null
-      try { ghSha = (await readFileDirect(GH_PAGES_PATH, token)).sha } catch {}
-      await writeFileDirect(GH_PAGES_PATH, json, 'CMS: update site settings', ghSha, token)
+      async function writeGhPages() {
+        const ghSha = await getFileShaDirect(GH_PAGES_PATH, token)
+        await writeFileDirect(GH_PAGES_PATH, json, 'CMS: update site settings', ghSha, token)
+      }
 
-      // Write to main with [skip ci] → keeps source in sync, no rebuild triggered
+      try {
+        await writeGhPages()
+      } catch (e) {
+        if (e.message?.includes('does not match')) {
+          await writeGhPages()
+        } else {
+          throw e
+        }
+      }
+
       const result = await writeFile(FILE_PATH, json, 'CMS: update site settings [skip ci]', sha, token)
       setSha(result.content.sha)
 
@@ -56,6 +65,7 @@ export default function SiteSettings() {
       setSaving(false)
     }
   }
+
 
 
   function patch(updater) {
