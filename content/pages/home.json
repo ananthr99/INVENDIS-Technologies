@@ -81,10 +81,6 @@
         "title": "Key Clients",
         "tags": [
           {
-            "label": "Nokia",
-            "accent": false
-          },
-          {
             "label": "Ericsson",
             "accent": true
           },
