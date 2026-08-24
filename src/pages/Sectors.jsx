@@ -10,8 +10,8 @@ export default function Sectors() {
   if (!content) return <div className="min-h-screen" />
 
   const { hero, sectors, globalReachSection, regions, ctaBanner } = content
-  const featured = sectors[0]
-  const rest = sectors.slice(1)
+  const featured = sectors.find(s => s.featured) ?? sectors[0]
+  const rest = sectors.filter(s => s !== featured)
   const FeaturedIcon = getIcon(featured.icon)
 
   return (
@@ -79,7 +79,7 @@ export default function Sectors() {
 
           {/* Regular cards 2×2 grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {rest.map(({ icon, iconBg, alt, title, desc, solutions }) => {
+            {rest.map(({ icon, iconBg, alt, title, desc, solutions, clients }) => {
               const Icon = getIcon(icon)
               return (
                 <div
@@ -110,6 +110,11 @@ export default function Sectors() {
                       </span>
                     ))}
                   </div>
+                  {clients && (
+                    <p className={`text-xs mt-4 ${alt ? 'text-blue-300' : 'text-brand-muted'}`}>
+                      Key clients: <strong className={alt ? 'text-blue-100' : 'text-brand-text'}>{clients}</strong>
+                    </p>
+                  )}
                 </div>
               )
             })}
