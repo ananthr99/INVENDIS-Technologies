@@ -81,20 +81,48 @@
         "title": "Key Clients",
         "tags": [
           {
-            "label": "Ericsson",
+            "label": "Telco: Telecel",
             "accent": true
           },
           {
-            "label": "American Tower",
+            "label": "Telco: Jio",
             "accent": false
           },
           {
-            "label": "Infosys",
+            "label": "Telco: Airtel",
             "accent": true
           },
           {
-            "label": "Capgemini",
+            "label": "Telco: Econet",
             "accent": false
+          },
+          {
+            "label": "Towerco: American Tower Corporation (ATC)",
+            "accent": true
+          },
+          {
+            "label": "Towerco: Irrawaddy Green Towers (IGT)",
+            "accent": false
+          },
+          {
+            "label": "Towerco: Ison",
+            "accent": true
+          },
+          {
+            "label": "Towerco: Altius",
+            "accent": false
+          },
+          {
+            "label": "Towerco: TOA",
+            "accent": true
+          },
+          {
+            "label": "Towerco: Tawal Saudi",
+            "accent": false
+          },
+          {
+            "label": "Towerco: Indus Africa",
+            "accent": true
           }
         ]
       }
