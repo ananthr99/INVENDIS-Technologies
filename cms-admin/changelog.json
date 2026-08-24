@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-24T04:59:14.733Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.cards",
+        "from": "[list modified]",
+        "to": "[list modified]"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T04:27:32.616Z",
     "user": "ananth.r@invendis.com",
     "page": "Site Settings",
