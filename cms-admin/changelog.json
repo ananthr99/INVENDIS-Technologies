@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-08-24T04:20:39.554Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Site Settings",
+    "section": "Logos",
+    "action": "Updated Site Settings — Logos",
+    "changes": [
+      {
+        "field": "logos.invendis",
+        "from": "/images/logos/invendis-logo.png",
+        "to": "images/logos/invendis-logo.png"
+      },
+      {
+        "field": "logos.silbo",
+        "from": "/images/logos/silbo-logo.png",
+        "to": "images/logos/silbo-logo.png"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T03:55:41.469Z",
     "user": "ananth.r@invendis.com",
     "page": "Gallery",
