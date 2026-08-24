@@ -32,7 +32,8 @@
         "Solar Controller Monitoring",
         "Anomaly Detection",
         "Energy Analytics"
-      ]
+      ],
+      "clients": "OMC Power"
     },
     {
       "icon": "zap",
