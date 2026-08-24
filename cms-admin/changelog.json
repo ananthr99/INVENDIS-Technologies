@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-24T09:27:55.848Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Sectors",
+    "section": "Sectors",
+    "action": "Updated Sectors — Sectors",
+    "changes": [
+      {
+        "field": "sectors[\"Solar & Renewable Energy\"].clients",
+        "from": "",
+        "to": "OMC Power"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T09:25:02.513Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Sectors",
