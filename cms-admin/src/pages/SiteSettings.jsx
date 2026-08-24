@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect } from '../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect, getFileSha, getFileShaDirect } from '../github/githubApi'
 import { logChange } from '../utils/logChange'
 
 const FILE_PATH = 'public/content/siteSettings.json'
@@ -372,39 +372,123 @@ function FooterTab({ data, patch }) {
 /* ── Logos Tab ──────────────────────────────────── */
 
 function LogosTab({ data, patch }) {
+  const { token, toast } = useAdmin()
+  const [uploading, setUploading] = useState({})
+  const [previews,  setPreviews]  = useState({})
+
+  const LOGOS = [
+    { key: 'invendis',    label: 'INVENDIS Logo',       filename: 'invendis-logo'  },
+    { key: 'silbo',       label: 'SILBO Logo',           filename: 'silbo-logo'     },
+    { key: 'makeInIndia', label: 'Make in India Badge',  filename: 'make-in-india'  },
+  ]
+
+  async function handleUpload(logoKey, baseFilename, file) {
+    if (!file) return
+    const ext          = file.name.split('.').pop().toLowerCase()
+    const fullFilename = `${baseFilename}.${ext}`
+    const storedPath   = `images/logos/${fullFilename}`
+
+    setPreviews(p => ({ ...p, [logoKey]: URL.createObjectURL(file) }))
+
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload  = () => resolve(reader.result.split(',')[1])
+      reader.onerror = reject
+      reader.readAsDataURL(file)
+    })
+
+    setUploading(u => ({ ...u, [logoKey]: true }))
+    try {
+      toast('Uploading…', '')
+
+      const ghSha = await getFileShaDirect(`images/logos/${fullFilename}`, token)
+      await writeFileRawDirect(`images/logos/${fullFilename}`, base64, `CMS: upload logo ${fullFilename}`, ghSha, token)
+
+      const mainSha = await getFileSha(`public/images/logos/${fullFilename}`, token)
+      await writeFileRaw(`public/images/logos/${fullFilename}`, base64, `CMS: upload logo ${fullFilename} [skip ci]`, mainSha, token)
+
+      patch(d => { d.logos[logoKey] = storedPath; return d })
+      toast('Logo uploaded — click Save & Publish to update the path', 'ok')
+    } catch (e) {
+      toast(e.message, 'err')
+    } finally {
+      setUploading(u => ({ ...u, [logoKey]: false }))
+    }
+  }
+
   return (
     <div className="form-section">
-      <p className="form-section-title">Logo Paths</p>
-      <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 16 }}>
-        Enter the file path relative to the public folder. Image upload will be added in a later step.
+      <p className="form-section-title">Logos</p>
+      <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 20 }}>
+        Upload logo images directly. Click <strong>Save &amp; Publish</strong> after uploading to update the live site.
       </p>
-      <div className="field">
-        <label>INVENDIS Logo</label>
-        <input
-          value={data.logos.invendis}
-          onChange={e => patch(d => { d.logos.invendis = e.target.value; return d })}
-          placeholder="/images/logos/invendis-logo.png"
-        />
-      </div>
-      <div className="field">
-        <label>SILBO Logo</label>
-        <input
-          value={data.logos.silbo}
-          onChange={e => patch(d => { d.logos.silbo = e.target.value; return d })}
-          placeholder="/images/logos/silbo-logo.png"
-        />
-      </div>
-      <div className="field">
-        <label>Make in India Badge</label>
-        <input
-          value={data.logos.makeInIndia}
-          onChange={e => patch(d => { d.logos.makeInIndia = e.target.value; return d })}
-          placeholder="/images/logos/make-in-india.png"
-        />
-      </div>
+
+      {LOGOS.map(({ key, label, filename }) => {
+        const currentPath = data.logos[key]
+        const preview     = previews[key]
+        const isUploading = !!uploading[key]
+
+        return (
+          <div key={key} className="field" style={{ marginBottom: 28 }}>
+            <label>{label}</label>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+
+              {/* Preview box */}
+              <div style={{
+                width: 140, height: 80, border: '1px solid #e5e7eb', borderRadius: 8,
+                background: '#f9fafb', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', overflow: 'hidden', flexShrink: 0,
+              }}>
+                {preview ? (
+                  <img src={preview} alt={label} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', padding: 4 }} />
+                ) : currentPath ? (
+                  <span style={{ fontSize: 10, color: '#9ca3af', textAlign: 'center', padding: 6, wordBreak: 'break-all' }}>{currentPath}</span>
+                ) : (
+                  <span style={{ fontSize: 10, color: '#d1d5db' }}>No image</span>
+                )}
+              </div>
+
+              {/* Upload control */}
+              <div>
+                <label
+                  htmlFor={`logo-upload-${key}`}
+                  style={{
+                    display: 'inline-block',
+                    cursor: isUploading ? 'not-allowed' : 'pointer',
+                    padding: '7px 16px', borderRadius: 6, fontSize: 13, fontWeight: 600,
+                    background: '#1d4ed8', color: '#fff',
+                    opacity: isUploading ? 0.6 : 1, transition: 'opacity 0.15s',
+                  }}
+                >
+                  {isUploading ? 'Uploading…' : 'Upload Image'}
+                </label>
+                <input
+                  id={`logo-upload-${key}`}
+                  type="file"
+                  accept="image/*"
+                  disabled={isUploading}
+                  style={{ display: 'none' }}
+                  onChange={e => { handleUpload(key, filename, e.target.files[0]); e.target.value = '' }}
+                />
+                {currentPath && !preview && (
+                  <p style={{ margin: '6px 0 0', fontSize: 11, color: '#6b7280' }}>
+                    Current: {currentPath}
+                  </p>
+                )}
+                {preview && (
+                  <p style={{ margin: '6px 0 0', fontSize: 11, color: '#16a34a' }}>
+                    Ready — click Save &amp; Publish to go live
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
+
 
 /* ── Shared ─────────────────────────────────────── */
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect } from '../../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect, getFileSha, getFileShaDirect } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
 import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
@@ -275,12 +275,10 @@ function PhotosTab({ data, patch }) {
     try {
       toast('Uploading photo…', '')
 
-      let ghSha = null
-      try { ghSha = (await readFileDirect(`images/gallery/${filename}`, token)).sha } catch {}
+      const ghSha = await getFileShaDirect(`images/gallery/${filename}`, token)
       await writeFileRawDirect(`images/gallery/${filename}`, base64, `CMS: upload gallery photo ${filename}`, ghSha, token)
 
-      let mainSha = null
-      try { mainSha = (await readFile(`public/images/gallery/${filename}`, token)).sha } catch {}
+      const mainSha = await getFileSha(`public/images/gallery/${filename}`, token)
       await writeFileRaw(`public/images/gallery/${filename}`, base64, `CMS: upload gallery photo ${filename} [skip ci]`, mainSha, token)
 
       patch(d => { d.photos[i].src = `images/gallery/${filename}`; return d })
@@ -428,11 +426,9 @@ function AddPhotoModal({ categories, token, toast, onSave, onCancel }) {
         })
 
         toast('Uploading photo…', '')
-        let ghSha = null
-        try { ghSha = (await readFileDirect(`images/gallery/${filename}`, token)).sha } catch {}
+        const ghSha = await getFileShaDirect(`images/gallery/${filename}`, token)
         await writeFileRawDirect(`images/gallery/${filename}`, base64, `CMS: upload gallery photo ${filename}`, ghSha, token)
-        let mainSha = null
-        try { mainSha = (await readFile(`public/images/gallery/${filename}`, token)).sha } catch {}
+        const mainSha = await getFileSha(`public/images/gallery/${filename}`, token)
         await writeFileRaw(`public/images/gallery/${filename}`, base64, `CMS: upload gallery photo ${filename} [skip ci]`, mainSha, token)
         src = `images/gallery/${filename}`
       }

@@ -186,3 +186,17 @@ export async function deleteFileDirect(path, sha, commitMsg, token) {
   }
   return res.json()
 }
+
+export async function getFileSha(path, token) {
+  const res = await fetch(`${BASE}/contents/${path}?ref=${BRANCH}`, { headers: headers(token) })
+  if (!res.ok) return null
+  const data = await res.json()
+  return data.sha ?? null
+}
+
+export async function getFileShaDirect(path, token) {
+  const res = await fetch(`${BASE}/contents/${path}?ref=gh-pages`, { headers: headers(token) })
+  if (!res.ok) return null
+  const data = await res.json()
+  return data.sha ?? null
+}
