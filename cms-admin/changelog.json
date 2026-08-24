@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-24T06:15:33.059Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Case Studies",
+    "section": "Case Studies",
+    "action": "Updated Case Studies — Case Studies",
+    "changes": [
+      {
+        "field": "caseStudies",
+        "from": "6 items",
+        "to": "5 items"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T06:12:26.149Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Case Studies",
