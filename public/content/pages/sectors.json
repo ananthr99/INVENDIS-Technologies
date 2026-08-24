@@ -58,7 +58,8 @@
         "Protocol Converters",
         "Cloud NMS"
       ],
-      "clients": "Harman"
+      "clients": "Harman",
+      "featured": true
     },
     {
       "icon": "leaf",
