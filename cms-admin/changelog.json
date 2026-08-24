@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-24T10:08:27.450Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Products",
+    "section": "Software",
+    "action": "Updated Products — Software",
+    "changes": [
+      {
+        "field": "softwarePlatforms",
+        "from": "—",
+        "to": "added \"Workforce Management Software\""
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T10:04:27.272Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Company",
