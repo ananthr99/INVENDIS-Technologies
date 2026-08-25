@@ -1,5 +1,34 @@
 [
   {
+    "ts": "2026-08-25T05:16:40.084Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "SILBO",
+    "section": "Products",
+    "action": "Updated SILBO — Products",
+    "changes": [
+      {
+        "field": "intelSection.products",
+        "from": "removed \"inv-ceb-xx\"",
+        "to": "—"
+      },
+      {
+        "field": "intelSection.products[\"inv-ce-xx\"].image",
+        "from": "",
+        "to": "images/silbo/inv-ce-xx.png"
+      },
+      {
+        "field": "intelSection.products[\"inv-cea-xx\"].image",
+        "from": "",
+        "to": "images/silbo/inv-cea-xx.png"
+      },
+      {
+        "field": "intelSection.products[\"inv-cd-xx\"].image",
+        "from": "",
+        "to": "images/silbo/inv-cd-xx.png"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-25T05:10:10.402Z",
     "user": "ananya.chengta@invendis.com",
     "page": "SILBO",
