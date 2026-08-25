@@ -1,0 +1,41 @@
+{
+  "id": "RUC",
+  "name": "RUC",
+  "cat": "Gateway",
+  "cpu": "MediaTek MT7981",
+  "ram": "512 MB DDR3 RAM",
+  "storage": "128 MB NAND",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "WiFi6",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "12 VDC",
+  "ports": 0,
+  "os": "Open-WRT based Linux OS",
+  "desc": "",
+  "housing": "Plastic",
+  "dims": "105 x 200 x 105 mm (W x H x D)",
+  "weight": "590 grams",
+  "op_temp": "0~ 50 ˚C",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RUC-1787651360182-73rk.png"
+  ],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/RUC-datasheet.pdf",
+  "use_cases": [],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports Additional Spec",
+      "v": "1 x Gigabit WAN (PoE IN IEEE802.3at), 2 x Gigabit LAN"
+    }
+  ],
+  "order": 94
+}
