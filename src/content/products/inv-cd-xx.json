@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "IP30",
   "power": "12V DC",
-  "ports": 2,
+  "ports": 0,
   "os": "Oracle Linux v.9.5 and above Ubuntu 23, Windows 10 and above",
   "desc": "This compact, fanless edge computing system is designed for AI inference, networking, and industrial applications, combining an Intel® Core™ N350 processor with flexible expansion for AI accelerators or NVMe storage. Key differentiators include dual Gigabit LAN, multiple display outputs (up to 4K), wide OS support, and robust I/O in a small form factor. It targets edge AI deployments, smart retail, industrial automation, and network security solutions.",
   "housing": "Aluminum Heat Sink with CRCA Enclosure (Fanless Design), Sheet Metal (Fan Design)",
@@ -34,6 +34,11 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
-  "order": 5
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Gigabit Ethernet (Realtek RTL8111H)"
+    }
+  ],
+  "order": 96
 }
