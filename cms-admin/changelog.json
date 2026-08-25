@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-25T05:02:39.251Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Sectors",
+    "section": "Sectors",
+    "action": "Updated Sectors — Sectors",
+    "changes": [
+      {
+        "field": "sectors[\"ESG & Sustainability for Solar Applications\"].solutions",
+        "from": "Carbon Footprint Trackin…",
+        "to": "—"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-24T10:08:27.450Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Products",
