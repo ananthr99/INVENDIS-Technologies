@@ -1,7 +1,7 @@
 {
   "id": "rvcd",
   "name": "RVCD",
-  "cat": "Gateway",
+  "cat": "Switch",
   "cpu": "MediaTek MT7621",
   "ram": "512MB",
   "storage": "32MB",
@@ -15,11 +15,13 @@
   "ports": 0,
   "os": "Open-WRT based Linux OS",
   "desc": "",
-  "housing": "",
-  "dims": "",
-  "weight": "",
-  "op_temp": "",
-  "images": [],
+  "housing": "Sheet Metal",
+  "dims": "110 x 26 x 95 mm (W x H x D)",
+  "weight": "200 gm",
+  "op_temp": "0~ 50 ˚C",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcd-1787653548751-xx2w.png"
+  ],
   "datasheet": "",
   "use_cases": [],
   "hidden_fields": [
@@ -29,6 +31,15 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": ""
+    },
+    {
+      "k": "Interface",
+      "v": "USB 3.0/ 2.0 Host (Optional)"
+    }
+  ],
   "order": 93
 }
