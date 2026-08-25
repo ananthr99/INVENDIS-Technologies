@@ -12,15 +12,17 @@
   "rs232": false,
   "ip": "",
   "power": "12 V DC or 9-30V DC",
-  "ports": 4,
+  "ports": 0,
   "os": "Open-WRT based Linux OS",
   "desc": "",
   "housing": "Sheet Metal",
   "dims": "190 x 30 x 100 mm (W x H x D)",
   "weight": "520",
-  "op_temp": "",
-  "images": [],
-  "datasheet": "",
+  "op_temp": "0 -50°C",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcp-1787643260652-71vm.png"
+  ],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/rvcp-datasheet.pdf",
   "use_cases": [],
   "hidden_fields": [
     "cell",
@@ -29,6 +31,19 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Port-Additional Details",
+      "v": "Gigabit Ethernet"
+    },
+    {
+      "k": "SFP Ports",
+      "v": "1"
+    },
+    {
+      "k": "USB Port",
+      "v": "1 X 3.0"
+    }
+  ],
   "order": 100
 }
