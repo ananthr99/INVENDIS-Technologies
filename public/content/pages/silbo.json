@@ -80,20 +80,66 @@
     "headline": "Industrial Networking",
     "headlineAccent": "Built for the Edge",
     "description": "SILBO delivers rugged routers, gateways, and switches purpose-built for telecom, industrial IoT, and mission-critical edge connectivity.",
-    "primaryCta": { "label": "Browse All Products", "to": "/products/product-selector" },
-    "secondaryCta": { "label": "Talk to Sales", "to": "/contact" }
+    "primaryCta": {
+      "label": "Browse All Products",
+      "to": "/products/product-selector"
+    },
+    "secondaryCta": {
+      "label": "Talk to Sales",
+      "to": "/contact"
+    }
   },
   "latestLaunch": {
-    "productId": "inv-ceb-xx",
-    "badge": "Latest Launch",
-    "highlight": "Dual 5G modems, 6× GbE ports, Intel X7425E — our highest-performance SD-WAN router, built for bandwidth-critical enterprise and telecom deployments."
+    "productId": "",
+    "badge": "",
+    "highlight": "",
+    "tags": [],
+    "image": null
   },
   "intelSection": {
     "eyebrow": "Edge Compute",
     "heading": "Intel-Powered",
     "headingAccent": "Edge Devices",
     "description": "x86 architecture at the industrial edge — full Ubuntu, Windows, or OpenWRT support with integrated 5G and Wi-Fi 6.",
-    "productIds": ["intel-x6425", "inv-ce-xx", "inv-cea-xx", "inv-ceb-xx", "inv-cd-xx"]
+    "productIds": [
+      "intel-x6425",
+      "inv-ce-xx",
+      "inv-cea-xx",
+      "inv-ceb-xx",
+      "inv-cd-xx"
+    ],
+    "products": [
+      {
+        "id": "intel-x6425",
+        "title": "",
+        "image": "images/silbo/intel-x6425.png",
+        "tags": []
+      },
+      {
+        "id": "inv-ce-xx",
+        "title": "",
+        "image": null,
+        "tags": []
+      },
+      {
+        "id": "inv-cea-xx",
+        "title": "",
+        "image": null,
+        "tags": []
+      },
+      {
+        "id": "inv-ceb-xx",
+        "title": "",
+        "image": null,
+        "tags": []
+      },
+      {
+        "id": "inv-cd-xx",
+        "title": "",
+        "image": null,
+        "tags": []
+      }
+    ]
   },
   "categoriesSection": {
     "eyebrow": "Product Range",
@@ -133,11 +179,26 @@
     "headingAccent": "Industry-Leading Silicon",
     "description": "SILBO products are engineered in collaboration with leading semiconductor partners — combining best-in-class compute, connectivity, and networking silicon.",
     "items": [
-      { "name": "Intel",    "role": "Edge Compute & x86 Processing" },
-      { "name": "MediaTek", "role": "Industrial Networking SoCs" },
-      { "name": "Realtek",  "role": "Network Switching" },
-      { "name": "Qualcomm", "role": "Wireless Connectivity" },
-      { "name": "Telit",    "role": "5G Cellular Modules" }
+      {
+        "name": "Intel",
+        "role": "Edge Compute & x86 Processing"
+      },
+      {
+        "name": "MediaTek",
+        "role": "Industrial Networking SoCs"
+      },
+      {
+        "name": "Realtek",
+        "role": "Network Switching"
+      },
+      {
+        "name": "Qualcomm",
+        "role": "Wireless Connectivity"
+      },
+      {
+        "name": "Telit",
+        "role": "5G Cellular Modules"
+      }
     ]
   },
   "ctaBanner": {
