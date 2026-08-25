@@ -118,25 +118,19 @@
       {
         "id": "inv-ce-xx",
         "title": "",
-        "image": null,
+        "image": "images/silbo/inv-ce-xx.png",
         "tags": []
       },
       {
         "id": "inv-cea-xx",
         "title": "",
-        "image": null,
-        "tags": []
-      },
-      {
-        "id": "inv-ceb-xx",
-        "title": "",
-        "image": null,
+        "image": "images/silbo/inv-cea-xx.png",
         "tags": []
       },
       {
         "id": "inv-cd-xx",
         "title": "",
-        "image": null,
+        "image": "images/silbo/inv-cd-xx.png",
         "tags": []
       }
     ]
