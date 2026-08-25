@@ -19,7 +19,9 @@
   "dims": "110 x 44 x 94 mm (W x H x D)",
   "weight": "400gm",
   "op_temp": "0 ~ 60 ˚C",
-  "images": [],
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvg-1787660371066-5vj2.png"
+  ],
   "datasheet": "",
   "use_cases": [],
   "hidden_fields": [
