@@ -1,5 +1,34 @@
 [
   {
+    "ts": "2026-08-25T05:10:10.402Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "SILBO",
+    "section": "Products",
+    "action": "Updated SILBO — Products",
+    "changes": [
+      {
+        "field": "latestLaunch.productId",
+        "from": "inv-ceb-xx",
+        "to": ""
+      },
+      {
+        "field": "latestLaunch.badge",
+        "from": "Latest Launch",
+        "to": ""
+      },
+      {
+        "field": "latestLaunch.highlight",
+        "from": "Dual 5G modems, 6× GbE ports, Intel X7425E — our highest-pe…",
+        "to": ""
+      },
+      {
+        "field": "intelSection.products[\"intel-x6425\"].image",
+        "from": "",
+        "to": "images/silbo/intel-x6425.png"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-25T05:02:39.251Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Sectors",
