@@ -331,6 +331,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rvcd</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://invendis-technologies-cms.netlify.app/products/product-selector/rvcp</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
