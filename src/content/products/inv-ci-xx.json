@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "",
   "power": "12 VDC",
-  "ports": 6,
+  "ports": 0,
   "os": "Ubuntu / Oracle / OpenWRT /Windows/ VyOS",
   "desc": "INV CI XX is a compact, Intel® X7425E-powered industrial computer designed for reliable edge computing and industrial automation. It features multiple Ethernet ports, optional 4G/5G connectivity, Wi-Fi, and flexible storage options for secure, high-performance deployments.",
   "housing": "Sheet Metal",
@@ -32,6 +32,11 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": "Gigabit Ethernet (Realtek RTL8111H)"
+    }
+  ],
   "order": 4
 }
