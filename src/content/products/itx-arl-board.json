@@ -1,6 +1,6 @@
 {
   "id": "itx-arl-board",
-  "name": "INV CG-XX",
+  "name": "Arrow",
   "cat": "Intel Based Devices",
   "cpu": "Intel® Core™ Ultra Processors (Series 2) (Ultra 5 & Ultra 7)",
   "ram": "64 GB DDR5 CSODIMM (Max) (Memory to be separately ordered)",
@@ -19,9 +19,7 @@
   "dims": "",
   "weight": "",
   "op_temp": "",
-  "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787738592144-xcr8.png"
-  ],
+  "images": [],
   "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/itx-arl-board-datasheet.pdf",
   "use_cases": [],
   "hidden_fields": [
