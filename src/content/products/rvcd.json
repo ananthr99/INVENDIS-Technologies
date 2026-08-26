@@ -23,7 +23,9 @@
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcd-1787653548751-xx2w.png"
   ],
   "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/rvcd-datasheet.pdf",
-  "use_cases": [],
+  "use_cases": [
+    "MultiWAN Failover"
+  ],
   "hidden_fields": [
     "cell",
     "cellular_gen",
