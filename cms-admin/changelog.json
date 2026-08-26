@@ -1,5 +1,64 @@
 [
   {
+    "ts": "2026-08-26T07:34:48.722Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Telecel\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Jio\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Airtel\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Econet\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"American Tower Corporation (ATC)\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Irrawaddy Green Towers (IGT)\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Ison Towers\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Altius\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Tower of Africa (TOA)\""
+      },
+      {
+        "field": "hero.cards[\"Key Clients\"].tags",
+        "from": "—",
+        "to": "added \"Tawal Saudi\""
+      }
+    ]
+  },
+  {
     "ts": "2026-08-25T05:16:40.084Z",
     "user": "ananya.chengta@invendis.com",
     "page": "SILBO",
