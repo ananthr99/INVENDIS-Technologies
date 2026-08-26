@@ -1,6 +1,6 @@
 {
   "id": "rdb40",
-  "name": "RDB-XX",
+  "name": "RDB40",
   "cat": "Router",
   "cpu": "MediaTek MT7628",
   "ram": "128 MB",
@@ -15,13 +15,18 @@
   "ports": 0,
   "os": "—",
   "desc": "",
-  "housing": "",
-  "dims": "",
-  "weight": "",
-  "op_temp": "",
-  "images": [],
-  "datasheet": "",
-  "use_cases": [],
+  "housing": "Plastic",
+  "dims": "190mmx190mmx40mm (W x D x H)",
+  "weight": "290 gm",
+  "op_temp": "0-50 ˚C",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rdb40-1787726970581-q7up.png"
+  ],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/rdb40-datasheet.pdf",
+  "use_cases": [
+    "BLE Tracking for Employee Movement",
+    "Package Tracking"
+  ],
   "hidden_fields": [
     "cell",
     "cellular_gen",
