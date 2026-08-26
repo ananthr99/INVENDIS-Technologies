@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-26T07:36:06.695Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.cards[\"Software Platforms\"].tags",
+        "from": "—",
+        "to": "added \"Silbo Health Monitoring (SHM)\""
+      }
+    ]
+  },
+  {
     "ts": "2026-08-26T07:34:48.722Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
