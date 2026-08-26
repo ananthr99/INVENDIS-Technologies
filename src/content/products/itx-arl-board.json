@@ -1,6 +1,6 @@
 {
   "id": "itx-arl-board",
-  "name": "INV CG-XX",
+  "name": "Arrowlake ITX",
   "cat": "Intel Based Devices",
   "cpu": "Intel® Core™ Ultra Processors (Series 2) (Ultra 5 & Ultra 7)",
   "ram": "64 GB DDR5 CSODIMM (Max) (Memory to be separately ordered)",
@@ -12,14 +12,17 @@
   "rs232": false,
   "ip": "",
   "power": "",
-  "ports": 2,
+  "ports": 0,
   "os": "—",
   "desc": "",
   "housing": "",
   "dims": "",
   "weight": "",
   "op_temp": "",
-  "images": [],
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787745677267-j4ga.png",
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787745681065-2ejm.png"
+  ],
   "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/itx-arl-board-datasheet.pdf",
   "use_cases": [],
   "hidden_fields": [
@@ -45,7 +48,11 @@
     {
       "k": "Wi-Fi",
       "v": "One M.2 ( E Key, 3052 for Wifi/BLE Module 802.11b/g/n/ac/ax (1 x PCIe, 1 X USB2.0)"
+    },
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Gigabit Ethernet 2500 Mbps"
     }
   ],
-  "order": 6
+  "order": 89
 }

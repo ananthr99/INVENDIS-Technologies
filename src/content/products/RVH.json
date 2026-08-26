@@ -1,0 +1,30 @@
+{
+  "id": "RVH",
+  "name": "RVH 44",
+  "cat": "Gateway",
+  "cpu": "MediaTek MT7621 Dual-core 880 MHz",
+  "ram": "512MB DDR3",
+  "storage": "32MB",
+  "cell": "none",
+  "cellular_gen": "4G",
+  "wifi": "WiFi4",
+  "rs485": true,
+  "rs232": true,
+  "ip": "IP 30",
+  "power": "9-30 Vdc",
+  "ports": 0,
+  "os": "Open-WRT based Linux OS",
+  "desc": "",
+  "housing": "Industrial Aluminium or Sheet Metal",
+  "dims": "110 x 44 x 94 mm (W x H x D)",
+  "weight": "400 gm",
+  "op_temp": "0 ~ 60 ˚C",
+  "images": [],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/RVH-datasheet.pdf",
+  "use_cases": [],
+  "hidden_fields": [
+    "cell"
+  ],
+  "additional_specs": [],
+  "order": 95
+}

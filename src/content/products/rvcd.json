@@ -1,0 +1,43 @@
+{
+  "id": "rvcd",
+  "name": "RVCD",
+  "cat": "Switch",
+  "cpu": "MediaTek MT7621",
+  "ram": "512MB",
+  "storage": "32MB",
+  "cell": "none",
+  "cellular_gen": "none",
+  "wifi": "WiFi4",
+  "rs485": false,
+  "rs232": false,
+  "ip": "",
+  "power": "12 VDC",
+  "ports": 0,
+  "os": "Open-WRT based Linux OS",
+  "desc": "",
+  "housing": "Sheet Metal",
+  "dims": "110 x 26 x 95 mm (W x H x D)",
+  "weight": "200 gm",
+  "op_temp": "0~ 50 ˚C",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcd-1787653548751-xx2w.png"
+  ],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/rvcd-datasheet.pdf",
+  "use_cases": [
+    "MultiWAN Failover"
+  ],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Interface",
+      "v": "USB 3.0/ 2.0 Host (Optional)"
+    }
+  ],
+  "order": 93
+}

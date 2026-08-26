@@ -70,6 +70,10 @@
           {
             "label": "NMS",
             "accent": true
+          },
+          {
+            "label": "Silbo Health Monitoring (SHM)",
+            "accent": false
           }
         ]
       },
@@ -77,59 +81,59 @@
         "title": "Key Clients",
         "tags": [
           {
-            "label": "Telco: Telecel",
+            "label": "Telecel",
             "accent": true
           },
           {
-            "label": "Telco: Jio",
+            "label": "Jio",
             "accent": false
           },
           {
-            "label": "Telco: Airtel",
+            "label": "Airtel",
             "accent": true
           },
           {
-            "label": "Telco: Econet",
+            "label": "Econet",
             "accent": false
           },
           {
-            "label": "Towerco: American Tower Corporation (ATC)",
+            "label": "American Tower Corporation (ATC)",
             "accent": true
           },
           {
-            "label": "Towerco: Irrawaddy Green Towers (IGT)",
+            "label": "Irrawaddy Green Towers (IGT)",
             "accent": false
           },
           {
-            "label": "Towerco: Ison",
+            "label": "Ison Towers",
             "accent": true
           },
           {
-            "label": "Towerco: Altius",
+            "label": "Altius",
             "accent": false
           },
           {
-            "label": "Towerco: Tower of Africa (TOA)",
+            "label": "Tower of Africa (TOA)",
             "accent": true
           },
           {
-            "label": "Towerco: Tawal Saudi",
+            "label": "Tawal Saudi",
             "accent": false
           },
           {
-            "label": "Towerco: Indus Africa",
+            "label": "Indus Africa",
             "accent": true
           },
           {
-            "label": "Energy Sector: OMC Power",
+            "label": "OMC Power",
             "accent": false
           },
           {
-            "label": "Fibre: MicroScan",
+            "label": "MicroScan",
             "accent": true
           },
           {
-            "label": "Fibre: Savanna",
+            "label": "Savanna Fibre",
             "accent": false
           }
         ]

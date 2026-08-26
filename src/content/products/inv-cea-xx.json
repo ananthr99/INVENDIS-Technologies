@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "",
   "power": "12V DC",
-  "ports": 4,
+  "ports": 0,
   "os": "Ubuntu / Oracle Linux / OpenWRT / Windows",
   "desc": "The INV-CEA-XX is a fanless industrial gateway designed for high-performance edge computing and robust connectivity, featuring an Intel X7425E processor and extensive cellular/Wi-Fi expansion capabilities. It differentiates itself through its quad-Gigabit Ethernet ports, dual isolated serial interfaces (RS232/RS485), and flexible mounting options, making it highly adaptable for harsh environments. This device is primarily targeted at industrial automation, telecommunications, and smart city infrastructure where reliable, long-term operation is critical.",
   "housing": "Aluminum Heat Sink with CRCA Enclosure",
@@ -33,6 +33,11 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Gigabit Ethernet ((Realtek RTL8111H)"
+    }
+  ],
   "order": 3
 }

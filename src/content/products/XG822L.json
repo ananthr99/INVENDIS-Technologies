@@ -1,28 +1,26 @@
 {
-  "id": "xg82",
-  "name": "XG-82-2MI",
+  "id": "XG822L",
+  "name": "XG-82-2L",
   "cat": "Switch",
-  "cpu": "â",
-  "ram": "â",
-  "storage": "â",
+  "cpu": "—",
+  "ram": "—",
+  "storage": "—",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
   "rs485": false,
   "rs232": false,
   "ip": "",
-  "power": "44-57 VDC",
-  "ports": 8,
-  "os": "â",
+  "power": "",
+  "ports": 0,
+  "os": "—",
   "desc": "The XG-82-2L graduates from simple connectivity to intelligent network control, offering full Layer 2 managed switching with 20 Gbps switching capacity, 2.5Gbps SFP uplinks, and a rich feature set spanning MSTP, IGMP Snooping, QoS, ERPS, and PoE scheduling — all configurable via Web, CLI, or SNMP. With an 8K MAC table, 15K jumbo frame support, and a 240W PoE budget spread across eight Gigabit ports, it is the natural choice for IT teams and network integrators who need granular traffic management and device powering in a single compact, DIN rail-mountable unit.",
   "housing": "Industrial Aluminium",
   "dims": "200 mm x 120 mm x 55mm (WxLxH)",
-  "weight": "675 g",
-  "op_temp": "0~ 60 ˚C",
-  "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xg82-1787723995591-8t37.png"
-  ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/xg82-datasheet.pdf",
+  "weight": "675 Gm (Industrial Aluminium Enclosure)",
+  "op_temp": "0 ~ 60 ˚C",
+  "images": [],
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/XG822L-datasheet.pdf",
   "use_cases": [
     "Enterprise Surveillance & Security Networks",
     "Smart Campus & Enterprise Network Management",
@@ -40,6 +38,11 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
-  "order": 27
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Gigabit Ethernet"
+    }
+  ],
+  "order": 91
 }

@@ -1,0 +1,37 @@
+{
+  "id": "rvg",
+  "name": "RVG 55",
+  "cat": "Gateway",
+  "cpu": "MediaTek MT7621 Dual-core 880 MHz",
+  "ram": "512MB DDR3",
+  "storage": "32MB",
+  "cell": "RM 500U CNV",
+  "cellular_gen": "5G",
+  "wifi": "WiFi5",
+  "rs485": true,
+  "rs232": false,
+  "ip": "IP 30",
+  "power": "9-30 VDC",
+  "ports": 0,
+  "os": "Open-WRT based Linux OS",
+  "desc": "",
+  "housing": "",
+  "dims": "110 x 44 x 94 mm (W x H x D)",
+  "weight": "400gm",
+  "op_temp": "0 ~ 60 ˚C",
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvg-1787660516258-khi6.png"
+  ],
+  "datasheet": "",
+  "use_cases": [],
+  "hidden_fields": [
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports- Additional Details",
+      "v": "Gigabit Ethernet (Configurable WAN/LAN)"
+    }
+  ],
+  "order": 97
+}
