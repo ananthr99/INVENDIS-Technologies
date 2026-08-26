@@ -7,8 +7,30 @@ import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
 export default function Products() {
-  const content = useContent('pages/products.json')
-  if (!content) return <div className="min-h-screen" />
+    const { data: content, loading } = useContent('pages/products.json', { withLoading: true })
+  if (loading) return (
+    <div className="min-h-screen">
+      <div className="h-64 animate-pulse" style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 100%)' }}>
+        <div className="px-8 lg:px-16 py-24 flex flex-col gap-4 max-w-3xl">
+          <div className="h-4 w-32 bg-white/20 rounded animate-pulse" />
+          <div className="h-10 w-2/3 bg-white/20 rounded-xl animate-pulse" />
+          <div className="h-4 w-full bg-white/10 rounded animate-pulse" />
+        </div>
+      </div>
+      <div className="py-20 px-8 lg:px-16 bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="bg-brand-light rounded-2xl p-6 flex flex-col gap-4">
+              <div className="w-12 h-12 bg-brand-blue/10 rounded-xl animate-pulse" />
+              <div className="h-5 w-3/4 bg-brand-blue/10 rounded animate-pulse" />
+              <div className="h-4 w-full bg-brand-blue/5 rounded animate-pulse" />
+              <div className="h-4 w-2/3 bg-brand-blue/5 rounded animate-pulse" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 
   const {
     hero, hardwareSection, hardwareProducts,

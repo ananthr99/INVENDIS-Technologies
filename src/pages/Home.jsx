@@ -8,10 +8,8 @@ import PageSEO from '../components/shared/PageSEO'
 import { useContent } from '../hooks/useContent'
 
 export default function Home() {
-  const content = useContent('pages/home.json')
-  if (!content) return <div className="min-h-screen" />
-  const { ctaBanner } = content
-
+  const { data: content } = useContent('pages/home.json', { withLoading: true })
+  const ctaBanner = content?.ctaBanner
 
   return (
     <div>
@@ -24,14 +22,16 @@ export default function Home() {
       <WhatWeDo />
       <StatsRow />
       <Testimonials />
-      <CTABanner
-        heading={ctaBanner.heading}
-        description={ctaBanner.description}
-        primaryLabel={ctaBanner.primaryLabel}
-        primaryTo={ctaBanner.primaryTo}
-        secondaryLabel={ctaBanner.secondaryLabel}
-        secondaryTo={ctaBanner.secondaryTo}
-      />
+      {ctaBanner && (
+        <CTABanner
+          heading={ctaBanner.heading}
+          description={ctaBanner.description}
+          primaryLabel={ctaBanner.primaryLabel}
+          primaryTo={ctaBanner.primaryTo}
+          secondaryLabel={ctaBanner.secondaryLabel}
+          secondaryTo={ctaBanner.secondaryTo}
+        />
+      )}
     </div>
   )
 }

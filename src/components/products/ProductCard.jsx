@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { catColors, wifiLabel } from '../../utils/productHelpers'
 
 export default function ProductCard({ product: p, images, useCases, compareIds, onDetail, onToggleCompare }) {
@@ -5,6 +6,7 @@ export default function ProductCard({ product: p, images, useCases, compareIds, 
   const uc = useCases[p.id] || []
   const inCompare = compareIds.has(p.id)
   const isHf = k => (p.hidden_fields || []).includes(k)
+  const [imgLoaded, setImgLoaded] = useState(false)
 
   return (
     <div
@@ -16,13 +18,30 @@ export default function ProductCard({ product: p, images, useCases, compareIds, 
           : 'border-[#DDE5EF]'}`}
     >
       {imgs?.length > 0 && (
-        <div className="mx-[-18px] mt-[-18px] mb-1 rounded-t-[14px] overflow-hidden border-b border-[#DDE5EF] h-40 flex items-center justify-center bg-white">
+        <div className="mx-[-18px] mt-[-18px] mb-1 rounded-t-[14px] overflow-hidden border-b border-[#DDE5EF] h-40 flex items-center justify-center bg-white relative">
+          {!imgLoaded && (
+            <div className="absolute inset-0 bg-[#F0F4F8] animate-pulse rounded-t-[14px]" />
+          )}
           {imgs[0].startsWith('http') ? (
-            <img src={imgs[0]} alt={p.name} className="w-full h-full object-contain p-3 box-border" loading="lazy" decoding="async" />
+            <img
+              src={imgs[0]}
+              alt={p.name}
+              onLoad={() => setImgLoaded(true)}
+              className={`w-full h-full object-contain p-3 box-border transition-opacity duration-300 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+              loading="lazy"
+              decoding="async"
+            />
           ) : (
             <picture style={{ display: 'contents' }}>
               <source srcSet={imgs[0].replace(/\.(png|jpe?g)$/i, '.webp')} type="image/webp" />
-              <img src={imgs[0]} alt={p.name} className="w-full h-full object-contain p-3 box-border" loading="lazy" decoding="async" />
+              <img
+                src={imgs[0]}
+                alt={p.name}
+                onLoad={() => setImgLoaded(true)}
+                className={`w-full h-full object-contain p-3 box-border transition-opacity duration-300 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+                loading="lazy"
+                decoding="async"
+              />
             </picture>
           )}
         </div>
@@ -77,7 +96,12 @@ export default function ProductCard({ product: p, images, useCases, compareIds, 
           />
           Compare
         </label>
-        <span className="ml-auto text-[12px] text-[#1A6FC4] font-medium hover:underline">Details →</span>
+        <button
+          onClick={e => { e.stopPropagation(); onDetail(p) }}
+          className="ml-auto text-[12px] text-[#1A6FC4] font-medium hover:underline bg-transparent border-0 p-0 cursor-pointer"
+        >
+          Details →
+        </button>
       </div>
     </div>
   )

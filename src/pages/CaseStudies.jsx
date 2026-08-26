@@ -6,8 +6,30 @@ import { getIcon } from '../utils/iconMap'
 import { getGradient, getCardHeader } from '../utils/styleMap'
 
 export default function CaseStudies() {
-  const content = useContent('pages/caseStudies.json')
-  if (!content) return <div className="min-h-screen" />
+    const { data: content, loading } = useContent('pages/caseStudies.json', { withLoading: true })
+  if (loading) return (
+    <div className="min-h-screen">
+      <div className="h-64 animate-pulse" style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 100%)' }}>
+        <div className="px-8 lg:px-16 py-24 flex flex-col gap-4 max-w-3xl">
+          <div className="h-4 w-32 bg-white/20 rounded animate-pulse" />
+          <div className="h-10 w-2/3 bg-white/20 rounded-xl animate-pulse" />
+          <div className="h-4 w-full bg-white/10 rounded animate-pulse" />
+        </div>
+      </div>
+      <div className="py-20 px-8 lg:px-16 bg-white grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="rounded-2xl border border-gray-100 overflow-hidden">
+            <div className="h-40 bg-brand-blue/10 animate-pulse" />
+            <div className="p-6 flex flex-col gap-3">
+              <div className="h-4 w-1/3 bg-brand-blue/10 rounded animate-pulse" />
+              <div className="h-5 w-3/4 bg-brand-blue/10 rounded animate-pulse" />
+              <div className="h-4 w-full bg-brand-blue/5 rounded animate-pulse" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 
   const {
     hero, caseStudiesSection, caseStudies,

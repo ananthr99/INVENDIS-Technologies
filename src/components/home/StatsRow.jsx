@@ -26,10 +26,22 @@ function AnimatedCounter({ value, className }) {
 }
 
 export default function StatsRow() {
-  const content = useContent('pages/home.json')
-  if (!content) return null
+    const { data: content, loading } = useContent('pages/home.json', { withLoading: true })
+  if (loading) return (
+    <section className="bg-brand-light py-4 border-y border-brand-blue/8">
+      <div className="px-8 lg:px-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-brand-blue/10">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="text-center py-12 px-6 flex flex-col items-center gap-3">
+              <div className="h-16 w-32 bg-brand-blue/10 rounded-xl animate-pulse" />
+              <div className="h-4 w-24 bg-brand-blue/5 rounded animate-pulse" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
   const { stats } = content
-
 
   return (
     <section className="bg-brand-light py-4 border-y border-brand-blue/8">

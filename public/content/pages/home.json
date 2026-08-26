@@ -5,12 +5,8 @@
     "headlineAccent": "Smarter World",
     "description": "Invendis delivers end-to-end hardware, software, and managed services for telecom, energy, and industrial sectors — from Bangalore to 26 countries worldwide.",
     "primaryCta": {
-      "label": "Explore Products",
-      "to": "/products"
-    },
-    "secondaryCta": {
-      "label": "View Case Studies",
-      "to": "/case-studies"
+      "label": "Browse Products",
+      "to": "/products/product-selector"
     },
     "stats": [
       {
@@ -163,37 +159,43 @@
         "icon": "signal",
         "accent": "blue",
         "title": "Telecom Tower OA",
-        "description": "Remote monitoring of passive infrastructure — batteries, rectifiers, generators, fuel levels, security, and environmental sensors — all in one platform."
+        "description": "Remote monitoring of passive infrastructure — batteries, rectifiers, generators, fuel levels, security, and environmental sensors — all in one platform.",
+        "to": "/sectors"
       },
       {
         "icon": "sun",
         "accent": "blue",
         "title": "Solar & Energy Monitoring",
-        "description": "Solar monitoring solutions with integrated energy measurement and billing. Real-time visibility over renewable assets from edge to cloud."
+        "description": "Solar monitoring solutions with integrated energy measurement and billing. Real-time visibility over renewable assets from edge to cloud.",
+        "to": "/sectors"
       },
       {
         "icon": "zap",
         "accent": "red",
         "title": "Digital Energy Meters",
-        "description": "Smart tariff-grade meters, multi-function meters, and GSM energy meters for utility billing and consumption analytics."
+        "description": "Smart tariff-grade meters, multi-function meters, and GSM energy meters for utility billing and consumption analytics.",
+        "to": "/products"
       },
       {
         "icon": "network",
         "accent": "blue",
         "title": "Industrial Networking — SILBO",
-        "description": "Industrial routers, SD-WAN gateways, protocol converters, and network switches designed for harsh industrial environments."
+        "description": "Industrial routers, SD-WAN gateways, protocol converters, and network switches designed for harsh industrial environments.",
+        "to": "/products"
       },
       {
         "icon": "dashboard",
         "accent": "red",
         "title": "PizGloria RMS Platform",
-        "description": "Cloud-based Remote Monitoring System with graphical dashboards, Power BI analytics, mobile app, and automated alerting."
+        "description": "Cloud-based Remote Monitoring System with graphical dashboards, Power BI analytics, mobile app, and automated alerting.",
+        "to": "/products"
       },
       {
         "icon": "cpu",
         "accent": "blue",
         "title": "OEM / ODM & Design Services",
-        "description": "Bespoke hardware design, product development, and 24×7 remote support services for OEM and ODM customers worldwide."
+        "description": "Bespoke hardware design, product development, and 24×7 remote support services for OEM and ODM customers worldwide.",
+        "to": "/company"
       }
     ]
   },

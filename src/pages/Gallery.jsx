@@ -22,7 +22,7 @@ function getItemsPerPage() {
 
 
 export default function Gallery() {
-  const content = useContent('pages/gallery.json')
+  const { data: content, loading } = useContent('pages/gallery.json', { withLoading: true })
   const [activeCategory, setActiveCategory] = useState('all')
   const [currentPage, setCurrentPage]       = useState(1)
   const [itemsPerPage, setItemsPerPage]     = useState(getItemsPerPage)
@@ -36,7 +36,23 @@ export default function Gallery() {
     return () => window.removeEventListener('resize', updateItemsPerPage)
   }, [updateItemsPerPage])
 
-  if (!content) return <div className="min-h-screen" />
+    if (loading) return (
+    <div className="min-h-screen">
+      <div className="h-64 animate-pulse" style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 100%)' }}>
+        <div className="px-8 lg:px-16 py-24 flex flex-col gap-4 max-w-3xl">
+          <div className="h-4 w-32 bg-white/20 rounded animate-pulse" />
+          <div className="h-10 w-2/3 bg-white/20 rounded-xl animate-pulse" />
+        </div>
+      </div>
+      <div className="py-16 px-8 lg:px-16 bg-white">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {[...Array(12)].map((_, i) => (
+            <div key={i} className="aspect-square bg-brand-light rounded-xl animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 
   const { hero, gallerySection, categories, photos, ctaBanner } = content
 

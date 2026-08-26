@@ -1,8 +1,28 @@
 import { useContent } from '../../hooks/useContent'
 
 export default function Testimonials() {
-  const content = useContent('pages/home.json')
-  if (!content) return null
+    const { data: content, loading } = useContent('pages/home.json', { withLoading: true })
+  if (loading) return (
+    <section className="bg-brand-light py-20 px-8 lg:px-16">
+      <div className="h-8 w-48 bg-brand-blue/10 rounded-lg animate-pulse mx-auto mb-14" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="bg-white border border-brand-blue/10 rounded-2xl p-8 flex flex-col gap-4">
+            <div className="h-4 w-full bg-brand-blue/5 rounded animate-pulse" />
+            <div className="h-4 w-full bg-brand-blue/5 rounded animate-pulse" />
+            <div className="h-4 w-2/3 bg-brand-blue/5 rounded animate-pulse" />
+            <div className="flex items-center gap-3 mt-4">
+              <div className="w-11 h-11 rounded-full bg-brand-blue/10 animate-pulse flex-shrink-0" />
+              <div className="flex flex-col gap-2">
+                <div className="h-3 w-24 bg-brand-blue/10 rounded animate-pulse" />
+                <div className="h-3 w-32 bg-brand-blue/5 rounded animate-pulse" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
   const { testimonials } = content
 
   return (

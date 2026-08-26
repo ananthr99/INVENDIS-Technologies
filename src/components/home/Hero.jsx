@@ -1,14 +1,63 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Globe } from 'lucide-react'
+import { ArrowRight, Globe, ChevronDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useContent } from '../../hooks/useContent'
 import { getGradient } from '../../utils/styleMap'
 
-export default function Hero() {
-  const content = useContent('pages/home.json')
-  if (!content) return null
-  const { hero } = content
+function CountUp({ value, delay = 0 }) {
+  const match = value.match(/^(\d+)(.*)/)
+  const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    if (!match) return
+    const target = parseInt(match[1], 10)
+    const duration = 1400
+    let raf
+    const startTime = performance.now() + delay * 1000
+
+    function tick(now) {
+      if (now < startTime) { raf = requestAnimationFrame(tick); return }
+      const elapsed = now - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.floor(eased * target))
+      if (progress < 1) raf = requestAnimationFrame(tick)
+    }
+
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [value])
+
+  if (!match) return <>{value}</>
+  return <>{count}{match[2]}</>
+}
+
+export default function Hero() {
+    const { data: content, loading } = useContent('pages/home.json', { withLoading: true })
+  if (loading) return (
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden" style={{ background: getGradient('hero') }}>
+      <div className="relative z-10 px-8 lg:px-16 w-full py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="flex flex-col gap-6">
+            <div className="h-8 w-64 bg-white/15 rounded-full animate-pulse" />
+            <div className="h-16 w-full bg-white/15 rounded-2xl animate-pulse" />
+            <div className="h-6 w-3/4 bg-white/10 rounded-lg animate-pulse" />
+            <div className="h-6 w-1/2 bg-white/10 rounded-lg animate-pulse" />
+            <div className="flex gap-4 mt-4">
+              <div className="h-12 w-40 bg-white/20 rounded-xl animate-pulse" />
+              <div className="h-12 w-40 bg-white/10 rounded-xl animate-pulse" />
+            </div>
+            <div className="grid grid-cols-3 gap-4 mt-4">
+              {[...Array(3)].map((_, i) => <div key={i} className="h-24 bg-white/10 rounded-2xl animate-pulse" />)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+  
+  const { hero } = content
 
   return (
     <section
@@ -71,12 +120,6 @@ export default function Hero() {
               >
                 {hero.primaryCta.label} <ArrowRight size={18} />
               </Link>
-              <Link
-                to={hero.secondaryCta.to}
-                className="inline-flex items-center gap-2 text-white font-sora font-semibold text-base px-7 py-3.5 rounded-xl border-2 border-white/40 hover:border-white hover:bg-white/10 transition-all duration-200"
-              >
-                {hero.secondaryCta.label}
-              </Link>
             </div>
 
             {/* Stats */}
@@ -86,11 +129,12 @@ export default function Hero() {
                   key={label}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -4, scale: 1.03 }}
                   transition={{ duration: 0.4, delay: 0.5 + i * 0.12, ease: 'easeOut' }}
-                  className="bg-white/10 border border-white/15 rounded-2xl px-5 py-5 backdrop-blur-sm"
+                  className="bg-white/10 border border-white/15 rounded-2xl px-5 py-5 backdrop-blur-sm cursor-default"
                 >
                   <div className="font-sora text-3xl font-extrabold text-white leading-none mb-1.5">
-                    {value}
+                    <CountUp value={value} delay={0.5 + i * 0.12} />
                   </div>
                   <div className="text-xs text-white/65 leading-snug">{label}</div>
                 </motion.div>
@@ -127,7 +171,18 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </div>
+            </div>
+
+      {/* Scroll indicator */}
+      <motion.button
+        onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 hover:text-white/90 transition-colors duration-200"
+        aria-label="Scroll down"
+      >
+        <ChevronDown size={32} strokeWidth={1.5} />
+      </motion.button>
     </section>
   )
 }

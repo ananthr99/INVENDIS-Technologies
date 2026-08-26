@@ -6,8 +6,26 @@ import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
 export default function Sectors() {
-  const content = useContent('pages/sectors.json')
-  if (!content) return <div className="min-h-screen" />
+    const { data: content, loading } = useContent('pages/sectors.json', { withLoading: true })
+  if (loading) return (
+    <div className="min-h-screen">
+      <div className="h-64 animate-pulse" style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 100%)' }}>
+        <div className="px-8 lg:px-16 py-24 flex flex-col gap-4 max-w-3xl">
+          <div className="h-4 w-32 bg-white/20 rounded animate-pulse" />
+          <div className="h-10 w-2/3 bg-white/20 rounded-xl animate-pulse" />
+          <div className="h-4 w-full bg-white/10 rounded animate-pulse" />
+        </div>
+      </div>
+      <div className="py-20 px-8 lg:px-16 bg-white space-y-6">
+        <div className="bg-brand-light rounded-2xl p-8 h-48 animate-pulse" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="bg-brand-light rounded-2xl p-7 h-40 animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 
   const { hero, sectors, globalReachSection, regions, ctaBanner } = content
   const featured = sectors.find(s => s.featured) ?? sectors[0]

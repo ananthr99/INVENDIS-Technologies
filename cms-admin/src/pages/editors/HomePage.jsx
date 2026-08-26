@@ -159,16 +159,6 @@ function HeroTab({ data, patch }) {
             <input value={h.primaryCta.to} onChange={e => s('hero.primaryCta.to', e.target.value)} />
           </div>
         </div>
-        <div className="field-grid">
-          <div className="field">
-            <label>Secondary Label</label>
-            <input value={h.secondaryCta.label} onChange={e => s('hero.secondaryCta.label', e.target.value)} />
-          </div>
-          <div className="field">
-            <label>Secondary Link</label>
-            <input value={h.secondaryCta.to} onChange={e => s('hero.secondaryCta.to', e.target.value)} />
-          </div>
-        </div>
       </div>
 
       <div className="form-section">
@@ -324,6 +314,10 @@ function WhatWeDoTab({ data, patch }) {
               <label>Description</label>
               <textarea rows={2} value={f.description} onChange={e => update(i, 'description', e.target.value)} />
             </div>
+            <div className="field" style={{ marginBottom: 0, marginTop: 8 }}>
+              <label>Link <span className="hint">— page this card links to</span></label>
+              <input value={f.to || ''} onChange={e => update(i, 'to', e.target.value)} placeholder="/sectors" />
+            </div>
           </div>
         ))}
         <button className="btn-add" onClick={() => setAddModal(true)}>+ Add Feature</button>
@@ -338,6 +332,7 @@ function AddFeatureModal({ onSave, onCancel }) {
   const [accent,      setAccent]      = useState('blue')
   const [title,       setTitle]       = useState('')
   const [description, setDescription] = useState('')
+  const [to,          setTo]          = useState('')
 
   useEffect(() => {
     function onKey(e) { if (e.key === 'Escape') onCancel() }
@@ -371,14 +366,18 @@ function AddFeatureModal({ onSave, onCancel }) {
             <label>Title</label>
             <input value={title} onChange={e => setTitle(e.target.value)} />
           </div>
-          <div className="field" style={{ marginBottom: 0 }}>
+          <div className="field">
             <label>Description</label>
             <textarea rows={3} value={description} onChange={e => setDescription(e.target.value)} />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>Link <span className="hint">— page this card links to</span></label>
+            <input value={to} onChange={e => setTo(e.target.value)} placeholder="/sectors" />
           </div>
         </div>
         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
           <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
-          <button className="btn-save" onClick={() => onSave({ icon, accent, title, description })} style={{ minWidth: 110 }}>Add Feature</button>
+          <button className="btn-save" onClick={() => onSave({ icon, accent, title, description, to })} style={{ minWidth: 110 }}>Add Feature</button>
         </div>
       </div>
     </div>

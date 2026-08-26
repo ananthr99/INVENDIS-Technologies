@@ -1,8 +1,13 @@
 import { useContent } from '../../hooks/useContent'
 
 export default function WhatsAppButton() {
-  const site = useContent('siteSettings.json')
-  if (!site) return null
+  const { data: site, loading } = useContent('siteSettings.json', { withLoading: true })
+  if (loading) return (
+    <div
+      className="fixed right-6 z-40 w-14 h-14 rounded-full animate-pulse"
+      style={{ backgroundColor: '#25D366', bottom: 'calc(1.5rem + var(--compare-tray-offset, 0px))', opacity: 0.5 }}
+    />
+  )
   const { number, message } = site.whatsapp
 
   const href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`

@@ -57,12 +57,36 @@ function WorldMap() {
 }
 
 export default function Contact() {
-  const content = useContent('pages/contact.json')
+  const { data: content, loading } = useContent('pages/contact.json', { withLoading: true })
   const servedData = useContent('servedCountries.json')
   const [formState, setFormState] = useState({ name: '', company: '', email: '', message: '' })
   const [status, setStatus] = useState('idle')
 
-  if (!content) return <div className="min-h-screen" />
+    if (loading) return (
+    <div className="min-h-screen">
+      <div className="h-56 animate-pulse" style={{ background: 'linear-gradient(135deg, #05059b 0%, #2929c8 60%, #3a3ad4 100%)' }}>
+        <div className="px-8 lg:px-16 py-20 flex flex-col gap-4 max-w-3xl">
+          <div className="h-4 w-24 bg-white/20 rounded animate-pulse" />
+          <div className="h-10 w-1/2 bg-white/20 rounded-xl animate-pulse" />
+          <div className="h-4 w-3/4 bg-white/10 rounded animate-pulse" />
+        </div>
+      </div>
+      <div className="py-16 px-8 lg:px-16 bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="flex flex-col gap-5">
+            {[...Array(4)].map((_, i) => <div key={i} className="h-14 bg-brand-light rounded-xl animate-pulse" />)}
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="h-6 w-48 bg-brand-blue/10 rounded animate-pulse" />
+            {[...Array(4)].map((_, i) => <div key={i} className="h-12 bg-brand-light rounded-xl animate-pulse" />)}
+            <div className="h-32 bg-brand-light rounded-xl animate-pulse" />
+            <div className="h-12 w-36 bg-brand-blue/20 rounded-xl animate-pulse" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
   const { hero, contactItems, quickFacts, form, mapSection } = content
   const SERVED = servedData?.countries ?? []
 

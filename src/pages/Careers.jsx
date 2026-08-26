@@ -73,8 +73,23 @@ function JobCard({ title, department, location, type, description, skills }) {
 }
 
 export default function Careers() {
-  const content = useContent('pages/careers.json')
-  if (!content) return <div className="min-h-screen" />
+    const { data: content, loading } = useContent('pages/careers.json', { withLoading: true })
+  if (loading) return (
+    <div className="min-h-screen">
+      <div className="h-64 animate-pulse" style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 100%)' }}>
+        <div className="px-8 lg:px-16 py-24 flex flex-col gap-4 max-w-3xl">
+          <div className="h-4 w-32 bg-white/20 rounded animate-pulse" />
+          <div className="h-10 w-2/3 bg-white/20 rounded-xl animate-pulse" />
+          <div className="h-4 w-full bg-white/10 rounded animate-pulse" />
+        </div>
+      </div>
+      <div className="py-16 px-8 lg:px-16 bg-white flex flex-col gap-4 max-w-4xl mx-auto">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="h-24 bg-brand-light rounded-2xl animate-pulse" />
+        ))}
+      </div>
+    </div>
+  )
 
   const { hero, cultureSection, perks, openingsSection, openings, noOpeningsMessage, ctaBanner } = content
 

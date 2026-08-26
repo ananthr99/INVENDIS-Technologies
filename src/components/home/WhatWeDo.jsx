@@ -1,10 +1,25 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { useContent } from '../../hooks/useContent'
 import { getIcon } from '../../utils/iconMap'
 
 export default function WhatWeDo() {
-  const content = useContent('pages/home.json')
-  if (!content) return null
+    const { data: content, loading } = useContent('pages/home.json', { withLoading: true })
+  if (loading) return (
+    <section className="py-20 px-8 lg:px-16 bg-white">
+      <div className="h-8 w-48 bg-brand-blue/10 rounded-lg animate-pulse mx-auto mb-14" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="rounded-2xl border border-brand-blue/10 p-8 flex flex-col gap-4">
+            <div className="w-12 h-12 bg-brand-blue/10 rounded-xl animate-pulse" />
+            <div className="h-5 w-3/4 bg-brand-blue/10 rounded animate-pulse" />
+            <div className="h-4 w-full bg-brand-blue/5 rounded animate-pulse" />
+            <div className="h-4 w-2/3 bg-brand-blue/5 rounded animate-pulse" />
+          </div>
+        ))}
+      </div>
+    </section>
+  )
   const { whatWeDo } = content
 
   return (
@@ -32,7 +47,7 @@ export default function WhatWeDo() {
 
       {/* Card grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {whatWeDo.features.map(({ icon, accent, title, description }, i) => {
+        {whatWeDo.features.map(({ icon, accent, title, description, to }, i) => {
           const Icon = getIcon(icon)
           return (
             <motion.div
@@ -61,14 +76,21 @@ export default function WhatWeDo() {
               <h3 className="font-sora text-lg font-semibold text-brand-text mb-3">
                 {title}
               </h3>
-              <p className="text-brand-muted text-[15px] leading-relaxed">
+              <p className="text-brand-muted text-[15px] leading-relaxed mb-5">
                 {description}
               </p>
+              {to && (
+                <Link
+                  to={to}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  Learn more <span aria-hidden>→</span>
+                </Link>
+              )}
             </motion.div>
           )
         })}
       </div>
-
     </section>
   )
 }

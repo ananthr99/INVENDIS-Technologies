@@ -27,10 +27,22 @@ function FooterLinkGroup({ title, links }) {
 }
 
 export default function Footer() {
-  const site = useContent('siteSettings.json')
-  if (!site) return <footer className="bg-brand-blue border-t-4 border-brand-red h-40" />
+  const { data: site, loading } = useContent('siteSettings.json', { withLoading: true })
+  if (loading) return (
+    <footer className="bg-brand-blue border-t-4 border-brand-red px-8 lg:px-16 pt-12 pb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="flex flex-col gap-3">
+            <div className="h-4 w-24 bg-white/20 rounded animate-pulse" />
+            <div className="h-3 w-full bg-white/10 rounded animate-pulse" />
+            <div className="h-3 w-3/4 bg-white/10 rounded animate-pulse" />
+            <div className="h-3 w-1/2 bg-white/10 rounded animate-pulse" />
+          </div>
+        ))}
+      </div>
+    </footer>
+  )
   const { logos, footer, contact } = site
-
 
   return (
     <footer className="bg-brand-blue border-t-4 border-brand-red">
@@ -53,9 +65,22 @@ export default function Footer() {
                 className="h-10 w-auto brightness-0 invert"
               />
             </div>
-            <p className="text-sm text-white/60 leading-relaxed">
+            <p className="text-sm text-white/60 leading-relaxed mb-5">
               {footer.tagline}
             </p>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/company/invendis"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Invendis on LinkedIn"
+                className="w-10 h-10 rounded-lg bg-[#0A66C2] hover:bg-[#0A66C2]/80 flex items-center justify-center text-white transition-all duration-200"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+            </div>
           </div>
 
           {/* Nav link groups */}

@@ -7,7 +7,7 @@ import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 const FILE_PATH     = 'public/content/pages/silbo.json'
 const GH_PAGES_PATH = 'content/pages/silbo.json'
 const PREVIEW_BASE  = 'https://raw.githubusercontent.com/ananthr99/INVENDIS-Technologies/gh-pages/'
-const TABS = ['Hero', 'About', 'Capabilities', 'Use Cases', 'Products', 'Market Fit', 'Partners', 'CTA Banner']
+const TABS = ['Hero', 'About', 'Capabilities', 'Use Cases', 'Products', 'Categories', 'Market Fit', 'Partners', 'CTA Banner']
 
 function toBase64(file) {
   return new Promise((resolve, reject) => {
@@ -110,6 +110,7 @@ export default function SilboPage() {
         {activeTab === 'Capabilities' && <CapabilitiesTab data={data} patch={patch} />}
         {activeTab === 'Use Cases'    && <UseCasesTab     data={data} patch={patch} />}
         {activeTab === 'Products'     && <ProductsTab     data={data} patch={patch} token={token} toast={toast} />}
+        {activeTab === 'Categories'   && <CategoriesSectionTab data={data} patch={patch} />}
         {activeTab === 'Market Fit'   && <MarketFitTab    data={data} patch={patch} />}
         {activeTab === 'Partners'     && <PartnersTab     data={data} patch={patch} />}
         {activeTab === 'CTA Banner'   && <CTABannerTab    data={data} patch={patch} />}
@@ -824,12 +825,12 @@ function PartnersTab({ data, patch }) {
                 <input value={item.icon} onChange={e => update(i, 'icon', e.target.value)} placeholder="cpu" />
               </div>
               <div className="field" style={{ marginBottom: 0 }}>
-                <label>Title</label>
-                <input value={item.title} onChange={e => update(i, 'title', e.target.value)} />
+                <label>Name</label>
+                <input value={item.name} onChange={e => update(i, 'name', e.target.value)} />
               </div>
-              <div className="field" style={{ marginBottom: 0 }}>
-                <label>Description</label>
-                <textarea rows={2} value={item.desc} onChange={e => update(i, 'desc', e.target.value)} />
+                <div className="field" style={{ marginBottom: 0 }}>
+                <label>Role / Title</label>
+                <textarea rows={2} value={item.role} onChange={e => update(i, 'role', e.target.value)} />
               </div>
             </div>
           </div>
@@ -837,6 +838,34 @@ function PartnersTab({ data, patch }) {
         <Pager page={page} setPage={setPage} pageCount={pageCount} start={start} end={end} total={total} />
       </div>
     </>
+  )
+}
+
+/* ── Categories Section ── */
+function CategoriesSectionTab({ data, patch }) {
+  const s = (f, v) => patch(d => { d.categoriesSection[f] = v; return d })
+  const c = data.categoriesSection
+  return (
+    <div className="form-section">
+      <p className="form-section-title">Categories Section Header</p>
+      <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 12 }}>
+        Heading for the "Product Range — The Complete SILBO Lineup" section.
+      </p>
+      <div className="field">
+        <label>Eyebrow</label>
+        <input value={c.eyebrow} onChange={e => s('eyebrow', e.target.value)} />
+      </div>
+      <div className="field-grid">
+        <div className="field">
+          <label>Heading</label>
+          <input value={c.heading} onChange={e => s('heading', e.target.value)} />
+        </div>
+        <div className="field">
+          <label>Heading Accent <span className="hint">— highlighted in blue</span></label>
+          <input value={c.headingAccent} onChange={e => s('headingAccent', e.target.value)} />
+        </div>
+      </div>
+    </div>
   )
 }
 

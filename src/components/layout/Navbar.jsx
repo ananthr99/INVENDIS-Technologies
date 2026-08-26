@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useContent } from '../../hooks/useContent'
 
@@ -8,10 +9,21 @@ const asset = (path) => base + path.replace(/^\//, '')
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const site = useContent('siteSettings.json')
-  if (!site) return <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-white/95 backdrop-blur-md border-b border-brand-blue/10 shadow-sm" />
+  const { data: site, loading } = useContent('siteSettings.json', { withLoading: true })
+  if (loading) return (
+    <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-white/95 backdrop-blur-md border-b border-brand-blue/10 shadow-sm">
+      <div className="px-8 lg:px-16 h-20 flex items-center justify-between gap-8">
+        <div className="h-10 w-36 bg-brand-blue/10 rounded-lg animate-pulse" />
+        <div className="hidden md:flex gap-3">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="h-8 w-20 bg-brand-blue/10 rounded-lg animate-pulse" />
+          ))}
+        </div>
+        <div className="h-10 w-20 bg-brand-blue/10 rounded-lg animate-pulse hidden md:block" />
+      </div>
+    </nav>
+  )
   const { logos, nav } = site
-
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-blue/10 shadow-sm">
@@ -61,8 +73,15 @@ export default function Navbar() {
       </div>
 
       {/* Mobile dropdown */}
+      <AnimatePresence>
       {open && (
-        <div className="md:hidden bg-white border-t border-brand-blue/10 px-8 py-4 flex flex-col gap-1">
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
+          className="md:hidden bg-white border-t border-brand-blue/10 px-8 py-4 flex flex-col gap-1"
+        >
           {nav.links.map(({ label, to }) => (
             <NavLink
               key={to}
@@ -86,8 +105,9 @@ export default function Navbar() {
           >
             {nav.contactCta}
           </Link>
-        </div>
+        </motion.div>
       )}
+    </AnimatePresence>
     </nav>
   )
 }

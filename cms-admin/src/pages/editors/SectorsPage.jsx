@@ -132,6 +132,10 @@ function SectorsTab({ data, patch }) {
               <input type="checkbox" checked={!!sector.featured} onChange={e => update(i, 'featured', e.target.checked)} />
               Featured
             </label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#374151', cursor: 'pointer' }}>
+              <input type="checkbox" checked={!!sector.alt} onChange={e => update(i, 'alt', e.target.checked)} />
+              Alt Layout
+            </label>
             <div style={{ flex: 1 }} />
             <button className="btn-del" onClick={() => remove(i)}>Remove</button>
           </div>
@@ -210,6 +214,7 @@ function AddSectorModal({ onSave, onCancel }) {
   const [clients,  setClients]  = useState('')
   const [desc,     setDesc]     = useState('')
   const [featured, setFeatured] = useState(false)
+  const [alt,      setAlt]      = useState(false)
 
   useEffect(() => {
     function onKey(e) { if (e.key === 'Escape') onCancel() }
@@ -254,14 +259,20 @@ function AddSectorModal({ onSave, onCancel }) {
             <label>Description</label>
             <textarea rows={3} value={desc} onChange={e => setDesc(e.target.value)} />
           </div>
-          <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#374151', cursor: 'pointer' }}>
-            <input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} />
-            Mark as Featured
-          </label>
+          <div style={{ display: 'flex', gap: 24 }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#374151', cursor: 'pointer' }}>
+              <input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} />
+              Mark as Featured
+            </label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#374151', cursor: 'pointer' }}>
+              <input type="checkbox" checked={alt} onChange={e => setAlt(e.target.checked)} />
+              Alt Layout
+            </label>
+          </div>
         </div>
         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
           <button onClick={onCancel} style={{ background: 'none', border: '1px solid #e5e7eb', borderRadius: 7, padding: '8px 18px', fontFamily: 'inherit', fontSize: 13, color: '#6b7280', cursor: 'pointer' }}>Cancel</button>
-          <button className="btn-save" onClick={() => onSave({ icon, iconBg, title, chip: chip || undefined, clients: clients || undefined, desc, featured })} style={{ minWidth: 110 }}>Add Sector</button>
+          <button className="btn-save" onClick={() => onSave({ icon, iconBg, title, chip: chip || undefined, clients: clients || undefined, desc, featured, alt })} style={{ minWidth: 110 }}>Add Sector</button>
         </div>
       </div>
     </div>
