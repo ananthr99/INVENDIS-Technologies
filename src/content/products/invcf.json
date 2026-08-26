@@ -2,27 +2,36 @@
   "id": "invcf",
   "name": "INV-CF-XX",
   "cat": "Intel Based Devices",
-  "cpu": "—",
-  "ram": "—",
-  "storage": "—",
+  "cpu": "Intel N150/x7425E/x7433RE/x7835RE/i3-N305/N355, 4/8 cores with 3.4GHz Turbo Frequency",
+  "ram": "32GB DDR5 SODIMM (Max)",
+  "storage": "One M.2 (B Key,2280), Upto 512GB SSD, Upto64GB eMMC",
   "cell": "none",
-  "cellular_gen": "none",
+  "cellular_gen": "5G",
   "wifi": "none",
   "rs485": false,
   "rs232": false,
-  "ip": "",
-  "power": "",
+  "ip": "IP 30",
+  "power": "12 VDC",
   "ports": 0,
   "os": "—",
   "desc": "",
-  "housing": "",
-  "dims": "",
+  "housing": "Aluminum Heat Sink with CRCA Enclosure",
+  "dims": "150mm X 160mm X 52.8mm ( L X W X H) (w/o mounting options) (*Dimensions will vary depending on the mounting option chosen.)",
   "weight": "",
-  "op_temp": "",
+  "op_temp": "0 ~ 50℃",
   "images": [],
   "datasheet": "",
   "use_cases": [],
-  "hidden_fields": [],
-  "additional_specs": [],
+  "hidden_fields": [
+    "cell",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports Additional Details",
+      "v": "Gigabit Ethernet (2.5 Gbps)"
+    }
+  ],
   "order": 90
 }
