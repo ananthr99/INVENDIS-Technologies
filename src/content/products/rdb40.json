@@ -1,7 +1,7 @@
 {
   "id": "rdb40",
   "name": "RDB40",
-  "cat": "Router",
+  "cat": "Gateway",
   "cpu": "MediaTek MT7628",
   "ram": "128 MB",
   "storage": "32 MB",
