@@ -74,6 +74,10 @@
           {
             "label": "NMS",
             "accent": true
+          },
+          {
+            "label": "Silbo Health Monitoring (SHM)",
+            "accent": false
           }
         ]
       },
