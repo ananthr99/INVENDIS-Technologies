@@ -19,7 +19,9 @@
   "dims": "105 x 200 x 105 mm (W x H x D)",
   "weight": "590 grams",
   "op_temp": "0~ 50 ˚C",
-  "images": [],
+  "images": [
+    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RUC-1787820565957-u8i6.png"
+  ],
   "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/RUC-datasheet.pdf",
   "use_cases": [],
   "hidden_fields": [
