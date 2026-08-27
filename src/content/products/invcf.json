@@ -24,7 +24,11 @@
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/invcf-1787733948165-323c.png"
   ],
   "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/invcf-datasheet.pdf",
-  "use_cases": [],
+  "use_cases": [
+    "Fleet Telematics & Autonomous Vehicle Edge Computer",
+    "Ruggedized Industrial Multi-Network Router & Edge Gateway",
+    "Interactive Smart Kiosk & Digital Signage Controller"
+  ],
   "hidden_fields": [
     "cell",
     "rs485",
