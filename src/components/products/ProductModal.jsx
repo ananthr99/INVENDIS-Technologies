@@ -94,7 +94,8 @@ export default function ProductModal({
   compareIds, onClose, onToggleCompare,
 }) {
   const [imgIdx, setImgIdx] = useState(0)
-  const [imgLoaded, setImgLoaded] = useState(false)
+  const [loadedSet, setLoadedSet] = useState(() => new Set())
+  const imgLoaded = loadedSet.has(imgIdx)
   const imgs = images[p.id] || []
   const uc = useCases[p.id] || []
   const mainDs = datasheets[p.id]
@@ -103,10 +104,6 @@ export default function ProductModal({
   const dialogRef = useRef(null)
   const closeBtnRef = useRef(null)
   const titleId = `product-modal-title-${p.id}`
-
-  useEffect(() => {
-    setImgLoaded(false)
-  }, [imgIdx])
 
   useEffect(() => {
     const previouslyFocused = document.activeElement
@@ -198,7 +195,7 @@ export default function ProductModal({
                   src={imgs[imgIdx]}
                   alt={p.name}
                   className={`max-h-[260px] max-w-full object-contain block transition-opacity duration-[250ms] ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  onLoad={() => setImgLoaded(true)}
+                  onLoad={() => setLoadedSet(prev => { const s = new Set(prev); s.add(imgIdx); return s })}
                   decoding="async"
                 />
               </picture>
