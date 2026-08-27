@@ -31,7 +31,7 @@ Both apps are combined into a single `dist/` folder and deployed to GitHub Pages
 ```
 INVENDIS-Technologies/
 ├── src/                      # Main website React source
-├── public/                   # Static assets for main site
+├── public/                   # Static assets + runtime content for main site
 ├── cms-admin/                # CMS admin React application
 │   ├── src/
 │   └── public/
@@ -49,14 +49,13 @@ INVENDIS-Technologies/
 ```
 Editor makes change in CMS Admin
         ↓
-CMS writes JSON to main branch via GitHub Contents API (instant)
+CMS writes JSON directly to gh-pages branch → live in seconds (no build)
+CMS also writes to main branch with [skip ci] → keeps source in sync
         ↓
-Main site fetches JSON at runtime (no build needed — visible immediately)
-        ↓
-deploy.yml triggered separately for structural changes
+Main site fetches JSON at runtime via useContent hook
 ```
 
-The main site fetches its CMS-managed content (pages, blog posts, products) at runtime from the GitHub repository, so edits made in the CMS panel are live within seconds without triggering a rebuild.
+The main site fetches all CMS-managed content at runtime, so edits in the CMS panel are visible on the live site within seconds — no build or deploy is triggered.
 
 ---
 
@@ -68,21 +67,24 @@ The main site fetches its CMS-managed content (pages, blog posts, products) at r
 
 | Route | Component | Description |
 |-------|-----------|-------------|
-| `/` | `Home.jsx` | Homepage with hero, stats, clients, what-we-do |
+| `/` | `Home.jsx` | Homepage with hero, stats, clients, what-we-do, testimonials |
 | `/sectors` | `Sectors.jsx` | Interactive world map + sector list |
-| `/products` | `Products.jsx` | Full product catalog with filtering & comparison |
+| `/products` | `Products.jsx` | Full product catalog with filtering, search & comparison |
 | `/products/product-selector` | `ProductSelector.jsx` | Guided product selector tool |
 | `/products/product-selector/:id` | `ProductSelector.jsx` | Product selector pre-loaded to a specific product |
 | `/case-studies` | `CaseStudies.jsx` | Customer case studies |
 | `/company` | `Company.jsx` | About / team / company information |
 | `/contact` | `Contact.jsx` | Contact form (opens pre-filled email via `mailto:`) |
 | `/resources` | `Resources.jsx` | Blog / article listing |
-| `/resources/:slug` | `ResourceDetail.jsx` | Individual blog post |
+| `/resources/:slug` | `ResourceDetail.jsx` | Individual blog post (rendered from JSON + markdown) |
 | `/careers` | `Careers.jsx` | Job openings |
 | `/silbo` | `Silbo.jsx` | SILBO product page |
+| `/gallery` | `Gallery.jsx` | Photo gallery |
 | `/privacy` | `Privacy.jsx` | Privacy policy |
 | `/terms` | `Terms.jsx` | Terms of service |
-| `*` | `NotFound.jsx` | 404 page |
+| `*` | `NotFound.jsx` | 404 catch-all |
+
+All pages are **lazy-loaded** via `React.lazy` with a `Suspense` fallback spinner. An `ErrorBoundary` wraps the entire route tree — if any page throws an unhandled error, the user sees a recovery screen instead of a blank page.
 
 ### Components
 
@@ -90,18 +92,18 @@ The main site fetches its CMS-managed content (pages, blog posts, products) at r
 src/components/
 ├── home/
 │   ├── ClientsBar.jsx        # Scrolling client logo strip
-│   ├── Hero.jsx              # Homepage hero section
-│   ├── StatsRow.jsx          # Key stats (revenue, countries, etc.)
+│   ├── Hero.jsx              # Homepage hero section with animated stats
+│   ├── StatsRow.jsx          # Key metrics row (revenue, countries, etc.)
 │   ├── Testimonials.jsx      # Customer testimonials carousel
-│   └── WhatWeDo.jsx          # Services overview section
+│   └── WhatWeDo.jsx          # Services / sector overview cards
 ├── layout/
-│   ├── Navbar.jsx            # Responsive top navigation bar
-│   └── Footer.jsx            # Site-wide footer
+│   ├── Navbar.jsx            # Responsive top navigation (links from siteSettings.json)
+│   └── Footer.jsx            # Site-wide footer (links from siteSettings.json)
 ├── products/
 │   ├── CategoryTabs.jsx      # Filter tabs for product categories
 │   ├── CompareBar.jsx        # Floating comparison bar (up to 3 products)
 │   ├── CompareModal.jsx      # Side-by-side product comparison modal
-│   ├── CompareTray.jsx       # Tray holding products to compare
+│   ├── CompareTray.jsx       # Tray holding products staged for comparison
 │   ├── FilterBar.jsx         # Full filter panel (specs, category, brand)
 │   ├── Pagination.jsx        # Products list pagination
 │   ├── ProductCard.jsx       # Grid-view product card
@@ -110,10 +112,12 @@ src/components/
 │   ├── ProductListRow.jsx    # Single row in list view
 │   └── ProductModal.jsx      # Full product detail modal/drawer
 └── shared/
-    ├── Breadcrumbs.jsx       # Breadcrumb nav + schema.org markup
-    ├── CTABanner.jsx         # Call-to-action section banner
-    ├── CookieBanner.jsx      # Cookie consent banner
-    ├── PageSEO.jsx           # Per-page <title>, meta, Open Graph tags
+    ├── Breadcrumbs.jsx       # Breadcrumb nav + schema.org BreadcrumbList markup
+    ├── CTABanner.jsx         # Call-to-action banner section
+    ├── CookieBanner.jsx      # Cookie consent banner (gates Google Analytics)
+    ├── ErrorBoundary.jsx     # Class-based error boundary wrapping the route tree
+    ├── PageSEO.jsx           # Per-page <title>, meta, Open Graph, and JSON-LD tags
+    ├── StickyProductCTA.jsx  # Scroll-triggered sticky banner linking to Products page
     └── WhatsAppButton.jsx    # Floating WhatsApp contact button
 ```
 
@@ -124,7 +128,6 @@ src/utils/
 ├── analytics.js              # Google Analytics 4 (fires only when VITE_GA_ID is set)
 ├── blog.js                   # Blog post utilities (parse frontmatter, sort by date)
 ├── breadcrumbSchema.js       # Generates schema.org BreadcrumbList JSON-LD
-├── githubApi.js              # Thin GitHub Contents API wrapper (read + write)
 ├── iconMap.js                # Maps string names → Lucide icon components
 ├── productHelpers.js         # Product filtering, sorting, search helpers
 ├── siteUrl.js                # Canonical URL helpers (absoluteUrl, SITE_URL, BASE_PATH)
@@ -136,7 +139,7 @@ src/utils/
 ```
 src/hooks/
 ├── useCompareList.js         # Product comparison state (localStorage-persisted, max 3)
-└── useContent.js             # Content fetching hook (reads JSON from GitHub at runtime)
+└── useContent.js             # Runtime content fetching (reads JSON from GitHub, sessionStorage cache)
 ```
 
 ### Data files
@@ -157,27 +160,48 @@ src/data/ (developer-maintained)
 
 ```
 src/content/
-└── products/                 # 57+ individual product JSON files (CMS-managed)
-    ├── acmeter.json
-    ├── bcpm.json
-    └── ...
+└── products/                 # 55+ individual product JSON files (auto-synced from ProductSelector repo)
 
 public/
-├── content/blog/             # Blog posts (JSON with markdown body field)
-│   └── _index.json           # Blog index (slugs, titles, dates, tags)
+├── content/
+│   ├── pages/                # Per-page CMS content (fetched at runtime by useContent)
+│   │   ├── home.json
+│   │   ├── contact.json
+│   │   ├── company.json
+│   │   ├── sectors.json
+│   │   ├── products.json
+│   │   ├── silbo.json
+│   │   ├── careers.json
+│   │   ├── caseStudies.json
+│   │   ├── gallery.json
+│   │   └── resources.json
+│   ├── blog/                 # Blog posts (JSON with markdown body field)
+│   │   └── _index.json       # Blog index (slugs, titles, dates, tags)
+│   ├── siteSettings.json     # Global nav, footer, logos, contact, WhatsApp config
+│   └── servedCountries.json  # Country list for world map (Sectors + Contact pages)
 ├── images/                   # Page images (hero backgrounds, section photos, logos)
 ├── products/                 # Product images (WebP + originals)
 ├── favicon.svg
-├── icons.svg                 # SVG icon sprite sheet
 ├── invendis_logo.png
 ├── invendis_logo.webp
 ├── robots.txt
 ├── sitemap.xml               # Auto-generated by scripts/generate-sitemap.mjs
 ├── world-110m.json           # TopoJSON world map data (for Sectors page)
 ├── .nojekyll                 # Tells GitHub Pages not to run Jekyll
-├── 404.html                  # SPA fallback for GitHub Pages 404
-└── spa-redirect.js           # Client-side redirect helper for SPA routing
+├── 404.html                  # SPA fallback — encodes path as query string and redirects to root
+└── spa-redirect.js           # Decodes the query string from 404.html and restores the original URL
 ```
+
+### SPA routing on GitHub Pages
+
+Because the site uses HTML5 History API routing and is hosted on GitHub Pages (which serves static files), direct URL access and page refreshes need special handling:
+
+1. GitHub Pages serves `404.html` for any path it can't find.
+2. `404.html` encodes the requested path as a query string and redirects to the site root.
+3. `spa-redirect.js` (loaded in `index.html`) decodes the query string and restores the correct URL via `history.replaceState`.
+4. React Router then handles the route as normal.
+
+The `segmentCount = 1` in `404.html` matches the single path segment of the GitHub Pages repo URL (`/INVENDIS-Technologies/`).
 
 ### Styling
 
@@ -192,7 +216,9 @@ The main site uses **Tailwind CSS** with a custom brand theme:
 | `brand-text` | `#1a1a2e` |
 | `brand-muted` | `#6b7280` |
 
-Fonts: **Sora** (headings) and **DM Sans** (body). Typography plugin (`@tailwindcss/typography`) is used for rendering blog markdown.
+Fonts: **Sora** (headings) and **DM Sans** (body). The `@tailwindcss/typography` plugin is used for rendering blog post markdown.
+
+Blog posts are rendered client-side using **react-markdown** with the **remark-gfm** plugin (GitHub-flavoured markdown tables, strikethrough, etc.). Front matter is parsed at build time by **gray-matter** inside the sitemap and blog index scripts.
 
 ---
 
@@ -206,15 +232,15 @@ The CMS admin is a fully self-hosted, browser-only content editor. It has no ser
 
 Authentication is two-layered:
 
-1. **Azure Active Directory (MSAL)** — Controls who can access the CMS admin at all. Users must log in with a valid organizational Azure AD account. Configuration lives in `cms-admin/src/auth/msalConfig.js`.
+1. **Azure Active Directory (MSAL)** — Controls who can access the CMS at all. Users must sign in with a valid organisational Azure AD account. Configuration lives in `cms-admin/src/auth/msalConfig.js`.
 
-2. **GitHub Personal Access Token (PAT)** — Required to read and write content to the repository. Set up once per browser session via the Setup page. The token is stored in `localStorage` (key: `gh_pat`) and never sent to any third party — only to `api.github.com`.
+2. **GitHub Personal Access Token (PAT)** — Required to read and write content. Entered once per browser via the Setup page and stored in `localStorage` (key: `gh_pat`). The token is never sent to any third party — only to `api.github.com`.
 
 ```
 cms-admin/src/auth/
 ├── msalConfig.js             # Azure AD client ID, tenant, redirect URIs
 ├── AuthProvider.jsx          # MSAL PublicClientApplication + React provider
-└── AuthGuard.jsx             # HOC that requires authenticated user
+└── AuthGuard.jsx             # HOC that requires an authenticated user
 ```
 
 ### Pages & Editors
@@ -223,33 +249,38 @@ cms-admin/src/auth/
 
 #### Page editors (PAGES section)
 
-Each page editor loads the current content from GitHub, lets the user edit it in structured form fields, and saves it back via the GitHub API. Every save writes to both `main` and `gh-pages` branches, and logs an entry to the activity changelog.
+Each editor loads the current content from GitHub, lets the editor change it in structured form fields, and saves back via the GitHub API. Every save writes to both the `main` branch (source of truth) and the `gh-pages` branch (live site), making changes visible within seconds without a rebuild.
 
 | Sidebar label | Component | What it edits |
 |--------------|-----------|---------------|
-| Contact | `ContactPage.jsx` | Contact page text, address, phone |
-| Home | `HomePage.jsx` | Hero copy, stats, testimonials, clients list |
-| Company | `CompanyPage.jsx` | About text, team member cards with photos |
+| Contact | `ContactPage.jsx` | Hero, contact info cards, quick facts, form labels & additional fields, map section |
+| Home | `HomePage.jsx` | Hero copy, stats, testimonials, clients list, CTA banner |
+| Company | `CompanyPage.jsx` | About text, timeline, team member cards with photos |
 | Sectors | `SectorsPage.jsx` | Sector definitions, icons, highlighted countries |
 | Products | `ProductsPage.jsx` | Products page hero and section copy |
 | SILBO | `SilboPage.jsx` | SILBO product page copy and features |
 | Careers | `CareersPage.jsx` | Open roles, department descriptions |
 | Case Studies | `CaseStudiesPage.jsx` | Case study cards (client, industry, summary) |
+| Gallery | `GalleryPage.jsx` | Photo gallery items and captions |
 
 #### Content editors (CONTENT section)
 
 | Sidebar label | Component | What it edits |
 |--------------|-----------|---------------|
-| Site Settings | `SiteSettings.jsx` | Global: nav links, footer links, social URLs, logos, site name |
+| Site Settings | `SiteSettings.jsx` | Global: nav links, footer links, social URLs, logos, WhatsApp config |
 
 #### Admin tools (ADMIN section)
 
 | Sidebar label | Component | Description |
 |--------------|-----------|-------------|
-| Blog | `BlogPage.jsx` | Create/edit/delete blog posts; list view + full editor |
-| Countries | `Countries.jsx` | World map country-level configuration |
-| Setup | `Setup.jsx` | Enter and test GitHub PAT; required before any save |
-| Activity Log | `ActivityLog.jsx` | Changelog viewer with search, filter, bulk delete |
+| Blog | `BlogPage.jsx` | Create / edit / delete blog posts; list view + full markdown editor |
+| Countries | `Countries.jsx` | World map country-level configuration (served countries list) |
+| Setup | `Setup.jsx` | Enter and test GitHub PAT; required before any save operation |
+| Activity Log | `ActivityLog.jsx` | Changelog viewer with search, time/user filters, and bulk delete |
+
+### Contact form: additional fields
+
+The Contact page editor (`ContactPage.jsx`) supports a dynamic **Additional Fields** section. Editors can add custom text fields (e.g. "Industry", "Country") that appear in the live contact form between the Email and Message fields. Each field has a label, placeholder, and optional required flag. The additional fields are stored as an array in `form.additionalFields` inside `contact.json` and rendered dynamically in the main site's `Contact.jsx`.
 
 ### Admin context
 
@@ -259,27 +290,29 @@ Each page editor loads the current content from GitHub, lets the user edit it in
 |-------|------|---------|
 | `token` | `string` | GitHub PAT (read from `localStorage`) |
 | `saveToken(t)` | `function` | Persist a new token to `localStorage` |
-| `toast(msg, type)` | `function` | Show a 3-second notification (success / error / default) |
-| `userEmail` | `string` | Logged-in Azure AD user's email |
-| `setDirty(val)` | `function` | Mark whether any unsaved changes exist |
-| `isDirty()` | `function` | Synchronous dirty-state check (reads a `useRef`) |
+| `toast(msg, type)` | `function` | Show a 3-second notification (ok / err / default) |
+| `userEmail` | `string` | Signed-in Azure AD user's email address |
+| `setDirty(val)` | `function` | Mark whether unsaved changes exist |
+| `isDirty()` | `function` | Synchronous dirty-state check (via `useRef`) |
 | `showConfirm(msg, onOk)` | `function` | Open the unsaved-changes confirmation dialog |
 
 The context also registers a `beforeunload` handler that warns the user if they try to close or refresh the browser with unsaved changes.
 
 ### Unsaved changes guard
 
-Every editor page calls `setDirty(true/false)` whenever the form state diverges from the last-saved state (compared via `JSON.stringify`). The Dashboard sidebar and sign-out button check `isDirty()` before navigation and prompt via `showConfirm` if needed. BlogPage additionally has its own internal "← All Posts" back button that also runs this check.
+Every editor calls `setDirty(true/false)` whenever the form state diverges from the last-saved state (compared via `JSON.stringify`). The Dashboard sidebar and sign-out button check `isDirty()` before navigation and prompt via `showConfirm` if needed.
 
 ### Special characters bar
 
-`SpecialCharsBar.jsx` appears above every editor. It provides one-click insertion of characters that are hard to type: `® © ™ – — … ° ½ ¼ ¾ µ €` etc. Clicking a character inserts it at the cursor position of the currently focused input or textarea.
+`SpecialCharsBar.jsx` appears above every editor and provides one-click insertion of characters that are hard to type on standard keyboards: `· — → ← … ° ×` etc. Clicking a character inserts it at the cursor position of the currently focused `<input>` or `<textarea>`.
 
 ### Activity log
 
 `ActivityLog.jsx` reads from and writes to `cms-admin/changelog.json` in the repository (capped at 500 entries). Each entry records:
-- Timestamp, user email, affected page, action type (added / updated / deleted)
-- Field-by-field before/after values for every changed field
+- Timestamp, user email, affected page, section, and action
+- Field-by-field before/after diff for every changed field (computed by `logChange.js`)
+
+For array fields, the diff uses a stable key (preferring `label` over `id` for display) so entries show human-readable names like `added "Industry"` rather than internal IDs.
 
 The log UI supports filtering by user, time period, and action type, plus full-text search and bulk deletion.
 
@@ -287,10 +320,11 @@ The log UI supports filtering by user, time period, and action type, plus full-t
 
 ```
 cms-admin/src/components/
+├── Pagination.jsx            # Shared pagination control (used by BlogPage)
 └── SpecialCharsBar.jsx       # Special character insertion toolbar
 
 cms-admin/src/utils/
-└── logChange.js              # Formats an activity log entry from old + new data
+└── logChange.js              # Computes a field-by-field diff and appends to the activity log
 
 cms-admin/src/github/
 └── githubApi.js              # Full GitHub API wrapper for CMS operations (see below)
@@ -310,19 +344,21 @@ Products are the most complex content type. Data comes from two sources:
 | `src/data/productVariants.js` | Developers | JS object keyed by product ID | Free-form variant specs not tracked in the upstream selector |
 | `src/data/partDatasheets.js` | Developers | JS object keyed by part number | Per-part-number datasheet PDF URLs |
 
-The `scripts/generate-products.mjs` script merges these two sources at build time and emits four generated files into `src/data/`. These files are checked in so Vite can import them statically at dev/build time.
+The `scripts/generate-products.mjs` script merges these sources at build time into four generated files in `src/data/`. These files are committed so Vite can import them statically at dev/build time.
 
-Products are synced from the upstream **INVENDIS-ProductSelector** repository automatically via the `sync-products.yml` GitHub Actions workflow (triggered by a `repository_dispatch` event from the ProductSelector repo on every commit).
+Products are synced automatically from the upstream **INVENDIS-ProductSelector** repository via the `sync-products.yml` GitHub Actions workflow. The ProductSelector repo dispatches a `repository_dispatch` event on every push, which triggers the sync.
 
 ### Blog posts
 
-Blog posts live in `public/content/blog/`. Each post is a JSON file with a markdown `body` field. The blog index (`_index.json`) contains the slug, title, date, and tags for every post and is used for listing and sitemap generation.
+Blog posts live in `public/content/blog/`. Each post is a JSON file with a `body` field containing markdown. The blog index (`_index.json`) holds the slug, title, date, and tags for every post and is used for the listing page and sitemap generation.
 
-The `BlogPage.jsx` CMS editor can create, edit, and delete posts directly through the GitHub API.
+Posts are rendered client-side using **react-markdown** + **remark-gfm** (tables, strikethrough, task lists). The `BlogPage.jsx` CMS editor can create, edit, and delete posts directly via the GitHub API.
 
 ### Page content
 
-Each page's CMS-managed copy lives in a JSON file on the `main` branch, typically at a path like `src/content/<page>.json` or `public/content/<page>.json`. The `useContent` hook fetches these at runtime using the GitHub Contents API (no auth required for reads — the repo is public).
+All CMS-managed page copy lives in `public/content/pages/*.json` on the `main` branch. The `useContent` hook fetches these files at runtime — no auth required, since the repo is public. Fetched content is cached in `sessionStorage` to avoid redundant network requests within the same session.
+
+`siteSettings.json` (`public/content/siteSettings.json`) holds global configuration: navigation links, footer link groups, logo paths, contact details, and WhatsApp settings. Both the Navbar and Footer load this file at runtime, so nav changes in the CMS are live immediately.
 
 ---
 
@@ -332,7 +368,7 @@ There are two separate GitHub API wrappers:
 
 ### `src/utils/githubApi.js` (main site)
 
-Used by the main site for unauthenticated reads. Reads always target the `main` branch. Authenticated writes are available but only used in edge cases (not normal browsing). Token stored in `sessionStorage`.
+Used by the main site for unauthenticated content reads. Reads always target the `main` branch.
 
 | Export | Description |
 |--------|-------------|
@@ -348,7 +384,7 @@ Used by the main site for unauthenticated reads. Reads always target the `main` 
 
 ### `cms-admin/src/github/githubApi.js` (CMS admin)
 
-Used by the CMS admin for all content operations. All functions require an explicit `token` parameter. Supports reading and writing to both `main` and `gh-pages` branches simultaneously so the live site and source stay in sync.
+Used by the CMS admin for all content operations. All functions require an explicit `token` parameter. Each page save writes to **both** `main` and `gh-pages` branches simultaneously — `main` with `[skip ci]` to keep source in sync without triggering a rebuild, and `gh-pages` directly so the live site updates in seconds.
 
 | Export | Description |
 |--------|-------------|
@@ -383,15 +419,15 @@ Output files:
 
 ### `generate-sitemap.mjs`
 
-Regenerates `public/sitemap.xml`. Includes all static routes, all product pages, and all blog posts (read from `public/content/blog/_index.json`). The canonical domain is set via the `SITEMAP_URL` environment variable.
+Regenerates `public/sitemap.xml`. Includes all static routes, all product pages (derived from `src/content/products/`), and all blog posts (derived from `public/content/blog/_index.json`). The canonical domain is set via the `SITEMAP_URL` environment variable.
 
 ### `convert-to-webp.mjs`
 
-Converts all PNG/JPEG images in `public/` to WebP format using Sharp (800px max width, 85% quality). Saves alongside the original. Run manually: `npm run convert-images`.
+Converts all PNG/JPEG images in `public/` to WebP format using Sharp (800px max width, 85% quality). Saves the WebP alongside the original. Run manually: `npm run convert-images`.
 
 ### `sync-from-ps.mjs`
 
-Pulls the product catalog from the upstream [INVENDIS-ProductSelector](https://github.com/ananthr99/INVENDIS-ProductSelector) repository and writes each product to `src/content/products/{id}.json`. Normalises fields (port counts, WiFi versions, boolean strings). Triggered by GitHub Actions, not run locally.
+Pulls the product catalog from the upstream [INVENDIS-ProductSelector](https://github.com/ananthr99/INVENDIS-ProductSelector) repository and writes each product to `src/content/products/{id}.json`, normalising fields (port counts, WiFi versions, boolean strings). Triggered exclusively by GitHub Actions — not run locally.
 
 ---
 
@@ -401,24 +437,24 @@ Pulls the product catalog from the upstream [INVENDIS-ProductSelector](https://g
 
 **Trigger:** Pull requests to `main`
 
-Runs ESLint and `npm audit --audit-level=high`. Blocks merge if either fails.
+Runs ESLint and `npm audit --audit-level=high`. Blocks merge if either check fails.
 
 ### `deploy.yml` — Build and deploy
 
 **Trigger:** Push to `main` OR manual `workflow_dispatch`
 
-1. `npm install` + `npm run build` for the main site (with `VITE_BASE=/INVENDIS-Technologies/`)
-2. `npm install` + `npm run build` for `cms-admin/`
-3. Copies `cms-admin/dist/` into `dist/cms-admin/`
-4. Deploys combined `dist/` to GitHub Pages via `peaceiris/actions-gh-pages`
+1. Install + build the main site with `VITE_BASE=/INVENDIS-Technologies/`
+2. Install + build `cms-admin/`
+3. Copy `cms-admin/dist/` into `dist/cms-admin/`
+4. Deploy the combined `dist/` to GitHub Pages via `peaceiris/actions-gh-pages`
 
 ### `sync-products.yml` — Product sync
 
 **Trigger:** `repository_dispatch` event with type `product-sync` (sent by INVENDIS-ProductSelector on every push) OR manual `workflow_dispatch`
 
 1. Runs `scripts/sync-from-ps.mjs` to fetch updated product data
-2. Commits any changed JSON files to `main` with message `chore: sync products from Product Selector [skip ci]`
-3. If files changed, triggers `deploy.yml` to rebuild the site
+2. Commits any changed JSON files to `main` with message `chore: sync products from Product Selector`
+3. If any files changed, triggers `deploy.yml` to rebuild the site
 
 ---
 
@@ -428,10 +464,10 @@ Runs ESLint and `npm audit --audit-level=high`. Blocks merge if either fails.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `VITE_BASE` | `/` | Base path for Vite router and asset URLs |
-| `VITE_SITE_URL` | `https://invendis.com` | Canonical site URL for SEO meta and sitemaps |
+| `VITE_BASE` | `/` | Base path for Vite router and asset URLs. Set to `/INVENDIS-Technologies/` in production. |
+| `VITE_SITE_URL` | `https://invendis.com` | Canonical site URL for SEO meta and sitemap generation |
 | `VITE_GA_ID` | _(unset)_ | Google Analytics 4 measurement ID (e.g. `G-XXXXXX`). Analytics are disabled if unset. |
-| `VITE_SENTRY_DSN` | _(unset)_ | Sentry DSN for error tracking. Sentry is disabled if unset. |
+| `VITE_SENTRY_DSN` | _(unset)_ | Sentry DSN for error tracking via `@sentry/react`. Sentry is disabled if unset. |
 
 ### Build scripts
 
@@ -441,7 +477,7 @@ Runs ESLint and `npm audit --audit-level=high`. Blocks merge if either fails.
 
 ### CMS admin (`cms-admin/`)
 
-The CMS admin has no build-time environment variables. All runtime configuration (GitHub PAT, Azure AD settings) is either hardcoded in `msalConfig.js` or entered by the user at runtime.
+The CMS admin has no build-time environment variables. All runtime configuration (GitHub PAT, Azure AD settings) is either hardcoded in `msalConfig.js` or entered by the user at runtime via the Setup page.
 
 ---
 
@@ -469,9 +505,9 @@ npm install
 npm run dev
 ```
 
-The CMS admin dev server starts at `http://localhost:5174`. It expects:
+The CMS admin dev server starts at `http://localhost:5174`. It requires:
 1. A valid Azure AD account configured in `cms-admin/src/auth/msalConfig.js`
-2. A GitHub PAT entered via the Setup page after logging in
+2. A GitHub PAT entered via the Setup page after signing in
 
 ### Running tests
 
@@ -479,7 +515,7 @@ The CMS admin dev server starts at `http://localhost:5174`. It expects:
 npm test
 ```
 
-Runs Vitest. The main test suite is `src/data/products.test.js`, which validates the integrity of the product catalog data.
+Runs Vitest. The main test suite validates the integrity of the generated product catalog data.
 
 ---
 
@@ -487,7 +523,7 @@ Runs Vitest. The main test suite is `src/data/products.test.js`, which validates
 
 ### Production build (combined)
 
-The `deploy.yml` workflow handles the combined build automatically on every push to `main`. To build locally:
+The `deploy.yml` workflow handles the combined build automatically on every push to `main`. To reproduce locally:
 
 ```bash
 # Main site
@@ -498,9 +534,10 @@ VITE_BASE=/INVENDIS-Technologies/ npm run build
 cd cms-admin
 npm install
 npm run build
+cd ..
 
-# Copy CMS admin into main site dist
-cp -r cms-admin/dist ../dist/cms-admin
+# Combine
+cp -r cms-admin/dist dist/cms-admin
 ```
 
 The resulting `dist/` folder contains both apps:
@@ -509,20 +546,27 @@ The resulting `dist/` folder contains both apps:
 
 ### Deployment target
 
-The site is deployed to **GitHub Pages** from the `gh-pages` branch. When the hosting platform is finalised, the `deploy.yml` workflow's deployment step and the `VITE_SITE_URL` / `VITE_BASE` environment variables will need to be updated accordingly.
+The site is deployed to **GitHub Pages** from the `gh-pages` branch at:
+
+```
+https://ananthr99.github.io/INVENDIS-Technologies/
+```
+
+The CMS admin is accessible at `/INVENDIS-Technologies/cms-admin/`.
 
 ### Content-only changes (no rebuild needed)
 
-Any change made through the CMS admin goes directly to the GitHub repository and is visible on the live site immediately — no build is triggered. A rebuild is only needed for changes to:
+Any change made through the CMS admin writes directly to the `gh-pages` branch and is visible on the live site immediately — no build is triggered. A rebuild is only needed for changes to:
+
 - React component source code
 - Static assets in `public/`
-- Dependencies
+- npm dependencies
 - Tailwind configuration
 - Generated data files (`src/data/`)
 
 ### Regenerating generated files
 
-If product JSON files are added or changed outside of the CMS sync:
+If product JSON files are added or changed outside of the automated CMS sync:
 
 ```bash
 npm run generate-products  # regenerate src/data/products.js etc.
