@@ -14,7 +14,7 @@
   "power": "12 VDC",
   "ports": 0,
   "os": "Open-WRT based Linux OS",
-  "desc": "",
+  "desc": "The SILBO RUC65 is a fanless, enterprise-grade 5G cellular router featuring dual-SIM redundancy, AX3000 Wi-Fi 6, and optional long-range Bluetooth 6.0 (BLE) integration. Powered by an OpenWrt Linux platform with a MediaTek MT7981 processor, it delivers up to 2.2 Gbps Sub-6 cellular speeds alongside multi-WAN failover, PoE IN support, and robust VPN tunneling capabilities.",
   "housing": "Plastic",
   "dims": "105 x 200 x 105 mm (W x H x D)",
   "weight": "590 grams",
@@ -23,7 +23,11 @@
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RUC-1787820565957-u8i6.png"
   ],
   "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/RUC-datasheet.pdf",
-  "use_cases": [],
+  "use_cases": [
+    "Smart Building & IoT Edge Aggregation",
+    "Mobile & Temporary Event Branch Connectivity",
+    "Mission-Critical Multi-WAN Industrial Routing"
+  ],
   "hidden_fields": [
     "cell",
     "cellular_gen",
