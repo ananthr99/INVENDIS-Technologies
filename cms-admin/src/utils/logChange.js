@@ -25,11 +25,11 @@ function flatDiff(before, after, prefix = '', depth = 0) {
       const bMap = new Map(b.filter(x => x?.[keyField] != null).map(x => [String(x[keyField]), x]))
       const aMap = new Map(a.filter(x => x?.[keyField] != null).map(x => [String(x[keyField]), x]))
 
-      for (const [k] of aMap)
-        if (!bMap.has(k)) changes.push({ field: prefix, from: '—', to: `added "${k}"` })
+      for (const [k, aItem] of aMap)
+        if (!bMap.has(k)) changes.push({ field: prefix, from: '—', to: `added "${aItem?.label || k}"` })
 
-      for (const [k] of bMap)
-        if (!aMap.has(k)) changes.push({ field: prefix, from: `removed "${k}"`, to: '—' })
+      for (const [k, bItem] of bMap)
+        if (!aMap.has(k)) changes.push({ field: prefix, from: `removed "${bItem?.label || k}"`, to: '—' })
 
       for (const [k, aItem] of aMap) {
         const bItem = bMap.get(k)
