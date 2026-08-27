@@ -1,5 +1,29 @@
 [
   {
+    "ts": "2026-08-27T11:42:28.715Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.stats",
+        "from": "—",
+        "to": "added \"Data Points Collected\""
+      },
+      {
+        "field": "hero.stats",
+        "from": "removed \"Partner Countries\"",
+        "to": "—"
+      },
+      {
+        "field": "hero.stats[\"Team strength\"].value",
+        "from": "180+",
+        "to": "170+"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-27T06:54:32.972Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Home",
