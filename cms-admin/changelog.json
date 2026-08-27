@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-27T05:07:10.981Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Products",
+    "section": "Hardware",
+    "action": "Updated Products — Hardware",
+    "changes": [
+      {
+        "field": "hardwareSection.eyebrow",
+        "from": "Hardware Products",
+        "to": "Hardware Agnostic Products"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-26T07:36:06.695Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
