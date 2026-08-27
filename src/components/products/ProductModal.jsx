@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { catColors, wifiLabel, downloadFile } from '../../utils/productHelpers'
 
@@ -96,6 +96,13 @@ export default function ProductModal({
   const [imgIdx, setImgIdx] = useState(0)
   const [loadedSet, setLoadedSet] = useState(() => new Set())
   const imgLoaded = loadedSet.has(imgIdx)
+  const imgRef = useRef(null)
+
+  useLayoutEffect(() => {
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setLoadedSet(prev => { const s = new Set(prev); s.add(imgIdx); return s })
+    }
+  }, [imgIdx])
   const imgs = images[p.id] || []
   const uc = useCases[p.id] || []
   const mainDs = datasheets[p.id]
@@ -182,21 +189,21 @@ export default function ProductModal({
           <div className={`relative flex items-center justify-center min-h-[220px] ${!imgLoaded ? 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 bg-[length:200%_100%] animate-pulse' : ''}`}>
             {imgs[imgIdx].startsWith('http') ? (
               <img
+                ref={imgRef}
                 src={imgs[imgIdx]}
                 alt={p.name}
                 className={`max-h-[260px] max-w-full object-contain block transition-opacity duration-[250ms] ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
                 onLoad={() => setLoadedSet(prev => { const s = new Set(prev); s.add(imgIdx); return s })}
-                decoding="async"
               />
             ) : (
               <picture style={{ display: 'contents' }}>
                 <source srcSet={imgs[imgIdx].replace(/\.(png|jpe?g)$/i, '.webp')} type="image/webp" />
                 <img
+                  ref={imgRef}
                   src={imgs[imgIdx]}
                   alt={p.name}
                   className={`max-h-[260px] max-w-full object-contain block transition-opacity duration-[250ms] ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
                   onLoad={() => setLoadedSet(prev => { const s = new Set(prev); s.add(imgIdx); return s })}
-                  decoding="async"
                 />
               </picture>
             )}

@@ -5,6 +5,21 @@ const productUseCases = {
     "Industrial Power Quality Analysis",
     "Utility & Compliance Metering"
   ],
+  "RUC": [
+    "Smart Building & IoT Edge Aggregation",
+    "Mobile & Temporary Event Branch Connectivity",
+    "Mission-Critical Multi-WAN Industrial Routing"
+  ],
+  "RVH": [
+    "Industrial IoT & Telemetry Aggregation",
+    "Remote Substation & Utility Monitoring",
+    "Secure Smart Edge Gateway for Transportation / Fleet Management"
+  ],
+  "XG822L": [
+    "Enterprise Surveillance & Security Networks",
+    "Smart Campus & Enterprise Network Management",
+    "Industrial Network Control & Redundancy"
+  ],
   "acmeter": [
     "Grid & Generator Energy Tracking",
     "Industrial Power Monitoring",
@@ -83,10 +98,20 @@ const productUseCases = {
     "Video Surveillance & Security Networks",
     "Industrial Gateway / Edge Computing"
   ],
+  "invcf": [
+    "Fleet Telematics & Autonomous Vehicle Edge Computer",
+    "Ruggedized Industrial Multi-Network Router & Edge Gateway",
+    "Interactive Smart Kiosk & Digital Signage Controller"
+  ],
   "isense": [
     "Energy Monitoring & Power Management",
     "Process Automation & Industrial Control",
     "Smart Infrastructure & Remote Asset Intelligence"
+  ],
+  "itx-arl-board": [
+    "AI-Powered Edge Vision & Video Analytics",
+    "Industrial IoT Gateway & Automation Controller",
+    "High-Performance Interactive Kiosks & Digital Signage"
   ],
   "mcx": [
     "Long-Distance Network Extension"
@@ -110,6 +135,11 @@ const productUseCases = {
     "Energy Meter & Utility Device Integration",
     "Building Automation Connectivity",
     "Legacy Device Network Enablement"
+  ],
+  "rdb40": [
+    "Indoor Asset Tracking & Real-Time Location Services (RTLS)",
+    "Smart Building Sensor Data Aggregation",
+    "Single-Cable PoE Indoor Wi-Fi Access Point Deployment"
   ],
   "rdxx": [
     "Smart Transportation Connectivity",
@@ -161,6 +191,12 @@ const productUseCases = {
     "Transportation & Fleet Connectivity",
     "Backup Connectivity for Small Industrial Remote Sites"
   ],
+  "rvcd": [
+    "MultiWAN Failover",
+    "Secure Remote Infrastructure Access (Branch-to-Headquarters VPN)",
+    "Industrial Control & Edge IoT Gateway",
+    "High-Reliability Retail / ATM Broadband Bonding"
+  ],
   "rvw50": [
     "Transit & Passenger Connectivity",
     "Mobile Field Operations",
@@ -200,6 +236,11 @@ const productUseCases = {
     "Enterprise Surveillance & Security Networks",
     "Smart Campus & Enterprise Network Management",
     "Industrial Network Control & Redundancy"
+  ],
+  "xi244-2M": [
+    "Commercial IP Security & Surveillance Infrastructure",
+    "Smart Building & IoT Deployment",
+    "Industrial / Campus Branch Network Aggregation"
   ]
 }
 

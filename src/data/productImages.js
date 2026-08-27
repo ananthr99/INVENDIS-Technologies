@@ -2,9 +2,11 @@
 const base = import.meta.env.BASE_URL
 
 const productImages = {
-  "ADLAMLSOMBOARD": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/ADLAMLSOMBOARD-1787204033547-9qj7.png", "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/ADLAMLSOMBOARD-1787204037868-omoz.png"],
   "GPONONU": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/GPONONU-1787223696594-jx1x.png"],
   "MFMET4640": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/MFMET4640-1787136837806-6zw4.png"],
+  "RUC": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RUC-1787820565957-u8i6.png"],
+  "RVH": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RVH-1787824857622-zek8.png"],
+  "XG822L": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/XG822L-1787823067459-bkr4.png"],
   "acmeter": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/acmeter-1787030758710-uo1u.png", "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/acmeter-1787030761403-lpj7.png"],
   "bcpm": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/bcpm-1787139262779-6be3.png"],
   "dcmeter": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/dcmeter-1787137006487-aowj.png"],
@@ -21,12 +23,15 @@ const productImages = {
   "inv-ce-xx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-ce-xx-1787034276436-nw65.png", "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-ce-xx-1787034279559-vg60.png"],
   "inv-cea-xx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-cea-xx-1786441526355-8a7c.png", "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-cea-xx-1786441531237-gu5u.png"],
   "inv-ci-xx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-ci-xx-1787128620619-qggb.png"],
+  "invcf": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/invcf-1787733943974-01uq.png", "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/invcf-1787733948165-323c.png"],
   "isense": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/isense-1786612536077-wooc.png"],
+  "itx-arl-board": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787745677267-j4ga.png", "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787745681065-2ejm.png"],
   "mcx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/mcx-1786622212112-0olz.png"],
   "miniups": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/miniups-1787031823007-0u2g.png"],
   "mt7621odu": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/mt7621odu-1786951698336-5qx3.png"],
   "nms": ["https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/images/NMS.jpg"],
   "pc3xx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/pc3xx-1786620992114-lmpi.png"],
+  "rdb40": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rdb40-1787726970581-q7up.png"],
   "rdxx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rdxx-1787138585077-wcqd.png"],
   "rexx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rexx-1787138691544-n5qi.png"],
   "rfnxx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rfnxx-1786599944641-kv06.png"],
@@ -38,6 +43,9 @@ const productImages = {
   "rtxx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rtxx-1786524726723-byku.png"],
   "ru60": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/ru60-1786524861223-6f3m.png"],
   "rv00": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rv00-1786528984998-xos5.png"],
+  "rvcd": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcd-1787653548751-xx2w.png"],
+  "rvcp": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcp-1787643260652-71vm.png"],
+  "rvg": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvg-1787660516258-khi6.png"],
   "rvw50": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvw50-1787139223379-b4ct.png"],
   "rvxx": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvxx-1786526209549-0r85.jpg"],
   "xa82": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xa82-1786616057198-xm2u.png"],
@@ -45,6 +53,8 @@ const productImages = {
   "xc80": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xc80-1786699708540-nzt4.png"],
   "xd50": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xd50-1786618369532-d69m.png"],
   "xf100": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xf100-1786701452959-v1y6.png"],
+  "xg82": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xg82-1787723995591-8t37.png"],
+  "xi244-2M": ["https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xi244-2M-1787821659624-q8nr.png"],
 }
 
 export default productImages

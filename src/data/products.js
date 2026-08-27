@@ -5,32 +5,6 @@
 
 const products = [
   {
-    "id": "ADLAMLSOMBOARD",
-    "name": "Intel ADL/AML SOM Board DDR4",
-    "cat": "PCB",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "",
-    "ports": 0,
-    "os": "—",
-    "desc": "",
-    "housing": "",
-    "dims": "",
-    "weight": "",
-    "op_temp": "",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 77,
-    "variants": null
-  },
-  {
     "id": "GPONONU",
     "name": "GPON ONU",
     "cat": "Router",
@@ -69,58 +43,6 @@ const products = [
       }
     ],
     "order": 78,
-    "variants": null
-  },
-  {
-    "id": "INVCF",
-    "name": "INV-CF-XX",
-    "cat": "Router",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "",
-    "ports": 0,
-    "os": "—",
-    "desc": "",
-    "housing": "",
-    "dims": "",
-    "weight": "",
-    "op_temp": "",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 44,
-    "variants": null
-  },
-  {
-    "id": "MC661",
-    "name": "M.2 MC661 LTE Module",
-    "cat": "PCB",
-    "cpu": "—",
-    "ram": "—",
-    "storage": "—",
-    "cell": "none",
-    "cellular_gen": "none",
-    "wifi": "none",
-    "rs485": false,
-    "rs232": false,
-    "ip": "",
-    "power": "",
-    "ports": 0,
-    "os": "—",
-    "desc": "",
-    "housing": "",
-    "dims": "",
-    "weight": "",
-    "op_temp": "",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 76,
     "variants": null
   },
   {
@@ -205,6 +127,113 @@ const products = [
       }
     ],
     "order": 37,
+    "variants": null
+  },
+  {
+    "id": "RUC",
+    "name": "RUC",
+    "cat": "Gateway",
+    "cpu": "MediaTek MT7981",
+    "ram": "512 MB DDR3 RAM",
+    "storage": "128 MB NAND",
+    "cell": "none",
+    "cellular_gen": "none",
+    "wifi": "WiFi6",
+    "rs485": false,
+    "rs232": false,
+    "ip": "",
+    "power": "12 VDC",
+    "ports": 0,
+    "os": "Open-WRT based Linux OS",
+    "desc": "The SILBO RUC65 is a fanless, enterprise-grade 5G cellular router featuring dual-SIM redundancy, AX3000 Wi-Fi 6, and optional long-range Bluetooth 6.0 (BLE) integration. Powered by an OpenWrt Linux platform with a MediaTek MT7981 processor, it delivers up to 2.2 Gbps Sub-6 cellular speeds alongside multi-WAN failover, PoE IN support, and robust VPN tunneling capabilities.",
+    "housing": "Plastic",
+    "dims": "105 x 200 x 105 mm (W x H x D)",
+    "weight": "590 grams",
+    "op_temp": "0~ 50 ˚C",
+    "hidden_fields": [
+      "cell",
+      "cellular_gen",
+      "ip",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports Additional Spec",
+        "v": "1 x Gigabit WAN (PoE IN IEEE802.3at), 2 x Gigabit LAN"
+      }
+    ],
+    "order": 94,
+    "variants": null
+  },
+  {
+    "id": "RVH",
+    "name": "RVH 44",
+    "cat": "Gateway",
+    "cpu": "MediaTek MT7621 Dual-core 880 MHz",
+    "ram": "512MB DDR3",
+    "storage": "32MB",
+    "cell": "none",
+    "cellular_gen": "4G",
+    "wifi": "WiFi4",
+    "rs485": true,
+    "rs232": true,
+    "ip": "IP 30",
+    "power": "9-30 Vdc",
+    "ports": 0,
+    "os": "Open-WRT based Linux OS",
+    "desc": "The SILBO RVH-44 is an industrial OpenWrt Linux IoT cellular gateway powered by a dual-core MediaTek MT7621 processor with dual-SIM 4G connectivity and 2.4GHz Wi-Fi. Housed in a compact aluminum enclosure, it features 5 Gigabit Ethernet ports, legacy serial interfaces (2x RS485, 2x RS232), a built-in Modbus gateway, and support for cloud telemetry protocols such as MQTT and Azure MQTT",
+    "housing": "Industrial Aluminium or Sheet Metal",
+    "dims": "110 x 44 x 94 mm (W x H x D)",
+    "weight": "400 gm",
+    "op_temp": "0 ~ 60 ˚C",
+    "hidden_fields": [
+      "cell"
+    ],
+    "additional_specs": [],
+    "order": 95,
+    "variants": null
+  },
+  {
+    "id": "XG822L",
+    "name": "XG-82-2L",
+    "cat": "Switch",
+    "cpu": "—",
+    "ram": "—",
+    "storage": "—",
+    "cell": "none",
+    "cellular_gen": "none",
+    "wifi": "none",
+    "rs485": false,
+    "rs232": false,
+    "ip": "",
+    "power": "Dual Input- 44-57 VDC",
+    "ports": 0,
+    "os": "—",
+    "desc": "The XG-82-2L graduates from simple connectivity to intelligent network control, offering full Layer 2 managed switching with 20 Gbps switching capacity, 2.5Gbps SFP uplinks, and a rich feature set spanning MSTP, IGMP Snooping, QoS, ERPS, and PoE scheduling — all configurable via Web, CLI, or SNMP. With an 8K MAC table, 15K jumbo frame support, and a 240W PoE budget spread across eight Gigabit ports, it is the natural choice for IT teams and network integrators who need granular traffic management and device powering in a single compact, DIN rail-mountable unit.",
+    "housing": "Industrial Aluminium",
+    "dims": "200 mm x 120 mm x 55mm (WxLxH)",
+    "weight": "675 Gm (Industrial Aluminium Enclosure)",
+    "op_temp": "0 ~ 60 ˚C",
+    "hidden_fields": [
+      "cell",
+      "cellular_gen",
+      "wifi",
+      "cpu",
+      "ram",
+      "storage",
+      "ip",
+      "os",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ethernet"
+      }
+    ],
+    "order": 91,
     "variants": null
   },
   {
@@ -981,7 +1010,7 @@ const products = [
   },
   {
     "id": "intel-x6425E",
-    "name": "Intel X6425E",
+    "name": "Intel X6425E Quad Core Rugged Fanless PC",
     "cat": "Intel Based Devices",
     "cpu": "Intel X86 Atom, X6425E, 4 cores with base frequency 2GHz and Turbo Frequency of upto 3GHz",
     "ram": "Up to 32 GB DDR4 3200 MHz",
@@ -993,7 +1022,7 @@ const products = [
     "rs232": false,
     "ip": "IP30",
     "power": "19 VDC",
-    "ports": 2,
+    "ports": 0,
     "os": "Oracle Linux v9.5 / Ubuntu 23 / Windows 10+",
     "desc": "This is a compact, fanless industrial edge computer built for reliable on-site compute, networking, and connectivity in space-constrained deployments. Its key differentiators are the Intel Atom x6425E processor, up to 32 GB RAM, modular SSD and 5G/Wi Fi options, plus rugged features like an aluminium enclosure, IP30 rating, and wide operating temperature support. It is best suited for industrial automation, IoT gateways, networking edge nodes, and remote monitoring use cases across manufacturing, utilities, retail, and smart infrastructure.",
     "housing": "Aluminium",
@@ -1004,7 +1033,12 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports- Additional Details",
+        "v": "Gigabit Ethernet, (2x I226 Intel) , 2x RTL8125BG(Realtek)"
+      }
+    ],
     "order": 1,
     "variants": null
   },
@@ -1022,7 +1056,7 @@ const products = [
     "rs232": false,
     "ip": "IP30",
     "power": "12V DC",
-    "ports": 2,
+    "ports": 0,
     "os": "Oracle Linux v.9.5 and above Ubuntu 23, Windows 10 and above",
     "desc": "This compact, fanless edge computing system is designed for AI inference, networking, and industrial applications, combining an Intel® Core™ N350 processor with flexible expansion for AI accelerators or NVMe storage. Key differentiators include dual Gigabit LAN, multiple display outputs (up to 4K), wide OS support, and robust I/O in a small form factor. It targets edge AI deployments, smart retail, industrial automation, and network security solutions.",
     "housing": "Aluminum Heat Sink with CRCA Enclosure (Fanless Design), Sheet Metal (Fan Design)",
@@ -1033,8 +1067,13 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
-    "order": 5,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ethernet (Realtek RTL8111H)"
+      }
+    ],
+    "order": 96,
     "variants": {
       "note": "Part number format: INV-CX-x7425e-[Type][Display]-[eMMC]-[SSD]-[RAM]-[Modem]. RAM: 1=4 GB … 5=64 GB DDR5 | eMMC: 1=8 GB … 5=128 GB | SSD: 1=128 GB … 4=1 TB | Modem: 0=None, 4=4G, 5=5G | Wi-Fi: 0=None, 6=Wi-Fi 6",
       "headers": [
@@ -1085,7 +1124,7 @@ const products = [
     "rs232": false,
     "ip": "IP30",
     "power": "12 VDC",
-    "ports": 4,
+    "ports": 0,
     "os": "Ubuntu/Oracle Linux/OpenWRT/Windows",
     "desc": "A rugged, fanless SD-WAN edge appliance powered by Intel X7425E, designed for high-performance networking at distributed sites. It combines multi-WAN connectivity (Ethernet, 4G/5G, Wi-Fi) with flexible OS support and industrial-grade reliability, making it ideal for seamless failover, traffic optimization, and edge computing. Best suited for telecom, industrial IoT, smart infrastructure, and enterprise branch deployments.",
     "housing": "Aluminum Heat Sink with CRCA Enclosure",
@@ -1096,7 +1135,12 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ethernet (RTL8111H)"
+      }
+    ],
     "order": 2,
     "variants": {
       "note": "Part number format: INV-CX-x7425e-[Type][Display]-[eMMC]-[SSD]-[RAM]-[Modem]. RAM: 1=4 GB … 5=64 GB DDR5 | eMMC: 1=8 GB … 5=128 GB | SSD: 1=128 GB … 4=1 TB | Modem: 0=None, 4=4G, 5=5G | Wi-Fi: 0=None, 6=Wi-Fi 6",
@@ -1148,7 +1192,7 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "12V DC",
-    "ports": 4,
+    "ports": 0,
     "os": "Ubuntu / Oracle Linux / OpenWRT / Windows",
     "desc": "The INV-CEA-XX is a fanless industrial gateway designed for high-performance edge computing and robust connectivity, featuring an Intel X7425E processor and extensive cellular/Wi-Fi expansion capabilities. It differentiates itself through its quad-Gigabit Ethernet ports, dual isolated serial interfaces (RS232/RS485), and flexible mounting options, making it highly adaptable for harsh environments. This device is primarily targeted at industrial automation, telecommunications, and smart city infrastructure where reliable, long-term operation is critical.",
     "housing": "Aluminum Heat Sink with CRCA Enclosure",
@@ -1160,7 +1204,12 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ethernet ((Realtek RTL8111H)"
+      }
+    ],
     "order": 3,
     "variants": {
       "note": "Part number format: INV-CX-x7425e-[Type][Display]-[eMMC]-[SSD]-[RAM]-[Modem]. RAM: 1=4 GB … 5=64 GB DDR5 | eMMC: 1=8 GB … 5=128 GB | SSD: 1=128 GB … 4=1 TB | Modem: 0=None, 4=4G, 5=5G | Wi-Fi: 0=None, 6=Wi-Fi 6",
@@ -1212,7 +1261,7 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "12 VDC",
-    "ports": 6,
+    "ports": 0,
     "os": "Ubuntu / Oracle / OpenWRT /Windows/ VyOS",
     "desc": "INV CI XX is a compact, Intel® X7425E-powered industrial computer designed for reliable edge computing and industrial automation. It features multiple Ethernet ports, optional 4G/5G connectivity, Wi-Fi, and flexible storage options for secure, high-performance deployments.",
     "housing": "Sheet Metal",
@@ -1223,8 +1272,48 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports",
+        "v": "Gigabit Ethernet (Realtek RTL8111H)"
+      }
+    ],
     "order": 4,
+    "variants": null
+  },
+  {
+    "id": "invcf",
+    "name": "INV-CF-XX",
+    "cat": "Intel Based Devices",
+    "cpu": "Intel N150/x7425E/x7433RE/x7835RE/i3-N305/N355, 4/8 cores with 3.4GHz Turbo Frequency",
+    "ram": "32GB DDR5 SODIMM (Max)",
+    "storage": "One M.2 (B Key,2280), Upto 512GB SSD, Upto64GB eMMC",
+    "cell": "none",
+    "cellular_gen": "5G",
+    "wifi": "none",
+    "rs485": false,
+    "rs232": false,
+    "ip": "IP 30",
+    "power": "12 VDC",
+    "ports": 0,
+    "os": "Ubuntu/Oracle Linux/OpenWRT/Windows",
+    "desc": "The INV-CF-XX is a compact, fanless industrial edge computing platform powered by the Intel X7425E processor, featuring high-speed 2.5GbE networking, 4G/5G connectivity, Wi-Fi 6 support, and flexible mounting options for industrial and IoT applications.",
+    "housing": "Aluminum Heat Sink with CRCA Enclosure",
+    "dims": "150mm X 160mm X 52.8mm ( L X W X H) (w/o mounting options) (*Dimensions will vary depending on the mounting option chosen.)",
+    "weight": "1800",
+    "op_temp": "0 ~ 50℃",
+    "hidden_fields": [
+      "cell",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports Additional Details",
+        "v": "Gigabit Ethernet (2.5 Gbps)"
+      }
+    ],
+    "order": 90,
     "variants": null
   },
   {
@@ -1297,7 +1386,7 @@ const products = [
   },
   {
     "id": "itx-arl-board",
-    "name": "INV CG-XX",
+    "name": "Arrowlake ITX",
     "cat": "Intel Based Devices",
     "cpu": "Intel® Core™ Ultra Processors (Series 2) (Ultra 5 & Ultra 7)",
     "ram": "64 GB DDR5 CSODIMM (Max) (Memory to be separately ordered)",
@@ -1309,12 +1398,12 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "",
-    "ports": 2,
-    "os": "—",
-    "desc": "",
-    "housing": "",
+    "ports": 0,
+    "os": "Ubuntu / Oracle Linux / Open WRT / Windows",
+    "desc": "The Invendis ARL Mini ITX is a high-performance industrial computing platform powered by Intel Core Ultra Processors (Series 2) with integrated NPU AI acceleration, Intel Arc 140T graphics, and up to 128GB DDR5 RAM. Housed in a aluminum heatsink enclosure with fanless or fan options, it offers dual 2.5GbE LAN ports, triple display outputs (2x HDMI, 1x DP), and extensive M.2 expansion for Wi-Fi 6, 4G/5G cellular, and NVMe storage.",
+    "housing": "Aluminum Heat Sink with CRCA Enclosure, Fan/Fanless options",
     "dims": "",
-    "weight": "",
+    "weight": "1400",
     "op_temp": "",
     "hidden_fields": [
       "cell",
@@ -1339,9 +1428,41 @@ const products = [
       {
         "k": "Wi-Fi",
         "v": "One M.2 ( E Key, 3052 for Wifi/BLE Module 802.11b/g/n/ac/ax (1 x PCIe, 1 X USB2.0)"
+      },
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ethernet 2500 Mbps"
+      },
+      {
+        "k": "USB",
+        "v": "4 x USB 3.2 gen 1, 4 x USB3.2 gen1, 2 x USB 2.0 Header"
+      },
+      {
+        "k": "HDMI",
+        "v": "2"
+      },
+      {
+        "k": "DP",
+        "v": "1"
+      },
+      {
+        "k": "Type C",
+        "v": "1 Type C Port with 15 Watt PD Support"
+      },
+      {
+        "k": "Audio",
+        "v": "1 x Mic In, 1 x Line-Out, Front Panel Audio Header"
+      },
+      {
+        "k": "COM Port (Optional)",
+        "v": "4 (RS232, RS485)"
+      },
+      {
+        "k": "Console (optional)",
+        "v": "1 x Type B Micro USB"
       }
     ],
-    "order": 6,
+    "order": 89,
     "variants": null
   },
   {
@@ -1736,6 +1857,38 @@ const products = [
         ]
       ]
     }
+  },
+  {
+    "id": "rdb40",
+    "name": "RDB40",
+    "cat": "Gateway",
+    "cpu": "MediaTek MT7628",
+    "ram": "128 MB",
+    "storage": "32 MB",
+    "cell": "none",
+    "cellular_gen": "none",
+    "wifi": "WiFi5",
+    "rs485": false,
+    "rs232": false,
+    "ip": "IP 30",
+    "power": "",
+    "ports": 0,
+    "os": "—",
+    "desc": "The SILBO RDB40 is a ceiling-mounted indoor Access Point powered by OpenWrt Linux and a MediaTek MT7628 processor with 2.4GHz Wi-Fi (802.11b/g/n). It features an integrated Nordic nRF54L05 BLE 6.0 SoC with a long-range Front-End Module (FEM), support for 802.3af Active PoE IN, and 10/100 Ethernet ports.",
+    "housing": "Plastic",
+    "dims": "190mmx190mmx40mm (W x D x H)",
+    "weight": "290 gm",
+    "op_temp": "0-50 ˚C",
+    "hidden_fields": [
+      "cell",
+      "cellular_gen",
+      "ports",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [],
+    "order": 92,
+    "variants": null
   },
   {
     "id": "rdxx",
@@ -2478,6 +2631,43 @@ const products = [
     }
   },
   {
+    "id": "rvcd",
+    "name": "RVCD",
+    "cat": "Switch",
+    "cpu": "MediaTek MT7621",
+    "ram": "512MB",
+    "storage": "32MB",
+    "cell": "none",
+    "cellular_gen": "none",
+    "wifi": "WiFi4",
+    "rs485": false,
+    "rs232": false,
+    "ip": "",
+    "power": "12 VDC",
+    "ports": 0,
+    "os": "Open-WRT based Linux OS",
+    "desc": "The SILBO RVCD is a compact, industrial-grade Gigabit router powered by a MediaTek MT7621 processor, 512MB RAM, and OpenWrt Linux. Featuring 5 Gigabit Ethernet ports (1 WAN, 4 LAN) and a USB 3.0 port, it provides multi-WAN load balancing, advanced firewall security, and extensive VPN tunneling support (IPsec, OpenVPN, WireGuard) in a fanless sheet metal housing.",
+    "housing": "Sheet Metal",
+    "dims": "110 x 26 x 95 mm (W x H x D)",
+    "weight": "200 gm",
+    "op_temp": "0~ 50 ˚C",
+    "hidden_fields": [
+      "cell",
+      "cellular_gen",
+      "ip",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Interface",
+        "v": "USB 3.0/ 2.0 Host (Optional)"
+      }
+    ],
+    "order": 93,
+    "variants": null
+  },
+  {
     "id": "rvcp",
     "name": "RVCP",
     "cat": "Router",
@@ -2491,13 +2681,13 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "12 V DC or 9-30V DC",
-    "ports": 4,
+    "ports": 0,
     "os": "Open-WRT based Linux OS",
     "desc": "",
     "housing": "Sheet Metal",
     "dims": "190 x 30 x 100 mm (W x H x D)",
     "weight": "520",
-    "op_temp": "",
+    "op_temp": "0 -50°C",
     "hidden_fields": [
       "cell",
       "wifi",
@@ -2505,8 +2695,54 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
+    "additional_specs": [
+      {
+        "k": "Ethernet Port-Additional Details",
+        "v": "Gigabit Ethernet"
+      },
+      {
+        "k": "SFP Ports",
+        "v": "1"
+      },
+      {
+        "k": "USB Port",
+        "v": "1 X 3.0"
+      }
+    ],
     "order": 100,
+    "variants": null
+  },
+  {
+    "id": "rvg",
+    "name": "RVG 55",
+    "cat": "Gateway",
+    "cpu": "MediaTek MT7621 Dual-core 880 MHz",
+    "ram": "512MB DDR3",
+    "storage": "32MB",
+    "cell": "RM 500U CNV",
+    "cellular_gen": "5G",
+    "wifi": "WiFi5",
+    "rs485": true,
+    "rs232": false,
+    "ip": "IP 30",
+    "power": "9-30 VDC",
+    "ports": 0,
+    "os": "Open-WRT based Linux OS",
+    "desc": "",
+    "housing": "",
+    "dims": "110 x 44 x 94 mm (W x H x D)",
+    "weight": "400gm",
+    "op_temp": "0 ~ 60 ˚C",
+    "hidden_fields": [
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports- Additional Details",
+        "v": "Gigabit Ethernet (Configurable WAN/LAN)"
+      }
+    ],
+    "order": 97,
     "variants": null
   },
   {
@@ -2910,7 +3146,7 @@ const products = [
     "power": "44-57 VDC",
     "ports": 8,
     "os": "â",
-    "desc": "The XG-82-2L graduates from simple connectivity to intelligent network control, offering full Layer 2 managed switching with 20 Gbps switching capacity, 2.5Gbps SFP uplinks, and a rich feature set spanning MSTP, IGMP Snooping, QoS, ERPS, and PoE scheduling — all configurable via Web, CLI, or SNMP. With an 8K MAC table, 15K jumbo frame support, and a 240W PoE budget spread across eight Gigabit ports, it is the natural choice for IT teams and network integrators who need granular traffic management and device powering in a single compact, DIN rail-mountable unit.",
+    "desc": "The SILBO XG-82-2MI is a compact, fanless Layer 2 smart managed switch featuring 8 Gigabit Ethernet PoE ports with a 120W total budget, paired with 2 high-speed 2.5Gbps SFP ports for fiber uplinks. Encased in a durable sheet metal housing, it offers comprehensive network management features including VLANs, QoS, IGMP Snooping, and redundant link protocols like STP/MSTP and ERPS.",
     "housing": "Industrial Aluminium",
     "dims": "200 mm x 120 mm x 55mm (WxLxH)",
     "weight": "675 g",
@@ -2947,6 +3183,69 @@ const products = [
         ]
       ]
     }
+  },
+  {
+    "id": "xi244-2M",
+    "name": "XI 244-2M",
+    "cat": "Switch",
+    "cpu": "—",
+    "ram": "—",
+    "storage": "—",
+    "cell": "none",
+    "cellular_gen": "none",
+    "wifi": "none",
+    "rs485": false,
+    "rs232": false,
+    "ip": "",
+    "power": "",
+    "ports": 0,
+    "os": "—",
+    "desc": "The SILBO XI-244-2L is an industrial Layer 2 managed switch featuring 24 Gigabit Ethernet PoE ports with a 240W total power budget, alongside 2 Gigabit RJ45 ports and 2 SFP fiber uplinks for flexible network aggregation. Encased in a durable aluminum enclosure, it supports advanced traffic management, redundancy protocols (STP/MSTP/ERPS), and PoE scheduling for demanding surveillance, IoT, and industrial applications.",
+    "housing": "",
+    "dims": "",
+    "weight": "",
+    "op_temp": "",
+    "hidden_fields": [
+      "cell",
+      "cellular_gen",
+      "wifi",
+      "cpu",
+      "ram",
+      "storage",
+      "ip",
+      "power",
+      "os",
+      "rs485",
+      "rs232",
+      "housing",
+      "dims",
+      "weight",
+      "op_temp"
+    ],
+    "additional_specs": [
+      {
+        "k": "Chipset",
+        "v": "EN8853D+EN8808Q*2+EN8804+3*AN8503"
+      },
+      {
+        "k": "Interface",
+        "v": "24 x 10/100/1000Mbps+4G Combo(RJ45 Or Fiber) Auto-Negotiation ports,The Fiber is SFP"
+      },
+      {
+        "k": "Transfer Method",
+        "v": "Store-and-Forward"
+      },
+      {
+        "k": "MAC Address Table",
+        "v": "32K"
+      },
+      {
+        "k": "Switching Capacity",
+        "v": "56Gbps"
+      }
+    ],
+    "order": 98,
+    "variants": null
   }
 ]
 
