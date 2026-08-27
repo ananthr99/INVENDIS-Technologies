@@ -296,7 +296,6 @@ function QuickFactsTab({ data, patch }) {
 }
 
 /* ── Form Labels ────────────────────────────────────── */
-
 function FormLabelsTab({ data, patch }) {
   function s(field, val) {
     patch(d => { d.form[field] = val; return d })
@@ -343,6 +342,45 @@ function FormLabelsTab({ data, patch }) {
           <label>Submit Button Label</label>
           <input value={f.submitLabel} onChange={e => s('submitLabel', e.target.value)} />
         </div>
+      </div>
+
+      <div className="form-section">
+        <p className="form-section-title">Additional Fields</p>
+        <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 12 }}>
+          Extra fields shown between Email and Message on the contact form.
+        </p>
+        {(f.additionalFields ?? []).map((af, i) => (
+          <div key={af.id} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 16px', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Field {i + 1}</span>
+              <div style={{ flex: 1 }} />
+              <label style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: '#374151', cursor: 'pointer' }}>
+                <input
+                  type="checkbox"
+                  checked={af.required ?? false}
+                  onChange={e => patch(d => { d.form.additionalFields[i].required = e.target.checked; return d })}
+                />
+                Required
+              </label>
+              <button className="btn-del" onClick={() => patch(d => { d.form.additionalFields.splice(i, 1); return d })}>Remove</button>
+            </div>
+            <div className="field-grid">
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Label</label>
+                <input value={af.label} onChange={e => patch(d => { d.form.additionalFields[i].label = e.target.value; return d })} />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                <label>Placeholder</label>
+                <input value={af.placeholder} onChange={e => patch(d => { d.form.additionalFields[i].placeholder = e.target.value; return d })} placeholder="Optional" />
+              </div>
+            </div>
+          </div>
+        ))}
+        <button className="btn-add" onClick={() => patch(d => {
+          if (!d.form.additionalFields) d.form.additionalFields = []
+          d.form.additionalFields.push({ id: `field_${Date.now()}`, label: '', placeholder: '', required: false })
+          return d
+        })}>+ Add Field</button>
       </div>
     </>
   )

@@ -48,6 +48,7 @@
     "companyPlaceholder": "Your Company",
     "emailLabel": "Email Address *",
     "emailPlaceholder": "johndoe@company.com",
+    "additionalFields": [],
     "messageLabel": "Message *",
     "messagePlaceholder": "Tell us about your project or requirements…",
     "submitLabel": "Send Message"

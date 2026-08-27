@@ -93,12 +93,17 @@ export default function Contact() {
   function handleSubmit(e) {
     e.preventDefault()
     const { name, company, email, message } = formState
+    const extras = (form.additionalFields ?? [])
+      .filter(af => formState[af.id])
+      .map(af => `${af.label}: ${formState[af.id]}`)
+      .join('\n')
     const subject = encodeURIComponent(`Website enquiry from ${name}${company ? ` (${company})` : ''}`)
-    const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nReply-to: ${email}\n\nMessage:\n${message}`)
+    const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nReply-to: ${email}${extras ? '\n' + extras : ''}\n\nMessage:\n${message}`)
     window.location.href = `mailto:sales@invendis.com?subject=${subject}&body=${body}`
     setStatus('success')
     setFormState({ name: '', company: '', email: '', message: '' })
   }
+
 
   const field    = key => e => setFormState(p => ({ ...p, [key]: e.target.value }))
   const inputCls = 'w-full px-4 py-3 text-sm border border-gray-200 rounded-xl focus:outline-none focus:border-brand-blue transition-colors'
@@ -226,6 +231,19 @@ export default function Contact() {
                     placeholder={form.emailPlaceholder} className={inputCls}
                   />
                 </div>
+                {(form.additionalFields ?? []).map(af => (
+                  <div key={af.id}>
+                    <label className="block text-sm font-medium text-brand-text mb-1.5">{af.label}</label>
+                    <input
+                      name={af.id}
+                      required={af.required}
+                      value={formState[af.id] ?? ''}
+                      onChange={field(af.id)}
+                      placeholder={af.placeholder}
+                      className={inputCls}
+                    />
+                  </div>
+                ))}
                 <div>
                   <label className="block text-sm font-medium text-brand-text mb-1.5">{form.messageLabel}</label>
                   <textarea
