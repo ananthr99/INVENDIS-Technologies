@@ -17,7 +17,7 @@ export default class ErrorBoundary extends Component {
           <h2 className="font-sora text-2xl font-bold text-brand-text mb-3">Something went wrong</h2>
           <p className="text-brand-muted mb-6">This page encountered an error. Please try refreshing.</p>
           <button
-            onClick={() => { this.setState({ hasError: false }); window.location.href = '/' }}
+            onClick={() => { this.setState({ hasError: false }); window.location.href = import.meta.env.BASE_URL }}
             className="bg-brand-blue text-white font-sora font-semibold px-6 py-3 rounded-xl hover:bg-blue-800 transition-colors"
           >
             Go to Home
