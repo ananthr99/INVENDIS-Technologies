@@ -10,7 +10,7 @@
     }
   },
   "hardwareSection": {
-    "eyebrow": "Hardware Products",
+    "eyebrow": "Hardware Agnostic Products",
     "heading": "Invendis",
     "headingAccent": "Hardware Portfolio",
     "description": "Rugged, industrial-grade devices designed for reliability in demanding field environments."
