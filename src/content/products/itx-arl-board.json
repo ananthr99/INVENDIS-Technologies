@@ -13,11 +13,11 @@
   "ip": "",
   "power": "",
   "ports": 0,
-  "os": "—",
+  "os": "Ubuntu / Oracle Linux / Open WRT / Windows",
   "desc": "The Invendis ARL Mini ITX is a high-performance industrial computing platform powered by Intel Core Ultra Processors (Series 2) with integrated NPU AI acceleration, Intel Arc 140T graphics, and up to 128GB DDR5 RAM. Housed in a aluminum heatsink enclosure with fanless or fan options, it offers dual 2.5GbE LAN ports, triple display outputs (2x HDMI, 1x DP), and extensive M.2 expansion for Wi-Fi 6, 4G/5G cellular, and NVMe storage.",
-  "housing": "",
+  "housing": "Aluminum Heat Sink with CRCA Enclosure, Fan/Fanless options",
   "dims": "",
-  "weight": "",
+  "weight": "1400",
   "op_temp": "",
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787745677267-j4ga.png",
@@ -56,6 +56,34 @@
     {
       "k": "Ethernet Ports-Additional Details",
       "v": "Gigabit Ethernet 2500 Mbps"
+    },
+    {
+      "k": "USB",
+      "v": "4 x USB 3.2 gen 1, 4 x USB3.2 gen1, 2 x USB 2.0 Header"
+    },
+    {
+      "k": "HDMI",
+      "v": "2"
+    },
+    {
+      "k": "DP",
+      "v": "1"
+    },
+    {
+      "k": "Type C",
+      "v": "1 Type C Port with 15 Watt PD Support"
+    },
+    {
+      "k": "Audio",
+      "v": "1 x Mic In, 1 x Line-Out, Front Panel Audio Header"
+    },
+    {
+      "k": "COM Port (Optional)",
+      "v": "4 (RS232, RS485)"
+    },
+    {
+      "k": "Console (optional)",
+      "v": "1 x Type B Micro USB"
     }
   ],
   "order": 89
