@@ -48,14 +48,7 @@
     "companyPlaceholder": "Your Company",
     "emailLabel": "Email Address *",
     "emailPlaceholder": "johndoe@company.com",
-    "additionalFields": [
-      {
-        "id": "field_1787809870802",
-        "label": "Industry",
-        "placeholder": "Towerco, Telco",
-        "required": false
-      }
-    ],
+    "additionalFields": [],
     "messageLabel": "Message *",
     "messagePlaceholder": "Tell us about your project or requirements…",
     "submitLabel": "Send Message"
