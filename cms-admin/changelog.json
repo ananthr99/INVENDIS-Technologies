@@ -1,5 +1,74 @@
 [
   {
+    "ts": "2026-08-27T06:54:32.972Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Home",
+    "section": "Clients Bar",
+    "action": "Updated Home — Clients Bar",
+    "changes": [
+      {
+        "field": "clientsBar.clients",
+        "from": "Noki…, …, A…, Ha…, Inf…",
+        "to": "—"
+      },
+      {
+        "field": "clientsBar.clients",
+        "from": "—",
+        "to": "Telece…, …, R…, Ec…, Alt…"
+      }
+    ]
+  },
+  {
+    "ts": "2026-08-27T06:51:13.952Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Contact",
+    "section": "Form Labels",
+    "action": "Updated Contact — Form Labels",
+    "changes": []
+  },
+  {
+    "ts": "2026-08-27T06:43:22.486Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Contact",
+    "section": "Form Labels",
+    "action": "Updated Contact — Form Labels",
+    "changes": [
+      {
+        "field": "form.additionalFields",
+        "from": "—",
+        "to": "added \"Industry\""
+      }
+    ]
+  },
+  {
+    "ts": "2026-08-27T05:52:50.529Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Contact",
+    "section": "Form Labels",
+    "action": "Updated Contact — Form Labels",
+    "changes": [
+      {
+        "field": "form.additionalFields",
+        "from": "removed \"Industry\"",
+        "to": "—"
+      }
+    ]
+  },
+  {
+    "ts": "2026-08-27T05:51:30.399Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Contact",
+    "section": "Form Labels",
+    "action": "Updated Contact — Form Labels",
+    "changes": [
+      {
+        "field": "form.additionalFields",
+        "from": "—",
+        "to": "added \"Industry\""
+      }
+    ]
+  },
+  {
     "ts": "2026-08-27T05:39:49.349Z",
     "user": "ananth.r@invendis.com",
     "page": "Contact",
