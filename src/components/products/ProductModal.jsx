@@ -185,7 +185,7 @@ export default function ProductModal({
                 src={imgs[imgIdx]}
                 alt={p.name}
                 className={`max-h-[260px] max-w-full object-contain block transition-opacity duration-[250ms] ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
-                onLoad={() => setImgLoaded(true)}
+                onLoad={() => setLoadedSet(prev => { const s = new Set(prev); s.add(imgIdx); return s })}
                 decoding="async"
               />
             ) : (
