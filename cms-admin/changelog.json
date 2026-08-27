@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-08-27T06:54:32.972Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Home",
+    "section": "Clients Bar",
+    "action": "Updated Home — Clients Bar",
+    "changes": [
+      {
+        "field": "clientsBar.clients",
+        "from": "Noki…, …, A…, Ha…, Inf…",
+        "to": "—"
+      },
+      {
+        "field": "clientsBar.clients",
+        "from": "—",
+        "to": "Telece…, …, R…, Ec…, Alt…"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-27T06:51:13.952Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Contact",
