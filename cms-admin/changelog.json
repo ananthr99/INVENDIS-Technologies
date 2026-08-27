@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-27T05:08:11.508Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Products",
+    "section": "Software",
+    "action": "Updated Products — Software",
+    "changes": [
+      {
+        "field": "softwareSection.heading",
+        "from": "Software",
+        "to": "Software Agnostic"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-27T05:07:10.981Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Products",
