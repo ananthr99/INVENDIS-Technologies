@@ -143,14 +143,12 @@
   "clientsBar": {
     "heading": "Trusted by Global Industry Leaders",
     "clients": [
-      "Nokia",
-      "Ericsson",
-      "American Tower",
-      "Harman",
-      "Infosys",
-      "Helios Towers",
+      "Telecel",
+      "American Tower Corporation",
+      "Reliance Jio",
       "Airtel",
-      "Reliance JIO"
+      "Econet",
+      "Altius"
     ]
   },
   "whatWeDo": {
