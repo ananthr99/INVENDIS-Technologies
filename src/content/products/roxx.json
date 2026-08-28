@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "IP30",
   "power": "9–30 VDC",
-  "ports": 0,
+  "ports": 6,
   "os": "OpenWRT 21/23",
   "desc": "A ruggedised industrial router combining dual 5G/4G modems with Wi-Fi 6 (EasyMesh), 2× WAN + 4× LAN GbE ports, and 1× SFP uplink. Built on MediaTek MT7981 with OpenWRT 21/23, supporting dual-SIM failover, DIN-rail mounting, and a wide 9–30V DC input — engineered for demanding telecom, industrial, and enterprise edge deployments.",
   "housing": "Sheet Metal",
@@ -27,15 +27,7 @@
     "Telecom Backhaul & Site Connectivity",
     "Enterprise Edge Network with Dual Active for Load Balancing"
   ],
-  "hidden_fields": [
-    "rs485",
-    "rs232"
-  ],
-  "additional_specs": [
-    {
-      "k": "Ethernet Ports-Additional Details",
-      "v": "Gigabit Ports"
-    }
-  ],
+  "hidden_fields": [],
+  "additional_specs": [],
   "order": 7
 }
