@@ -22,7 +22,7 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/ru60-1786524861223-6f3m.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/ru60-datasheet.pdf",
+  "datasheet": "",
   "use_cases": [
     "Enterprise & Office Wireless Connectivity",
     "Retail & Commercial Space Networking",
