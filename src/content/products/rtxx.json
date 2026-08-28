@@ -28,7 +28,10 @@
     "IoT Gateway for Smart Deployments",
     "Smart Utility & Field Operations Connectivity"
   ],
-  "hidden_fields": [],
+  "hidden_fields": [
+    "rs485",
+    "rs232"
+  ],
   "additional_specs": [],
   "order": 8
 }
