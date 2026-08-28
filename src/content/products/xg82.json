@@ -22,7 +22,7 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xg82-1787723995591-8t37.png"
   ],
-  "datasheet": "",
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/xg82-datasheet.pdf",
   "use_cases": [
     "Enterprise Surveillance & Security Networks",
     "Smart Campus & Enterprise Network Management",

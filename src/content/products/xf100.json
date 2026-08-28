@@ -22,7 +22,7 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xf100-1786701452959-v1y6.png"
   ],
-  "datasheet": "",
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/xf100-datasheet.pdf",
   "use_cases": [
     "Large Camera & Surveillance Networks",
     "Smart Office & Campus Device Connectivity",
