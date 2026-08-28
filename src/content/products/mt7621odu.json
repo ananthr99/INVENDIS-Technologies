@@ -28,7 +28,10 @@
     "Smart Transportation & Roadside Infrastructure",
     "Remote Outdoor Asset Connectivity"
   ],
-  "hidden_fields": [],
+  "hidden_fields": [
+    "rs485",
+    "rs232"
+  ],
   "additional_specs": [],
-  "order": 30
+  "order": null
 }
