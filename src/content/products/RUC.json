@@ -1,12 +1,12 @@
 {
   "id": "RUC",
-  "name": "RUC",
-  "cat": "Gateway",
-  "cpu": "MediaTek MT7981",
+  "name": "RUC 65",
+  "cat": "Router",
+  "cpu": "MediaTek MT7981 1.3GHz Dual Core ARM Cortex A53",
   "ram": "512 MB DDR3 RAM",
   "storage": "128 MB NAND",
-  "cell": "none",
-  "cellular_gen": "none",
+  "cell": "4G/5G",
+  "cellular_gen": "5G",
   "wifi": "WiFi6",
   "rs485": false,
   "rs232": false,
@@ -29,8 +29,6 @@
     "Mission-Critical Multi-WAN Industrial Routing"
   ],
   "hidden_fields": [
-    "cell",
-    "cellular_gen",
     "ip",
     "rs485",
     "rs232"

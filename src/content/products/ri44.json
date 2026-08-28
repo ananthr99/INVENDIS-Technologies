@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "",
   "power": "9-30 VDC",
-  "ports": 5,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "This high-performance industrial router is designed to enable reliable, high-speed connectivity across wired, Wi-Fi, and cellular networks in demanding environments. It differentiates itself with a powerful Qualcomm chipset, higher RAM capacity, PoE support, dual SIM resilience, and a feature-rich OpenWRT platform with extensive VPN and security capabilities. The device is well-suited for data-intensive applications in sectors such as smart infrastructure, surveillance, transportation, and large-scale enterprise or industrial IoT deployments.",
   "housing": "Sheet Metal",
@@ -31,6 +31,11 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Fast Ethernet"
+    }
+  ],
   "order": 13
 }

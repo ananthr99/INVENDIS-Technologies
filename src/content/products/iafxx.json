@@ -29,6 +29,11 @@
     "Industrial Alarm & Event Monitoring"
   ],
   "hidden_fields": [],
-  "additional_specs": [],
-  "order": 18
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Fast Ethernet"
+    }
+  ],
+  "order": 19
 }

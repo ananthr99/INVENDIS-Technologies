@@ -28,7 +28,17 @@
     "Retail & Commercial Space Networking",
     "Industrial Wireless Network Extension"
   ],
-  "hidden_fields": [],
-  "additional_specs": [],
+  "hidden_fields": [
+    "cell",
+    "cellular_gen",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": "Gigabit Ports"
+    }
+  ],
   "order": 6
 }
