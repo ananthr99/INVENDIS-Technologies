@@ -28,7 +28,16 @@
     "Smart Infrastructure & Utility Monitoring",
     "Smart Kiosk & ATM Connectivity"
   ],
-  "hidden_fields": [],
-  "additional_specs": [],
+  "hidden_fields": [
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Fast Ethernet Ports"
+    }
+  ],
   "order": 11
 }
