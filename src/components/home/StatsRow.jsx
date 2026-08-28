@@ -3,8 +3,8 @@ import { motion, useMotionValue, useTransform, animate, useInView } from 'framer
 import { useContent } from '../../hooks/useContent'
 
 function parseValue(str) {
-  const match = str.match(/^(\d+)(.*)$/)
-  return match ? { num: parseInt(match[1], 10), suffix: match[2] } : { num: 0, suffix: str }
+  const match = str.match(/^(\d+\.?\d*)(.*)$/)
+  return match ? { num: parseFloat(match[1]), suffix: match[2] } : { num: 0, suffix: str }
 }
 
 function AnimatedCounter({ value, className }) {
@@ -12,8 +12,9 @@ function AnimatedCounter({ value, className }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   const count = useMotionValue(0)
-  const display = useTransform(count, v => Math.round(v))
-
+  const decimals = Number.isInteger(num) ? 0 : 1
+  const display = useTransform(count, v => decimals ? v.toFixed(decimals) : Math.round(v))
+  
   useEffect(() => {
     if (inView) animate(count, num, { duration: 1.8, ease: 'easeOut' })
   }, [inView, count, num])

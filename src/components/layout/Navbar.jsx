@@ -12,14 +12,14 @@ export default function Navbar() {
   const { data: site, loading } = useContent('siteSettings.json', { withLoading: true })
   if (loading) return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-white/95 backdrop-blur-md border-b border-brand-blue/10 shadow-sm">
-      <div className="px-8 lg:px-16 h-20 flex items-center justify-between gap-8">
+      <div className="px-4 lg:px-8 xl:px-14 h-20 flex items-center justify-between gap-4 lg:gap-6">
         <div className="h-10 w-36 bg-brand-blue/10 rounded-lg animate-pulse" />
-        <div className="hidden md:flex gap-3">
+        <div className="hidden lg:flex gap-3">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="h-8 w-20 bg-brand-blue/10 rounded-lg animate-pulse" />
+            <div key={i} className="h-8 w-16 bg-brand-blue/10 rounded-lg animate-pulse" />
           ))}
         </div>
-        <div className="h-10 w-20 bg-brand-blue/10 rounded-lg animate-pulse hidden md:block" />
+        <div className="h-10 w-20 bg-brand-blue/10 rounded-lg animate-pulse hidden lg:block" />
       </div>
     </nav>
   )
@@ -27,25 +27,25 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-blue/10 shadow-sm">
-      <div className="px-8 lg:px-16 h-20 flex items-center justify-between gap-8">
+      <div className="px-4 lg:px-8 xl:px-14 h-20 flex items-center justify-between gap-4 lg:gap-6">
 
-        {/* Left — Invendis logo + Make in India */}
+        {/* Left — Invendis logo + Make in India (Make in India hidden below xl) */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <Link to="/" onClick={() => setOpen(false)}>
-            <img src={asset(logos.invendis)} alt="Invendis Technologies" className="h-12 w-auto" loading="eager" decoding="sync" />
+            <img src={asset(logos.invendis)} alt="Invendis Technologies" className="h-10 xl:h-12 w-auto" loading="eager" decoding="sync" />
           </Link>
-          <img src={asset(logos.makeInIndia)} alt="Make in India" className="h-10 w-auto" loading="eager" decoding="sync" />
+          <img src={asset(logos.makeInIndia)} alt="Make in India" className="hidden lg:block h-10 w-auto" loading="eager" decoding="sync" />
         </div>
 
         {/* Centre — desktop nav links */}
-        <ul className="hidden md:flex items-center gap-2 list-none m-0 p-0 flex-1 justify-center">
+        <ul className="hidden lg:flex items-center gap-0 xl:gap-1 list-none m-0 p-0 flex-1 justify-center">
           {nav.links.map(({ label, to }) => (
             <li key={to}>
               <NavLink
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  'text-lg font-medium px-5 py-2 rounded-lg transition-colors duration-200 ' +
+                  'text-sm xl:text-base font-medium whitespace-nowrap px-2 py-2 rounded-lg transition-colors duration-200 ' +
                   (isActive
                     ? 'bg-brand-blue/10 text-brand-blue'
                     : 'text-brand-text hover:bg-brand-blue/10 hover:text-brand-blue')
@@ -59,11 +59,11 @@ export default function Navbar() {
 
         {/* Right — SILBO logo + mobile hamburger */}
         <div className="flex items-center gap-4 flex-shrink-0">
-          <Link to="/silbo" className="hidden md:block">
-            <img src={asset(logos.silbo)} alt="SILBO — An Invendis Product" className="h-10 w-auto" loading="eager" decoding="sync" />
+          <Link to="/silbo" className="hidden lg:block">
+            <img src={asset(logos.silbo)} alt="SILBO — An Invendis Product" className="h-8 xl:h-10 w-auto" loading="eager" decoding="sync" />
           </Link>
           <button
-            className="md:hidden p-2 rounded-lg text-brand-text hover:bg-brand-light transition-colors"
+            className="lg:hidden p-2 rounded-lg text-brand-text hover:bg-brand-light transition-colors"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -80,7 +80,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="md:hidden bg-white border-t border-brand-blue/10 px-8 py-4 flex flex-col gap-1"
+          className="lg:hidden bg-white border-t border-brand-blue/10 px-8 py-4 flex flex-col gap-1"
         >
           {nav.links.map(({ label, to }) => (
             <NavLink
