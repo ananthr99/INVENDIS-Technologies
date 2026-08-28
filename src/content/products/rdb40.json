@@ -22,7 +22,7 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rdb40-1787726970581-q7up.png"
   ],
-  "datasheet": "",
+  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/rdb40-datasheet.pdf",
   "use_cases": [
     "Indoor Asset Tracking & Real-Time Location Services (RTLS)",
     "Smart Building Sensor Data Aggregation",
