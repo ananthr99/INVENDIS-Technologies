@@ -29,6 +29,7 @@
     "Smart Utility & Field Operations Connectivity"
   ],
   "hidden_fields": [
+    "ip",
     "rs485",
     "rs232"
   ],
