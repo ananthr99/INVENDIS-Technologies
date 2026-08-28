@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "IP30",
   "power": "9-30 VDC",
-  "ports": 2,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "This industrial-grade router is built to deliver stable cellular and Wi-Fi connectivity for compact edge deployments in challenging environments. It features dual SIM failover, a rugged aluminium enclosure with DIN rail support, and a secure OpenWRT-based platform offering advanced routing, VPN, and firewall capabilities. The device is ideal for applications such as industrial automation, remote asset monitoring, utilities, and small enterprise networks requiring dependable and secure connectivity.",
   "housing": "Industrial Aluminium",
@@ -31,6 +31,11 @@
   "hidden_fields": [
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Port-Additional Details",
+      "v": "Fast Ethernet"
+    }
+  ],
   "order": 15
 }

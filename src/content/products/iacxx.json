@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "",
   "power": "9-30 VDC",
-  "ports": 5,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "Designed to keep critical operations connected, the IACXX-X brings together dual SIM failover, 802.11 b/g/n Wi-Fi, and a wide 9-30Vdc input range into a slim, DIN rail-mountable form factor built for the factory floor. Powered by OpenWRT Linux and weighing just 400g, it delivers enterprise-grade manageability in a compact footprint — making it a practical choice for system integrators and OEMs deploying connected solutions across industrial and infrastructure environments.",
   "housing": "Industrial Aluminium",
@@ -32,6 +32,11 @@
     "ip",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Fast Ethernet"
+    }
+  ],
   "order": 17
 }
