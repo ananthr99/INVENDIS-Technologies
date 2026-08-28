@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "",
   "power": "12 VDC",
-  "ports": 4,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "Built for stable, always-on connectivity, this industrial router enables seamless integration of wired, Wi-Fi, and cellular networks in compact deployments. Its key strengths lie in dual SIM redundancy, highly customizable OpenWRT firmware, and a wide range of VPN and security features that support secure data transmission across distributed networks. It is best suited for sectors like industrial IoT, transportation systems, utilities, and remote enterprise sites where reliability and network control are critical.",
   "housing": "Sheet Metal",
@@ -28,7 +28,16 @@
     "Environmental & Field Data Collection",
     "Secure Enterprise Backup Network"
   ],
-  "hidden_fields": [],
-  "additional_specs": [],
+  "hidden_fields": [
+    "ip",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "Fast Ethernet"
+    }
+  ],
   "order": 12
 }
