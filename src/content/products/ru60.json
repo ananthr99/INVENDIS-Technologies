@@ -29,6 +29,11 @@
     "Industrial Wireless Network Extension"
   ],
   "hidden_fields": [],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": "Gigabit Ports"
+    }
+  ],
   "order": 6
 }
