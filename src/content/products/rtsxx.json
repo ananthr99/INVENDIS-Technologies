@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "IP30",
   "power": "9–30 VDC Dual Source",
-  "ports": 4,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "A ruggedised industrial router featuring dual 5G/4G modems, Wi-Fi 6, and SFP uplinks. Built on MediaTek MT7981 with OpenWRT, it supports dual-SIM failover, DIN-rail mounting, and a wide 9–30V DC power range — ideal for demanding telecom, industrial, and remote site deployments.",
   "housing": "Sheet Metal",
@@ -28,7 +28,20 @@
     "SD-WAN & Branch Network Connectivity",
     "Secure VPN & Surveillance Network Deployment"
   ],
-  "hidden_fields": [],
-  "additional_specs": [],
+  "hidden_fields": [
+    "wifi",
+    "rs485",
+    "rs232"
+  ],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports-Additional Details",
+      "v": "4 x LAN (Gigabit) and 1 x WAN (Gigabit)"
+    },
+    {
+      "k": "SFP Ports",
+      "v": "2"
+    }
+  ],
   "order": 5
 }
