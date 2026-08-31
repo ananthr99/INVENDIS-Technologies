@@ -20,9 +20,9 @@
   "weight": "â",
   "op_temp": "â",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/miniups-1787031823007-0u2g.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/miniups-1787031823007-0u2g.png"
   ],
-  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/Mini UPS_Metal Enclosure_Datasheet 1.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/Mini UPS_Metal Enclosure_Datasheet 1.pdf",
   "use_cases": [
     "Router & Modem Power Backup",
     "CCTV & Security Continuity",
@@ -76,5 +76,6 @@
       "v": "Short Circuit Protection"
     }
   ],
+  "variants": null,
   "order": null
 }

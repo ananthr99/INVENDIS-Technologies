@@ -20,10 +20,10 @@
   "weight": "1800",
   "op_temp": "0 ~ 50℃",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-ce-xx-1787034276436-nw65.png",
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-ce-xx-1787034279559-vg60.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-ce-xx-1787034276436-nw65.png",
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-ce-xx-1787034279559-vg60.png"
   ],
-  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/Intel X7425E SDWAN Box.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/Intel X7425E SDWAN Box.pdf",
   "use_cases": [
     "Enterprise Branch Connectivity",
     "Infotainment System for Vehicles"
@@ -38,5 +38,6 @@
       "v": "Gigabit Ethernet (RTL8111H)"
     }
   ],
+  "variants": null,
   "order": 2
 }

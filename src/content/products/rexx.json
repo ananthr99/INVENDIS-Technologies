@@ -20,7 +20,7 @@
   "weight": "360 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rexx-1787138691544-n5qi.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rexx-1787138691544-n5qi.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -39,5 +39,30 @@
       "v": "Fast Ethernet"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4G",
+        "Dual",
+        "RE44"
+      ],
+      [
+        "✓",
+        "—",
+        "4G",
+        "Dual",
+        "RE04"
+      ]
+    ]
+  },
   "order": 12
 }

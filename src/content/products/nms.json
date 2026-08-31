@@ -20,7 +20,7 @@
   "weight": "â",
   "op_temp": "â",
   "images": [
-    "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/images/NMS.jpg"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/NMS.jpg"
   ],
   "datasheet": "",
   "use_cases": [
@@ -92,5 +92,6 @@
       "v": "Responsive UI, Role-Based Access, Device Grouping"
     }
   ],
+  "variants": null,
   "order": null
 }

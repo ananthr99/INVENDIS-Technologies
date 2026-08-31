@@ -20,10 +20,10 @@
   "weight": "1800g",
   "op_temp": "0 -50°C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/intel-x6425E-1786510520709-0jr1.png",
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/intel-x6425E-1786510524291-tfba.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/intel-x6425E-1786510520709-0jr1.png",
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/intel-x6425E-1786510524291-tfba.png"
   ],
-  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/Intel X6425 Based Industrial PC.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/Intel X6425 Based Industrial PC.pdf",
   "use_cases": [
     "Healthcare",
     "Defence and Intelligence",
@@ -39,5 +39,6 @@
       "v": "Gigabit Ethernet, (2x I226 Intel) , 2x RTL8125BG(Realtek)"
     }
   ],
+  "variants": null,
   "order": 1
 }

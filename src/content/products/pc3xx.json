@@ -20,7 +20,7 @@
   "weight": "400 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/pc3xx-1786620992114-lmpi.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/pc3xx-1786620992114-lmpi.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -36,5 +36,37 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "RS485",
+      "No. of RS485 Ports",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "1",
+        "PC310"
+      ],
+      [
+        "-",
+        "-",
+        "✓",
+        "2",
+        "PC311"
+      ],
+      [
+        "-",
+        "✓",
+        "✓",
+        "1",
+        "PC312"
+      ]
+    ]
+  },
   "order": null
 }

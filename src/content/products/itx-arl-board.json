@@ -20,10 +20,10 @@
   "weight": "1400",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787745677267-j4ga.png",
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/itx-arl-board-1787745681065-2ejm.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/itx-arl-board-1787745677267-j4ga.png",
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/itx-arl-board-1787745681065-2ejm.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/itx-arl-board-datasheet.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/itx-arl-board-datasheet.pdf",
   "use_cases": [
     "AI-Powered Edge Vision & Video Analytics",
     "Industrial IoT Gateway & Automation Controller",
@@ -90,5 +90,6 @@
       "v": "1800 gm"
     }
   ],
+  "variants": null,
   "order": 89
 }

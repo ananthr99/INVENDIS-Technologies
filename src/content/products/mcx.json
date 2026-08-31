@@ -20,9 +20,9 @@
   "weight": "187 g",
   "op_temp": "0 ~ 70℃",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/mcx-1786622212112-0olz.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/mcx-1786622212112-0olz.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/mcx-datasheet.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/mcx-datasheet.pdf",
   "use_cases": [
     "Long-Distance Network Extension"
   ],
@@ -81,5 +81,33 @@
       "v": "MC-1 Media Converter with Sheet Metal Housing , 01-meter Ethernet cable, Power Adaptor"
     }
   ],
+  "variants": {
+    "headers": [
+      "Interface",
+      "Mode",
+      "Max Distance",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "1 x RJ45 + 1x Fiber SC",
+        "Single-mode",
+        "5 km",
+        "ISMC1-SD851G-S5"
+      ],
+      [
+        "1x RJ45 + 1x Fiber SC",
+        "Single-mode",
+        "10 km",
+        "ISMC1-SD311G-10"
+      ],
+      [
+        "1x RJ45 + 1x Fiber SC",
+        "Single-mode",
+        "20 km",
+        "SMC1-SD311G-20"
+      ]
+    ]
+  },
   "order": null
 }

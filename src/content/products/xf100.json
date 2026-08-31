@@ -20,7 +20,7 @@
   "weight": "416 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xf100-1786701452959-v1y6.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xf100-1786701452959-v1y6.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -41,5 +41,23 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "PoE ",
+      "No of Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "Single",
+        "XF50-1 Unmanaged PoE Switch"
+      ]
+    ]
+  },
   "order": null
 }

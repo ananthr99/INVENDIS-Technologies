@@ -20,7 +20,7 @@
   "weight": "200 gm",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcd-1787653548751-xx2w.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rvcd-1787653548751-xx2w.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -42,5 +42,23 @@
       "v": "USB 3.0/ 2.0 Host (Optional)"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "PoE",
+      "No of Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "—",
+        "—",
+        "—",
+        "Single",
+        "RVCD"
+      ]
+    ]
+  },
   "order": 93
 }

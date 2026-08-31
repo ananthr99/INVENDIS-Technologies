@@ -20,7 +20,7 @@
   "weight": "307 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xd50-1786618369532-d69m.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xd50-1786618369532-d69m.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -41,5 +41,21 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "PoE",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "XD50-1 Unmanaged PoE Switch"
+      ]
+    ]
+  },
   "order": null
 }

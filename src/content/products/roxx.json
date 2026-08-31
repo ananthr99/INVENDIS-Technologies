@@ -20,7 +20,7 @@
   "weight": "950 g",
   "op_temp": "0°C-50°C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/roxx-1786520658941-g4je.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/roxx-1786520658941-g4je.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -37,5 +37,51 @@
       "v": "Gigabit Ports"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 6",
+        "5G",
+        "Dual",
+        "RO65-2"
+      ],
+      [
+        "✓",
+        "Wi-Fi 6",
+        "5G",
+        "Single",
+        "RO65-1"
+      ],
+      [
+        "—",
+        "Wi-Fi 6",
+        "—",
+        "—",
+        "RO60"
+      ],
+      [
+        "✓",
+        "Wi-Fi 6",
+        "4G",
+        "Dual",
+        "RO64-2"
+      ],
+      [
+        "✓",
+        "Wi-Fi 6",
+        "4G",
+        "Single",
+        "RO64-1"
+      ]
+    ]
+  },
   "order": 7
 }

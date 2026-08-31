@@ -20,7 +20,7 @@
   "weight": "",
   "op_temp": "0 ~ 70˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvw50-1787139223379-b4ct.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rvw50-1787139223379-b4ct.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -35,5 +35,23 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Wi-Fi",
+      "Cellular",
+      "Gen",
+      "No of Modem",
+      "Final Product"
+    ],
+    "rows": [
+      [
+        "WiFi-5",
+        "-",
+        "-",
+        "Single",
+        "RVW 50"
+      ]
+    ]
+  },
   "order": null
 }

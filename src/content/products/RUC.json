@@ -20,7 +20,7 @@
   "weight": "590 grams",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RUC-1787820565957-u8i6.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/RUC-1787820565957-u8i6.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -39,5 +39,23 @@
       "v": "1 x Gigabit WAN (PoE IN IEEE802.3at), 2 x Gigabit LAN"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "WiFi",
+      "Gen",
+      "Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 6",
+        "5G",
+        "Single",
+        "RUC 65"
+      ]
+    ]
+  },
   "order": 94
 }

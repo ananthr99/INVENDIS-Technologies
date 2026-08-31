@@ -20,7 +20,7 @@
   "weight": "451 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xb82-1786698669725-9cdo.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xb82-1786698669725-9cdo.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -40,5 +40,21 @@
       "v": "2"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "PoE Out",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "XB82-2 Unmanaged PoE Switch"
+      ]
+    ]
+  },
   "order": null
 }

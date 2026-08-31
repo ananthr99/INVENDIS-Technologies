@@ -20,7 +20,7 @@
   "weight": "280 g",
   "op_temp": "-20 ~ 60 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/iaxx-1786598951793-g17i.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/iaxx-1786598951793-g17i.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -37,5 +37,49 @@
       "v": "Fast Ethernet"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "RS485",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4G",
+        "✓",
+        "Single",
+        "IA44-C"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4G",
+        "✓",
+        "Single",
+        "IA44-B (4 GB eMMC)"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4G",
+        "—",
+        "Single",
+        "IA44-A"
+      ],
+      [
+        "—",
+        "Wi-Fi 4",
+        "—",
+        "✓",
+        "NA",
+        "IA40-C"
+      ]
+    ]
+  },
   "order": 15
 }

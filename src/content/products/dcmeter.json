@@ -20,9 +20,9 @@
   "weight": "â",
   "op_temp": "â",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/dcmeter-1787137006487-aowj.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/dcmeter-1787137006487-aowj.png"
   ],
-  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/ET1641 DC Meter.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ET1641 DC Meter.pdf",
   "use_cases": [
     "Telecom Power Monitoring",
     "Solar & Battery System Analytics",
@@ -64,5 +64,6 @@
       "v": "0.2A or better"
     }
   ],
+  "variants": null,
   "order": null
 }

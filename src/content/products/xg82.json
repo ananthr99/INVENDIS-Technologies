@@ -20,7 +20,7 @@
   "weight": "675 g",
   "op_temp": "0~ 60 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xg82-1787723995591-8t37.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xg82-1787723995591-8t37.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -41,5 +41,23 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "PoE",
+      "No of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "Single",
+        "XG 82-2MI Lite Managed Switch"
+      ]
+    ]
+  },
   "order": null
 }

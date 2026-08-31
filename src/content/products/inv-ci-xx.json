@@ -20,9 +20,9 @@
   "weight": "1500",
   "op_temp": "0 ~ 50℃",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-ci-xx-1787128620619-qggb.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-ci-xx-1787128620619-qggb.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/inv-ci-xx-datasheet.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/inv-ci-xx-datasheet.pdf",
   "use_cases": [
     "Multi-Site Enterprise WAN Management",
     "Video Surveillance & Security Networks",
@@ -38,5 +38,6 @@
       "v": "Gigabit Ethernet (Realtek RTL8111H)"
     }
   ],
+  "variants": null,
   "order": 4
 }
