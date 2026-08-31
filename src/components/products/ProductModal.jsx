@@ -1,5 +1,4 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { catColors, wifiLabel, viewFile, downloadFile } from '../../utils/productHelpers'
 
 function SpecRow({ label, value }) {
@@ -64,7 +63,7 @@ function VariantsTable({ variants, partDatasheets }) {
                   ))}
                   {hasDs && (
                     <td className="px-[10px] py-[6px] text-center whitespace-nowrap">
-                      {file ? (
+                      {file && file !== 'contact_us' ? (
                         <div className="flex gap-1 justify-center">
                           <button onClick={e => viewFile(file, e.currentTarget)}
                             className="text-[11px] font-semibold px-[9px] py-[3px] rounded-[6px] bg-white text-[#1A6FC4] border border-[#1A6FC4] hover:bg-[#1A6FC4] hover:text-white transition-colors">View</button>
@@ -302,7 +301,7 @@ export default function ProductModal({
             </SpecSection>
           )}
 
-          {p.variants && <VariantsTable variants={p.variants} partDatasheets={partDatasheets} />}
+          {p.variants && <VariantsTable variants={p.variants} partDatasheets={{ ...partDatasheets, ...(p.part_datasheets || {}) }} />}
 
           {mainDs && (
             <div className="border-t border-[#DDE5EF] mt-0">

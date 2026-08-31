@@ -71,6 +71,9 @@ function normalize(p) {
     hidden_fields:    p.hidden_fields    || [],
     additional_specs: p.additional_specs || [],
     variants:         p.variants         || null,
+    part_datasheets:  Object.fromEntries(
+      Object.entries(p.part_datasheets || {}).map(([k, v]) => [k, v === 'contact_us' ? 'contact_us' : fullUrl(v)])
+    ),
     order:            p.order            ?? null,
   }
 }
