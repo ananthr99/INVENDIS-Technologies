@@ -57,5 +57,8 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "XD50-1 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XD-50-1.pdf"
+  },
   "order": null
 }

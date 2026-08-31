@@ -57,5 +57,8 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "RUC 65": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RUC-RUC_65.pdf"
+  },
   "order": 94
 }

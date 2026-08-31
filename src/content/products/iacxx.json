@@ -82,5 +82,11 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "IAC44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC44-C.pdf",
+    "IAC44-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC44-A.pdf",
+    "IAC04-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC04-A.pdf",
+    "IAC04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC04-C.pdf"
+  },
   "order": 18
 }

@@ -79,5 +79,11 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "IAF44-C1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAF44-C1.pdf",
+    "IAF04-C1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAF04-C1.pdf",
+    "IAF44-C2": "contact_us",
+    "IAF04-C2": "contact_us"
+  },
   "order": 19
 }

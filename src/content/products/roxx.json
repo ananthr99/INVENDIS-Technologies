@@ -83,5 +83,11 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "RO65-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO65-2.pdf",
+    "RO65-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO65-1.pdf",
+    "RO64-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO64-2.pdf",
+    "RO64-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO64-1.pdf"
+  },
   "order": 7
 }

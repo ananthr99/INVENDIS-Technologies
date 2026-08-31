@@ -68,5 +68,10 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "PC310": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/PC310.pdf",
+    "PC311": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/PC311.pdf",
+    "PC312": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/PC312.pdf"
+  },
   "order": null
 }

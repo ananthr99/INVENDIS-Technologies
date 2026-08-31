@@ -84,5 +84,12 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "RV54-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV54-1.pdf",
+    "RV54-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV54-2.pdf",
+    "RV04-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV04-1.pdf",
+    "RV04-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV04-2.pdf",
+    "RV50": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV50.pdf"
+  },
   "order": 9
 }
