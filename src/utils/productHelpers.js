@@ -14,6 +14,32 @@ export function wifiLabel(w) {
   return { WiFi6: 'Wi-Fi 6', WiFi5: 'Wi-Fi 5', WiFi24: 'Wi-Fi 2.4 GHz', WiFi4: 'Wi-Fi 4', none: '—' }[w] || w
 }
 
+export function viewFile(url, btn) {
+  const origHtml = btn ? btn.innerHTML : null
+  if (btn) { btn.disabled = true; btn.textContent = '…' }
+
+  // Open the tab immediately while the user gesture is active (avoids popup blocker).
+  // Then navigate it to a blob URL so Content-Disposition: attachment is bypassed.
+  const newTab = window.open('', '_blank')
+  if (!newTab) {
+    if (btn) { btn.disabled = false; btn.innerHTML = origHtml }
+    return
+  }
+
+  fetch(url)
+    .then(r => r.blob())
+    .then(blob => {
+      const blobUrl = URL.createObjectURL(blob)
+      newTab.location.href = blobUrl
+      if (btn) { btn.disabled = false; btn.innerHTML = origHtml }
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 60000)
+    })
+    .catch(() => {
+      newTab.location.href = url
+      if (btn) { btn.disabled = false; btn.innerHTML = origHtml }
+    })
+}
+
 export function downloadFile(url) {
   const filename = decodeURIComponent(url.split('/').pop())
   fetch(url)

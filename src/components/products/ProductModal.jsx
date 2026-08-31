@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { catColors, wifiLabel, downloadFile } from '../../utils/productHelpers'
+import { catColors, wifiLabel, viewFile, downloadFile } from '../../utils/productHelpers'
 
 function SpecRow({ label, value }) {
   return (
@@ -66,8 +66,8 @@ function VariantsTable({ variants, partDatasheets }) {
                     <td className="px-[10px] py-[6px] text-center whitespace-nowrap">
                       {file ? (
                         <div className="flex gap-1 justify-center">
-                          <a href={file} target="_blank" rel="noopener"
-                            className="text-[11px] font-semibold px-[9px] py-[3px] rounded-[6px] bg-white text-[#1A6FC4] border border-[#1A6FC4] hover:bg-[#1A6FC4] hover:text-white transition-colors">View</a>
+                          <button onClick={e => viewFile(file, e.currentTarget)}
+                            className="text-[11px] font-semibold px-[9px] py-[3px] rounded-[6px] bg-white text-[#1A6FC4] border border-[#1A6FC4] hover:bg-[#1A6FC4] hover:text-white transition-colors">View</button>
                           <button onClick={() => downloadFile(file)}
                             className="text-[13px] font-semibold px-2 py-[3px] rounded-[6px] bg-[#1A6FC4] text-white border border-[#1A6FC4] hover:bg-[#05059b] transition-colors">↓</button>
                         </div>
@@ -318,10 +318,10 @@ export default function ProductModal({
                 </svg>
                 <span className="flex-1 text-[13px] font-medium text-[#0B1F3A] overflow-hidden text-ellipsis whitespace-nowrap">Product Datasheet</span>
                 <div className="flex gap-[6px] shrink-0">
-                  <a href={mainDs} target="_blank" rel="noopener"
+                  <button onClick={e => viewFile(mainDs, e.currentTarget)}
                     className="text-[12px] font-semibold px-3 py-1 rounded-[6px] bg-white text-[#1A6FC4] border border-[#1A6FC4] hover:bg-[#1A6FC4] hover:text-white transition-colors">
                     View
-                  </a>
+                  </button>
                   <button onClick={() => downloadFile(mainDs)}
                     className="text-[12px] font-semibold px-3 py-1 rounded-[6px] bg-[#1A6FC4] text-white border border-[#1A6FC4] hover:bg-[#05059b] transition-colors">
                     Download
