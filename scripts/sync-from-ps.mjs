@@ -70,6 +70,7 @@ function normalize(p) {
     use_cases:        p.use_cases        || [],
     hidden_fields:    p.hidden_fields    || [],
     additional_specs: p.additional_specs || [],
+    variants:         p.variants         || null,
     order:            p.order            ?? null,
   }
 }

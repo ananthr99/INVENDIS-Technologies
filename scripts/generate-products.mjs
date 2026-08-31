@@ -31,8 +31,8 @@ if (entries.length === 0) {
 
 // ── products.js ──────────────────────────────────────────────────────────────
 const products = entries.map(e => {
-  const { images, datasheet, use_cases, ...flat } = e
-  return { ...flat, variants: productVariants[e.id] || null }
+  const { images, datasheet, use_cases, variants: jsonVariants, ...flat } = e
+  return { ...flat, variants: jsonVariants || productVariants[e.id] || null }
 })
 
 writeFileSync(
