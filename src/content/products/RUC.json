@@ -22,7 +22,7 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RUC-1787820565957-u8i6.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/RUC-datasheet.pdf",
+  "datasheet": "",
   "use_cases": [
     "Smart Building & IoT Edge Aggregation",
     "Mobile & Temporary Event Branch Connectivity",

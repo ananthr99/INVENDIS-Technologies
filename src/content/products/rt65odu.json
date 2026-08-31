@@ -22,7 +22,7 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rt65odu-1787119700265-ewjt.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/rt65odu-datasheet.pdf",
+  "datasheet": "",
   "use_cases": [
     "Smart Transportation & Traffic Connectivity",
     "Mission-Critical Remote Site Networking",
@@ -33,5 +33,5 @@
     "rs232"
   ],
   "additional_specs": [],
-  "order": 31
+  "order": null
 }

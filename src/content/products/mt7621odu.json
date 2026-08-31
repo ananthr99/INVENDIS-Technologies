@@ -22,13 +22,16 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/mt7621odu-1786951698336-5qx3.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/mt7621odu-datasheet.pdf",
+  "datasheet": "",
   "use_cases": [
     "Outdoor CCTV & Perimeter Surveillance",
     "Smart Transportation & Roadside Infrastructure",
     "Remote Outdoor Asset Connectivity"
   ],
-  "hidden_fields": [],
+  "hidden_fields": [
+    "rs485",
+    "rs232"
+  ],
   "additional_specs": [],
-  "order": 30
+  "order": null
 }

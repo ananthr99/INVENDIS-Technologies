@@ -22,7 +22,7 @@
   "images": [
     "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xc80-1786699708540-nzt4.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/xc80-datasheet.pdf",
+  "datasheet": "",
   "use_cases": [
     "Factory Floor Device Connectivity",
     "Smart Security Infrastructure",
@@ -41,5 +41,5 @@
     "rs232"
   ],
   "additional_specs": [],
-  "order": 24
+  "order": null
 }

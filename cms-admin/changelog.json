@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-08-28T10:56:55.173Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.stats[\"Data Points Collected\"].value",
+        "from": "1.8 Trillion+",
+        "to": "1 Trillion+"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-28T10:34:01.467Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
