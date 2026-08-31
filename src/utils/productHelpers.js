@@ -29,7 +29,10 @@ export function viewFile(url, btn) {
   fetch(url)
     .then(r => r.blob())
     .then(blob => {
-      const blobUrl = URL.createObjectURL(blob)
+      // raw.githubusercontent.com returns application/octet-stream, not application/pdf,
+      // so we force the type so Chrome's PDF viewer opens it instead of downloading.
+      const pdfBlob = new Blob([blob], { type: 'application/pdf' })
+      const blobUrl = URL.createObjectURL(pdfBlob)
       newTab.location.href = blobUrl
       if (btn) { btn.disabled = false; btn.innerHTML = origHtml }
       setTimeout(() => URL.revokeObjectURL(blobUrl), 60000)

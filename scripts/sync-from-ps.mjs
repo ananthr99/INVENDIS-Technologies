@@ -3,7 +3,12 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
 const PS_URL     = 'https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/data/products.json'
-const PS_BASE    = 'https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/'
+const PS_PAGES   = 'https://ananthr99.github.io/INVENDIS-ProductSelector/'
+// All raw GitHub URL patterns that the PS CMS may produce — normalised to GitHub Pages on ingest.
+const RAW_PATS   = [
+  'https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/',
+  'https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/',
+]
 const WIFI_MAP   = { 'WiFi6': 'WiFi6', 'WiFi5': 'WiFi5', 'WiFi4/2.4GHz': 'WiFi24', 'WiFi4': 'WiFi4', '-': 'none' }
 const WORD_PORTS = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8 }
 
@@ -26,7 +31,17 @@ function parsePorts(v) {
 function normalCell(v) { return (!v || v === '-') ? 'none' : v }
 function normalWifi(v)  { return WIFI_MAP[v] ?? (v || 'none') }
 function normalBool(v)  { return v === 'Yes' || v === 'Optional' }
-function fullUrl(path)  { return path?.startsWith('http') ? path : path ? `${PS_BASE}${path}` : '' }
+function toPages(url)   {
+  for (const pat of RAW_PATS) {
+    if (url.startsWith(pat)) return PS_PAGES + url.slice(pat.length)
+  }
+  return url
+}
+function fullUrl(path)  {
+  if (!path) return ''
+  if (path.startsWith('http')) return toPages(path)
+  return PS_PAGES + path
+}
 
 function normalize(p) {
   return {
