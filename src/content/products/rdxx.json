@@ -20,7 +20,7 @@
   "weight": "370 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rdxx-1787138585077-wcqd.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rdxx-1787138585077-wcqd.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -39,5 +39,90 @@
       "v": "Fast Ethernet Ports"
     }
   ],
+  "variants": {
+    "headers": [
+      "Wi-Fi",
+      "Cellular",
+      "4G/5G",
+      "RS485",
+      "RS232",
+      "Gateway SW",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "Wi-Fi 4",
+        "✓",
+        "4G",
+        "—",
+        "—",
+        "—",
+        "RD44-A"
+      ],
+      [
+        "—",
+        "✓",
+        "4G",
+        "—",
+        "—",
+        "—",
+        "RD04-A"
+      ],
+      [
+        "—",
+        "✓",
+        "4G",
+        "—",
+        "—",
+        "✓",
+        "RD44-B"
+      ],
+      [
+        "—",
+        "✓",
+        "4G",
+        "✓",
+        "—",
+        "✓",
+        "RD04-B"
+      ],
+      [
+        "Wi-Fi 4",
+        "✓",
+        "4G",
+        "—",
+        "✓",
+        "✓",
+        "RD44-C"
+      ],
+      [
+        "—",
+        "✓",
+        "4G",
+        "✓",
+        "✓",
+        "✓",
+        "RD04-C"
+      ],
+      [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "RDS00"
+      ],
+      [
+        "Wi-Fi 4",
+        "✓",
+        "4G",
+        "✓",
+        "✓",
+        "✓",
+        "RDS44"
+      ]
+    ]
+  },
   "order": 11
 }

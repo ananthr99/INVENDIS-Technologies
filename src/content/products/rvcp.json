@@ -20,7 +20,7 @@
   "weight": "520",
   "op_temp": "0 -50°C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvcp-1787643260652-71vm.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rvcp-1787643260652-71vm.png"
   ],
   "datasheet": "",
   "use_cases": [],
@@ -45,5 +45,23 @@
       "v": "1 X 3.0"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "Gen",
+      "Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "—",
+        "✓",
+        "4G",
+        "Single",
+        "RVCP 04"
+      ]
+    ]
+  },
   "order": 100
 }

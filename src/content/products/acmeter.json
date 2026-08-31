@@ -20,10 +20,10 @@
   "weight": "â",
   "op_temp": "-10°C to 55°C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/acmeter-1787030758710-uo1u.png",
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/acmeter-1787030761403-lpj7.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/acmeter-1787030758710-uo1u.png",
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/acmeter-1787030761403-lpj7.png"
   ],
-  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/ET4602 AC Meter.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ET4602 AC Meter.pdf",
   "use_cases": [
     "Grid & Generator Energy Tracking",
     "Industrial Power Monitoring",
@@ -92,5 +92,6 @@
       "v": "5% to 95% non condensing"
     }
   ],
+  "variants": null,
   "order": null
 }

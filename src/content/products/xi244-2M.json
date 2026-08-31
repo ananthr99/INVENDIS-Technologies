@@ -20,7 +20,7 @@
   "weight": "",
   "op_temp": "",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xi244-2M-1787821659624-q8nr.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xi244-2M-1787821659624-q8nr.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -67,5 +67,23 @@
       "v": "56Gbps"
     }
   ],
+  "variants": {
+    "headers": [
+      "Wi-Fi",
+      "Cellular",
+      "PoE",
+      "Number of Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "—",
+        "—",
+        "—",
+        "—",
+        "XI 244-2M"
+      ]
+    ]
+  },
   "order": 98
 }

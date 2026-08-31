@@ -20,7 +20,7 @@
   "weight": "300 g",
   "op_temp": "0–50 °C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xa82-1786616057198-xm2u.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xa82-1786616057198-xm2u.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -43,5 +43,23 @@
       "v": "Gigabit Ethernet (MDI/MDIX)"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "PoE ",
+      "No of Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "Single",
+        "XA82-2 Unmanaged PoE Switch"
+      ]
+    ]
+  },
   "order": null
 }

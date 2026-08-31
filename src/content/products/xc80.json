@@ -20,7 +20,7 @@
   "weight": "386 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/xc80-1786699708540-nzt4.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xc80-1786699708540-nzt4.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -41,5 +41,21 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "PoE ",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "XC-80-1 Unmanaged PoE Switch"
+      ]
+    ]
+  },
   "order": null
 }

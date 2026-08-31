@@ -20,7 +20,7 @@
   "weight": "",
   "op_temp": "0 ~ 50˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rn50pcba-1786956166244-5pmy.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rn50pcba-1786956166244-5pmy.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -37,5 +37,23 @@
     "weight"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Wi-Fi",
+      "Cellular",
+      "Gen",
+      "No of Modem",
+      "Final Product"
+    ],
+    "rows": [
+      [
+        "WiFi-5",
+        "-",
+        "5G",
+        "Single",
+        "RN 50 PCB-A"
+      ]
+    ]
+  },
   "order": null
 }

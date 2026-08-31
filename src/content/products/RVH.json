@@ -20,7 +20,7 @@
   "weight": "400 gm",
   "op_temp": "0 ~ 60 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/RVH-1787824857622-zek8.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/RVH-1787824857622-zek8.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -32,5 +32,23 @@
     "cell"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "Gen",
+      "Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4 G",
+        "Single",
+        "RVH 44"
+      ]
+    ]
+  },
   "order": 95
 }

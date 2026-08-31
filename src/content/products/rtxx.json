@@ -20,7 +20,7 @@
   "weight": "480 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rtxx-1786524726723-byku.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rtxx-1786524726723-byku.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -39,5 +39,86 @@
       "v": "Gigabit Ports"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "—",
+        "—",
+        "—",
+        "—",
+        "RT00"
+      ],
+      [
+        "✓",
+        "—",
+        "4G",
+        "Single",
+        "RT04-1"
+      ],
+      [
+        "✓",
+        "—",
+        "4G",
+        "Dual",
+        "RT04-2"
+      ],
+      [
+        "✓",
+        "—",
+        "5G",
+        "Single",
+        "RT05-1"
+      ],
+      [
+        "✓",
+        "—",
+        "5G",
+        "Dual",
+        "RT05-2"
+      ],
+      [
+        "—",
+        "Wi-Fi 6",
+        "—",
+        "—",
+        "RT-60"
+      ],
+      [
+        "✓",
+        "Wi-Fi 6",
+        "4G",
+        "Single",
+        "RT64-1"
+      ],
+      [
+        "✓",
+        "Wi-Fi 6",
+        "4G",
+        "Dual",
+        "RT64-2"
+      ],
+      [
+        "✓",
+        "Wi-Fi 6",
+        "5G",
+        "Single",
+        "RT65-1"
+      ],
+      [
+        "✓",
+        "Wi-Fi 6",
+        "5G",
+        "Dual",
+        "RT65-2"
+      ]
+    ]
+  },
   "order": 8
 }

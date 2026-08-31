@@ -20,7 +20,7 @@
   "weight": "400gm",
   "op_temp": "0 ~ 60 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvg-1787660516258-khi6.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rvg-1787660516258-khi6.png"
   ],
   "datasheet": "",
   "use_cases": [],
@@ -33,5 +33,37 @@
       "v": "Gigabit Ethernet (Configurable WAN/LAN)"
     }
   ],
+  "variants": {
+    "headers": [
+      "Celluar",
+      "Wi-Fi",
+      "Gen",
+      "Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 5",
+        "5G",
+        "Single",
+        "RVG 55-C"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4G",
+        "Single",
+        "RVG 44-C"
+      ],
+      [
+        "✓",
+        "Wi-FI 5",
+        "5G ",
+        "Single",
+        "RVG 54-C"
+      ]
+    ]
+  },
   "order": 97
 }

@@ -20,7 +20,7 @@
   "weight": "427 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/iabxx-1787122808489-w1hl.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/iabxx-1787122808489-w1hl.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -30,5 +30,54 @@
   ],
   "hidden_fields": [],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "RS485",
+      "RS232",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 4",
+        "✓",
+        "✓",
+        "4G",
+        "Single",
+        "IAB44-C"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "✓",
+        "✓",
+        "4G",
+        "Single",
+        "IAB44-B (4 GB eMMC)"
+      ],
+      [
+        "✓",
+        "—",
+        "✓",
+        "✓",
+        "4G",
+        "Single",
+        "IAB04-B (4 GB eMMC)"
+      ],
+      [
+        "✓",
+        "—",
+        "✓",
+        "✓",
+        "4G",
+        "Single",
+        "IAB04-C"
+      ]
+    ]
+  },
   "order": 17
 }

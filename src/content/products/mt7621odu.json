@@ -20,7 +20,7 @@
   "weight": "950 g",
   "op_temp": "-0 ~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/mt7621odu-1786951698336-5qx3.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/mt7621odu-1786951698336-5qx3.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -33,5 +33,23 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Wi-Fi",
+      "Cellular",
+      "Gen",
+      "No of Model",
+      "Final Product"
+    ],
+    "rows": [
+      [
+        "-",
+        "✓",
+        "4G",
+        "Single",
+        "MT7621-01 ODU"
+      ]
+    ]
+  },
   "order": null
 }

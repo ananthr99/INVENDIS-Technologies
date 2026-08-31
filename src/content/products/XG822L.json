@@ -20,7 +20,7 @@
   "weight": "675 Gm (Industrial Aluminium Enclosure)",
   "op_temp": "0 ~ 60 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/XG822L-1787823067459-bkr4.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/XG822L-1787823067459-bkr4.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -46,5 +46,23 @@
       "v": "Gigabit Ethernet"
     }
   ],
+  "variants": {
+    "headers": [
+      "Wi-Fi",
+      "Cellular",
+      "PoE",
+      "No of Modem",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "-",
+        "-",
+        "✓",
+        "Single",
+        "XG 82-2L Lite Managed Switch"
+      ]
+    ]
+  },
   "order": 91
 }

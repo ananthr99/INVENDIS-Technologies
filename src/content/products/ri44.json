@@ -20,7 +20,7 @@
   "weight": "370 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/ri44-1787138741728-063w.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/ri44-1787138741728-063w.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -37,5 +37,23 @@
       "v": "Fast Ethernet"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4G",
+        "Single",
+        "RI44"
+      ]
+    ]
+  },
   "order": 13
 }

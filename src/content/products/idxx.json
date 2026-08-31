@@ -20,7 +20,7 @@
   "weight": "400 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/idxx-1786603920631-nlg8.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/idxx-1786603920631-nlg8.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -39,5 +39,49 @@
       "v": "Gigabit Ethernet"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "RS485",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 5",
+        "4G",
+        "✓",
+        "Single",
+        "ID55-B (4 GB eMMC)"
+      ],
+      [
+        "✓",
+        "—",
+        "4G",
+        "—",
+        "Single",
+        "ID55"
+      ],
+      [
+        "✓",
+        "Wi-Fi 5",
+        "4G",
+        "✓",
+        "Single",
+        "ID54-B (4 GB eMMC)"
+      ],
+      [
+        "✓",
+        "—",
+        "4G",
+        "—",
+        "Single",
+        "ID54"
+      ]
+    ]
+  },
   "order": 20
 }

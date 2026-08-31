@@ -20,11 +20,11 @@
   "weight": "995 g",
   "op_temp": "0 -50°C",
   "images": [
-    "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/images/inv-cd-xx-1.png",
-    "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/images/inv-cd-xx-2.png",
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-cd-xx-1786515792452-i9dg.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cd-xx-1.png",
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cd-xx-2.png",
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cd-xx-1786515792452-i9dg.png"
   ],
-  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/INV-CD-N350_Datasheet.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/INV-CD-N350_Datasheet.pdf",
   "use_cases": [
     "Industrial Machine Vision & Quality Inspection",
     "Smart Traffic & Transportation Edge Nodes",
@@ -40,5 +40,6 @@
       "v": "Gigabit Ethernet (Realtek RTL8111H)"
     }
   ],
+  "variants": null,
   "order": 96
 }

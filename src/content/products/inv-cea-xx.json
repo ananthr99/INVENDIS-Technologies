@@ -20,10 +20,10 @@
   "weight": "1700",
   "op_temp": "0 ~ 50℃",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-cea-xx-1786441526355-8a7c.png",
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/inv-cea-xx-1786441531237-gu5u.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cea-xx-1786441526355-8a7c.png",
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cea-xx-1786441531237-gu5u.png"
   ],
-  "datasheet": "https://github.com/ananthr99/INVENDIS-ProductSelector/raw/main/assets/datasheets/Brief Specs Intel X7425E Alder Lake Industrial Automation PC (2) (1).pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/Brief Specs Intel X7425E Alder Lake Industrial Automation PC (2) (1).pdf",
   "use_cases": [
     "Industrial Automation & Control",
     "Machine Monitoring & OEE System"
@@ -39,5 +39,6 @@
       "v": "Gigabit Ethernet ((Realtek RTL8111H)"
     }
   ],
+  "variants": null,
   "order": 3
 }

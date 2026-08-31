@@ -20,7 +20,7 @@
   "weight": "500 g",
   "op_temp": "-20 ~ 60 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/idfxx-1787121319469-96hn.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/idfxx-1787121319469-96hn.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -33,5 +33,58 @@
     "rs232"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "-",
+        "4G",
+        "Single",
+        "IDF04"
+      ],
+      [
+        "✓",
+        "Wi-Fi 5",
+        "4G",
+        "Single",
+        "IDF54"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "4G",
+        "Single",
+        "IDF44"
+      ],
+      [
+        "✓",
+        "-",
+        "5G",
+        "Single",
+        "IDF05"
+      ],
+      [
+        "✓",
+        "Wi-Fi 5",
+        "5G",
+        "Single",
+        "IDF55"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "5G",
+        "Single",
+        "IDF45"
+      ]
+    ]
+  },
   "order": null
 }

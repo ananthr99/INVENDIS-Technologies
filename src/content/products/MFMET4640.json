@@ -20,9 +20,9 @@
   "weight": "",
   "op_temp": "",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/MFMET4640-1787136837806-6zw4.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/MFMET4640-1787136837806-6zw4.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/MFMET4640-datasheet.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/MFMET4640-datasheet.pdf",
   "use_cases": [
     "Energy Consumption Monitoring",
     "Industrial Power Quality Analysis",
@@ -88,5 +88,6 @@
       "v": "0.1kW/kVA"
     }
   ],
+  "variants": null,
   "order": null
 }

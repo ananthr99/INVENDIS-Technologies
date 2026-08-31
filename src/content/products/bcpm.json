@@ -20,9 +20,9 @@
   "weight": "750gm (approx.)",
   "op_temp": "-10-75°C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/bcpm-1787139262779-6be3.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/bcpm-1787139262779-6be3.png"
   ],
-  "datasheet": "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/datasheets/bcpm-datasheet.pdf",
+  "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/bcpm-datasheet.pdf",
   "use_cases": [
     "Branch-Level Energy Monitoring",
     "Data Centre & Facility Load Profiling",
@@ -48,5 +48,11 @@
       "v": "1"
     }
   ],
+  "variants": {
+    "headers": [],
+    "rows": [
+      []
+    ]
+  },
   "order": null
 }

@@ -20,7 +20,7 @@
   "weight": "300 g",
   "op_temp": "0~ 70 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/GPONONU-1787223696594-jx1x.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/GPONONU-1787223696594-jx1x.png"
   ],
   "datasheet": "",
   "use_cases": [],
@@ -41,5 +41,17 @@
       "v": "RTL9601D"
     }
   ],
+  "variants": {
+    "headers": [
+      "Interface",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "Controller-RTL9601D",
+        "GPON ONU"
+      ]
+    ]
+  },
   "order": 78
 }

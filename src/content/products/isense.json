@@ -20,7 +20,7 @@
   "weight": "1853 g",
   "op_temp": "-10°C to 70°C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/isense-1786612536077-wooc.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/isense-1786612536077-wooc.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -33,5 +33,45 @@
     "ports"
   ],
   "additional_specs": [],
+  "variants": {
+    "headers": [
+      "Wi-Fi",
+      "Cellular",
+      "4G/5G",
+      "RS485",
+      "RS232",
+      "DIO Count",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "✓",
+        "4G",
+        "✓",
+        "✓",
+        "24",
+        "iSense Violet Plus Pro"
+      ],
+      [
+        "✓",
+        "✓",
+        "4G",
+        "✓",
+        "✓",
+        "12",
+        "iSense Green Plus Pro"
+      ],
+      [
+        "✓",
+        "✓",
+        "4G",
+        "✓",
+        "✓",
+        "6",
+        "iSense Blue Plus Pro"
+      ]
+    ]
+  },
   "order": 22
 }

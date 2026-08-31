@@ -20,7 +20,7 @@
   "weight": "400 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/iacxx-1786602435650-vmhe.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/iacxx-1786602435650-vmhe.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -38,5 +38,49 @@
       "v": "Fast Ethernet"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "RS485",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 4",
+        "✓",
+        "4G",
+        "Single",
+        "IAC44-C"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "—",
+        "4G",
+        "Single",
+        "IAC44-A"
+      ],
+      [
+        "✓",
+        "—",
+        "—",
+        "4G",
+        "Single",
+        "IAC04-A"
+      ],
+      [
+        "✓",
+        "—",
+        "✓",
+        "4G",
+        "Single",
+        "IAC04-C"
+      ]
+    ]
+  },
   "order": 18
 }

@@ -20,7 +20,7 @@
   "weight": "297 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rfnxx-1786599944641-kv06.png"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rfnxx-1786599944641-kv06.png"
   ],
   "datasheet": "",
   "use_cases": [
@@ -37,5 +37,45 @@
       "v": "Fast Ethernet"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "RS485",
+      "DIO",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 4",
+        "—",
+        "—",
+        "4G",
+        "Single",
+        "RFN44-A"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "✓",
+        "—",
+        "4G",
+        "Single",
+        "RFN44-B (RS485)"
+      ],
+      [
+        "✓",
+        "Wi-Fi 4",
+        "—",
+        "✓",
+        "4G",
+        "Single",
+        "RFN44-C (1x DI, 1x DO)"
+      ]
+    ]
+  },
   "order": 16
 }

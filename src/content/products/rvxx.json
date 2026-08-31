@@ -20,7 +20,7 @@
   "weight": "390 g",
   "op_temp": "0-50 ˚C",
   "images": [
-    "https://raw.githubusercontent.com/ananthr99/INVENDIS-ProductSelector/main/assets/images/rvxx-1786526209549-0r85.jpg"
+    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rvxx-1786526209549-0r85.jpg"
   ],
   "datasheet": "",
   "use_cases": [
@@ -38,5 +38,51 @@
       "v": "Gigabit Ports"
     }
   ],
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi",
+      "4G/5G",
+      "No. of Modems",
+      "Part Number"
+    ],
+    "rows": [
+      [
+        "✓",
+        "Wi-Fi 5",
+        "4G",
+        "Single",
+        "RV54-1"
+      ],
+      [
+        "✓",
+        "Wi-Fi 5",
+        "4G",
+        "Dual",
+        "RV54-2"
+      ],
+      [
+        "✓",
+        "—",
+        "4G",
+        "Single",
+        "RV04-1"
+      ],
+      [
+        "✓",
+        "Wi-Fi 5",
+        "4G",
+        "Dual",
+        "RV04-2"
+      ],
+      [
+        "—",
+        "Wi-Fi 5",
+        "5G",
+        "—",
+        "RV50"
+      ]
+    ]
+  },
   "order": 9
 }
