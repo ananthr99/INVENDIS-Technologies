@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-01T05:53:48.754Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Products",
+    "section": "Software",
+    "action": "Updated Products — Software",
+    "changes": [
+      {
+        "field": "softwarePlatforms[\"Workforce Management Software\"].desc",
+        "from": "",
+        "to": "Centralized workforce management system for connected opera…"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-28T10:56:55.173Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
