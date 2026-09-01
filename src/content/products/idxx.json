@@ -35,7 +35,7 @@
   ],
   "additional_specs": [
     {
-      "k": "Ethernet Ports-Additional Details",
+      "k": "Ethernet Ports",
       "v": "Gigabit Ethernet"
     }
   ],
@@ -89,5 +89,5 @@
     "ID54-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ID54-B.pdf",
     "ID54": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ID54.pdf"
   },
-  "order": null
+  "order": 22
 }
