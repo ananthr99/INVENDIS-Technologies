@@ -34,6 +34,7 @@ jobs:
             echo "No changes"
           else
             git commit -m "chore: sync products from Product Selector"
+            git pull --rebase origin main
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
