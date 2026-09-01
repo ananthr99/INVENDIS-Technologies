@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-01T09:42:46.860Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"1\"].src",
+        "from": "",
+        "to": "images/gallery/india-telecom-expo-2024.png"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-01T09:40:40.590Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
