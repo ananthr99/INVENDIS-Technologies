@@ -64,5 +64,9 @@
       ]
     ]
   },
-  "order": 12
+  "part_datasheets": {
+    "RE44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RE44.pdf",
+    "RE04": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RE04.pdf"
+  },
+  "order": null
 }

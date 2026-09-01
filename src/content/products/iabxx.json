@@ -79,5 +79,10 @@
       ]
     ]
   },
-  "order": 17
+  "part_datasheets": {
+    "IAB44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB44-C.pdf",
+    "IAB44-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB44-B.pdf",
+    "IAB04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB04-C.pdf"
+  },
+  "order": null
 }

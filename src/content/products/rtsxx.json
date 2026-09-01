@@ -123,5 +123,16 @@
       ]
     ]
   },
-  "order": 5
+  "part_datasheets": {
+    "RTS00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS00-6.pdf",
+    "RTS04-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS04-1.pdf",
+    "RTS04-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS04-2.pdf",
+    "RTS05-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS05-1.pdf",
+    "RTS05-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS05-2.pdf",
+    "RTS-60": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS60.pdf",
+    "RTS64-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS64-2.pdf",
+    "RTS65-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS65-1.pdf",
+    "RTS65-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS65-2.pdf"
+  },
+  "order": null
 }

@@ -56,5 +56,8 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "XB82-2 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XB-82-2.pdf"
+  },
   "order": null
 }

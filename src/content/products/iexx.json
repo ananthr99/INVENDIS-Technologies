@@ -66,5 +66,10 @@
       ]
     ]
   },
-  "order": 14
+  "part_datasheets": {
+    "IE44-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IE44A.pdf",
+    "IE44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IE44C.pdf",
+    "IE44-A-EX1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IE44A-EX1.pdf"
+  },
+  "order": null
 }

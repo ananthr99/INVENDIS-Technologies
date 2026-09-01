@@ -55,5 +55,8 @@
       ]
     ]
   },
-  "order": 13
+  "part_datasheets": {
+    "RI44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RI44.pdf"
+  },
+  "order": null
 }

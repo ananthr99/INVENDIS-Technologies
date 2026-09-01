@@ -59,5 +59,9 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "XF-100-1 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XF-100-1.pdf",
+    "XF50-1 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/xf100-XF50-1_Unmanaged_PoE_Switch.pdf"
+  },
   "order": null
 }

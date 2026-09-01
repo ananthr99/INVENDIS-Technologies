@@ -86,5 +86,13 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "IDF04": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF04.pdf",
+    "IDF54": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF54.pdf",
+    "IDF44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF44.pdf",
+    "IDF05": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF05.pdf",
+    "IDF55": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF55.pdf",
+    "IDF45": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF45.pdf"
+  },
   "order": null
 }

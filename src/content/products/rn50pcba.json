@@ -55,5 +55,8 @@
       ]
     ]
   },
+  "part_datasheets": {
+    "RN 50 PCB-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rn50pcba-RN_50_PCB-A.pdf"
+  },
   "order": null
 }
