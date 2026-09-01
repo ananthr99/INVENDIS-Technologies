@@ -127,6 +127,13 @@
       "title": "Dummy",
       "caption": "",
       "src": "images/gallery/dummy.jpg"
+    },
+    {
+      "id": 14,
+      "category": "expos",
+      "title": "Product Launch",
+      "caption": "New product 2026",
+      "src": "images/gallery/product-launch.jpg"
     }
   ],
   "ctaBanner": {
