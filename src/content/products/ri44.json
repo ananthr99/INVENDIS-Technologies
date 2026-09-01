@@ -33,7 +33,7 @@
   ],
   "additional_specs": [
     {
-      "k": "Ethernet Ports-Additional Details",
+      "k": "Ethernet Ports",
       "v": "Fast Ethernet"
     }
   ],
@@ -58,5 +58,5 @@
   "part_datasheets": {
     "RI44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RI44.pdf"
   },
-  "order": null
+  "order": 15
 }
