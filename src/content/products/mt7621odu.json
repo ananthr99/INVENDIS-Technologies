@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "IP66",
   "power": "Active PoE 48â57V",
-  "ports": 1,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "The MT 7621 ODU takes cellular routing outdoors, packaged in an IP66-rated ABS/PC enclosure that mounts directly on walls or poles — eliminating the need for separate weatherproof cabinets and the cabling complexity that comes with them. Powered entirely over a single Ethernet cable via 802.3af/at PoE, it supports 4G LTE Cat 4 speeds up to 150 Mbps with dual SIM failover, making it a field-ready solution for outdoor surveillance, remote kiosks, and transportation infrastructure where indoor-mounted routers simply cannot reach.",
   "housing": "ABS/PC IP66 Housing",
@@ -32,7 +32,12 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": "1 x 10/100/1000 (External with PoE IN), 1 x 10/100/1000 (Internal for Configuration)"
+    }
+  ],
   "variants": {
     "headers": [
       "Wi-Fi",
@@ -54,5 +59,5 @@
   "part_datasheets": {
     "MT7621-01 ODU": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/mt7621odu-MT7621-01_ODU.pdf"
   },
-  "order": null
+  "order": 33
 }
