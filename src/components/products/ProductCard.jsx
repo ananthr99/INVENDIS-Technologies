@@ -1,5 +1,77 @@
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import { catColors, wifiLabel } from '../../utils/productHelpers'
+
+const PILL_CLS = 'text-[10px] font-medium px-[7px] py-0.5 rounded-full bg-[#EAF2FB] text-[#1A6FC4] border border-[#C4DCF5] truncate max-w-full'
+
+function UseCasePills({ useCases }) {
+  const containerRef = useRef(null)
+  const ucKey = useCases.join('\x00')
+  const [measured, setMeasured] = useState({ key: null, cutIdx: null })
+
+  useLayoutEffect(() => {
+    if (!useCases.length) return
+    const container = containerRef.current
+    if (!container) return
+
+    const chips = Array.from(container.querySelectorAll('[data-uc]'))
+    if (!chips.length) return
+
+    const firstTop = chips[0].getBoundingClientRect().top
+    const chipH = chips[0].getBoundingClientRect().height
+    const gap = 4
+
+    let cut = chips.length
+    for (let i = 1; i < chips.length; i++) {
+      const row = Math.round((chips[i].getBoundingClientRect().top - firstTop) / (chipH + gap))
+      if (row >= 2) { cut = i; break }
+    }
+
+    if (cut >= chips.length) {
+      setMeasured({ key: ucKey, cutIdx: null })
+      return
+    }
+
+    // Temporarily hide overflow chips and probe "+N more" position
+    for (let i = cut; i < chips.length; i++) chips[i].style.display = 'none'
+    const tmp = document.createElement('span')
+    tmp.style.cssText = 'font-size:10px;padding:2px 7px;border-radius:20px;white-space:nowrap;'
+    tmp.textContent = `+${chips.length - cut}`
+    container.appendChild(tmp)
+
+    const moreRow = Math.round((tmp.getBoundingClientRect().top - firstTop) / (chipH + gap))
+    if (moreRow >= 2 && cut > 0) cut--
+
+    chips.forEach(c => (c.style.display = ''))
+    tmp.remove()
+
+    setMeasured({ key: ucKey, cutIdx: cut })
+  }, [ucKey])
+
+  const isMeasured = measured.key === ucKey
+  const cutIdx = isMeasured ? measured.cutIdx : null
+  const moreCount = cutIdx !== null ? useCases.length - cutIdx : 0
+
+  return (
+    <div ref={containerRef} className="flex flex-wrap gap-1 my-1">
+      {useCases.map((u, i) => (
+        <span
+          key={u}
+          data-uc=""
+          title={u}
+          style={cutIdx !== null && i >= cutIdx ? { display: 'none' } : undefined}
+          className={PILL_CLS}
+        >
+          {u}
+        </span>
+      ))}
+      {moreCount > 0 && (
+        <span className="text-[10px] font-medium px-[7px] py-0.5 rounded-full bg-[#F3F4F6] text-[#6B7280] border border-[#D1D5DB] whitespace-nowrap">
+          +{moreCount} more
+        </span>
+      )}
+    </div>
+  )
+}
 
 export default function ProductCard({ product: p, images, useCases, compareIds, onDetail, onToggleCompare }) {
   const imgs = images[p.id]
@@ -75,13 +147,7 @@ export default function ProductCard({ product: p, images, useCases, compareIds, 
         )}
       </div>
 
-      {uc.length > 0 && (
-        <div className="flex flex-wrap gap-1 my-1">
-          {uc.slice(0, 2).map(u => (
-            <span key={u} className="text-[10px] font-medium px-[7px] py-0.5 rounded-full bg-[#EAF2FB] text-[#1A6FC4] border border-[#C4DCF5] whitespace-nowrap">{u}</span>
-          ))}
-        </div>
-      )}
+      {uc.length > 0 && <UseCasePills useCases={uc} />}
 
       <div className="mt-auto pt-2.5 border-t border-[#DDE5EF] flex items-center gap-2">
         <label

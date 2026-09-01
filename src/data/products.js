@@ -42,8 +42,22 @@ const products = [
         "v": "RTL9601D"
       }
     ],
-    "order": 78,
-    "variants": null
+    "part_datasheets": {
+      "GPON ONU": "contact_us"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Interface",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "Controller-RTL9601D",
+          "GPON ONU"
+        ]
+      ]
+    }
   },
   {
     "id": "MFMET4640",
@@ -126,18 +140,19 @@ const products = [
         "v": "0.1kW/kVA"
       }
     ],
-    "order": 37,
+    "part_datasheets": {},
+    "order": null,
     "variants": null
   },
   {
     "id": "RUC",
-    "name": "RUC",
-    "cat": "Gateway",
-    "cpu": "MediaTek MT7981",
+    "name": "RUC 65",
+    "cat": "Router",
+    "cpu": "MediaTek MT7981 1.3GHz Dual Core ARM Cortex A53",
     "ram": "512 MB DDR3 RAM",
     "storage": "128 MB NAND",
-    "cell": "none",
-    "cellular_gen": "none",
+    "cell": "4G/5G",
+    "cellular_gen": "5G",
     "wifi": "WiFi6",
     "rs485": false,
     "rs232": false,
@@ -151,8 +166,6 @@ const products = [
     "weight": "590 grams",
     "op_temp": "0~ 50 ˚C",
     "hidden_fields": [
-      "cell",
-      "cellular_gen",
       "ip",
       "rs485",
       "rs232"
@@ -163,8 +176,28 @@ const products = [
         "v": "1 x Gigabit WAN (PoE IN IEEE802.3at), 2 x Gigabit LAN"
       }
     ],
-    "order": 94,
-    "variants": null
+    "part_datasheets": {
+      "RUC 65": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RUC-RUC_65.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Cellular",
+        "WiFi",
+        "Gen",
+        "Modem",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "✓",
+          "Wi-Fi 6",
+          "5G",
+          "Single",
+          "RUC 65"
+        ]
+      ]
+    }
   },
   {
     "id": "RVH",
@@ -191,8 +224,28 @@ const products = [
       "cell"
     ],
     "additional_specs": [],
-    "order": 95,
-    "variants": null
+    "part_datasheets": {
+      "RVH 44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RVH-RVH_44.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Cellular",
+        "Wi-Fi",
+        "Gen",
+        "Modem",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "✓",
+          "Wi-Fi 4",
+          "4 G",
+          "Single",
+          "RVH 44"
+        ]
+      ]
+    }
   },
   {
     "id": "XG822L",
@@ -233,8 +286,28 @@ const products = [
         "v": "Gigabit Ethernet"
       }
     ],
-    "order": 91,
-    "variants": null
+    "part_datasheets": {
+      "XG 82-2L Lite Managed Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XG822L-XG_82-2L_Lite_Managed_Switch.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Wi-Fi",
+        "Cellular",
+        "PoE",
+        "No of Modem",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "-",
+          "-",
+          "✓",
+          "Single",
+          "XG 82-2L Lite Managed Switch"
+        ]
+      ]
+    }
   },
   {
     "id": "acmeter",
@@ -320,7 +393,8 @@ const products = [
         "v": "5% to 95% non condensing"
       }
     ],
-    "order": 38,
+    "part_datasheets": {},
+    "order": null,
     "variants": null
   },
   {
@@ -364,8 +438,14 @@ const products = [
         "v": "1"
       }
     ],
-    "order": 40,
-    "variants": null
+    "part_datasheets": {},
+    "order": null,
+    "variants": {
+      "headers": [],
+      "rows": [
+        []
+      ]
+    }
   },
   {
     "id": "dcmeter",
@@ -424,7 +504,8 @@ const products = [
         "v": "0.2A or better"
       }
     ],
-    "order": 39,
+    "part_datasheets": {},
+    "order": null,
     "variants": null
   },
   {
@@ -450,7 +531,12 @@ const products = [
     "op_temp": "0~ 50 ˚C",
     "hidden_fields": [],
     "additional_specs": [],
-    "order": 16,
+    "part_datasheets": {
+      "IAB44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB44-C.pdf",
+      "IAB44-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB44-B.pdf",
+      "IAB04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB04-C.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -515,7 +601,7 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "9-30 VDC",
-    "ports": 5,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "Designed to keep critical operations connected, the IACXX-X brings together dual SIM failover, 802.11 b/g/n Wi-Fi, and a wide 9-30Vdc input range into a slim, DIN rail-mountable form factor built for the factory floor. Powered by OpenWRT Linux and weighing just 400g, it delivers enterprise-grade manageability in a compact footprint — making it a practical choice for system integrators and OEMs deploying connected solutions across industrial and infrastructure environments.",
     "housing": "Industrial Aluminium",
@@ -526,8 +612,19 @@ const products = [
       "ip",
       "rs232"
     ],
-    "additional_specs": [],
-    "order": 17,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Fast Ethernet"
+      }
+    ],
+    "part_datasheets": {
+      "IAC44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC44-C.pdf",
+      "IAC44-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC44-A.pdf",
+      "IAC04-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC04-A.pdf",
+      "IAC04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAC04-C.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -595,8 +692,19 @@ const products = [
     "weight": "400 g",
     "op_temp": "0~ 50 ˚C",
     "hidden_fields": [],
-    "additional_specs": [],
-    "order": 18,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Fast Ethernet"
+      }
+    ],
+    "part_datasheets": {
+      "IAF44-C1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAF44-C1.pdf",
+      "IAF04-C1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAF04-C1.pdf",
+      "IAF44-C2": "contact_us",
+      "IAF04-C2": "contact_us"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -656,7 +764,7 @@ const products = [
     "rs232": false,
     "ip": "IP30",
     "power": "9-30 VDC",
-    "ports": 2,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "This industrial-grade router is built to deliver stable cellular and Wi-Fi connectivity for compact edge deployments in challenging environments. It features dual SIM failover, a rugged aluminium enclosure with DIN rail support, and a secure OpenWRT-based platform offering advanced routing, VPN, and firewall capabilities. The device is ideal for applications such as industrial automation, remote asset monitoring, utilities, and small enterprise networks requiring dependable and secure connectivity.",
     "housing": "Industrial Aluminium",
@@ -666,8 +774,19 @@ const products = [
     "hidden_fields": [
       "rs232"
     ],
-    "additional_specs": [],
-    "order": 14,
+    "additional_specs": [
+      {
+        "k": "Ethernet Port-Additional Details",
+        "v": "Fast Ethernet"
+      }
+    ],
+    "part_datasheets": {
+      "IA44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IA44-C.pdf",
+      "IA44-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IA44-B.pdf",
+      "IA44-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IA44-A.pdf",
+      "IA40-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IA40-C.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -707,7 +826,7 @@ const products = [
           "Wi-Fi 4",
           "—",
           "✓",
-          "—",
+          "NA",
           "IA40-C"
         ]
       ]
@@ -727,7 +846,7 @@ const products = [
     "rs232": true,
     "ip": "",
     "power": "9-30 VDC",
-    "ports": 4,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "Where the IDB54 stands out is its configurable WAN/LAN port — giving network administrators the flexibility to repurpose a Gigabit port based on deployment needs — paired with 512MB RAM and dual-band 802.11 b/g/n/ac Wi-Fi for high-throughput performance. Housed in a rugged aluminium shell rated for -20 to 60°C operation, it is tailored for enterprises and system integrators who need a versatile, high-performance edge router that adapts to evolving network topologies across commercial and industrial sites.",
     "housing": "Industrial Aluminium",
@@ -737,8 +856,17 @@ const products = [
     "hidden_fields": [
       "ip"
     ],
-    "additional_specs": [],
-    "order": 20,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports",
+        "v": "Gigabit Ethernet (10/100/1000)"
+      }
+    ],
+    "part_datasheets": {
+      "IDB55": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDB55.pdf",
+      "IDB54": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDB54 (1).pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -815,7 +943,15 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 34,
+    "part_datasheets": {
+      "IDF04": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF04.pdf",
+      "IDF54": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF54.pdf",
+      "IDF44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF44.pdf",
+      "IDF05": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF05.pdf",
+      "IDF55": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF55.pdf",
+      "IDF45": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDF45.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -883,8 +1019,8 @@ const products = [
     "rs485": false,
     "rs232": false,
     "ip": "",
-    "power": "9â30 VDC",
-    "ports": 4,
+    "power": "9-30 VDC",
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "The IDXX-X punches well above its weight class, pairing a generous 512MB RAM and Gigabit WAN/LAN ports with 802.11 b/g/n/ac dual-band Wi-Fi — a significant step up from entry-level industrial routers. This added horsepower makes it a strong candidate for bandwidth-intensive applications across smart factories, digital infrastructure, and multi-site enterprise deployments where throughput and scalability cannot be compromised.",
     "housing": "Industrial Aluminium",
@@ -896,8 +1032,19 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
-    "order": 19,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ethernet"
+      }
+    ],
+    "part_datasheets": {
+      "ID55-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ID55-B.pdf",
+      "ID55": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ID55.pdf",
+      "ID54-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ID54-B.pdf",
+      "ID54": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/ID54.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -970,38 +1117,39 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 13,
+    "part_datasheets": {
+      "IE44-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IE44A.pdf",
+      "IE44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IE44C.pdf",
+      "IE44-A-EX1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IE44A-EX1.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
         "4G/5G",
-        "RS485",
         "No. of Modems",
         "Part Number"
       ],
       "rows": [
         [
           "✓",
-          "Wi-Fi",
+          "Wi-Fi 4",
           "4G",
-          "✓",
           "Single",
           "IE44-A"
         ],
         [
           "✓",
-          "Wi-Fi",
+          "Wi-Fi 4",
           "4G",
-          "✓",
           "Single",
           "IE44-C"
         ],
         [
           "✓",
-          "Wi-Fi",
+          "Wi-Fi 4",
           "4G",
-          "✓",
           "Single",
           "IE44-A-EX1 (e-SIM)"
         ]
@@ -1039,6 +1187,7 @@ const products = [
         "v": "Gigabit Ethernet, (2x I226 Intel) , 2x RTL8125BG(Realtek)"
       }
     ],
+    "part_datasheets": {},
     "order": 1,
     "variants": null
   },
@@ -1073,7 +1222,8 @@ const products = [
         "v": "Gigabit Ethernet (Realtek RTL8111H)"
       }
     ],
-    "order": 96,
+    "part_datasheets": {},
+    "order": null,
     "variants": {
       "note": "Part number format: INV-CX-x7425e-[Type][Display]-[eMMC]-[SSD]-[RAM]-[Modem]. RAM: 1=4 GB … 5=64 GB DDR5 | eMMC: 1=8 GB … 5=128 GB | SSD: 1=128 GB … 4=1 TB | Modem: 0=None, 4=4G, 5=5G | Wi-Fi: 0=None, 6=Wi-Fi 6",
       "headers": [
@@ -1141,6 +1291,7 @@ const products = [
         "v": "Gigabit Ethernet (RTL8111H)"
       }
     ],
+    "part_datasheets": {},
     "order": 2,
     "variants": {
       "note": "Part number format: INV-CX-x7425e-[Type][Display]-[eMMC]-[SSD]-[RAM]-[Modem]. RAM: 1=4 GB … 5=64 GB DDR5 | eMMC: 1=8 GB … 5=128 GB | SSD: 1=128 GB … 4=1 TB | Modem: 0=None, 4=4G, 5=5G | Wi-Fi: 0=None, 6=Wi-Fi 6",
@@ -1210,6 +1361,7 @@ const products = [
         "v": "Gigabit Ethernet ((Realtek RTL8111H)"
       }
     ],
+    "part_datasheets": {},
     "order": 3,
     "variants": {
       "note": "Part number format: INV-CX-x7425e-[Type][Display]-[eMMC]-[SSD]-[RAM]-[Modem]. RAM: 1=4 GB … 5=64 GB DDR5 | eMMC: 1=8 GB … 5=128 GB | SSD: 1=128 GB … 4=1 TB | Modem: 0=None, 4=4G, 5=5G | Wi-Fi: 0=None, 6=Wi-Fi 6",
@@ -1278,6 +1430,7 @@ const products = [
         "v": "Gigabit Ethernet (Realtek RTL8111H)"
       }
     ],
+    "part_datasheets": {},
     "order": 4,
     "variants": null
   },
@@ -1313,7 +1466,8 @@ const products = [
         "v": "Gigabit Ethernet (2.5 Gbps)"
       }
     ],
-    "order": 90,
+    "part_datasheets": {},
+    "order": null,
     "variants": null
   },
   {
@@ -1342,7 +1496,12 @@ const products = [
       "ports"
     ],
     "additional_specs": [],
-    "order": 21,
+    "part_datasheets": {
+      "iSense Violet Plus Pro": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/Isense Violet Plus Pro.pdf",
+      "iSense Green Plus Pro": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/Isense Green Plus Pro.pdf",
+      "iSense Blue Plus Pro": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/Isense Blue Plus Pro.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Wi-Fi",
@@ -1402,9 +1561,9 @@ const products = [
     "os": "Ubuntu / Oracle Linux / Open WRT / Windows",
     "desc": "The Invendis ARL Mini ITX is a high-performance industrial computing platform powered by Intel Core Ultra Processors (Series 2) with integrated NPU AI acceleration, Intel Arc 140T graphics, and up to 128GB DDR5 RAM. Housed in a aluminum heatsink enclosure with fanless or fan options, it offers dual 2.5GbE LAN ports, triple display outputs (2x HDMI, 1x DP), and extensive M.2 expansion for Wi-Fi 6, 4G/5G cellular, and NVMe storage.",
     "housing": "Aluminum Heat Sink with CRCA Enclosure, Fan/Fanless options",
-    "dims": "",
+    "dims": "210x203x60mm",
     "weight": "1400",
-    "op_temp": "",
+    "op_temp": "0~ 50 ˚C",
     "hidden_fields": [
       "cell",
       "cellular_gen",
@@ -1460,9 +1619,14 @@ const products = [
       {
         "k": "Console (optional)",
         "v": "1 x Type B Micro USB"
+      },
+      {
+        "k": "Weight (Fanless Design)",
+        "v": "1800 gm"
       }
     ],
-    "order": 89,
+    "part_datasheets": {},
+    "order": null,
     "variants": null
   },
   {
@@ -1541,7 +1705,8 @@ const products = [
         "v": "MC-1 Media Converter with Sheet Metal Housing , 01-meter Ethernet cable, Power Adaptor"
       }
     ],
-    "order": 29,
+    "part_datasheets": {},
+    "order": null,
     "variants": {
       "headers": [
         "Interface",
@@ -1551,19 +1716,19 @@ const products = [
       ],
       "rows": [
         [
-          "1× RJ45 + 1× Fiber SC",
+          "1 x RJ45 + 1x Fiber SC",
           "Single-mode",
           "5 km",
           "ISMC1-SD851G-S5"
         ],
         [
-          "1× RJ45 + 1× Fiber SC",
+          "1x RJ45 + 1x Fiber SC",
           "Single-mode",
           "10 km",
           "ISMC1-SD311G-10"
         ],
         [
-          "1× RJ45 + 1× Fiber SC",
+          "1x RJ45 + 1x Fiber SC",
           "Single-mode",
           "20 km",
           "SMC1-SD311G-20"
@@ -1640,7 +1805,8 @@ const products = [
         "v": "Short Circuit Protection"
       }
     ],
-    "order": 36,
+    "part_datasheets": {},
+    "order": null,
     "variants": {
       "headers": [
         "Battery",
@@ -1685,21 +1851,27 @@ const products = [
     "dims": "140 x 75 x 224 mm (W x H x D)",
     "weight": "950 g",
     "op_temp": "-0 ~ 50 ˚C",
-    "hidden_fields": [],
+    "hidden_fields": [
+      "rs485",
+      "rs232"
+    ],
     "additional_specs": [],
-    "order": 30,
+    "part_datasheets": {
+      "MT7621-01 ODU": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/mt7621odu-MT7621-01_ODU.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
-        "Cellular",
         "Wi-Fi",
-        "4G/5G",
-        "No. of Modems",
-        "Part Number"
+        "Cellular",
+        "Gen",
+        "No of Model",
+        "Final Product"
       ],
       "rows": [
         [
+          "-",
           "✓",
-          "—",
           "4G",
           "Single",
           "MT7621-01 ODU"
@@ -1792,7 +1964,8 @@ const products = [
         "v": "Responsive UI, Role-Based Access, Device Grouping"
       }
     ],
-    "order": 35,
+    "part_datasheets": {},
+    "order": null,
     "variants": null
   },
   {
@@ -1824,7 +1997,12 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 28,
+    "part_datasheets": {
+      "PC310": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/PC310.pdf",
+      "PC311": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/PC311.pdf",
+      "PC312": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/PC312.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -1835,22 +2013,22 @@ const products = [
       ],
       "rows": [
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
           "1",
           "PC310"
         ],
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
           "2",
           "PC311"
         ],
         [
-          "—",
-          "Wi-Fi 4",
+          "-",
+          "✓",
           "✓",
           "1",
           "PC312"
@@ -1887,8 +2065,28 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 92,
-    "variants": null
+    "part_datasheets": {
+      "RDB 40": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rdb40-RDB_40.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Cellular",
+        "Wi-Fi",
+        "4G/5G",
+        "No of Modems",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "-",
+          "✓",
+          "-",
+          "-",
+          "RDB 40"
+        ]
+      ]
+    }
   },
   {
     "id": "rdxx",
@@ -1911,9 +2109,27 @@ const products = [
     "dims": "123.2 x 28 x 120.6mm (W x H x D)",
     "weight": "370 g",
     "op_temp": "0~ 50 ˚C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 11,
+    "hidden_fields": [
+      "ip",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Fast Ethernet Ports"
+      }
+    ],
+    "part_datasheets": {
+      "RD44-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD44.pdf",
+      "RD04-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD04-A.pdf",
+      "RD44-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD44-B.pdf",
+      "RD04-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD04-B.pdf",
+      "RD44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD44-C.pdf",
+      "RD04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD04-C.pdf",
+      "RDS00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RDS00.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Wi-Fi",
@@ -1926,7 +2142,7 @@ const products = [
       ],
       "rows": [
         [
-          "✓",
+          "Wi-Fi 4",
           "✓",
           "4G",
           "—",
@@ -1962,7 +2178,7 @@ const products = [
           "RD04-B"
         ],
         [
-          "✓",
+          "Wi-Fi 4",
           "✓",
           "4G",
           "—",
@@ -1989,7 +2205,7 @@ const products = [
           "RDS00"
         ],
         [
-          "✓",
+          "Wi-Fi 4",
           "✓",
           "4G",
           "✓",
@@ -2014,16 +2230,29 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "12 VDC",
-    "ports": 4,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "Built for stable, always-on connectivity, this industrial router enables seamless integration of wired, Wi-Fi, and cellular networks in compact deployments. Its key strengths lie in dual SIM redundancy, highly customizable OpenWRT firmware, and a wide range of VPN and security features that support secure data transmission across distributed networks. It is best suited for sectors like industrial IoT, transportation systems, utilities, and remote enterprise sites where reliability and network control are critical.",
     "housing": "Sheet Metal",
     "dims": "123.2 x 28 x 120.6mm (W x H x D)",
     "weight": "360 g",
     "op_temp": "0~ 50 ˚C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 12,
+    "hidden_fields": [
+      "ip",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Fast Ethernet"
+      }
+    ],
+    "part_datasheets": {
+      "RE44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RE44.pdf",
+      "RE04": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RE04.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2064,7 +2293,7 @@ const products = [
     "rs232": false,
     "ip": "IP30",
     "power": "9-30Vdc",
-    "ports": 2,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "The RFN44-A is an industrial-grade cellular router built on a MediaTek MT7628 platform with dual Nano SIM support, running an OpenWRT-based Linux OS for flexible and reliable connectivity. Housed in a fanless aluminium enclosure with a wide operating temperature range, it targets industrial automation, remote site management, and IoT deployments where rugged, dependable hardware is essential.",
     "housing": "Industrial Aluminium",
@@ -2074,8 +2303,18 @@ const products = [
     "hidden_fields": [
       "rs232"
     ],
-    "additional_specs": [],
-    "order": 15,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Fast Ethernet"
+      }
+    ],
+    "part_datasheets": {
+      "RFN44-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RFN44-A.pdf",
+      "RFN44-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RFN44-B.pdf",
+      "RFN44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RFN44-C.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2112,7 +2351,7 @@ const products = [
           "✓",
           "4G",
           "Single",
-          "RFN44-C (1× DI, 1× DO)"
+          "RFN44-C (1x DI, 1x DO)"
         ]
       ]
     }
@@ -2131,7 +2370,7 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "9-30 VDC",
-    "ports": 5,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "This high-performance industrial router is designed to enable reliable, high-speed connectivity across wired, Wi-Fi, and cellular networks in demanding environments. It differentiates itself with a powerful Qualcomm chipset, higher RAM capacity, PoE support, dual SIM resilience, and a feature-rich OpenWRT platform with extensive VPN and security capabilities. The device is well-suited for data-intensive applications in sectors such as smart infrastructure, surveillance, transportation, and large-scale enterprise or industrial IoT deployments.",
     "housing": "Sheet Metal",
@@ -2143,14 +2382,21 @@ const products = [
       "rs485",
       "rs232"
     ],
-    "additional_specs": [],
-    "order": 13,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Fast Ethernet"
+      }
+    ],
+    "part_datasheets": {
+      "RI44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RI44.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
         "4G/5G",
-        "RS485",
         "No. of Modems",
         "Part Number"
       ],
@@ -2159,7 +2405,6 @@ const products = [
           "✓",
           "Wi-Fi 4",
           "4G",
-          "✓",
           "Single",
           "RI44"
         ]
@@ -2188,6 +2433,8 @@ const products = [
     "weight": "",
     "op_temp": "0 ~ 50˚C",
     "hidden_fields": [
+      "cell",
+      "cellular_gen",
       "ip",
       "rs485",
       "rs232",
@@ -2195,20 +2442,23 @@ const products = [
       "weight"
     ],
     "additional_specs": [],
-    "order": 32,
+    "part_datasheets": {
+      "RN 50 PCB-A": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rn50pcba-RN_50_PCB-A.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
-        "Cellular",
         "Wi-Fi",
-        "4G/5G",
-        "No. of Modems",
-        "Part Number"
+        "Cellular",
+        "Gen",
+        "No of Modem",
+        "Final Product"
       ],
       "rows": [
         [
-          "—",
-          "Wi-Fi 5",
-          "—",
+          "WiFi-5",
+          "-",
+          "5G",
           "Single",
           "RN 50 PCB-A"
         ]
@@ -2229,16 +2479,30 @@ const products = [
     "rs232": false,
     "ip": "IP30",
     "power": "9–30 VDC",
-    "ports": 6,
+    "ports": 0,
     "os": "OpenWRT 21/23",
     "desc": "A ruggedised industrial router combining dual 5G/4G modems with Wi-Fi 6 (EasyMesh), 2× WAN + 4× LAN GbE ports, and 1× SFP uplink. Built on MediaTek MT7981 with OpenWRT 21/23, supporting dual-SIM failover, DIN-rail mounting, and a wide 9–30V DC input — engineered for demanding telecom, industrial, and enterprise edge deployments.",
     "housing": "Sheet Metal",
     "dims": "210 × 25 × 135 mm (W × H × D)",
     "weight": "950 g",
     "op_temp": "0°C-50°C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 7,
+    "hidden_fields": [
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ports"
+      }
+    ],
+    "part_datasheets": {
+      "RO65-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO65-2.pdf",
+      "RO65-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO65-1.pdf",
+      "RO64-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO64-2.pdf",
+      "RO64-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RO64-1.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2312,7 +2576,10 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 31,
+    "part_datasheets": {
+      "RT65-ODU": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rt65odu-RT65-ODU.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2341,21 +2608,44 @@ const products = [
     "storage": "128 MB NAND",
     "cell": "4G/5G",
     "cellular_gen": "5G",
-    "wifi": "none",
+    "wifi": "WiFi6",
     "rs485": false,
     "rs232": false,
     "ip": "IP30",
     "power": "9–30 VDC Dual Source",
-    "ports": 4,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "A ruggedised industrial router featuring dual 5G/4G modems, Wi-Fi 6, and SFP uplinks. Built on MediaTek MT7981 with OpenWRT, it supports dual-SIM failover, DIN-rail mounting, and a wide 9–30V DC power range — ideal for demanding telecom, industrial, and remote site deployments.",
     "housing": "Sheet Metal",
     "dims": "190 × 45 × 120 mm",
     "weight": "700 g",
     "op_temp": "0°C - 50°C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 5,
+    "hidden_fields": [
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "4 x LAN (Gigabit) and 1 x WAN (Gigabit)"
+      },
+      {
+        "k": "SFP Ports",
+        "v": "1/2"
+      }
+    ],
+    "part_datasheets": {
+      "RTS00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS00-6.pdf",
+      "RTS04-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS04-1.pdf",
+      "RTS04-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS04-2.pdf",
+      "RTS05-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS05-1.pdf",
+      "RTS05-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS05-2.pdf",
+      "RTS-60": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS60.pdf",
+      "RTS64-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS64-2.pdf",
+      "RTS65-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS65-1.pdf",
+      "RTS65-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS65-2.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2451,17 +2741,39 @@ const products = [
     "rs485": false,
     "rs232": false,
     "ip": "",
-    "power": "9â30 VDC",
-    "ports": 5,
+    "power": "9-30 VDC",
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "The RTXX is a compact industrial router featuring MediaTek MT7981 with Wi-Fi 6, dual M.2 modem slots supporting 5G/4G/3G, and OpenWRT Linux. Designed for demanding IoT, industrial automation, and edge networking deployments, it supports dual SIM with 4 LAN and 1 WAN Gigabit Ethernet ports. It ships in a fanless sheet-metal enclosure with DIN rail mounting and wide 9–30 VDC input.",
     "housing": "Sheet Metal",
     "dims": "110 x 55 x 144 mm (W x H x D)",
     "weight": "480 g",
     "op_temp": "0~ 50 ˚C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 8,
+    "hidden_fields": [
+      "ip",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports",
+        "v": "Gigabit Ports"
+      }
+    ],
+    "part_datasheets": {
+      "RT00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT00.pdf",
+      "RT04-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT04-1.pdf",
+      "RT04-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT04-2.pdf",
+      "RT05-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT05-1.pdf",
+      "RT05-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT05-2.pdf",
+      "RT-60": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT60.pdf",
+      "RT64-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT64-1.pdf",
+      "RT64-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT64-2.pdf",
+      "RT65-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT65-1.pdf",
+      "RT65-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RT65-2.pdf",
+      "RT66-2": "contact_us"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2565,9 +2877,22 @@ const products = [
     "dims": "190 x 190 x 50 mm (L x W x H)",
     "weight": "350g",
     "op_temp": "−20°C to 60°C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 6,
+    "hidden_fields": [
+      "cell",
+      "cellular_gen",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports",
+        "v": "Gigabit Ports"
+      }
+    ],
+    "part_datasheets": {
+      "RU60": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RU60.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2601,16 +2926,30 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "12 VDC",
-    "ports": 5,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "The RV00 is a compact industrial router built on MediaTek MT7621 featuring dual-band Wi-Fi 5, 4G/3G/2G cellular with dual SIM, and five Gigabit Ethernet ports. Running OpenWRT Linux, it supports VPN, VLAN, advanced routing and NMS remote management, making it ideal for industrial IoT, M2M, and edge-networking deployments. It ships in a fanless industrial aluminium enclosure with 12 V DC input and optional DIN rail mounting.",
     "housing": "Industrial Aluminium",
     "dims": "110 x 26 x 95 mm (W x H x D)",
     "weight": "200 g",
     "op_temp": "0~ 50 ˚C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 10,
+    "hidden_fields": [
+      "cell",
+      "cellular_gen",
+      "ip",
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ports"
+      }
+    ],
+    "part_datasheets": {
+      "RV00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV00.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2625,7 +2964,7 @@ const products = [
           "—",
           "—",
           "—",
-          "RV00"
+          "—"
         ]
       ]
     }
@@ -2664,8 +3003,28 @@ const products = [
         "v": "USB 3.0/ 2.0 Host (Optional)"
       }
     ],
-    "order": 93,
-    "variants": null
+    "part_datasheets": {
+      "RVCD": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rvcd-RVCD.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Cellular",
+        "Wi-Fi",
+        "PoE",
+        "No of Modem",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "—",
+          "—",
+          "—",
+          "Single",
+          "RVCD"
+        ]
+      ]
+    }
   },
   {
     "id": "rvcp",
@@ -2709,8 +3068,28 @@ const products = [
         "v": "1 X 3.0"
       }
     ],
-    "order": 100,
-    "variants": null
+    "part_datasheets": {
+      "RVCP 04": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rvcp-RVCP_04.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Cellular",
+        "Wi-Fi",
+        "Gen",
+        "Modem",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "—",
+          "✓",
+          "4G",
+          "Single",
+          "RVCP 04"
+        ]
+      ]
+    }
   },
   {
     "id": "rvg",
@@ -2742,8 +3121,44 @@ const products = [
         "v": "Gigabit Ethernet (Configurable WAN/LAN)"
       }
     ],
-    "order": 97,
-    "variants": null
+    "part_datasheets": {
+      "RVG 55-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rvg-RVG_55-C.pdf",
+      "RVG 54-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rvg-RVG_54-C.pdf",
+      "RVG 44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rvg-RVG_44-C.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Celluar",
+        "Wi-Fi",
+        "Gen",
+        "Modem",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "✓",
+          "Wi-Fi 5",
+          "5G",
+          "Single",
+          "RVG 55-C"
+        ],
+        [
+          "✓",
+          "Wi-Fi 4",
+          "4G",
+          "Single",
+          "RVG 44-C"
+        ],
+        [
+          "✓",
+          "Wi-FI 5",
+          "5G ",
+          "Single",
+          "RVG 54-C"
+        ]
+      ]
+    }
   },
   {
     "id": "rvw50",
@@ -2773,20 +3188,21 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 33,
+    "part_datasheets": {},
+    "order": null,
     "variants": {
       "headers": [
-        "Cellular",
         "Wi-Fi",
-        "4G/5G",
-        "No. of Modems",
-        "Part Number"
+        "Cellular",
+        "Gen",
+        "No of Modem",
+        "Final Product"
       ],
       "rows": [
         [
-          "—",
-          "Wi-Fi 5",
-          "—",
+          "WiFi-5",
+          "-",
+          "-",
           "Single",
           "RVW 50"
         ]
@@ -2807,16 +3223,31 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "12 VDC",
-    "ports": 5,
+    "ports": 0,
     "os": "OpenWRT Linux",
     "desc": "The RVXX is a compact industrial router built on MediaTek MT7621 featuring dual-band Wi-Fi 5, 4G/3G/2G cellular with dual SIM, and five Gigabit Ethernet ports. Running OpenWRT Linux, it supports VPN, VLAN, advanced routing and NMS remote management, making it ideal for industrial IoT, M2M, and edge-networking deployments. It ships in a fanless industrial aluminium enclosure with 12 V DC input and optional DIN rail mounting.",
     "housing": "Industrial Aluminium",
     "dims": "110 x 60 x 95 mm (W x H x D)",
     "weight": "390 g",
     "op_temp": "0-50 ˚C",
-    "hidden_fields": [],
-    "additional_specs": [],
-    "order": 9,
+    "hidden_fields": [
+      "rs485",
+      "rs232"
+    ],
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports-Additional Details",
+        "v": "Gigabit Ports"
+      }
+    ],
+    "part_datasheets": {
+      "RV54-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV54-1.pdf",
+      "RV54-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV54-2.pdf",
+      "RV04-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV04-1.pdf",
+      "RV04-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV04-2.pdf",
+      "RV50": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV50.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
@@ -2849,7 +3280,7 @@ const products = [
         ],
         [
           "✓",
-          "—",
+          "Wi-Fi 5",
           "4G",
           "Dual",
           "RV04-2"
@@ -2857,7 +3288,7 @@ const products = [
         [
           "—",
           "Wi-Fi 5",
-          "—",
+          "5G",
           "—",
           "RV50"
         ]
@@ -2878,7 +3309,7 @@ const products = [
     "rs232": false,
     "ip": "",
     "power": "9-57 VDC",
-    "ports": 8,
+    "ports": 0,
     "os": "â",
     "desc": "The XA-82-2 cuts through network complexity by delivering plug-and-play Gigabit switching with zero configuration overhead — eight PoE-capable ports, two SFP uplinks, and a 240W total PoE budget ready to power cameras, access points, and IP phones straight out of the box. Its wide 9-57Vdc input range and DIN rail-mountable aluminium body make it equally at home in a control cabinet or a harsh field enclosure, serving installers and contractors who need reliable, no-fuss layer-2 connectivity without the cost of managed switch complexity.",
     "housing": "Industrial Aluminium",
@@ -2894,22 +3325,30 @@ const products = [
       "storage",
       "os"
     ],
-    "additional_specs": [],
-    "order": 22,
+    "additional_specs": [
+      {
+        "k": "Ethernet Ports",
+        "v": "Gigabit Ethernet (MDI/MDIX)"
+      }
+    ],
+    "part_datasheets": {
+      "XA82-2 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XA-82-2.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
-        "PoE Out",
-        "PoE Budget",
+        "PoE ",
+        "No of Modem",
         "Part Number"
       ],
       "rows": [
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
-          "240W, 30W/port",
+          "Single",
           "XA82-2 Unmanaged PoE Switch"
         ]
       ]
@@ -2948,21 +3387,22 @@ const products = [
         "v": "2"
       }
     ],
-    "order": 23,
+    "part_datasheets": {
+      "XB82-2 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XB-82-2.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
         "PoE Out",
-        "PoE Budget",
         "Part Number"
       ],
       "rows": [
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
-          "240W, 30W/port",
           "XB82-2 Unmanaged PoE Switch"
         ]
       ]
@@ -3002,21 +3442,22 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 24,
+    "part_datasheets": {
+      "XC-80-1 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XC-80-1.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
-        "PoE Out",
-        "PoE Budget",
+        "PoE ",
         "Part Number"
       ],
       "rows": [
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
-          "240W, 30W/port",
           "XC-80-1 Unmanaged PoE Switch"
         ]
       ]
@@ -3056,21 +3497,22 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 25,
+    "part_datasheets": {
+      "XD50-1 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XD-50-1.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
-        "PoE Out",
-        "PoE Budget",
+        "PoE",
         "Part Number"
       ],
       "rows": [
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
-          "240W, 30W/port",
           "XD50-1 Unmanaged PoE Switch"
         ]
       ]
@@ -3110,22 +3552,26 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 26,
+    "part_datasheets": {
+      "XF-100-1 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XF-100-1.pdf",
+      "XF50-1 Unmanaged PoE Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/xf100-XF50-1_Unmanaged_PoE_Switch.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
-        "PoE Out",
-        "PoE Budget",
+        "PoE ",
+        "No of Modem",
         "Part Number"
       ],
       "rows": [
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
-          "240W, 30W/port",
-          "XF-100-1 Unmanaged PoE Switch"
+          "Single",
+          "XF50-1 Unmanaged PoE Switch"
         ]
       ]
     }
@@ -3164,22 +3610,26 @@ const products = [
       "rs232"
     ],
     "additional_specs": [],
-    "order": 27,
+    "part_datasheets": {
+      "XG82-2L Gigabit Ethernet Managed Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/XG-82-2L Updated.pdf",
+      "XG 82-2MI Lite Managed Switch": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/xg82-XG_82-2MI_Lite_Managed_Switch.pdf"
+    },
+    "order": null,
     "variants": {
       "headers": [
         "Cellular",
         "Wi-Fi",
-        "PoE Out",
-        "PoE Budget",
+        "PoE",
+        "No of Modems",
         "Part Number"
       ],
       "rows": [
         [
-          "—",
-          "—",
+          "-",
+          "-",
           "✓",
-          "240W",
-          "XG82-2L Gigabit Ethernet Managed Switch"
+          "Single",
+          "XG 82-2MI Lite Managed Switch"
         ]
       ]
     }
@@ -3244,8 +3694,28 @@ const products = [
         "v": "56Gbps"
       }
     ],
-    "order": 98,
-    "variants": null
+    "part_datasheets": {
+      "XI 244-2M": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/xi244-2M-XI_244-2M.pdf"
+    },
+    "order": null,
+    "variants": {
+      "headers": [
+        "Wi-Fi",
+        "Cellular",
+        "PoE",
+        "Number of Modem",
+        "Part Number"
+      ],
+      "rows": [
+        [
+          "—",
+          "—",
+          "—",
+          "—",
+          "XI 244-2M"
+        ]
+      ]
+    }
   }
 ]
 
