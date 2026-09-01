@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-01T09:45:47.385Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "—",
+        "to": "added \"14\""
+      }
+    ]
+  },
+  {
     "ts": "2026-09-01T09:42:46.860Z",
     "user": "ananth.r@invendis.com",
     "page": "Gallery",
