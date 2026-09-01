@@ -113,6 +113,20 @@
       "title": "Automation Expo 2026",
       "caption": "Automation Expo 2026 at Mumbai",
       "src": null
+    },
+    {
+      "id": 12,
+      "category": "events",
+      "title": "",
+      "caption": "",
+      "src": null
+    },
+    {
+      "id": 13,
+      "category": "expos",
+      "title": "Dummy",
+      "caption": "",
+      "src": "images/gallery/dummy.jpg"
     }
   ],
   "ctaBanner": {
