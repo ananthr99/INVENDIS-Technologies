@@ -42,7 +42,7 @@
       "category": "expos",
       "title": "India Telecom Expo 2024",
       "caption": "Showcasing SILBO routers and iSense RMS at India Telecom Expo, New Delhi.",
-      "src": "images/gallery/india-telecom-expo-2024.png"
+      "src": null
     },
     {
       "id": 2,
@@ -120,20 +120,6 @@
       "title": "",
       "caption": "",
       "src": null
-    },
-    {
-      "id": 13,
-      "category": "expos",
-      "title": "Dummy",
-      "caption": "",
-      "src": "images/gallery/dummy.jpg"
-    },
-    {
-      "id": 14,
-      "category": "expos",
-      "title": "Product Launch",
-      "caption": "New product 2026",
-      "src": "images/gallery/product-launch.jpg"
     }
   ],
   "ctaBanner": {
