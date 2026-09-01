@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "",
   "power": "9-36 VDC",
-  "ports": 2,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "This compact industrial gateway is designed to provide reliable cellular and Wi-Fi connectivity for lightweight, distributed networking applications. Its key strengths include flexible SIM options (eSIM/physical), wide input voltage range, rugged fanless design, and a versatile OpenWRT platform with strong VPN and security support. It is well-suited for IoT use cases such as remote monitoring, smart utilities, kiosks, and small-scale industrial or enterprise edge deployments.",
   "housing": "Metal",
@@ -33,7 +33,12 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": "Fast Ethernet"
+    }
+  ],
   "variants": {
     "headers": [
       "Cellular",

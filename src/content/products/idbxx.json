@@ -88,7 +88,9 @@
   },
   "part_datasheets": {
     "IDB55": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDB55.pdf",
-    "IDB54": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDB54 (1).pdf"
+    "IDB54": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IDB54 (1).pdf",
+    "IDB55-B": "contact_us",
+    "IDB54-B": "contact_us"
   },
-  "order": null
+  "order": 23
 }

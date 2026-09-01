@@ -12,7 +12,7 @@
   "rs232": true,
   "ip": "",
   "power": "9-30 VDC",
-  "ports": 2,
+  "ports": 0,
   "os": "OpenWRT Linux",
   "desc": "The IABXX-X is a rugged cellular router designed for reliable industrial connectivity, featuring a MediaTek MT7628 CPU with 128MB RAM and dual Nano SIM slots for flexible network redundancy. Running on OpenWRT-based Linux, it operates seamlessly across harsh environments — from -30 to 70°C storage temperatures — making it an ideal fit for IoT deployments, remote infrastructure monitoring, and industrial automation where uptime and durability are non-negotiable.",
   "housing": "Industrial Aluminium",
@@ -29,7 +29,12 @@
     "Remote Environmental & Field Monitoring"
   ],
   "hidden_fields": [],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": "Fast Ethernet"
+    }
+  ],
   "variants": {
     "headers": [
       "Cellular",
@@ -82,7 +87,8 @@
   "part_datasheets": {
     "IAB44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB44-C.pdf",
     "IAB44-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB44-B.pdf",
-    "IAB04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB04-C.pdf"
+    "IAB04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/IAB04-C.pdf",
+    "IAB04-B": "contact_us"
   },
-  "order": null
+  "order": 19
 }

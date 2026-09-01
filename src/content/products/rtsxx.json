@@ -34,7 +34,7 @@
   ],
   "additional_specs": [
     {
-      "k": "Ethernet Ports-Additional Details",
+      "k": "Ethernet Ports",
       "v": "4 x LAN (Gigabit) and 1 x WAN (Gigabit)"
     },
     {
@@ -132,7 +132,8 @@
     "RTS-60": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS60.pdf",
     "RTS64-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS64-2.pdf",
     "RTS65-1": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS65-1.pdf",
-    "RTS65-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS65-2.pdf"
+    "RTS65-2": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RTS65-2.pdf",
+    "RTS64-1": "contact_us"
   },
   "order": null
 }

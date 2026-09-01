@@ -1,5 +1,104 @@
 [
   {
+    "ts": "2026-09-01T10:00:45.188Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "removed \"12\"",
+        "to": "—"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-01T09:59:29.686Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "removed \"13\"",
+        "to": "—"
+      },
+      {
+        "field": "photos",
+        "from": "removed \"14\"",
+        "to": "—"
+      },
+      {
+        "field": "photos[\"1\"].src",
+        "from": "images/gallery/india-telecom-expo-2024.png",
+        "to": ""
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-01T09:45:47.385Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "—",
+        "to": "added \"14\""
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-01T09:42:46.860Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"1\"].src",
+        "from": "",
+        "to": "images/gallery/india-telecom-expo-2024.png"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-01T09:40:40.590Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "—",
+        "to": "added \"12\""
+      },
+      {
+        "field": "photos",
+        "from": "—",
+        "to": "added \"13\""
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-01T05:53:48.754Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Products",
+    "section": "Software",
+    "action": "Updated Products — Software",
+    "changes": [
+      {
+        "field": "softwarePlatforms[\"Workforce Management Software\"].desc",
+        "from": "",
+        "to": "Centralized workforce management system for connected opera…"
+      }
+    ]
+  },
+  {
     "ts": "2026-08-28T10:56:55.173Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
