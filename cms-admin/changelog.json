@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-02T07:32:04.410Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].caption",
+        "from": "",
+        "to": "Invendis participated in ElAsia from May 14-17 2026"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T07:30:28.809Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
