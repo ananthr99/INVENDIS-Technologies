@@ -1,5 +1,64 @@
 [
   {
+    "ts": "2026-09-02T06:06:49.709Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"1\"].title",
+        "from": "India Telecom Expo 2024",
+        "to": "Intel ISB Connect 2026"
+      },
+      {
+        "field": "photos[\"1\"].caption",
+        "from": "Showcasing SILBO routers and iSense RMS at India Telecom Ex…",
+        "to": "Showcase of the latest Intel Edge Devices at the Taj Hotel,…"
+      },
+      {
+        "field": "photos[\"1\"].src",
+        "from": "",
+        "to": "images/gallery/intel-isb-connect-2026.jpeg"
+      },
+      {
+        "field": "photos[\"2\"].category",
+        "from": "awards",
+        "to": "expos"
+      },
+      {
+        "field": "photos[\"2\"].title",
+        "from": "IoT Innovator Award 2023",
+        "to": "Industrial Automation Expo 2026"
+      },
+      {
+        "field": "photos[\"2\"].caption",
+        "from": "Team Invendis receiving the IoT Innovator of the Year award.",
+        "to": "Participation in India's largest Automation Exhibition held…"
+      },
+      {
+        "field": "photos[\"2\"].src",
+        "from": "",
+        "to": "images/gallery/iot-innovator-award-2023.jpeg"
+      },
+      {
+        "field": "photos[\"3\"].category",
+        "from": "events",
+        "to": "expos"
+      },
+      {
+        "field": "photos[\"3\"].title",
+        "from": "Product Launch — SILBO Gen 3",
+        "to": "Embedded World Germany 2026"
+      },
+      {
+        "field": "photos[\"3\"].caption",
+        "from": "Launch event for the third generation SILBO router series.",
+        "to": "Took part in Embedded World Germany in Nuremberg, Germany f…"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-01T10:00:45.188Z",
     "user": "ananth.r@invendis.com",
     "page": "Gallery",
