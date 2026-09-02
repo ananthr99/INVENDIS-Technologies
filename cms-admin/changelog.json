@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-02T07:45:34.746Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"5\"].category",
+        "from": "festivals",
+        "to": "awards"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T07:41:22.889Z",
     "user": "ananth.r@invendis.com",
     "page": "Gallery",
