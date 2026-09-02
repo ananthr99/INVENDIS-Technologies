@@ -40,30 +40,30 @@
     {
       "id": 1,
       "category": "expos",
-      "title": "India Telecom Expo 2024",
-      "caption": "Showcasing SILBO routers and iSense RMS at India Telecom Expo, New Delhi.",
-      "src": null
+      "title": "Intel ISB Connect 2026",
+      "caption": "Showcase of the latest Intel Edge Devices at the Taj Hotel, Bengaluru, on 13th August 2026",
+      "src": "images/gallery/intel-isb-connect-2026.jpeg"
     },
     {
       "id": 2,
-      "category": "awards",
-      "title": "IoT Innovator Award 2023",
-      "caption": "Team Invendis receiving the IoT Innovator of the Year award.",
-      "src": null
+      "category": "expos",
+      "title": "Industrial Automation Expo 2026",
+      "caption": "Participation in India's largest Automation Exhibition held in BEC Goregaon, Mumbai, from 22-25th July 2026",
+      "src": "images/gallery/iot-innovator-award-2023.jpeg"
     },
     {
       "id": 3,
-      "category": "events",
-      "title": "Product Launch — SILBO Gen 3",
-      "caption": "Launch event for the third generation SILBO router series.",
-      "src": null
+      "category": "expos",
+      "title": "Embedded World Germany 2026",
+      "caption": "Took part in Embedded World Germany in Nuremberg, Germany from 10th-12th March 2026",
+      "src": "images/gallery/photo-3.jpeg"
     },
     {
       "id": 4,
-      "category": "team",
-      "title": "Annual Team Outing 2024",
-      "caption": "The Invendis family on our annual team outing in Coorg.",
-      "src": null
+      "category": "awards",
+      "title": "Intel Award 2026",
+      "caption": "Invendis completed Alder Lake Power-On Board in a record 3 days under the Make in India Initiative",
+      "src": "images/gallery/photo-4.jpeg"
     },
     {
       "id": 5,
