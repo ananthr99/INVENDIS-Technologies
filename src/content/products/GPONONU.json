@@ -14,7 +14,7 @@
   "power": "12 VDC",
   "ports": 1,
   "os": "—",
-  "desc": "",
+  "desc": "A compact, single-port GPON ONU (Optical Network Unit) built on the RTL9601D chipset, designed to terminate fiber-optic GPON connections and deliver Gigabit Ethernet connectivity to end-user premises in FTTH deployments.",
   "housing": "Plastic",
   "dims": "90 x 27 x 80 mm (W x H x D)",
   "weight": "300 g",
@@ -23,7 +23,11 @@
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/GPONONU-1787223696594-jx1x.png"
   ],
   "datasheet": "",
-  "use_cases": [],
+  "use_cases": [
+    "Residential FTTH Last-Mile Termination",
+    "Small Office / Retail Fiber Connectivity",
+    "MDU (Multi-Dwelling Unit) Bulk Rollouts"
+  ],
   "hidden_fields": [
     "cell",
     "cellular_gen",
