@@ -1,5 +1,29 @@
 [
   {
+    "ts": "2026-09-02T09:51:15.092Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].order",
+        "from": "4",
+        "to": "3"
+      },
+      {
+        "field": "photos[\"8\"].order",
+        "from": "3",
+        "to": "5"
+      },
+      {
+        "field": "photos[\"9\"].order",
+        "from": "8",
+        "to": "4"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T09:49:40.564Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
