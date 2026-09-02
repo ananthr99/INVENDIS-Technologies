@@ -12,7 +12,7 @@
   "rs232": false,
   "ip": "",
   "power": "44-57 VDC",
-  "ports": 8,
+  "ports": 0,
   "os": "â",
   "desc": "The SILBO XG-82-2MI is a compact, fanless Layer 2 smart managed switch featuring 8 Gigabit Ethernet PoE ports with a 120W total budget, paired with 2 high-speed 2.5Gbps SFP ports for fiber uplinks. Encased in a durable sheet metal housing, it offers comprehensive network management features including VLANs, QoS, IGMP Snooping, and redundant link protocols like STP/MSTP and ERPS.",
   "housing": "Industrial Aluminium",
@@ -40,7 +40,12 @@
     "rs485",
     "rs232"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": "Gigabit Ports"
+    }
+  ],
   "variants": {
     "headers": [
       "Cellular",

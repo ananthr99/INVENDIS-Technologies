@@ -29,6 +29,7 @@
     "Remote Edge Network Distribution"
   ],
   "hidden_fields": [
+    "cellular_gen",
     "cpu",
     "ram",
     "storage",

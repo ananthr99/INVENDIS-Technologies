@@ -29,6 +29,7 @@
     "Remote Outdoor Asset Connectivity"
   ],
   "hidden_fields": [
+    "wifi",
     "rs485",
     "rs232"
   ],
