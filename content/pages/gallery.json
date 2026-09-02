@@ -26,11 +26,20 @@
     {
       "id": "awards",
       "label": "Awards"
+    },
+    {
+      "id": "team",
+      "label": "Team Outings"
+    },
+    {
+      "id": "festivals",
+      "label": "Festivals"
     }
   ],
   "photos": [
     {
       "id": 1,
+      "order": 1,
       "category": "expos",
       "title": "Intel ISB Connect 2026",
       "caption": "Showcase of the latest Intel Edge Devices at the Taj Hotel, Bengaluru, on 13th August 2026",
@@ -38,28 +47,31 @@
     },
     {
       "id": 2,
-      "category": "expos",
-      "title": "Industrial Automation Expo 2026",
-      "caption": "Participation in India's largest Automation Exhibition held in BEC Goregaon, Mumbai, from 22-25th July 2026",
-      "src": "images/gallery/iot-innovator-award-2023.jpeg"
+      "order": 2,
+      "category": "awards",
+      "title": "IoT Innovator Award 2023",
+      "caption": "Team Invendis receiving the IoT Innovator of the Year award.",
+      "src": null
     },
     {
       "id": 3,
-      "category": "expos",
-      "title": "Embedded World Germany 2026",
-      "caption": "Took part in Embedded World Germany in Nuremberg, Germany from 10th-12th March 2026",
-      "src": "images/gallery/photo-3.jpeg"
+      "order": 3,
+      "category": "events",
+      "title": "Product Launch — SILBO Gen 3",
+      "caption": "Launch event for the third generation SILBO router series.",
+      "src": null
     },
     {
       "id": 4,
-      "category": "awards",
-      "title": "Intel Award 2026",
-      "caption": "Invendis completed Alder Lake Power-On Board in a record 3 days under the Make in India Initiative",
-      "src": "images/gallery/photo-4.jpeg"
+      "order": 4,
+      "category": "team",
+      "title": "Annual Team Outing 2024",
+      "caption": "The Invendis family on our annual team outing in Coorg.",
+      "src": null
     },
     {
       "id": 5,
-      "category": "events",
+      "category": "awards",
       "title": "Coins Partner Awards 2025",
       "caption": "Invendis received the business excellence award at the Coins IT Partner Summit 5.0 held from 15-17 December 2025 in Goa",
       "src": "images/gallery/coins-partner-awards-2026.jpeg"
@@ -69,7 +81,7 @@
       "category": "events",
       "title": "ElAsia 2026",
       "caption": "Invendis participated in ElAsia from May 14-17 2026",
-      "src": null
+      "src": "images/gallery/elasia-2026.jpeg"
     }
   ],
   "ctaBanner": {
