@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-09-02T07:30:28.809Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].category",
+        "from": "expos",
+        "to": "events"
+      },
+      {
+        "field": "photos[\"6\"].title",
+        "from": "",
+        "to": "ElAsia 2026"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T07:02:31.476Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
