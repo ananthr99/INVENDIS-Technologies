@@ -1,5 +1,34 @@
 [
   {
+    "ts": "2026-09-02T07:02:31.476Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].title",
+        "from": "Africa Tech Summit 2024",
+        "to": ""
+      },
+      {
+        "field": "photos[\"6\"].caption",
+        "from": "Invendis at the Africa Tech Summit in Kigali, Rwanda.",
+        "to": ""
+      },
+      {
+        "field": "photos[\"7\"].title",
+        "from": "Customer Seminar — Bangalore",
+        "to": ""
+      },
+      {
+        "field": "photos[\"7\"].caption",
+        "from": "Hosting a technical seminar for telecom infrastructure cust…",
+        "to": ""
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T06:59:13.610Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
