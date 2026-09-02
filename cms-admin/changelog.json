@@ -1,5 +1,29 @@
 [
   {
+    "ts": "2026-09-02T06:57:44.245Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"5\"].title",
+        "from": "Diwali Celebrations 2024",
+        "to": "Coins Partner Awards 2026"
+      },
+      {
+        "field": "photos[\"5\"].caption",
+        "from": "Celebrating Diwali together at the Bangalore office.",
+        "to": "Invendis received the business excellence award at the Coin…"
+      },
+      {
+        "field": "photos[\"5\"].src",
+        "from": "",
+        "to": "images/gallery/coins-partner-awards-2026.jpeg"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T06:06:49.709Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
