@@ -60,6 +60,22 @@
       "caption": "Invendis participated in ElAsia from May 14-17 2026",
       "src": "images/gallery/elasia-2026.jpeg",
       "order": 6
+    },
+    {
+      "id": 7,
+      "category": "expos",
+      "title": "Automation Expo 2026",
+      "caption": "Invendis participated in the Industrial Automation Expo 2026, one of India's largest events for automation related technology from 22nd-25th July 2026. ",
+      "src": "images/gallery/automation-expo-2026.jpeg",
+      "order": 2
+    },
+    {
+      "id": 8,
+      "category": "expos",
+      "title": "Embedded World Germany 2026",
+      "caption": "Took part in Embedded World Germany, the only trade show dedicated to the latest embedded technology from 10-12 March 2026",
+      "src": "images/gallery/embedded-world-germany-2026.jpeg",
+      "order": 3
     }
   ],
   "ctaBanner": {
