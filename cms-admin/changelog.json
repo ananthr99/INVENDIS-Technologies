@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-02T07:41:22.889Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].src",
+        "from": "",
+        "to": "images/gallery/elasia-2026.jpeg"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T07:33:40.587Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
