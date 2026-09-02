@@ -250,17 +250,20 @@ function CategoriesTab({ data, patch }) {
 /* ── Photos ── */
 function PhotosTab({ data, patch }) {
   const { token, toast } = useAdmin()
-  const categories = (data.categories || []).filter(c => c.id !== 'all')
-  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.photos, 5)
+  const categories   = (data.categories || []).filter(c => c.id !== 'all')
+  const sortedPhotos = [...data.photos].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+  const nextOrder    = data.photos.reduce((max, p) => Math.max(max, p.order ?? 0), 0) + 1
+  const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(sortedPhotos, 5)
   const [addModal, setAddModal] = useState(false)
 
-  function update(i, f, v) { patch(d => { d.photos[i][f] = v; return d }) }
-  function removePhoto(i)  { patch(d => { d.photos[i].src = null; return d }) }
-  function remove(i)       { patch(d => { d.photos.splice(i, 1); return d }) }
+  function update(id, f, v) { patch(d => { const p = d.photos.find(p => p.id === id); if (p) p[f] = v; return d }) }
+  function removePhoto(id)  { patch(d => { const p = d.photos.find(p => p.id === id); if (p) p.src = null; return d }) }
+  function remove(id)       { patch(d => { d.photos = d.photos.filter(p => p.id !== id); return d }) }
 
-  async function handlePhotoUpload(i, file) {
+  async function handlePhotoUpload(photoId, file) {
     if (!file) return
-    const title    = data.photos[i].title || `photo-${data.photos[i].id ?? i + 1}`
+    const photo    = data.photos.find(p => p.id === photoId)
+    const title    = photo?.title || `photo-${photoId}`
     const slug     = title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').slice(0, 40)
     const ext      = file.name.split('.').pop().toLowerCase()
     const filename = `${slug}.${ext}`
@@ -281,7 +284,7 @@ function PhotosTab({ data, patch }) {
       const mainSha = await getFileSha(`public/images/gallery/${filename}`, token)
       await writeFileRaw(`public/images/gallery/${filename}`, base64, `CMS: upload gallery photo ${filename} [skip ci]`, mainSha, token)
 
-      patch(d => { d.photos[i].src = `images/gallery/${filename}`; return d })
+      patch(d => { const p = d.photos.find(p => p.id === photoId); if (p) p.src = `images/gallery/${filename}`; return d })
       toast('Photo uploaded — click Save & Publish to store the path', 'ok')
     } catch (e) {
       toast(e.message, 'err')
@@ -304,8 +307,8 @@ function PhotosTab({ data, patch }) {
       {data.photos.length === 0 && (
         <p style={{ fontSize: 13, color: '#9ca3af', marginBottom: 12 }}>No photos yet. Click "+ Add Photo" to get started.</p>
       )}
-      {pageItems.map(({ item: photo, index: i }) => (
-        <div key={photo.id ?? i} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
+      {pageItems.map(({ item: photo }) => (
+        <div key={photo.id} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '14px 18px', marginBottom: 10 }}>
           <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
 
             {/* Thumbnail + upload */}
@@ -328,12 +331,12 @@ function PhotosTab({ data, patch }) {
                   type="file"
                   accept="image/*"
                   style={{ display: 'none' }}
-                  onChange={e => handlePhotoUpload(i, e.target.files?.[0])}
+                  onChange={e => handlePhotoUpload(photo.id, e.target.files?.[0])}
                 />
               </label>
               {photo.src && (
                 <button
-                  onClick={() => removePhoto(i)}
+                  onClick={() => removePhoto(photo.id)}
                   style={{ fontSize: 11, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: '2px 0', width: '100%' }}
                 >
                   Remove photo
@@ -344,13 +347,23 @@ function PhotosTab({ data, patch }) {
             {/* Fields */}
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+                <div className="field" style={{ width: 72, marginBottom: 0, flexShrink: 0 }}>
+                  <label>Order</label>
+                  <input
+                    type="number"
+                    min="1"
+                    value={photo.order ?? ''}
+                    onChange={e => update(photo.id, 'order', Number(e.target.value) || 1)}
+                    style={{ textAlign: 'center' }}
+                  />
+                </div>
                 <div className="field" style={{ flex: 1, marginBottom: 0 }}>
                   <label>Title</label>
-                  <input value={photo.title} onChange={e => update(i, 'title', e.target.value)} placeholder="e.g. India Telecom Expo 2024" />
+                  <input value={photo.title} onChange={e => update(photo.id, 'title', e.target.value)} placeholder="e.g. India Telecom Expo 2024" />
                 </div>
                 <div className="field" style={{ width: 150, marginBottom: 0 }}>
                   <label>Category</label>
-                  <select value={photo.category} onChange={e => update(i, 'category', e.target.value)}>
+                  <select value={photo.category} onChange={e => update(photo.id, 'category', e.target.value)}>
                     {categories.map(c => (
                       <option key={c.id} value={c.id}>{c.label}</option>
                     ))}
@@ -359,11 +372,11 @@ function PhotosTab({ data, patch }) {
               </div>
               <div className="field" style={{ marginBottom: 0 }}>
                 <label>Caption</label>
-                <textarea rows={2} value={photo.caption} onChange={e => update(i, 'caption', e.target.value)} placeholder="Short description of the photo" />
+                <textarea rows={2} value={photo.caption} onChange={e => update(photo.id, 'caption', e.target.value)} placeholder="Short description of the photo" />
               </div>
             </div>
 
-            <button className="btn-del" onClick={() => remove(i)} style={{ marginTop: 20 }}>Remove</button>
+            <button className="btn-del" onClick={() => remove(photo.id)} style={{ marginTop: 20 }}>Remove</button>
           </div>
         </div>
       ))}
@@ -375,16 +388,18 @@ function PhotosTab({ data, patch }) {
           toast={toast}
           onSave={handleAdd}
           onCancel={() => setAddModal(false)}
+          nextOrder={nextOrder}
         />
       )}
     </div>
   )
 }
 /* ── Add Photo Modal ── */
-function AddPhotoModal({ categories, token, toast, onSave, onCancel }) {
+function AddPhotoModal({ categories, token, toast, onSave, onCancel, nextOrder }) {
   const [title,      setTitle]      = useState('')
   const [caption,    setCaption]    = useState('')
   const [category,   setCategory]   = useState(categories[0]?.id || '')
+  const [order,      setOrder]      = useState(nextOrder)
   const [file,       setFile]       = useState(null)
   const [previewUrl, setPreviewUrl] = useState(null)
   const [uploading,  setUploading]  = useState(false)
@@ -433,7 +448,7 @@ function AddPhotoModal({ categories, token, toast, onSave, onCancel }) {
         src = `images/gallery/${filename}`
       }
 
-      onSave({ category, title: title.trim(), caption: caption.trim(), src })
+      onSave({ category, title: title.trim(), caption: caption.trim(), src, order: Number(order) || nextOrder })
       toast(src ? 'Photo added — click Save & Publish to go live' : 'Photo added (no image yet)', 'ok')
     } catch (e) {
       toast(e.message, 'err')
@@ -498,8 +513,18 @@ function AddPhotoModal({ categories, token, toast, onSave, onCancel }) {
             )}
           </div>
 
-          {/* Title + Category */}
+          {/* Order + Title + Category */}
           <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+            <div className="field" style={{ width: 72, marginBottom: 0, flexShrink: 0 }}>
+              <label>Order</label>
+              <input
+                type="number"
+                min="1"
+                value={order}
+                onChange={e => setOrder(e.target.value)}
+                style={{ textAlign: 'center' }}
+              />
+            </div>
             <div className="field" style={{ flex: 1, marginBottom: 0 }}>
               <label>Title</label>
               <input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. India Telecom Expo 2024" autoFocus />

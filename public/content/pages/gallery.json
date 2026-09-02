@@ -39,6 +39,7 @@
   "photos": [
     {
       "id": 1,
+      "order": 1,
       "category": "expos",
       "title": "India Telecom Expo 2024",
       "caption": "Showcasing SILBO routers and iSense RMS at India Telecom Expo, New Delhi.",
@@ -46,6 +47,7 @@
     },
     {
       "id": 2,
+      "order": 2,
       "category": "awards",
       "title": "IoT Innovator Award 2023",
       "caption": "Team Invendis receiving the IoT Innovator of the Year award.",
@@ -53,6 +55,7 @@
     },
     {
       "id": 3,
+      "order": 3,
       "category": "events",
       "title": "Product Launch — SILBO Gen 3",
       "caption": "Launch event for the third generation SILBO router series.",
@@ -60,6 +63,7 @@
     },
     {
       "id": 4,
+      "order": 4,
       "category": "team",
       "title": "Annual Team Outing 2024",
       "caption": "The Invendis family on our annual team outing in Coorg.",
@@ -67,6 +71,7 @@
     },
     {
       "id": 5,
+      "order": 5,
       "category": "festivals",
       "title": "Diwali Celebrations 2024",
       "caption": "Celebrating Diwali together at the Bangalore office.",
@@ -74,6 +79,7 @@
     },
     {
       "id": 6,
+      "order": 6,
       "category": "expos",
       "title": "Africa Tech Summit 2024",
       "caption": "Invendis at the Africa Tech Summit in Kigali, Rwanda.",
@@ -81,6 +87,7 @@
     },
     {
       "id": 7,
+      "order": 7,
       "category": "events",
       "title": "Customer Seminar — Bangalore",
       "caption": "Hosting a technical seminar for telecom infrastructure customers.",
@@ -88,6 +95,7 @@
     },
     {
       "id": 8,
+      "order": 8,
       "category": "team",
       "title": "R&D Team Workshop",
       "caption": "Cross-functional workshop with the R&D and product teams.",
@@ -95,6 +103,7 @@
     },
     {
       "id": 9,
+      "order": 9,
       "category": "expos",
       "title": "MWC 2026",
       "caption": "MWC Expo 2026 at Barcelona",
@@ -102,6 +111,7 @@
     },
     {
       "id": 10,
+      "order": 10,
       "category": "events",
       "title": "ISB Intel 2026",
       "caption": "Intel Event 2026",
@@ -109,6 +119,7 @@
     },
     {
       "id": 11,
+      "order": 11,
       "category": "events",
       "title": "Automation Expo 2026",
       "caption": "Automation Expo 2026 at Mumbai",

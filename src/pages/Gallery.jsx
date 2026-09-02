@@ -56,9 +56,10 @@ export default function Gallery() {
 
   const { hero, gallerySection, categories, photos, ctaBanner } = content
 
+  const sorted   = [...photos].sort((a, b) => (a.order ?? a.id ?? 0) - (b.order ?? b.id ?? 0))
   const filtered = activeCategory === 'all'
-  ? photos
-  : photos.filter(p => p.category === activeCategory)
+  ? sorted
+  : sorted.filter(p => p.category === activeCategory)
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / itemsPerPage))
   const safePage   = Math.min(currentPage, totalPages)
