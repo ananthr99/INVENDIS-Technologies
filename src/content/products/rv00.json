@@ -60,7 +60,8 @@
     ]
   },
   "part_datasheets": {
-    "RV00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV00.pdf"
+    "RV00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RV00.pdf",
+    "—": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rv00-_.pdf"
   },
   "order": 13
 }
