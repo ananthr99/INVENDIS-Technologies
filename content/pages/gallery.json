@@ -59,7 +59,7 @@
       "title": "ElAsia 2026",
       "caption": "Invendis participated in ElAsia from May 14-17 2026",
       "src": "images/gallery/elasia-2026.jpeg",
-      "order": 4
+      "order": 3
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "title": "Embedded World Germany 2026",
       "caption": "Took part in Embedded World Germany, the only trade show dedicated to the latest embedded technology from 10-12 March 2026",
       "src": "images/gallery/embedded-world-germany-2026.jpeg",
-      "order": 3
+      "order": 5
     },
     {
       "id": 9,
@@ -83,7 +83,7 @@
       "title": "Intel Alderlake Award",
       "caption": "Invendis received an award for designing the Alderlake Power-On Board in a record 3 days under the Make in India initiative in March 2026",
       "src": "images/gallery/intel-alderlake-award.jpeg",
-      "order": 8
+      "order": 4
     }
   ],
   "ctaBanner": {
