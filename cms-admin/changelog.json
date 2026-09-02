@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-09-02T06:59:13.610Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"5\"].title",
+        "from": "Coins Partner Awards 2026",
+        "to": "Coins Partner Awards 2025"
+      },
+      {
+        "field": "photos[\"5\"].caption",
+        "from": "Invendis received the business excellence award at the Coin…",
+        "to": "Invendis received the business excellence award at the Coin…"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T06:57:44.245Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
