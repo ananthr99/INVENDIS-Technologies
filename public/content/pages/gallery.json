@@ -71,59 +71,17 @@
     },
     {
       "id": 5,
-      "order": 5,
-      "category": "festivals",
+      "category": "awards",
       "title": "Coins Partner Awards 2025",
       "caption": "Invendis received the business excellence award at the Coins IT Partner Summit 5.0 held from 15-17 December 2025 in Goa",
       "src": "images/gallery/coins-partner-awards-2026.jpeg"
     },
     {
       "id": 6,
-      "order": 6,
-      "category": "expos",
-      "title": "Africa Tech Summit 2024",
-      "caption": "Invendis at the Africa Tech Summit in Kigali, Rwanda.",
-      "src": null
-    },
-    {
-      "id": 7,
-      "order": 7,
       "category": "events",
-      "title": "",
-      "caption": "",
-      "src": null
-    },
-    {
-      "id": 8,
-      "order": 8,
-      "category": "team",
-      "title": "R&D Team Workshop",
-      "caption": "Cross-functional workshop with the R&D and product teams.",
-      "src": null
-    },
-    {
-      "id": 9,
-      "order": 9,
-      "category": "expos",
-      "title": "MWC 2026",
-      "caption": "MWC Expo 2026 at Barcelona",
-      "src": null
-    },
-    {
-      "id": 10,
-      "order": 10,
-      "category": "events",
-      "title": "ISB Intel 2026",
-      "caption": "Intel Event 2026",
-      "src": null
-    },
-    {
-      "id": 11,
-      "order": 11,
-      "category": "events",
-      "title": "Automation Expo 2026",
-      "caption": "Automation Expo 2026 at Mumbai",
-      "src": null
+      "title": "ElAsia 2026",
+      "caption": "Invendis participated in ElAsia from May 14-17 2026",
+      "src": "images/gallery/elasia-2026.jpeg"
     }
   ],
   "ctaBanner": {

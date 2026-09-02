@@ -1,5 +1,67 @@
 [
   {
+    "ts": "2026-09-02T07:45:34.746Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"5\"].category",
+        "from": "festivals",
+        "to": "awards"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-02T07:41:22.889Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].src",
+        "from": "",
+        "to": "images/gallery/elasia-2026.jpeg"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-02T07:33:40.587Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "removed \"7\"",
+        "to": "—"
+      },
+      {
+        "field": "photos",
+        "from": "removed \"8\"",
+        "to": "—"
+      },
+      {
+        "field": "photos",
+        "from": "removed \"9\"",
+        "to": "—"
+      },
+      {
+        "field": "photos",
+        "from": "removed \"10\"",
+        "to": "—"
+      },
+      {
+        "field": "photos",
+        "from": "removed \"11\"",
+        "to": "—"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T07:32:04.410Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",

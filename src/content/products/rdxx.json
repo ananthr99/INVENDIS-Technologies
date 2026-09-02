@@ -131,7 +131,8 @@
     "RD04-B": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD04-B.pdf",
     "RD44-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD44-C.pdf",
     "RD04-C": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RD04-C.pdf",
-    "RDS00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RDS00.pdf"
+    "RDS00": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/RDS00.pdf",
+    "RDS44": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rdxx-RDS44.pdf"
   },
   "order": 14
 }

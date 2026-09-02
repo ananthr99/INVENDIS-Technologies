@@ -44,6 +44,17 @@ export default function GalleryPage() {
   useEffect(() => () => setDirty(false), [])
 
   async function handleSave() {
+    if (data.photos.length > 0) {
+      const orders = data.photos.map(p => p.order)
+      if (orders.some(o => o === '' || o == null)) {
+        toast('Every photo must have an order number before publishing', 'err')
+        return
+      }
+      if (new Set(orders).size !== orders.length) {
+        toast('Two or more photos share the same order number — fix before publishing', 'err')
+        return
+      }
+    }
     setSaving(true)
     try {
       const json = JSON.stringify(data, null, 2)
@@ -251,8 +262,14 @@ function CategoriesTab({ data, patch }) {
 function PhotosTab({ data, patch }) {
   const { token, toast } = useAdmin()
   const categories   = (data.categories || []).filter(c => c.id !== 'all')
-  const sortedPhotos = [...data.photos].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+  const sortedPhotos = [...data.photos].sort((a, b) => ((a.order || Infinity) - (b.order || Infinity)))
   const nextOrder    = data.photos.reduce((max, p) => Math.max(max, p.order ?? 0), 0) + 1
+
+  const orderCount = {}
+  data.photos.forEach(p => { if (p.order) orderCount[p.order] = (orderCount[p.order] || 0) + 1 })
+  const duplicateOrders = new Set(Object.keys(orderCount).filter(k => orderCount[k] > 1).map(Number))
+  const existingOrders  = new Set(data.photos.map(p => p.order).filter(Boolean))
+
   const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(sortedPhotos, 5)
   const [addModal, setAddModal] = useState(false)
 
@@ -353,9 +370,18 @@ function PhotosTab({ data, patch }) {
                     type="number"
                     min="1"
                     value={photo.order ?? ''}
-                    onChange={e => update(photo.id, 'order', Number(e.target.value) || 1)}
-                    style={{ textAlign: 'center' }}
+                    onChange={e => update(photo.id, 'order', e.target.value === '' ? '' : Number(e.target.value))}
+                    style={{
+                      textAlign: 'center',
+                      borderColor: (!photo.order || duplicateOrders.has(photo.order)) ? '#ef4444' : undefined,
+                      boxShadow:   (!photo.order || duplicateOrders.has(photo.order)) ? '0 0 0 2px #fecaca' : undefined,
+                    }}
                   />
+                  {(!photo.order || duplicateOrders.has(photo.order)) && (
+                    <span style={{ fontSize: 10, color: '#ef4444', display: 'block', marginTop: 2, textAlign: 'center', lineHeight: 1.3 }}>
+                      {!photo.order ? 'Required' : 'Duplicate'}
+                    </span>
+                  )}
                 </div>
                 <div className="field" style={{ flex: 1, marginBottom: 0 }}>
                   <label>Title</label>
@@ -389,13 +415,14 @@ function PhotosTab({ data, patch }) {
           onSave={handleAdd}
           onCancel={() => setAddModal(false)}
           nextOrder={nextOrder}
+          existingOrders={existingOrders}
         />
       )}
     </div>
   )
 }
 /* ── Add Photo Modal ── */
-function AddPhotoModal({ categories, token, toast, onSave, onCancel, nextOrder }) {
+function AddPhotoModal({ categories, token, toast, onSave, onCancel, nextOrder, existingOrders }) {
   const [title,      setTitle]      = useState('')
   const [caption,    setCaption]    = useState('')
   const [category,   setCategory]   = useState(categories[0]?.id || '')
@@ -455,6 +482,11 @@ function AddPhotoModal({ categories, token, toast, onSave, onCancel, nextOrder }
       setUploading(false)
     }
   }
+
+  const orderNum   = Number(order)
+  const orderEmpty = order === '' || order == null
+  const orderDup   = !orderEmpty && existingOrders.has(orderNum)
+  const orderError = orderEmpty || orderDup
 
   const dropZoneStyle = {
     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -522,8 +554,17 @@ function AddPhotoModal({ categories, token, toast, onSave, onCancel, nextOrder }
                 min="1"
                 value={order}
                 onChange={e => setOrder(e.target.value)}
-                style={{ textAlign: 'center' }}
+                style={{
+                  textAlign: 'center',
+                  borderColor: orderError ? '#ef4444' : undefined,
+                  boxShadow:   orderError ? '0 0 0 2px #fecaca' : undefined,
+                }}
               />
+              {orderError && (
+                <span style={{ fontSize: 10, color: '#ef4444', display: 'block', marginTop: 2, textAlign: 'center', lineHeight: 1.3 }}>
+                  {orderEmpty ? 'Required' : 'Duplicate'}
+                </span>
+              )}
             </div>
             <div className="field" style={{ flex: 1, marginBottom: 0 }}>
               <label>Title</label>
@@ -554,7 +595,7 @@ function AddPhotoModal({ categories, token, toast, onSave, onCancel, nextOrder }
           >
             Cancel
           </button>
-          <button className="btn-save" onClick={handleSave} disabled={uploading} style={{ minWidth: 110 }}>
+          <button className="btn-save" onClick={handleSave} disabled={uploading || orderError} style={{ minWidth: 110 }}>
             {uploading ? 'Uploading…' : 'Add Photo'}
           </button>
         </div>
