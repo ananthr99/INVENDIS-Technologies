@@ -1,7 +1,7 @@
 {
   "id": "rvcp",
   "name": "RVCP",
-  "cat": "Router",
+  "cat": "Gateway",
   "cpu": "MediaTek MT7621, Dual Core MIPS 880MHz",
   "ram": "512MB, DDR3",
   "storage": "32MB NOR Flash",

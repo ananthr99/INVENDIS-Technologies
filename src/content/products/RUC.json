@@ -1,7 +1,7 @@
 {
   "id": "RUC",
   "name": "RUC 65",
-  "cat": "Router",
+  "cat": "Gateway",
   "cpu": "MediaTek MT7981 1.3GHz Dual Core ARM Cortex A53",
   "ram": "512 MB DDR3 RAM",
   "storage": "128 MB NAND",
@@ -35,7 +35,7 @@
   ],
   "additional_specs": [
     {
-      "k": "Ethernet Ports Additional Spec",
+      "k": "Ethernet Ports",
       "v": "1 x Gigabit WAN (PoE IN IEEE802.3at), 2 x Gigabit LAN"
     }
   ],
