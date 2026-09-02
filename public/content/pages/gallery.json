@@ -78,41 +78,6 @@
       "title": "ElAsia 2026",
       "caption": "Invendis participated in ElAsia from May 14-17 2026",
       "src": null
-    },
-    {
-      "id": 7,
-      "category": "events",
-      "title": "",
-      "caption": "",
-      "src": null
-    },
-    {
-      "id": 8,
-      "category": "team",
-      "title": "R&D Team Workshop",
-      "caption": "Cross-functional workshop with the R&D and product teams.",
-      "src": null
-    },
-    {
-      "id": 9,
-      "category": "expos",
-      "title": "MWC 2026",
-      "caption": "MWC Expo 2026 at Barcelona",
-      "src": null
-    },
-    {
-      "id": 10,
-      "category": "events",
-      "title": "ISB Intel 2026",
-      "caption": "Intel Event 2026",
-      "src": null
-    },
-    {
-      "id": 11,
-      "category": "events",
-      "title": "Automation Expo 2026",
-      "caption": "Automation Expo 2026 at Mumbai",
-      "src": null
     }
   ],
   "ctaBanner": {
