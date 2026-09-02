@@ -41,9 +41,9 @@
       "id": 1,
       "order": 1,
       "category": "expos",
-      "title": "India Telecom Expo 2024",
-      "caption": "Showcasing SILBO routers and iSense RMS at India Telecom Expo, New Delhi.",
-      "src": null
+      "title": "Intel ISB Connect 2026",
+      "caption": "Showcase of the latest Intel Edge Devices at the Taj Hotel, Bengaluru, on 13th August 2026",
+      "src": "images/gallery/intel-isb-connect-2026.jpeg"
     },
     {
       "id": 2,
@@ -73,9 +73,9 @@
       "id": 5,
       "order": 5,
       "category": "festivals",
-      "title": "Diwali Celebrations 2024",
-      "caption": "Celebrating Diwali together at the Bangalore office.",
-      "src": null
+      "title": "Coins Partner Awards 2025",
+      "caption": "Invendis received the business excellence award at the Coins IT Partner Summit 5.0 held from 15-17 December 2025 in Goa",
+      "src": "images/gallery/coins-partner-awards-2026.jpeg"
     },
     {
       "id": 6,
@@ -89,8 +89,8 @@
       "id": 7,
       "order": 7,
       "category": "events",
-      "title": "Customer Seminar — Bangalore",
-      "caption": "Hosting a technical seminar for telecom infrastructure customers.",
+      "title": "",
+      "caption": "",
       "src": null
     },
     {

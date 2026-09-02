@@ -1,7 +1,7 @@
 {
   "id": "GPONONU",
   "name": "GPON ONU",
-  "cat": "Router",
+  "cat": "Gateway",
   "cpu": "—",
   "ram": "64MB SD RAM",
   "storage": "—",
@@ -56,5 +56,5 @@
   "part_datasheets": {
     "GPON ONU": "contact_us"
   },
-  "order": null
+  "order": 31
 }

@@ -1,7 +1,7 @@
 {
   "id": "rvcp",
   "name": "RVCP",
-  "cat": "Router",
+  "cat": "Gateway",
   "cpu": "MediaTek MT7621, Dual Core MIPS 880MHz",
   "ram": "512MB, DDR3",
   "storage": "32MB NOR Flash",
@@ -66,5 +66,5 @@
   "part_datasheets": {
     "RVCP 04": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/rvcp-RVCP_04.pdf"
   },
-  "order": null
+  "order": 28
 }

@@ -1,5 +1,169 @@
 [
   {
+    "ts": "2026-09-02T07:32:04.410Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].caption",
+        "from": "",
+        "to": "Invendis participated in ElAsia from May 14-17 2026"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-02T07:30:28.809Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].category",
+        "from": "expos",
+        "to": "events"
+      },
+      {
+        "field": "photos[\"6\"].title",
+        "from": "",
+        "to": "ElAsia 2026"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-02T07:02:31.476Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"6\"].title",
+        "from": "Africa Tech Summit 2024",
+        "to": ""
+      },
+      {
+        "field": "photos[\"6\"].caption",
+        "from": "Invendis at the Africa Tech Summit in Kigali, Rwanda.",
+        "to": ""
+      },
+      {
+        "field": "photos[\"7\"].title",
+        "from": "Customer Seminar — Bangalore",
+        "to": ""
+      },
+      {
+        "field": "photos[\"7\"].caption",
+        "from": "Hosting a technical seminar for telecom infrastructure cust…",
+        "to": ""
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-02T06:59:13.610Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"5\"].title",
+        "from": "Coins Partner Awards 2026",
+        "to": "Coins Partner Awards 2025"
+      },
+      {
+        "field": "photos[\"5\"].caption",
+        "from": "Invendis received the business excellence award at the Coin…",
+        "to": "Invendis received the business excellence award at the Coin…"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-02T06:57:44.245Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"5\"].title",
+        "from": "Diwali Celebrations 2024",
+        "to": "Coins Partner Awards 2026"
+      },
+      {
+        "field": "photos[\"5\"].caption",
+        "from": "Celebrating Diwali together at the Bangalore office.",
+        "to": "Invendis received the business excellence award at the Coin…"
+      },
+      {
+        "field": "photos[\"5\"].src",
+        "from": "",
+        "to": "images/gallery/coins-partner-awards-2026.jpeg"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-02T06:06:49.709Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"1\"].title",
+        "from": "India Telecom Expo 2024",
+        "to": "Intel ISB Connect 2026"
+      },
+      {
+        "field": "photos[\"1\"].caption",
+        "from": "Showcasing SILBO routers and iSense RMS at India Telecom Ex…",
+        "to": "Showcase of the latest Intel Edge Devices at the Taj Hotel,…"
+      },
+      {
+        "field": "photos[\"1\"].src",
+        "from": "",
+        "to": "images/gallery/intel-isb-connect-2026.jpeg"
+      },
+      {
+        "field": "photos[\"2\"].category",
+        "from": "awards",
+        "to": "expos"
+      },
+      {
+        "field": "photos[\"2\"].title",
+        "from": "IoT Innovator Award 2023",
+        "to": "Industrial Automation Expo 2026"
+      },
+      {
+        "field": "photos[\"2\"].caption",
+        "from": "Team Invendis receiving the IoT Innovator of the Year award.",
+        "to": "Participation in India's largest Automation Exhibition held…"
+      },
+      {
+        "field": "photos[\"2\"].src",
+        "from": "",
+        "to": "images/gallery/iot-innovator-award-2023.jpeg"
+      },
+      {
+        "field": "photos[\"3\"].category",
+        "from": "events",
+        "to": "expos"
+      },
+      {
+        "field": "photos[\"3\"].title",
+        "from": "Product Launch — SILBO Gen 3",
+        "to": "Embedded World Germany 2026"
+      },
+      {
+        "field": "photos[\"3\"].caption",
+        "from": "Launch event for the third generation SILBO router series.",
+        "to": "Took part in Embedded World Germany in Nuremberg, Germany f…"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-01T10:00:45.188Z",
     "user": "ananth.r@invendis.com",
     "page": "Gallery",
