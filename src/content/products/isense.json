@@ -13,9 +13,9 @@
   "ip": "",
   "power": "20-60 VDC",
   "ports": 0,
-  "os": "Linux OS",
+  "os": "Open WRT based Linux OS",
   "desc": "The iSense is purpose-built for data-heavy industrial environments, combining 24 isolated digital inputs, 8 relay outputs, 4x RS485, analog voltage/current sensing, and dual external temperature probes into a single converged gateway. This density of I/O — backed by a dual-core processor with up to 32GB eMMC and native Modbus, SNMP, and MQTT support — makes it the go-to solution for energy monitoring, process automation, and smart infrastructure projects where deep field-level visibility drives operational decisions.",
-  "housing": "Sheet Metal",
+  "housing": "Industrial Aluminium",
   "dims": "309 x 221 x 58 mm (L x W x H)",
   "weight": "1853 g",
   "op_temp": "-10°C to 70°C",
@@ -34,7 +34,35 @@
   "additional_specs": [
     {
       "k": "Ethernet Ports",
-      "v": ""
+      "v": "Gigabit Ethernet"
+    },
+    {
+      "k": "DI",
+      "v": "24 with isolation"
+    },
+    {
+      "k": "Relay outputs",
+      "v": "8"
+    },
+    {
+      "k": "External Temperature Sensors",
+      "v": "2"
+    },
+    {
+      "k": "RS485",
+      "v": "3"
+    },
+    {
+      "k": "RS232",
+      "v": "1"
+    },
+    {
+      "k": "USB",
+      "v": "1"
+    },
+    {
+      "k": "Mounting",
+      "v": "Table Top"
     }
   ],
   "variants": {
