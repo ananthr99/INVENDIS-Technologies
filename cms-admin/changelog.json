@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-03T11:48:20.718Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.cards[\"Hardware Products\"].tags",
+        "from": "—",
+        "to": "added \"Wi-Fi 6 Devices\""
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T11:44:28.806Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
