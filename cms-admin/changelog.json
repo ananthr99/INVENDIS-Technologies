@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-09-03T07:18:15.429Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Site Settings",
+    "section": "Contact",
+    "action": "Updated Site Settings — Contact",
+    "changes": [
+      {
+        "field": "contact.websites[\"www.invendis.com\"].url",
+        "from": "https://www.invendis.com",
+        "to": "https://invendis.com"
+      },
+      {
+        "field": "contact.websites[\"www.silbonetworks.com\"].url",
+        "from": "https://www.silbonetworks.com",
+        "to": "https://silbonetworks.com"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-02T10:00:53.962Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
