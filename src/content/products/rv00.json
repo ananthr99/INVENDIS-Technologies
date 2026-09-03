@@ -17,7 +17,7 @@
   "desc": "The RV00 is a compact industrial router built on MediaTek MT7621 featuring dual-band Wi-Fi 5, 4G/3G/2G cellular with dual SIM, and five Gigabit Ethernet ports. Running OpenWRT Linux, it supports VPN, VLAN, advanced routing and NMS remote management, making it ideal for industrial IoT, M2M, and edge-networking deployments. It ships in a fanless industrial aluminium enclosure with 12 V DC input and optional DIN rail mounting.",
   "housing": "Industrial Aluminium",
   "dims": "110 x 26 x 95 mm (W x H x D)",
-  "weight": "200 g",
+  "weight": "200 gm",
   "op_temp": "0~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rv00-1786528984998-xos5.png"
