@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-09-03T11:42:53.866Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team",
+        "from": "—",
+        "to": "added \"Praveenkumar Bijadi\""
+      },
+      {
+        "field": "team",
+        "from": "removed \"Praveen Bijadi\"",
+        "to": "—"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T11:30:46.617Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Company",
