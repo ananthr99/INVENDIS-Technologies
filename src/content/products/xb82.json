@@ -17,7 +17,7 @@
   "desc": "The XB-82-2 cuts through network complexity by delivering plug-and-play Gigabit switching with zero configuration overhead — eight PoE-capable ports, two SFP uplinks, and a 240W total PoE budget ready to power cameras, access points, and IP phones straight out of the box. Its wide 9-57Vdc input range and DIN rail-mountable aluminium body make it equally at home in a control cabinet or a harsh field enclosure, serving installers and contractors who need reliable, no-fuss layer-2 connectivity without the cost of managed switch complexity.",
   "housing": "Industrial Aluminium",
   "dims": "56 mm x 110 mm x 114 mm",
-  "weight": "451 g",
+  "weight": "451 gm",
   "op_temp": "0~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/xb82-1786698669725-9cdo.png"
