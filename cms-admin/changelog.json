@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-09-03T11:44:28.806Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"1\"].category",
+        "from": "expos",
+        "to": "events"
+      },
+      {
+        "field": "photos[\"6\"].category",
+        "from": "events",
+        "to": "expos"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T11:42:53.866Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Company",
