@@ -1,5 +1,34 @@
 [
   {
+    "ts": "2026-09-03T09:59:34.309Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.eyebrow",
+        "from": "IIoT Solutions · 18+ Years · 32+ Countries",
+        "to": "OEM/ODM · Networking Devices  · Induatrial IOT · Edge AI"
+      },
+      {
+        "field": "hero.headline",
+        "from": "Routers · Gateways · Switches · Edge AI",
+        "to": "Networking & Edge AI Devices"
+      },
+      {
+        "field": "hero.headlineAccent",
+        "from": "Engineered for Industrial IoT",
+        "to": "for a Smarter World"
+      },
+      {
+        "field": "hero.description",
+        "from": "Invendis delivers end-to-end hardware, software, and manage…",
+        "to": "Invendis is an OEM/ODM pioneer in the design and manufactur…"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T09:52:44.973Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
