@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-03T09:52:44.973Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.headline",
+        "from": "OEM & ODM · Hardware · Software · Edge AI",
+        "to": "Routers · Gateways · Switches · Edge AI"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T09:50:37.373Z",
     "user": "ananth.r@invendis.com",
     "page": "Home",
