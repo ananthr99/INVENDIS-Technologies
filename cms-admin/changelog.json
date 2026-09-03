@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-09-03T09:50:37.373Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Home",
+    "section": "Hero",
+    "action": "Updated Home — Hero",
+    "changes": [
+      {
+        "field": "hero.headline",
+        "from": "Industrial IoT for a",
+        "to": "OEM & ODM · Hardware · Software · Edge AI"
+      },
+      {
+        "field": "hero.headlineAccent",
+        "from": "Smarter World",
+        "to": "Engineered for Industrial IoT"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T07:18:15.429Z",
     "user": "ananth.r@invendis.com",
     "page": "Site Settings",
