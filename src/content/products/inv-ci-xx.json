@@ -17,7 +17,7 @@
   "desc": "INV CI XX is a compact, Intel® X7425E-powered industrial computer designed for reliable edge computing and industrial automation. It features multiple Ethernet ports, optional 4G/5G connectivity, Wi-Fi, and flexible storage options for secure, high-performance deployments.",
   "housing": "Sheet Metal",
   "dims": "232mmx 202 x 44mm",
-  "weight": "1500 gm",
+  "weight": "1500",
   "op_temp": "0 ~ 50℃",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-ci-xx-1787128620619-qggb.png"
