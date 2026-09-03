@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-03T10:52:10.794Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Hero",
+    "action": "Updated Company — Hero",
+    "changes": [
+      {
+        "field": "hero.description",
+        "from": "Founded in 2007, Invendis is an ISO-certified IIoT hardware…",
+        "to": "Founded in 2007, Invendis Technologies India Pvt. Ltd. is a…"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T10:35:35.288Z",
     "user": "ananth.r@invendis.com",
     "page": "Site Settings",
