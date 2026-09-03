@@ -2,7 +2,7 @@
   "id": "iabxx",
   "name": "IABXX-X",
   "cat": "Gateway",
-  "cpu": "MediaTek MT7628",
+  "cpu": "MT7628, Single Core with 580 MHz Frequency",
   "ram": "128 MB DDR2",
   "storage": "32 MB Flash",
   "cell": "4G",
@@ -33,6 +33,30 @@
     {
       "k": "Ethernet Ports",
       "v": "Fast Ethernet"
+    },
+    {
+      "k": "RS485",
+      "v": "1"
+    },
+    {
+      "k": "DI/O",
+      "v": "1"
+    },
+    {
+      "k": "RS232",
+      "v": "1"
+    },
+    {
+      "k": "AI",
+      "v": "2"
+    },
+    {
+      "k": "USB 2.0",
+      "v": "1"
+    },
+    {
+      "k": "DC Output",
+      "v": "1"
     }
   ],
   "variants": {
