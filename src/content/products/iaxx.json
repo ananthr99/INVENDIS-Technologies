@@ -17,7 +17,7 @@
   "desc": "This industrial-grade router is built to deliver stable cellular and Wi-Fi connectivity for compact edge deployments in challenging environments. It features dual SIM failover, a rugged aluminium enclosure with DIN rail support, and a secure OpenWRT-based platform offering advanced routing, VPN, and firewall capabilities. The device is ideal for applications such as industrial automation, remote asset monitoring, utilities, and small enterprise networks requiring dependable and secure connectivity.",
   "housing": "Industrial Aluminium",
   "dims": "110 x 44 x 94mm (W x H x D)",
-  "weight": "280 g",
+  "weight": "280 gm",
   "op_temp": "-20 ~ 60 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/iaxx-1786598951793-g17i.png"

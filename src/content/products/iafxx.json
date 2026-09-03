@@ -17,7 +17,7 @@
   "desc": "The IAFXX-X steps beyond standard cellular routers by integrating rich serial I/O — including RS485, digital I/O, analog input, and a built-in RTC — making it a true industrial gateway rather than just a connectivity device. With Modbus TCP/RTU support and SMS-based remote commands, it speaks the language of industrial automation natively, targeting sectors like manufacturing, energy, and utility infrastructure where field device integration is just as critical as network uptime.",
   "housing": "Industrial Aluminium",
   "dims": "110 x 44 x 94 mm (W x H x D)",
-  "weight": "400 g",
+  "weight": "400 gm",
   "op_temp": "0~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/iafxx-1787138159862-mpoy.png"

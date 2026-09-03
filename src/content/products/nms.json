@@ -3,8 +3,8 @@
   "name": "NMS",
   "cat": "Other",
   "cpu": "Software platform",
-  "ram": "â",
-  "storage": "â",
+  "ram": "-",
+  "storage": "-",
   "cell": "none",
   "cellular_gen": "none",
   "wifi": "none",
@@ -16,9 +16,9 @@
   "os": "Web-based, OpenWRT compatible",
   "desc": "An NMS (Network Management System) provides centralized visibility and control of network devices, enabling real-time monitoring of device health, performance, configuration, firmware, and connectivity. It supports remote configuration, auto-provisioning, alerts, analytics, secure access, and scalable management of large device networks.",
   "housing": "Software / Cloud",
-  "dims": "â",
-  "weight": "â",
-  "op_temp": "â",
+  "dims": "-",
+  "weight": "-",
+  "op_temp": "-",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/NMS.jpg"
   ],
