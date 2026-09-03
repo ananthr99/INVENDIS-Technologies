@@ -1,6 +1,6 @@
 {
-  "id": "intel-x6425E",
-  "name": "Intel X6425E Quad Core Rugged Fanless PC",
+  "id": "inv-cb",
+  "name": "INV-CB",
   "cat": "Intel Based Devices",
   "cpu": "Intel X86 Atom, X6425E, 4 cores with base frequency 2GHz and Turbo Frequency of upto 3GHz",
   "ram": "Up to 32 GB DDR4 3200 MHz",
