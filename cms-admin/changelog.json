@@ -1,5 +1,24 @@
 [
   {
+    "ts": "2026-09-03T11:27:47.828Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team",
+        "from": "—",
+        "to": "added \"Arka Halder\""
+      },
+      {
+        "field": "team",
+        "from": "—",
+        "to": "added \"Bhimsen Bukkebag\""
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T10:52:10.794Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Company",
