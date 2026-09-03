@@ -49,6 +49,10 @@
           {
             "label": "5G Ready",
             "accent": true
+          },
+          {
+            "label": "Wi-Fi 6 Devices",
+            "accent": false
           }
         ]
       },
