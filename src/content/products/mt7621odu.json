@@ -17,7 +17,7 @@
   "desc": "The MT 7621 ODU takes cellular routing outdoors, packaged in an IP66-rated ABS/PC enclosure that mounts directly on walls or poles — eliminating the need for separate weatherproof cabinets and the cabling complexity that comes with them. Powered entirely over a single Ethernet cable via 802.3af/at PoE, it supports 4G LTE Cat 4 speeds up to 150 Mbps with dual SIM failover, making it a field-ready solution for outdoor surveillance, remote kiosks, and transportation infrastructure where indoor-mounted routers simply cannot reach.",
   "housing": "ABS/PC IP66 Housing",
   "dims": "140 x 75 x 224 mm (W x H x D)",
-  "weight": "950 g",
+  "weight": "950 gm",
   "op_temp": "-0 ~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/mt7621odu-1786951698336-5qx3.png"
