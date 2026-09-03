@@ -17,7 +17,7 @@
   "desc": "This compact industrial gateway is designed to provide reliable cellular and Wi-Fi connectivity for lightweight, distributed networking applications. Its key strengths include flexible SIM options (eSIM/physical), wide input voltage range, rugged fanless design, and a versatile OpenWRT platform with strong VPN and security support. It is well-suited for IoT use cases such as remote monitoring, smart utilities, kiosks, and small-scale industrial or enterprise edge deployments.",
   "housing": "Metal",
   "dims": "97 x 28 x 84mm (W x H x D)",
-  "weight": "280 gm",
+  "weight": "280 g",
   "op_temp": "-20 ~ 60 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/iexx-1786535373955-vsb7.png"

@@ -17,7 +17,7 @@
   "desc": "The RFN44-A is an industrial-grade cellular router built on a MediaTek MT7628 platform with dual Nano SIM support, running an OpenWRT-based Linux OS for flexible and reliable connectivity. Housed in a fanless aluminium enclosure with a wide operating temperature range, it targets industrial automation, remote site management, and IoT deployments where rugged, dependable hardware is essential.",
   "housing": "Industrial Aluminium",
   "dims": "112 x 35 x 99 mm (W x H x D)",
-  "weight": "297 gm",
+  "weight": "297 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rfnxx-1786599944641-kv06.png"

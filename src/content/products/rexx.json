@@ -17,7 +17,7 @@
   "desc": "Built for stable, always-on connectivity, this industrial router enables seamless integration of wired, Wi-Fi, and cellular networks in compact deployments. Its key strengths lie in dual SIM redundancy, highly customizable OpenWRT firmware, and a wide range of VPN and security features that support secure data transmission across distributed networks. It is best suited for sectors like industrial IoT, transportation systems, utilities, and remote enterprise sites where reliability and network control are critical.",
   "housing": "Sheet Metal",
   "dims": "123.2 x 28 x 120.6mm (W x H x D)",
-  "weight": "360 gm",
+  "weight": "360 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rexx-1787138691544-n5qi.png"

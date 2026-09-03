@@ -17,7 +17,7 @@
   "desc": "The INV-CEA-XX is a fanless industrial gateway designed for high-performance edge computing and robust connectivity, featuring an Intel X7425E processor and extensive cellular/Wi-Fi expansion capabilities. It differentiates itself through its quad-Gigabit Ethernet ports, dual isolated serial interfaces (RS232/RS485), and flexible mounting options, making it highly adaptable for harsh environments. This device is primarily targeted at industrial automation, telecommunications, and smart city infrastructure where reliable, long-term operation is critical.",
   "housing": "Aluminum Heat Sink with CRCA Enclosure",
   "dims": "150 X 250 X 55mm ( L X W X H)",
-  "weight": "1700 gm",
+  "weight": "1700",
   "op_temp": "0 ~ 50℃",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cea-xx-1786441526355-8a7c.png",
