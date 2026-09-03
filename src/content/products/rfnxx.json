@@ -2,10 +2,10 @@
   "id": "rfnxx",
   "name": "RFNXX",
   "cat": "Gateway",
-  "cpu": "MediaTek MT7628",
+  "cpu": "MT7628, Single Core with 580 MHz Frequency",
   "ram": "128 MB DDR2",
   "storage": "32 MB Flash",
-  "cell": "4G",
+  "cell": "Dual Sim 4G/3G/2G",
   "cellular_gen": "4G",
   "wifi": "WiFi4",
   "rs485": true,
@@ -35,6 +35,14 @@
     {
       "k": "Ethernet Ports",
       "v": "Fast Ethernet"
+    },
+    {
+      "k": "RS485",
+      "v": "1"
+    },
+    {
+      "k": "DIO",
+      "v": "2"
     }
   ],
   "variants": {
