@@ -56,9 +56,9 @@ export default function Company() {
         path="/company"
       />
 
-      {/* Hero */}
+      {/* Hero — always exactly one viewport tall, no scroll needed */}
       <section
-        className="relative text-white py-16 px-8 lg:px-16 overflow-hidden"
+        className="relative text-white h-[calc(100vh-80px)] flex items-center px-8 lg:px-16 overflow-hidden"
         style={{ background: getGradient('navy') }}
       >
         <div
@@ -68,7 +68,7 @@ export default function Company() {
 
         {hero.heroImage ? (
           /* ── Two-column: text left, image right ── */
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3">{hero.eyebrow}</p>
               <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
@@ -78,11 +78,12 @@ export default function Company() {
                 {hero.description}
               </p>
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex items-center justify-center">
               <img
                 src={hero.heroImage.startsWith('http') ? hero.heroImage : `${import.meta.env.BASE_URL}${hero.heroImage}`}
                 alt="Invendis Technologies"
-                className="w-full max-h-[420px] object-cover rounded-2xl shadow-2xl border border-white/10"
+                className="w-full object-cover rounded-2xl shadow-2xl border border-white/10"
+                style={{ maxHeight: 'calc(100vh - 200px)' }}
                 loading="eager"
               />
             </div>
