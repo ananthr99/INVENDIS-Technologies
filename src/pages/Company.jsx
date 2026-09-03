@@ -56,9 +56,9 @@ export default function Company() {
         path="/company"
       />
 
-      {/* Hero — always exactly one viewport tall, no scroll needed */}
+      {/* Hero — pinned to one viewport; description scrolls inside its own pane */}
       <section
-        className="relative text-white h-[calc(100vh-80px)] flex items-center px-8 lg:px-16 overflow-hidden"
+        className="relative text-white h-[calc(100vh-80px)] px-8 lg:px-16 overflow-hidden"
         style={{ background: getGradient('navy') }}
       >
         <div
@@ -67,37 +67,42 @@ export default function Company() {
         />
 
         {hero.heroImage ? (
-          /* ── Two-column: text left, image right ── */
-          <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div>
-              <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3">{hero.eyebrow}</p>
-              <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
+          /* ── Two-column: text left (scrollable), image right ── */
+          <div className="relative h-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 py-10">
+            {/* Left — fixed header + scrollable body */}
+            <div className="flex flex-col min-h-0 h-full">
+              <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3 flex-shrink-0">{hero.eyebrow}</p>
+              <h1 className="font-sora text-5xl font-bold mb-4 leading-tight flex-shrink-0">
                 {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
               </h1>
-              <p className="text-blue-200 text-lg leading-relaxed">
-                {hero.description}
-              </p>
+              <div className="overflow-y-auto flex-1 min-h-0 pr-2 space-y-3">
+                {hero.description.split('\n\n').map((para, i) => (
+                  <p key={i} className="text-blue-200 text-base leading-relaxed">{para}</p>
+                ))}
+              </div>
             </div>
-            <div className="hidden lg:flex items-center justify-center">
+            {/* Right — image fills available height */}
+            <div className="hidden lg:flex items-center min-h-0 h-full py-2">
               <img
                 src={hero.heroImage.startsWith('http') ? hero.heroImage : `${import.meta.env.BASE_URL}${hero.heroImage}`}
                 alt="Invendis Technologies"
-                className="w-full object-cover rounded-2xl shadow-2xl border border-white/10"
-                style={{ maxHeight: 'calc(100vh - 200px)' }}
+                className="w-full h-full object-cover rounded-2xl shadow-2xl border border-white/10"
                 loading="eager"
               />
             </div>
           </div>
         ) : (
-          /* ── Full-width: text spans the whole header ── */
-          <div className="relative">
-            <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3">{hero.eyebrow}</p>
-            <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
+          /* ── Full-width: text spans the whole header, description scrollable ── */
+          <div className="relative h-full flex flex-col py-10">
+            <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3 flex-shrink-0">{hero.eyebrow}</p>
+            <h1 className="font-sora text-5xl font-bold mb-4 leading-tight flex-shrink-0">
               {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
             </h1>
-            <p className="text-blue-200 text-lg leading-relaxed max-w-4xl">
-              {hero.description}
-            </p>
+            <div className="overflow-y-auto flex-1 min-h-0 pr-2 max-w-4xl space-y-3">
+              {hero.description.split('\n\n').map((para, i) => (
+                <p key={i} className="text-blue-200 text-base leading-relaxed">{para}</p>
+              ))}
+            </div>
           </div>
         )}
       </section>
