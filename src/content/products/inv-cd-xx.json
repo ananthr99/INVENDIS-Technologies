@@ -17,7 +17,7 @@
   "desc": "This compact, fanless edge computing system is designed for AI inference, networking, and industrial applications, combining an Intel® Core™ N350 processor with flexible expansion for AI accelerators or NVMe storage. Key differentiators include dual Gigabit LAN, multiple display outputs (up to 4K), wide OS support, and robust I/O in a small form factor. It targets edge AI deployments, smart retail, industrial automation, and network security solutions.",
   "housing": "Aluminum Heat Sink with CRCA Enclosure (Fanless Design), Sheet Metal (Fan Design)",
   "dims": "150mmx210mmx65mm (LxWxH)",
-  "weight": "995 g",
+  "weight": "995 gm",
   "op_temp": "0 -50°C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cd-xx-1.png",
