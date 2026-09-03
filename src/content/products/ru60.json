@@ -17,7 +17,7 @@
   "desc": "A compact, fanless Wi-Fi 6 (802.11ax) access point and router built on MediaTek MT7981 with OpenWRT. Supports AP, Station, Repeater, Guest Wi-Fi, and EasyMesh modes with 1 LAN + 1 WAN Gigabit port. Designed for indoor enterprise, retail, and industrial environments requiring reliable, high-throughput wireless connectivity.",
   "housing": "Plastic",
   "dims": "190 x 190 x 50 mm (L x W x H)",
-  "weight": "350 gm",
+  "weight": "350g",
   "op_temp": "−20°C to 60°C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/ru60-1786524861223-6f3m.png"

@@ -17,7 +17,7 @@
   "desc": "A ruggedised industrial router featuring dual 5G/4G modems, Wi-Fi 6, and SFP uplinks. Built on MediaTek MT7981 with OpenWRT, it supports dual-SIM failover, DIN-rail mounting, and a wide 9–30V DC power range — ideal for demanding telecom, industrial, and remote site deployments.",
   "housing": "Sheet Metal",
   "dims": "190 × 45 × 120 mm",
-  "weight": "700 gm",
+  "weight": "700 g",
   "op_temp": "0°C - 50°C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rtsxx-1786516658709-95je.png",
