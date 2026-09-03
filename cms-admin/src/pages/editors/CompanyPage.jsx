@@ -7,6 +7,7 @@ import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 const FILE_PATH     = 'public/content/pages/company.json'
 const GH_PAGES_PATH = 'content/pages/company.json'
 const TABS = ['Hero', 'Mission', 'Values', 'Timeline', 'Facilities', 'Team', 'CTA Banner']
+const PREVIEW_BASE  = 'https://raw.githubusercontent.com/ananthr99/INVENDIS-Technologies/gh-pages/'
 
 export default function CompanyPage() {
   const { token, toast, userEmail, setDirty } = useAdmin()
@@ -96,7 +97,34 @@ export default function CompanyPage() {
 
 /* ── Hero ── */
 function HeroTab({ data, patch }) {
+  const { token, toast } = useAdmin()
   const s = (f, v) => patch(d => { d.hero[f] = v; return d })
+
+  async function handleHeroImageUpload(file) {
+    if (!file) return
+    const ext = file.name.split('.').pop().toLowerCase()
+    const filename = `company-hero.${ext}`
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload  = () => resolve(reader.result.split(',')[1])
+      reader.onerror = reject
+      reader.readAsDataURL(file)
+    })
+    try {
+      toast('Uploading image…', '')
+      let ghSha = null
+      try { ghSha = (await readFileDirect(`images/hero/${filename}`, token)).sha } catch {}
+      await writeFileRawDirect(`images/hero/${filename}`, base64, `CMS: upload company hero image`, ghSha, token)
+      let mainSha = null
+      try { mainSha = (await readFile(`public/images/hero/${filename}`, token)).sha } catch {}
+      await writeFileRaw(`public/images/hero/${filename}`, base64, `CMS: upload company hero image [skip ci]`, mainSha, token)
+      patch(d => { d.hero.heroImage = `images/hero/${filename}`; return d })
+      toast('Image uploaded — click Save & Publish to apply', 'ok')
+    } catch (e) {
+      toast(e.message, 'err')
+    }
+  }
+
   return (
     <div className="form-section">
       <p className="form-section-title">Hero Section</p>
@@ -110,13 +138,51 @@ function HeroTab({ data, patch }) {
           <input value={data.hero.headline} onChange={e => s('headline', e.target.value)} />
         </div>
         <div className="field">
-          <label>Headline Accent <span className="hint">— highlighted in blue</span></label>
+          <label>Headline Accent <span className="hint">— highlighted in red</span></label>
           <input value={data.hero.headlineAccent} onChange={e => s('headlineAccent', e.target.value)} />
         </div>
       </div>
       <div className="field">
         <label>Description</label>
         <textarea rows={3} value={data.hero.description} onChange={e => s('description', e.target.value)} />
+      </div>
+
+      {/* Hero Image */}
+      <div className="field">
+        <label>
+          Hero Image <span className="hint">— optional · shown on the right side of the header · landscape recommended</span>
+        </label>
+        <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', marginTop: 8 }}>
+          <div style={{ width: 180, height: 112, borderRadius: 10, overflow: 'hidden', background: '#e5e7eb', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #d1d5db' }}>
+            {data.hero.heroImage ? (
+              <img
+                src={`${PREVIEW_BASE}${data.hero.heroImage}`}
+                alt="Hero preview"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                onError={e => { e.target.style.display = 'none' }}
+              />
+            ) : (
+              <span style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: '0 12px' }}>No image uploaded</span>
+            )}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <label style={{ fontSize: 13, color: '#2563eb', cursor: 'pointer', textDecoration: 'underline', display: 'inline-block' }}>
+              {data.hero.heroImage ? 'Change image' : 'Upload image'}
+              <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => handleHeroImageUpload(e.target.files?.[0])} />
+            </label>
+            {data.hero.heroImage && (
+              <button
+                onClick={() => patch(d => { d.hero.heroImage = null; return d })}
+                style={{ fontSize: 13, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: 0, textAlign: 'left' }}
+              >
+                Remove image
+              </button>
+            )}
+            <span style={{ fontSize: 11, color: '#6b7280', maxWidth: 240 }}>
+              Without an image the description spans the full header width. With an image it appears side-by-side.
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -454,8 +520,6 @@ function FacilitiesTab({ data, patch }) {
 }
 
 /* ── Team ── */
-const PREVIEW_BASE = 'https://raw.githubusercontent.com/ananthr99/INVENDIS-Technologies/gh-pages/'
-
 function TeamTab({ data, patch }) {
   const { token, toast } = useAdmin()
   const { page, setPage, pageCount, pageItems, start, end, total } = usePagination(data.team, 5)

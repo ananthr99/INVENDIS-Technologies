@@ -36,9 +36,9 @@ function CountUp({ value, delay = 0 }) {
 export default function Hero() {
     const { data: content, loading } = useContent('pages/home.json', { withLoading: true })
   if (loading) return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden" style={{ background: getGradient('hero') }}>
-      <div className="relative z-10 px-8 lg:px-16 w-full py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="relative h-[calc(100vh-80px)] flex items-center overflow-hidden" style={{ background: getGradient('hero') }}>
+      <div className="relative z-10 px-8 lg:px-16 w-full py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="flex flex-col gap-6">
             <div className="h-8 w-64 bg-white/15 rounded-full animate-pulse" />
             <div className="h-16 w-full bg-white/15 rounded-2xl animate-pulse" />
@@ -61,7 +61,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden"
+      className="relative h-[calc(100vh-80px)] flex items-center overflow-hidden"
       style={{ background: getGradient('hero') }}
     >
       {/* Grid overlay */}
@@ -85,14 +85,14 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 px-8 lg:px-16 w-full py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 px-8 lg:px-16 w-full py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* ── Left: text ── */}
           <div>
 
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2.5 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-7">
+            <div className="inline-flex items-center gap-2.5 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-5">
               <span className="w-6 h-6 rounded-full bg-brand-red flex items-center justify-center flex-shrink-0">
                 <Globe size={13} className="text-white" />
               </span>
@@ -102,18 +102,18 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-sora text-4xl lg:text-[58px] font-extrabold text-white leading-[1.1] mb-6">
+            <h1 className="font-sora text-4xl lg:text-[52px] font-extrabold text-white leading-[1.1] mb-4">
               {hero.headline}{' '}
               <span className="text-red-300">{hero.headlineAccent}</span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg text-white/75 leading-relaxed font-light mb-10 max-w-xl">
+            <p className="text-base text-white/75 leading-relaxed font-light mb-6 max-w-xl">
               {hero.description}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap gap-4 mb-8">
               <Link
                 to={hero.primaryCta.to}
                 className="inline-flex items-center gap-2 bg-white text-brand-blue font-sora font-bold text-base px-7 py-3.5 rounded-xl hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200"

@@ -1,23 +1,29 @@
 import { useState } from 'react'
 import { catColors, wifiLabel } from '../../utils/productHelpers'
 
+// hKey = the key checked inside a product's hidden_fields array.
+// null means the field is never hideable (e.g. Category).
 const FIELDS = [
-  { label: 'Category',       key: 'cat' },
-  { label: 'CPU',            key: 'cpu' },
-  { label: 'RAM',            key: 'ram' },
-  { label: 'Cellular',       key: 'cellular_gen' },
-  { label: 'Wi-Fi',          special: 'wifi' },
-  { label: 'Ethernet ports', special: 'ports' },
-  { label: 'Power input',    key: 'power' },
-  { label: 'RS485',          key: 'rs485', bool: true },
-  { label: 'RS232',          key: 'rs232', bool: true },
-  { label: 'IP rating',      key: 'ip' },
-  { label: 'Enclosure',      key: 'housing' },
-  { label: 'Dimensions',     key: 'dims' },
-  { label: 'Weight',         key: 'weight' },
-  { label: 'Operating temp', key: 'op_temp' },
-  { label: 'OS',             key: 'os' },
+  { label: 'Category',       key: 'cat',          hKey: null },
+  { label: 'CPU',            key: 'cpu',          hKey: 'cpu' },
+  { label: 'RAM',            key: 'ram',          hKey: 'ram' },
+  { label: 'Cellular',       key: 'cellular_gen', hKey: 'cellular_gen' },
+  { label: 'Wi-Fi',          special: 'wifi',     hKey: 'wifi' },
+  { label: 'Ethernet ports', special: 'ports',    hKey: 'ports' },
+  { label: 'Power input',    key: 'power',        hKey: 'power' },
+  { label: 'RS485',          key: 'rs485', bool: true, hKey: 'rs485' },
+  { label: 'RS232',          key: 'rs232', bool: true, hKey: 'rs232' },
+  { label: 'IP rating',      key: 'ip',           hKey: 'ip' },
+  { label: 'Enclosure',      key: 'housing',      hKey: 'housing' },
+  { label: 'Dimensions',     key: 'dims',         hKey: 'dims' },
+  { label: 'Weight',         key: 'weight',       hKey: 'weight' },
+  { label: 'Operating temp', key: 'op_temp',      hKey: 'op_temp' },
+  { label: 'OS',             key: 'os',           hKey: 'os' },
 ]
+
+function isFieldHidden(p, hKey) {
+  return hKey != null && (p.hidden_fields || []).includes(hKey)
+}
 
 function getVal(p, field) {
   if (field.special === 'wifi') return wifiLabel(p.wifi)
@@ -31,9 +37,16 @@ export default function CompareModal({ compareIds, products, onClose }) {
   const [copyLabel, setCopyLabel] = useState('Copy table')
 
   function copyTable() {
+    // Only include rows visible in the table (skip all-hidden rows)
+    const visibleFields = FIELDS.filter(f =>
+      f.hKey == null || !selected.every(p => isFieldHidden(p, f.hKey))
+    )
     const rows = [
       ['Specification', ...selected.map(p => p.name)],
-      ...FIELDS.map(f => [f.label, ...selected.map(p => getVal(p, f))]),
+      ...visibleFields.map(f => [
+        f.label,
+        ...selected.map(p => isFieldHidden(p, f.hKey) ? 'Not applicable' : getVal(p, f)),
+      ]),
     ]
     const text = rows.map(r => r.join('\t')).join('\n')
     navigator.clipboard.writeText(text).then(() => {
@@ -79,13 +92,22 @@ export default function CompareModal({ compareIds, products, onClose }) {
             </thead>
             <tbody>
               {FIELDS.map(field => {
-                const vals = selected.map(p => getVal(p, field))
-                const allSame = vals.every(v => v === vals[0])
+                // Hide the entire row when every compared product has this field hidden
+                if (field.hKey != null && selected.every(p => isFieldHidden(p, field.hKey))) return null
+
+                const vals = selected.map(p =>
+                  isFieldHidden(p, field.hKey) ? null : getVal(p, field)
+                )
+                // Row is "diff" when values differ — null (N/A) counts as different from any real value
+                const allSame = vals.every(v => v !== null) && vals.every(v => v === vals[0])
+
                 return (
                   <tr key={field.label} className={`border-t border-[#DDE5EF] ${!allSame ? 'bg-[#FEFDF0]' : 'hover:bg-[#F7F9FC]'}`}>
                     <td className="px-4 py-[10px] text-[#5A6E87] font-medium text-[12px] bg-[#F7F9FC]">{field.label}</td>
                     {vals.map((v, i) => (
-                      <td key={i} className={`px-4 py-[10px] text-[#0B1F3A] ${!allSame ? 'font-semibold' : ''}`}>{v}</td>
+                      v === null
+                        ? <td key={i} className="px-4 py-[10px] text-[#A0AABF] italic text-[12px]">Not applicable</td>
+                        : <td key={i} className={`px-4 py-[10px] text-[#0B1F3A] ${!allSame ? 'font-semibold' : ''}`}>{v}</td>
                     ))}
                   </tr>
                 )

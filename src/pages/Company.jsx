@@ -58,22 +58,47 @@ export default function Company() {
 
       {/* Hero */}
       <section
-        className="relative text-white py-24 px-8 lg:px-16 overflow-hidden"
+        className="relative text-white py-16 px-8 lg:px-16 overflow-hidden"
         style={{ background: getGradient('navy') }}
       >
         <div
           className="absolute inset-0 opacity-5"
           style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.15) 1px,transparent 1px)', backgroundSize: '40px 40px' }}
         />
-        <div className="relative max-w-3xl">
-          <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3">{hero.eyebrow}</p>
-          <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
-            {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
-          </h1>
-          <p className="text-blue-200 text-lg leading-relaxed max-w-2xl">
-            {hero.description}
-          </p>
-        </div>
+
+        {hero.heroImage ? (
+          /* ── Two-column: text left, image right ── */
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div>
+              <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3">{hero.eyebrow}</p>
+              <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
+                {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
+              </h1>
+              <p className="text-blue-200 text-lg leading-relaxed">
+                {hero.description}
+              </p>
+            </div>
+            <div className="hidden lg:block">
+              <img
+                src={hero.heroImage.startsWith('http') ? hero.heroImage : `${import.meta.env.BASE_URL}${hero.heroImage}`}
+                alt="Invendis Technologies"
+                className="w-full max-h-[420px] object-cover rounded-2xl shadow-2xl border border-white/10"
+                loading="eager"
+              />
+            </div>
+          </div>
+        ) : (
+          /* ── Full-width: text spans the whole header ── */
+          <div className="relative">
+            <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-3">{hero.eyebrow}</p>
+            <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
+              {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
+            </h1>
+            <p className="text-blue-200 text-lg leading-relaxed max-w-4xl">
+              {hero.description}
+            </p>
+          </div>
+        )}
       </section>
 
       {/* Mission / Vision / Tagline */}

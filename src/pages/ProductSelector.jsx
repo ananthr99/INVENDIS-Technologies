@@ -21,6 +21,9 @@ import CompareModal from '../components/products/CompareModal'
 
 const PAGE_SIZE = 12
 
+// Respect the admin-set hidden flag — hidden products are excluded everywhere on the site
+const visibleProducts = products.filter(p => !p.hidden)
+
 export default function ProductSelector() {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -30,14 +33,14 @@ export default function ProductSelector() {
   const [page, setPage] = useState(1)
   const [view, setView] = useState('grid')
   const [toast, setToast] = useState('')
-  const validProductIds = useMemo(() => new Set(products.map(p => p.id)), [])
+  const validProductIds = useMemo(() => new Set(visibleProducts.map(p => p.id)), [])
   const { compareIds, toggleCompare, clearCompare } = useCompareList(validProductIds)
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [compareOpen, setCompareOpen] = useState(false)
 
   useEffect(() => {
     if (id) {
-      const product = products.find(p => p.id === id)
+      const product = visibleProducts.find(p => p.id === id)
       if (product) setSelectedProduct(product)
       else navigate('/products/product-selector', { replace: true })
     } else {
@@ -56,7 +59,7 @@ export default function ProductSelector() {
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim()
-    return products.filter(p => {
+    return visibleProducts.filter(p => {
       if (activeCat !== 'All' && p.cat !== activeCat) return false
       if (q && !p.name.toLowerCase().includes(q) && !p.desc.toLowerCase().includes(q) &&
           !p.cat.toLowerCase().includes(q) && !p.cpu.toLowerCase().includes(q)) return false
@@ -100,7 +103,7 @@ export default function ProductSelector() {
 
   const catCounts = useMemo(() => {
     const counts = {}
-    CATS.forEach(c => { counts[c] = c === 'All' ? products.length : products.filter(p => p.cat === c).length })
+    CATS.forEach(c => { counts[c] = c === 'All' ? visibleProducts.length : visibleProducts.filter(p => p.cat === c).length })
     return counts
   }, [])
 
@@ -116,7 +119,7 @@ export default function ProductSelector() {
       const breadcrumbs = baseCrumbs.slice(0, -1).concat({ label: 'Product Finder', path: null })
       return {
         title: 'Product Finder',
-        description: `Find and compare ${products.length}+ Invendis IIoT hardware products — industrial routers, gateways, controllers, and meters. Filter by 5G/4G, WiFi6, ports, and connectivity options.`,
+        description: `Find and compare ${visibleProducts.length}+ Invendis IIoT hardware products — industrial routers, gateways, controllers, and meters. Filter by 5G/4G, WiFi6, ports, and connectivity options.`,
         path,
         image: undefined,
         breadcrumbs,
@@ -170,7 +173,7 @@ export default function ProductSelector() {
           Browse and compare our full range of industrial networking and IoT hardware
         </p>
         <p className="mt-4 text-blue-300 text-sm font-sora font-semibold">
-          {products.length} products across {CATS.length - 1} categories
+          {visibleProducts.length} products across {CATS.length - 1} categories
         </p>
       </div>
 
@@ -263,7 +266,7 @@ export default function ProductSelector() {
 
       <CompareBar
         compareIds={compareIds}
-        products={products}
+        products={visibleProducts}
         onRemove={toggleCompare}
         onClear={clearCompare}
         onCompare={() => setCompareOpen(true)}
@@ -285,7 +288,7 @@ export default function ProductSelector() {
       {compareOpen && (
         <CompareModal
           compareIds={compareIds}
-          products={products}
+          products={visibleProducts}
           onClose={() => setCompareOpen(false)}
         />
       )}
