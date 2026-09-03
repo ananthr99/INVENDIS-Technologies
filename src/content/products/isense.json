@@ -2,9 +2,9 @@
   "id": "isense",
   "name": "iSense XXX",
   "cat": "Gateway",
-  "cpu": "Dual Core 0.88 GHz",
-  "ram": "512 MB + eMMC up to 32 GB",
-  "storage": "32 MB Flash",
+  "cpu": "MT7621 MIPS Dual Core with 880 MHz Frequency",
+  "ram": "512MB RAM, eMMC support up to 32GB",
+  "storage": "512 MB",
   "cell": "4G",
   "cellular_gen": "4G",
   "wifi": "WiFi5",
@@ -29,10 +29,14 @@
     "Smart Infrastructure & Remote Asset Intelligence"
   ],
   "hidden_fields": [
-    "ip",
-    "ports"
+    "ip"
   ],
-  "additional_specs": [],
+  "additional_specs": [
+    {
+      "k": "Ethernet Ports",
+      "v": ""
+    }
+  ],
   "variants": {
     "headers": [
       "Wi-Fi",
