@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-03T12:20:42.361Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Company",
+    "section": "Hero",
+    "action": "Updated Company — Hero",
+    "changes": [
+      {
+        "field": "hero.heroImage",
+        "from": "",
+        "to": "images/hero/company-hero.png"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-03T11:48:20.718Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Home",
