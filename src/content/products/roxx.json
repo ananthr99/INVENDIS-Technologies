@@ -17,7 +17,7 @@
   "desc": "A ruggedised industrial router combining dual 5G/4G modems with Wi-Fi 6 (EasyMesh), 2× WAN + 4× LAN GbE ports, and 1× SFP uplink. Built on MediaTek MT7981 with OpenWRT 21/23, supporting dual-SIM failover, DIN-rail mounting, and a wide 9–30V DC input — engineered for demanding telecom, industrial, and enterprise edge deployments.",
   "housing": "Sheet Metal",
   "dims": "210 × 25 × 135 mm (W × H × D)",
-  "weight": "950 g",
+  "weight": "950 gm",
   "op_temp": "0°C-50°C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/roxx-1786520658941-g4je.png"

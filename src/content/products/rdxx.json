@@ -17,7 +17,7 @@
   "desc": "This is a rugged, industrial-grade cellular router designed to provide reliable wired and wireless connectivity for remote and mission-critical deployments. Key differentiators include dual SIM failover, OpenWRT-based flexibility, extensive VPN support, and advanced routing/firewall capabilities in a compact, fanless metal enclosure. It is ideal for industries such as IoT, smart infrastructure, transportation, and enterprise branch networking requiring secure, always-on connectivity.",
   "housing": "Sheet Metal",
   "dims": "123.2 x 28 x 120.6mm (W x H x D)",
-  "weight": "370 g",
+  "weight": "370 gm",
   "op_temp": "0~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rdxx-1787138585077-wcqd.png"
