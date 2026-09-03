@@ -17,7 +17,7 @@
   "desc": "The MC X solves a common infrastructure challenge — extending Ethernet beyond its 100m copper limit — by converting 10/100/1000 Base-T signals to single-mode fibre over distances up to 10Km at 1310nm. Weighing just 187g and drawing as little as 5V, it is a no-frills, cost-effective bridge for campus networks, industrial sites, and telecom installations where long-haul fibre connectivity needs to be added without overhauling existing copper-based equipment.",
   "housing": "Steel Metal",
   "dims": "92 x 66 x 26 mm (HxWxD)",
-  "weight": "187 gm",
+  "weight": "187 g",
   "op_temp": "0 ~ 70℃",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/mcx-1786622212112-0olz.png"

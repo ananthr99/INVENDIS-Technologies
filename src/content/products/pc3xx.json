@@ -17,7 +17,7 @@
   "desc": "Stripped back to the essentials, the PC310 is a ultra-compact serial-to-IP gateway that bridges RS485 field devices with modern IP networks through a minimal yet capable footprint of just 80 x 26 x 78 mm. Running OpenWRT Linux on a 12-24V supply, it slots effortlessly into existing DIN rail enclosures across building automation, metering, and light industrial applications where space is tight and simplicity of deployment matters most.",
   "housing": "Sheet Metal",
   "dims": "80 x  26  x  78 mm (W x H x D)",
-  "weight": "400 gm",
+  "weight": "400 g",
   "op_temp": "0~ 50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/pc3xx-1786620992114-lmpi.png"

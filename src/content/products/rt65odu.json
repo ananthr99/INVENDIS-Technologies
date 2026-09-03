@@ -17,7 +17,7 @@
   "desc": "Built for high-demand edge deployments, the RT65 ODU steps up where entry-level routers fall short — a 1GHz dual-core ARM Cortex A53, 1GB DDR4 RAM, and 802.11b/g/n/ac/ax Wi-Fi with Easy Mesh support give it the processing muscle to handle simultaneous MultiWAN failover across Ethernet, cellular, and Wi-Fi links. Housed in an IP67-rated enclosure with 8 cellular and 5 Wi-Fi antenna connectors, it is engineered for high-availability outdoor and industrial installations — from smart transportation hubs to mission-critical remote sites — where network resilience and raw throughput cannot be left to chance.",
   "housing": "IP67 Enclosure",
   "dims": "110 x 55 x 144 mm (W x H x D)",
-  "weight": "480 gm",
+  "weight": "480 g",
   "op_temp": "0 ~ 50˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rt65odu-1787119700265-ewjt.png"
