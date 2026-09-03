@@ -1,9 +1,9 @@
 {
   "hero": {
-    "eyebrow": "IIoT Solutions · 18+ Years · 32+ Countries",
-    "headline": "Routers · Gateways · Switches · Edge AI",
-    "headlineAccent": "Engineered for Industrial IoT",
-    "description": "Invendis delivers end-to-end hardware, software, and managed services for telecom, energy, and industrial sectors — from Bangalore to 26 countries worldwide.",
+    "eyebrow": "OEM/ODM · Networking Devices  · Induatrial IOT · Edge AI",
+    "headline": "Networking & Edge AI Devices",
+    "headlineAccent": "for a Smarter World",
+    "description": "Invendis is an OEM/ODM pioneer in the design and manufacture of routers, gateways, switches, and Edge AI devices — paired with our own software — delivering end-to-end Industrial IoT solutions for telecom, energy, and industrial sectors, from Bangalore to 26+ countries.",
     "primaryCta": {
       "label": "Browse Products",
       "to": "/products/product-selector"
