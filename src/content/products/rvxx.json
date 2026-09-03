@@ -17,7 +17,7 @@
   "desc": "The RVXX is a compact industrial router built on MediaTek MT7621 featuring dual-band Wi-Fi 5, 4G/3G/2G cellular with dual SIM, and five Gigabit Ethernet ports. Running OpenWRT Linux, it supports VPN, VLAN, advanced routing and NMS remote management, making it ideal for industrial IoT, M2M, and edge-networking deployments. It ships in a fanless industrial aluminium enclosure with 12 V DC input and optional DIN rail mounting.",
   "housing": "Industrial Aluminium",
   "dims": "110 x 60 x 95 mm (W x H x D)",
-  "weight": "390 g",
+  "weight": "390 gm",
   "op_temp": "0-50 ˚C",
   "images": [
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rvxx-1786526209549-0r85.jpg"
