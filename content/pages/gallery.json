@@ -40,7 +40,7 @@
     {
       "id": 1,
       "order": 1,
-      "category": "expos",
+      "category": "events",
       "title": "Intel ISB Connect 2026",
       "caption": "Showcase of the latest Intel Edge Devices at the Taj Hotel, Bengaluru, on 13th August 2026",
       "src": "images/gallery/intel-isb-connect-2026.jpeg"
@@ -55,7 +55,7 @@
     },
     {
       "id": 6,
-      "category": "events",
+      "category": "expos",
       "title": "ElAsia 2026",
       "caption": "Invendis participated in ElAsia from May 14-17 2026",
       "src": "images/gallery/elasia-2026.jpeg",
