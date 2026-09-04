@@ -16,7 +16,7 @@
   "os": "OpenWRT Linux 21",
   "desc": "The ID04-B is an industrial-grade 4G cellular gateway with dual SIM support, Gigabit Ethernet ports, and OpenWRT Linux, designed for reliable remote connectivity and network management in demanding environments.",
   "housing": "Industrial Aluminium",
-  "dims": "",
+  "dims": "111.70 mm (W) x 44.25 mm (H) x 977.44 mm (D)",
   "weight": "390 gm",
   "op_temp": "0-50 ˚C",
   "images": [],
