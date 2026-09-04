@@ -19,9 +19,7 @@
   "dims": "",
   "weight": "390 gm",
   "op_temp": "0-50 ˚C",
-  "images": [
-    "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/id04-1788502738159-h72q.png"
-  ],
+  "images": [],
   "datasheet": "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/datasheets/id04-datasheet.pdf",
   "use_cases": [
     "Remote Industrial Equipment Monitoring",
