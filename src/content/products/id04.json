@@ -37,7 +37,13 @@
       "v": "1"
     }
   ],
-  "variants": null,
+  "variants": {
+    "headers": [
+      "Cellular",
+      "Wi-Fi"
+    ],
+    "rows": []
+  },
   "part_datasheets": {},
   "order": 60
 }
