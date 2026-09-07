@@ -1,5 +1,29 @@
 [
   {
+    "ts": "2026-09-07T10:12:29.496Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Company",
+    "section": "Gallery",
+    "action": "Updated Company — Gallery",
+    "changes": [
+      {
+        "field": "locationGallery.images[1].caption",
+        "from": "",
+        "to": "Head Quarters"
+      },
+      {
+        "field": "locationGallery.images[2].caption",
+        "from": "",
+        "to": "Research & Development"
+      },
+      {
+        "field": "locationGallery.images[3].caption",
+        "from": "",
+        "to": "Factory"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-07T10:04:57.807Z",
     "user": "ananth.r@invendis.com",
     "page": "Company",
