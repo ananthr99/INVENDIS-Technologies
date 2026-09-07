@@ -1,5 +1,10 @@
 // GENERATED FILE — do not edit by hand. See products.js header.
 const productUseCases = {
+  "GPONONU": [
+    "Residential FTTH Last-Mile Termination",
+    "Small Office / Retail Fiber Connectivity",
+    "MDU (Multi-Dwelling Unit) Bulk Rollouts"
+  ],
   "MFMET4640": [
     "Energy Consumption Monitoring",
     "Industrial Power Quality Analysis",
@@ -55,6 +60,11 @@ const productUseCases = {
     "Remote Infrastructure Management",
     "Smart Building Network Management"
   ],
+  "id04": [
+    "Remote Industrial Equipment Monitoring",
+    "Smart ATM & Kiosk Networking",
+    "Fleet & Mobile Asset Connectivity"
+  ],
   "idbxx": [
     "Custom Industrial Edge Application Development",
     "Industrial Equipment Integration & Control",
@@ -75,7 +85,7 @@ const productUseCases = {
     "Remote Equipment Monitoring using dual profile eSIM",
     "Kiosk & Self-Service Terminal Connectivity using Multi profile eSIM"
   ],
-  "intel-x6425E": [
+  "inv-cb": [
     "Healthcare",
     "Defence and Intelligence",
     "Small & Mid-Sized Enterprises (SMEs)"
@@ -99,9 +109,12 @@ const productUseCases = {
     "Industrial Gateway / Edge Computing"
   ],
   "invcf": [
-    "Fleet Telematics & Autonomous Vehicle Edge Computer",
-    "Ruggedized Industrial Multi-Network Router & Edge Gateway",
-    "Interactive Smart Kiosk & Digital Signage Controller"
+    "Fleet Telematics",
+    "Autonomous Vehicle",
+    "Smart Kiosk",
+    "Digital Signage",
+    "Edge Gateway",
+    "Multi-Network Router"
   ],
   "isense": [
     "Energy Monitoring & Power Management",
@@ -196,6 +209,16 @@ const productUseCases = {
     "Secure Remote Infrastructure Access (Branch-to-Headquarters VPN)",
     "Industrial Control & Edge IoT Gateway",
     "High-Reliability Retail / ATM Broadband Bonding"
+  ],
+  "rvcp": [
+    "Primary WAN Failover for Retail & Branch Offices",
+    "Remote SCADA/Industrial Site Connectivity",
+    "Fleet of Distributed IoT/Metering Gateways with Centralized Management"
+  ],
+  "rvg": [
+    "Smart Utilities",
+    "Industrial IoT & Automation",
+    "Business Continuity Connectivity"
   ],
   "rvw50": [
     "Transit & Passenger Connectivity",

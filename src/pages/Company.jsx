@@ -168,9 +168,9 @@ export default function Company() {
             <h2 className="font-sora text-3xl font-bold text-brand-text mb-10">
               {timelineSection.heading} <span className="text-brand-blue">{timelineSection.headingAccent}</span>
             </h2>
-            <div className="relative flex-1">
+            <div className="relative flex-1 flex flex-col">
               <div className="absolute left-[52px] top-0 bottom-0 w-px bg-brand-blue/10" />
-              <div className="flex flex-col h-full justify-between">
+              <div className="flex flex-col flex-1 justify-between">
                 {timeline.map(({ year, title, body }) => (
                   <div key={year} className="flex gap-5">
                     <div className="shrink-0 w-24 text-right">

@@ -18,7 +18,7 @@ const productImages = {
   "idfxx": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/idfxx-1787121319469-96hn.png"],
   "idxx": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/idxx-1786603920631-nlg8.png"],
   "iexx": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/iexx-1786535373955-vsb7.png"],
-  "intel-x6425E": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/intel-x6425E-1786510520709-0jr1.png", "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/intel-x6425E-1786510524291-tfba.png"],
+  "inv-cb": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/intel-x6425E-1786510520709-0jr1.png", "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/intel-x6425E-1786510524291-tfba.png"],
   "inv-cd-xx": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cd-xx-1.png", "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cd-xx-2.png", "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cd-xx-1786515792452-i9dg.png"],
   "inv-ce-xx": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-ce-xx-1787034276436-nw65.png", "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-ce-xx-1787034279559-vg60.png"],
   "inv-cea-xx": ["https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cea-xx-1786441526355-8a7c.png", "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/inv-cea-xx-1786441531237-gu5u.png"],
