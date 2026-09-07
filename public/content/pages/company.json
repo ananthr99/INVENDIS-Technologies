@@ -143,6 +143,11 @@
     "ISO 45001:2018",
     "ISO 27001:2022"
   ],
+  "locationGallery": {
+    "eyebrow": "Our Locations",
+    "heading": "Where We Work",
+    "images": []
+  },
   "teamSection": {
     "eyebrow": "Leadership",
     "heading": "Meet the",

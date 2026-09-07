@@ -6,7 +6,7 @@ import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
 const FILE_PATH     = 'public/content/pages/company.json'
 const GH_PAGES_PATH = 'content/pages/company.json'
-const TABS = ['Hero', 'Mission', 'Values', 'Timeline', 'Facilities', 'Team', 'CTA Banner']
+const TABS = ['Hero', 'Mission', 'Values', 'Timeline', 'Facilities', 'Gallery', 'Team', 'CTA Banner']
 const PREVIEW_BASE  = 'https://raw.githubusercontent.com/ananthr99/INVENDIS-Technologies/gh-pages/'
 
 export default function CompanyPage() {
@@ -88,6 +88,7 @@ export default function CompanyPage() {
         {activeTab === 'Values'     && <ValuesTab     data={data} patch={patch} />}
         {activeTab === 'Timeline'   && <TimelineTab   data={data} patch={patch} />}
         {activeTab === 'Facilities' && <FacilitiesTab data={data} patch={patch} />}
+        {activeTab === 'Gallery'    && <GalleryTab    data={data} patch={patch} />}
         {activeTab === 'Team'       && <TeamTab       data={data} patch={patch} />}
         {activeTab === 'CTA Banner' && <CTABannerTab  data={data} patch={patch} />}
       </div>
@@ -737,6 +738,93 @@ function AddTeamMemberModal({ token, toast, onSave, onCancel }) {
   )
 }
 
+
+/* ── Gallery ── */
+function GalleryTab({ data, patch }) {
+  const { token, toast } = useAdmin()
+  const gallery = data.locationGallery ?? { eyebrow: '', heading: '', images: [] }
+  const sh = (f, v) => patch(d => { d.locationGallery[f] = v; return d })
+  function update(i, f, v) { patch(d => { d.locationGallery.images[i][f] = v; return d }) }
+  function remove(i) { patch(d => { d.locationGallery.images.splice(i, 1); return d }) }
+
+  async function handleUpload(file) {
+    if (!file) return
+    const ext = file.name.split('.').pop().toLowerCase()
+    const filename = `location-${Date.now()}.${ext}`
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload  = () => resolve(reader.result.split(',')[1])
+      reader.onerror = reject
+      reader.readAsDataURL(file)
+    })
+    try {
+      toast('Uploading image…', '')
+      let ghSha = null
+      try { ghSha = (await readFileDirect(`images/locations/${filename}`, token)).sha } catch {}
+      await writeFileRawDirect(`images/locations/${filename}`, base64, `CMS: upload location image`, ghSha, token)
+      let mainSha = null
+      try { mainSha = (await readFile(`public/images/locations/${filename}`, token)).sha } catch {}
+      await writeFileRaw(`public/images/locations/${filename}`, base64, `CMS: upload location image [skip ci]`, mainSha, token)
+      patch(d => { d.locationGallery.images.push({ src: `images/locations/${filename}`, alt: '', caption: '' }); return d })
+      toast('Image added — click Save & Publish', 'ok')
+    } catch (e) {
+      toast(e.message, 'err')
+    }
+  }
+
+  return (
+    <>
+      <div className="form-section">
+        <p className="form-section-title">Section Header</p>
+        <div className="field">
+          <label>Eyebrow <span className="hint">— small red label above the heading</span></label>
+          <input value={gallery.eyebrow} onChange={e => sh('eyebrow', e.target.value)} placeholder="Our Locations" />
+        </div>
+        <div className="field">
+          <label>Heading</label>
+          <input value={gallery.heading} onChange={e => sh('heading', e.target.value)} placeholder="Where We Work" />
+        </div>
+      </div>
+      <div className="form-section">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: '#111827' }}>Images ({gallery.images.length})</span>
+          <label style={{ fontSize: 13, color: '#2563eb', cursor: 'pointer', textDecoration: 'underline' }}>
+            + Add Image
+            <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => { handleUpload(e.target.files?.[0]); e.target.value = '' }} />
+          </label>
+        </div>
+        {gallery.images.length === 0 && (
+          <p style={{ fontSize: 13, color: '#9ca3af', fontStyle: 'italic', textAlign: 'center', padding: '24px 0' }}>
+            No images yet. Click "Add Image" to upload.
+          </p>
+        )}
+        {gallery.images.map((img, i) => (
+          <div key={i} style={{ display: 'flex', gap: 14, marginBottom: 10, alignItems: 'flex-start', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, padding: '12px 14px' }}>
+            <div style={{ width: 96, height: 64, borderRadius: 8, overflow: 'hidden', background: '#e5e7eb', flexShrink: 0 }}>
+              <img
+                src={img.src.startsWith('http') ? img.src : `${PREVIEW_BASE}${img.src}`}
+                alt={img.alt || ''}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                onError={e => { e.target.style.display = 'none' }}
+              />
+            </div>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <div className="field" style={{ marginBottom: 0 }}>
+                {i === 0 && <label>Alt Text <span className="hint">— for accessibility</span></label>}
+                <input value={img.alt || ''} onChange={e => update(i, 'alt', e.target.value)} placeholder="e.g. Invendis Bangalore HQ" />
+              </div>
+              <div className="field" style={{ marginBottom: 0 }}>
+                {i === 0 && <label>Caption <span className="hint">— optional, shown below image</span></label>}
+                <input value={img.caption || ''} onChange={e => update(i, 'caption', e.target.value)} placeholder="e.g. Bangalore Office" />
+              </div>
+            </div>
+            <button className="btn-del" style={{ marginTop: i === 0 ? 18 : 0 }} onClick={() => remove(i)}>Remove</button>
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
 
 /* ── CTA Banner ── */
 function CTABannerTab({ data, patch }) {

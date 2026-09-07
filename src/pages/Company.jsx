@@ -1,4 +1,5 @@
 import CtaBanner from '../components/shared/CTABanner'
+import LocationCarousel from '../components/company/LocationCarousel'
 import PageSEO from '../components/shared/PageSEO'
 import { useContent } from '../hooks/useContent'
 import { getIcon } from '../utils/iconMap'
@@ -45,7 +46,7 @@ export default function Company() {
   const {
     hero, missionSection, mission, valuesSection, values,
     timelineSection, timeline, facilitiesSection, facilities,
-    certifications, teamSection, team, ctaBanner,
+    certifications, locationGallery, teamSection, team, ctaBanner,
   } = content
 
   return (
@@ -188,8 +189,8 @@ export default function Company() {
             </div>
           </div>
 
-          {/* Facilities + Certs */}
-          <div>
+          {/* Facilities + Certs + Location Gallery */}
+          <div className="flex flex-col gap-6">
             <div className="bg-brand-light rounded-2xl p-8 border border-gray-100">
               <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest mb-2">{facilitiesSection.eyebrow}</p>
               <h3 className="font-sora font-bold text-xl text-brand-text mb-2">{facilitiesSection.heading}</h3>
@@ -220,6 +221,9 @@ export default function Company() {
                 ))}
               </div>
             </div>
+            {locationGallery?.images?.length > 0 && (
+              <LocationCarousel {...locationGallery} />
+            )}
           </div>
         </div>
       </section>
