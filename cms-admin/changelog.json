@@ -1,5 +1,59 @@
 [
   {
+    "ts": "2026-09-07T10:04:57.807Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Company",
+    "section": "Gallery",
+    "action": "Updated Company — Gallery",
+    "changes": [
+      {
+        "field": "locationGallery.images[1].src",
+        "from": "images/locations/location-1788773772404.png",
+        "to": "images/locations/location-1788775437987.png"
+      },
+      {
+        "field": "locationGallery.images[1].alt",
+        "from": "Invendis Factory",
+        "to": "Head Quarters"
+      },
+      {
+        "field": "locationGallery.images[1].caption",
+        "from": "Bangalore",
+        "to": ""
+      },
+      {
+        "field": "locationGallery.images[2].src",
+        "from": "images/locations/location-1788773794437.png",
+        "to": "images/locations/location-1788775462878.png"
+      },
+      {
+        "field": "locationGallery.images[2].alt",
+        "from": "Invendis R&D",
+        "to": "Research & Development"
+      },
+      {
+        "field": "locationGallery.images[2].caption",
+        "from": "Bangalore",
+        "to": ""
+      },
+      {
+        "field": "locationGallery.images[3].src",
+        "from": "images/locations/location-1788773816000.png",
+        "to": "images/locations/location-1788775480721.png"
+      },
+      {
+        "field": "locationGallery.images[3].alt",
+        "from": "Invendis HQ",
+        "to": "Factory"
+      },
+      {
+        "field": "locationGallery.images[3].caption",
+        "from": "Bangalore",
+        "to": ""
+      }
+    ]
+  },
+  {
     "ts": "2026-09-07T09:37:17.646Z",
     "user": "ananth.r@invendis.com",
     "page": "Company",
