@@ -1,6 +1,6 @@
 {
   "id": "rvg",
-  "name": "RVG 55",
+  "name": "RVG55-XX",
   "cat": "Gateway",
   "cpu": "MediaTek MT7621 Dual-core 880 MHz",
   "ram": "512MB DDR3",
@@ -14,7 +14,7 @@
   "power": "9-30 VDC",
   "ports": 0,
   "os": "Open-WRT based Linux OS",
-  "desc": "",
+  "desc": "The RVG55-XX is an industrial 5G/4G cellular gateway that enables secure connectivity between field devices, industrial equipment, and cloud platforms through Ethernet, serial, Wi-Fi, and cellular networks.",
   "housing": "Industrial Aluminium",
   "dims": "110 x 44 x 94 mm (W x H x D)",
   "weight": "400 gm",
@@ -23,13 +23,17 @@
     "https://ananthr99.github.io/INVENDIS-ProductSelector/assets/images/rvg-1787660516258-khi6.png"
   ],
   "datasheet": "",
-  "use_cases": [],
+  "use_cases": [
+    "Smart Utilities",
+    "Industrial IoT & Automation",
+    "Business Continuity Connectivity"
+  ],
   "hidden_fields": [
     "rs232"
   ],
   "additional_specs": [
     {
-      "k": "Ethernet Ports- Additional Details",
+      "k": "Ethernet Ports",
       "v": "Gigabit Ethernet (Configurable WAN/LAN)"
     }
   ],

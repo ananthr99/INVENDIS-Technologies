@@ -1,5 +1,14 @@
 [
   {
+    "slug": "industrial-edge-computing-powering-secure-and-reliable-iiot-networks",
+    "title": "Industrial Edge Computing: Powering Secure and Reliable IIoT Networks",
+    "date": "2026-09-07",
+    "category": "Technical Article",
+    "author": "Invendis Team",
+    "excerpt": "Introducing the INV CI X7425E, the latest 6 port Networking Device, featuring 2 COM ports, 4 USB 2.0 ports, 2 SIM slots, all ready to deliver on Edge AI networking capabilities.",
+    "readTime": 1
+  },
+  {
     "slug": "iiot-in-telecom-tower-monitoring",
     "title": "IIoT in Telecom: Real-Time Monitoring of Tower Infrastructure",
     "date": "2025-11-10",
