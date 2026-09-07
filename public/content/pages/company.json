@@ -146,7 +146,23 @@
   "locationGallery": {
     "eyebrow": "Our Locations",
     "heading": "Where We Work",
-    "images": []
+    "images": [
+      {
+        "src": "images/locations/location-1788773772404.png",
+        "alt": "Invendis Factory",
+        "caption": "Bangalore"
+      },
+      {
+        "src": "images/locations/location-1788773794437.png",
+        "alt": "Invendis R&D",
+        "caption": "Bangalore"
+      },
+      {
+        "src": "images/locations/location-1788773816000.png",
+        "alt": "Invendis HQ",
+        "caption": "Bangalore"
+      }
+    ]
   },
   "teamSection": {
     "eyebrow": "Leadership",
