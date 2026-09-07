@@ -17,7 +17,7 @@ const ROOT = join(__dirname, '..')
 
 // Canonical domain — must match PageSEO's SITE_URL default / robots.txt.
 // Override with SITEMAP_URL env var if the canonical domain ever changes.
-const SITE_URL = process.env.SITEMAP_URL || 'https://invendis-technologies-cms.netlify.app'
+const SITE_URL = process.env.SITEMAP_URL || 'https://invendis.com'
 
 const today = new Date().toISOString().slice(0, 10)
 

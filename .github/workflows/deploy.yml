@@ -25,7 +25,7 @@ jobs:
       - name: Build main site
         run: npm run build
         env:
-          VITE_BASE: /INVENDIS-Technologies/
+          VITE_BASE: /
 
       - name: Install admin dependencies
         run: npm install
