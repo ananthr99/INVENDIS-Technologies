@@ -1,5 +1,34 @@
 [
   {
+    "ts": "2026-09-07T09:37:17.646Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Company",
+    "section": "Gallery",
+    "action": "Updated Company — Gallery",
+    "changes": [
+      {
+        "field": "locationGallery.images",
+        "from": "0 items",
+        "to": "3 items"
+      },
+      {
+        "field": "locationGallery.images[1]",
+        "from": "",
+        "to": "[object Object]"
+      },
+      {
+        "field": "locationGallery.images[2]",
+        "from": "",
+        "to": "[object Object]"
+      },
+      {
+        "field": "locationGallery.images[3]",
+        "from": "",
+        "to": "[object Object]"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-07T04:57:30.284Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Blog",
