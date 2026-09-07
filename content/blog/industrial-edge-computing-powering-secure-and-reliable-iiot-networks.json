@@ -1,0 +1,9 @@
+{
+  "title": "Industrial Edge Computing: Powering Secure and Reliable IIoT Networks",
+  "date": "2026-09-07",
+  "category": "Technical Article",
+  "author": "Invendis Team",
+  "excerpt": "Introducing the INV CI X7425E, the latest 6 port Networking Device, featuring 2 COM ports, 4 USB 2.0 ports, 2 SIM slots, all ready to deliver on Edge AI networking capabilities.",
+  "body": "As industries embrace digital transformation, edge computing platforms must deliver high performance, reliable connectivity, and robust security. The INV CI Industrial Network Computer is engineered to meet these demands with an Intel® X7425E quad-core processor, support for up to 32GB DDR5 memory, and six Gigabit Ethernet ports for high-speed network communication. With support for 4G/5G cellular connectivity, dual SIM capability, Wi-Fi expansion, and multiple operating systems, it offers the flexibility required for modern industrial deployments.\n\nThe INV CI is ideal for industrial automation, where it enables real-time machine communication and secure data processing at the edge. In water and wastewater management, it supports reliable remote monitoring of pumping stations, treatment plants, and distribution networks. It is also well-suited for banking and financial networks, serving as a secure SD-WAN or branch gateway to ensure uninterrupted, encrypted connectivity between branches and data centers.\n\nWith its rugged fanless aluminium enclosure and versatile connectivity options, the INV CI provides a dependable platform for organizations seeking secure, scalable, and future-ready edge computing solutions.",
+  "tags": []
+}
