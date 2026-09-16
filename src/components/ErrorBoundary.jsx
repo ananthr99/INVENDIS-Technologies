@@ -1,5 +1,7 @@
 import { Component } from 'react'
 
+const CHUNK_ERROR = /Loading chunk|Failed to fetch dynamically imported|Importing a module script failed/i
+
 export default class ErrorBoundary extends Component {
   constructor(props) {
     super(props)
@@ -8,6 +10,13 @@ export default class ErrorBoundary extends Component {
 
   static getDerivedStateFromError() {
     return { hasError: true }
+  }
+
+  componentDidCatch(error) {
+    if (CHUNK_ERROR.test(error?.message || '') && !sessionStorage.getItem('chunk_reload')) {
+      sessionStorage.setItem('chunk_reload', '1')
+      window.location.reload()
+    }
   }
 
   render() {

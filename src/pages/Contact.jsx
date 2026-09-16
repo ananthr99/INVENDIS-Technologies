@@ -87,6 +87,8 @@ export default function Contact() {
     </div>
   )
 
+  if (!content) return null
+
   const { hero, contactItems, quickFacts, form, mapSection } = content
   const SERVED = servedData?.countries ?? []
 

@@ -42,6 +42,8 @@ export default function Silbo() {
     </div>
   )
 
+  if (!content) return null
+
   const { aboutSection, capabilities, useCases, hero, latestLaunch, intelSection, categoriesSection, marketFit, partners, ctaBanner } = content
 
   const silboProducts = products.filter(p => SILBO_CATS.includes(p.cat))

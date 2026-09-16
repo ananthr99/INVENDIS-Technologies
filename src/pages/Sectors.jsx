@@ -27,6 +27,8 @@ export default function Sectors() {
     </div>
   )
 
+  if (!content) return null
+
   const { hero, sectors, globalReachSection, regions, ctaBanner } = content
   const featured = sectors.find(s => s.featured) ?? sectors[0]
   const rest = sectors.filter(s => s !== featured)

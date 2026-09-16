@@ -32,6 +32,8 @@ export default function Products() {
     </div>
   )
 
+  if (!content) return null
+
   const {
     hero, hardwareSection, hardwareProducts,
     silboSection, silboProducts,

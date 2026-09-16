@@ -43,6 +43,8 @@ export default function Company() {
     </div>
   )
 
+  if (!content) return null
+
   const {
     hero, missionSection, mission, valuesSection, values,
     timelineSection, timeline, facilitiesSection, facilities,

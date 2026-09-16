@@ -54,6 +54,8 @@ export default function Gallery() {
     </div>
   )
 
+  if (!content) return null
+
   const { hero, gallerySection, categories, photos, ctaBanner } = content
 
   const sorted   = [...photos].sort((a, b) => (a.order ?? a.id ?? 0) - (b.order ?? b.id ?? 0))
