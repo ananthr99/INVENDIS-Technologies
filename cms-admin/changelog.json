@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-16T11:08:00.015Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"10\"].caption",
+        "from": "Invendis attended the recent Connected Britain Event 2026 a…",
+        "to": "Invendis attended the recent Connected Britain Event 2026 f…"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-16T11:06:01.104Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
