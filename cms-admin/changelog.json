@@ -1,5 +1,127 @@
 [
   {
+    "ts": "2026-09-16T11:08:00.015Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"10\"].caption",
+        "from": "Invendis attended the recent Connected Britain Event 2026 a…",
+        "to": "Invendis attended the recent Connected Britain Event 2026 f…"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-16T11:06:01.104Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": []
+  },
+  {
+    "ts": "2026-09-16T11:00:50.682Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "—",
+        "to": "added \"10\""
+      },
+      {
+        "field": "photos[\"1\"].order",
+        "from": "1",
+        "to": "2"
+      },
+      {
+        "field": "photos[\"6\"].order",
+        "from": "3",
+        "to": "4"
+      },
+      {
+        "field": "photos[\"7\"].order",
+        "from": "2",
+        "to": "3"
+      },
+      {
+        "field": "photos[\"9\"].order",
+        "from": "4",
+        "to": "6"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-16T10:47:19.504Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team[\"Arka Halder\"].photo",
+        "from": "images/team/arka-halder.jpg",
+        "to": ""
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-16T10:29:45.997Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Site Settings",
+    "section": "Contact",
+    "action": "Updated Site Settings — Contact",
+    "changes": [
+      {
+        "field": "contact.websites[\"www.invendis.com\"].url",
+        "from": "invendis.com",
+        "to": "https://invendis.com/"
+      },
+      {
+        "field": "contact.websites[\"www.silbonetworks.com\"].url",
+        "from": "silbonetworks.com",
+        "to": "https://silbonetworks.com/"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-16T10:27:21.849Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team[\"Arka Halder\"].role",
+        "from": "AGM-Sales",
+        "to": "DGM-Sales"
+      }
+    ]
+  },
+  {
+    "ts": "2026-09-16T10:26:17.077Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Site Settings",
+    "section": "Contact",
+    "action": "Updated Site Settings — Contact",
+    "changes": [
+      {
+        "field": "contact.websites[\"www.invendis.com\"].url",
+        "from": "https://www.invendis.com",
+        "to": "invendis.com"
+      },
+      {
+        "field": "contact.websites[\"www.silbonetworks.com\"].url",
+        "from": "https://www.silbonetworks.com",
+        "to": "silbonetworks.com"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-07T10:12:29.496Z",
     "user": "ananth.r@invendis.com",
     "page": "Company",

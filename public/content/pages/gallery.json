@@ -39,7 +39,7 @@
   "photos": [
     {
       "id": 1,
-      "order": 1,
+      "order": 2,
       "category": "events",
       "title": "Intel ISB Connect 2026",
       "caption": "Showcase of the latest Intel Edge Devices at the Taj Hotel, Bengaluru, on 13th August 2026",
@@ -59,7 +59,7 @@
       "title": "ElAsia 2026",
       "caption": "Invendis participated in ElAsia from May 14-17 2026",
       "src": "images/gallery/elasia-2026.jpeg",
-      "order": 3
+      "order": 4
     },
     {
       "id": 7,
@@ -67,7 +67,7 @@
       "title": "Automation Expo 2026",
       "caption": "Invendis participated in the Industrial Automation Expo 2026, one of India's largest events for automation related technology from 22nd-25th July 2026. ",
       "src": "images/gallery/automation-expo-2026.jpeg",
-      "order": 2
+      "order": 3
     },
     {
       "id": 8,
@@ -83,7 +83,15 @@
       "title": "Intel Alderlake Award",
       "caption": "Invendis received an award for designing the Alderlake Power-On Board in a record 3 days under the Make in India initiative in March 2026",
       "src": "images/gallery/intel-alderlake-award.jpeg",
-      "order": 4
+      "order": 6
+    },
+    {
+      "id": 10,
+      "category": "expos",
+      "title": "Connected Britain 2026",
+      "caption": "Invendis attended the recent Connected Britain Event 2026 from 9-10th September 2026 and was honoured to showcase Intel based Edge Compute devices and explain about the product portfolio.",
+      "src": "images/gallery/connected-britain-2026.jpeg",
+      "order": 1
     }
   ],
   "ctaBanner": {
