@@ -74,50 +74,104 @@ export default function Silbo() {
             backgroundSize: '40px 40px',
           }}
         />
-        <div className="relative max-w-4xl">
-          <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-5">
-            {hero.eyebrow}
-          </p>
-          <img
-            src={asset(site.logos.silbo)}
-            alt="SILBO"
-            className="h-12 w-auto mb-6 brightness-0 invert"
-          />
-          <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
-            {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
-          </h1>
-          <p className="text-blue-200 text-lg leading-relaxed mb-8 max-w-2xl">
-            {hero.description}
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              to={hero.primaryCta.to}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white font-sora font-semibold rounded-xl hover:bg-red-600 transition-colors"
-            >
-              {hero.primaryCta.label} <ArrowRight size={18} />
-            </Link>
-            <Link
-              to={hero.secondaryCta.to}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-sora font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/20"
-            >
-              {hero.secondaryCta.label}
-            </Link>
-          </div>
-
-          {/* Stats strip */}
-          <div className="flex flex-wrap gap-10 mt-14 pt-10 border-t border-white/10">
-            {SILBO_CATS.map(cat => (
-              <div key={cat}>
-                <p className="font-sora text-3xl font-bold">{catCounts[cat]}+</p>
-                <p className="text-blue-300 text-sm mt-0.5">{cat} models</p>
+        {hero.heroImage ? (
+          <div className="relative w-full grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-12 items-center">
+            <div className="max-w-4xl">
+              <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-5">
+                {hero.eyebrow}
+              </p>
+              <img
+                src={asset(site.logos.silbo)}
+                alt="SILBO"
+                className="h-12 w-auto mb-6 brightness-0 invert"
+              />
+              <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
+                {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
+              </h1>
+              <p className="text-blue-200 text-lg leading-relaxed mb-8 max-w-2xl">
+                {hero.description}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to={hero.primaryCta.to}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white font-sora font-semibold rounded-xl hover:bg-red-600 transition-colors"
+                >
+                  {hero.primaryCta.label} <ArrowRight size={18} />
+                </Link>
+                <Link
+                  to={hero.secondaryCta.to}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-sora font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/20"
+                >
+                  {hero.secondaryCta.label}
+                </Link>
               </div>
-            ))}
-            <div>
-              <p className="font-sora text-3xl font-bold">{silboProducts.length}+</p>
-              <p className="text-blue-300 text-sm mt-0.5">Total products</p>
+              <div className="flex flex-wrap gap-10 mt-14 pt-10 border-t border-white/10">
+                {SILBO_CATS.map(cat => (
+                  <div key={cat}>
+                    <p className="font-sora text-3xl font-bold">{catCounts[cat]}+</p>
+                    <p className="text-blue-300 text-sm mt-0.5">{cat} models</p>
+                  </div>
+                ))}
+                <div>
+                  <p className="font-sora text-3xl font-bold">{silboProducts.length}+</p>
+                  <p className="text-blue-300 text-sm mt-0.5">Total products</p>
+                </div>
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <img
+                src={hero.heroImage.startsWith('http') ? hero.heroImage : `${import.meta.env.BASE_URL}${hero.heroImage}`}
+                alt="SILBO hero"
+                className="w-full object-cover rounded-2xl shadow-2xl border border-white/10"
+                style={{ maxHeight: 'calc(100vh - 160px)' }}
+                loading="eager"
+              />
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="relative max-w-4xl">
+            <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-5">
+              {hero.eyebrow}
+            </p>
+            <img
+              src={asset(site.logos.silbo)}
+              alt="SILBO"
+              className="h-12 w-auto mb-6 brightness-0 invert"
+            />
+            <h1 className="font-sora text-5xl font-bold mb-5 leading-tight">
+              {hero.headline} <span className="text-red-300">{hero.headlineAccent}</span>
+            </h1>
+            <p className="text-blue-200 text-lg leading-relaxed mb-8 max-w-2xl">
+              {hero.description}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to={hero.primaryCta.to}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white font-sora font-semibold rounded-xl hover:bg-red-600 transition-colors"
+              >
+                {hero.primaryCta.label} <ArrowRight size={18} />
+              </Link>
+              <Link
+                to={hero.secondaryCta.to}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-sora font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/20"
+              >
+                {hero.secondaryCta.label}
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-10 mt-14 pt-10 border-t border-white/10">
+              {SILBO_CATS.map(cat => (
+                <div key={cat}>
+                  <p className="font-sora text-3xl font-bold">{catCounts[cat]}+</p>
+                  <p className="text-blue-300 text-sm mt-0.5">{cat} models</p>
+                </div>
+              ))}
+              <div>
+                <p className="font-sora text-3xl font-bold">{silboProducts.length}+</p>
+                <p className="text-blue-300 text-sm mt-0.5">Total products</p>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* About + Capabilities */}

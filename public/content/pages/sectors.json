@@ -3,7 +3,8 @@
     "eyebrow": "Industries We Serve",
     "headline": "Sector",
     "headlineAccent": "Solutions",
-    "description": "From telecom towers to smart energy — Invendis delivers purpose-built IIoT solutions across multiple industrial verticals with proven global deployments."
+    "description": "From telecom towers to smart energy — Invendis delivers purpose-built IIoT solutions across multiple industrial verticals with proven global deployments.",
+    "heroImage": "images/hero/sectors-hero.png"
   },
   "sectors": [
     {

@@ -87,7 +87,8 @@
     "secondaryCta": {
       "label": "Talk to Sales",
       "to": "/contact"
-    }
+    },
+    "heroImage": "images/hero/silbo-hero.png"
   },
   "latestLaunch": {
     "productId": "",
