@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, triggerCachePurge } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
 
 const FILE_PATH     = 'public/content/pages/home.json'
@@ -55,6 +55,7 @@ export default function HomePage() {
 
       logChange({ userEmail, page: 'Home', section: activeTab, token, before: originalData, after: data })
       setOriginalData(structuredClone(data))
+      triggerCachePurge(token)
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')

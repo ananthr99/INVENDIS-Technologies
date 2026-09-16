@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect } from '../../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect, triggerCachePurge } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
 import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
@@ -54,6 +54,7 @@ export default function SectorsPage() {
       setSha(result.content.sha)
       logChange({ userEmail, page: 'Sectors', section: activeTab, token, before: originalData, after: data })
       setOriginalData(structuredClone(data))
+      triggerCachePurge(token)
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')

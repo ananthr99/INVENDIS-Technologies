@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect, getFileSha, getFileShaDirect } from '../../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect, getFileSha, getFileShaDirect, triggerCachePurge } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
 import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
@@ -65,6 +65,7 @@ export default function GalleryPage() {
       setSha(result.content.sha)
       logChange({ userEmail, page: 'Gallery', section: activeTab, token, before: originalData, after: data })
       setOriginalData(structuredClone(data))
+      triggerCachePurge(token)
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')

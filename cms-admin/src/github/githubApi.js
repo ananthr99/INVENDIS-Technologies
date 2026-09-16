@@ -200,3 +200,11 @@ export async function getFileShaDirect(path, token) {
   const data = await res.json()
   return data.sha ?? null
 }
+
+export function triggerCachePurge(token) {
+  fetch(`${BASE}/dispatches`, {
+    method: 'POST',
+    headers: { ...headers(token), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ event_type: 'purge-cache' }),
+  }).catch(() => {})
+}

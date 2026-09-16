@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect, getFileSha, getFileShaDirect } from '../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, writeFileRaw, writeFileRawDirect, getFileSha, getFileShaDirect, triggerCachePurge } from '../github/githubApi'
 import { logChange } from '../utils/logChange'
 
 const FILE_PATH = 'public/content/siteSettings.json'
@@ -58,6 +58,7 @@ export default function SiteSettings() {
 
       logChange({ userEmail, page: 'Site Settings', section: activeTab, token, before: originalData, after: data })
       setOriginalData(structuredClone(data))
+      triggerCachePurge(token)
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')

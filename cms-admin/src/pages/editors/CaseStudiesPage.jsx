@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAdmin } from '../../context/AdminContext'
-import { readFile, writeFile, readFileDirect, writeFileDirect } from '../../github/githubApi'
+import { readFile, writeFile, readFileDirect, writeFileDirect, triggerCachePurge } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
 import { usePagination, ListHeader, Pager } from '../../components/Pagination'
 
@@ -53,6 +53,7 @@ export default function CaseStudiesPage() {
       setSha(result.content.sha)
       logChange({ userEmail, page: 'Case Studies', section: activeTab, token, before: originalData, after: data })
       setOriginalData(structuredClone(data))
+      triggerCachePurge(token)
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')

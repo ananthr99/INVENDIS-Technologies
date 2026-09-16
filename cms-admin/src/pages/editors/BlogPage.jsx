@@ -4,6 +4,7 @@ import {
   readFile, writeFile,
   readFileDirect, writeFileDirect,
   deleteFile, deleteFileDirect,
+  triggerCachePurge,
 } from '../../github/githubApi'
 import { logChange } from '../../utils/logChange'
 
@@ -218,6 +219,7 @@ export default function BlogPage() {
       setOriginalForm(saved_form)
       setIsNew(false)
       setSlugLocked(true)
+      triggerCachePurge(token)
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')
@@ -262,6 +264,7 @@ export default function BlogPage() {
       const result = await writeFile(RESOURCES_MAIN, json, 'CMS: update resources page settings [skip ci]', settingsSha || undefined, token)
       setSettingsSha(result.content.sha)
       logChange({ userEmail, page: 'Resources', section: 'CTA Banner', token, before: null, after: settings })
+      triggerCachePurge(token)
       toast('Saved — live in seconds', 'ok')
     } catch (e) {
       toast(e.message, 'err')
