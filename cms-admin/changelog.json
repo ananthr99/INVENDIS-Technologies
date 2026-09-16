@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-16T10:27:21.849Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team[\"Arka Halder\"].role",
+        "from": "AGM-Sales",
+        "to": "DGM-Sales"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-16T10:26:17.077Z",
     "user": "ananth.r@invendis.com",
     "page": "Site Settings",
