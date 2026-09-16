@@ -4,7 +4,7 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CookieBanner from './components/shared/CookieBanner'
 import WhatsAppButton from './components/shared/WhatsAppButton'
-import ErrorBoundary from './components/ErrorBoundary'
+import ErrorBoundaryClass from './components/ErrorBoundary'
 import { trackPageView } from './utils/analytics'
 import StickyProductCTA from './components/shared/StickyProductCTA'
 
@@ -23,6 +23,11 @@ const Careers         = lazy(() => import('./pages/Careers'))
 const Silbo           = lazy(() => import('./pages/Silbo'))
 const Gallery         = lazy(() => import('./pages/Gallery'))
 const NotFound        = lazy(() => import('./pages/NotFound'))
+
+function ErrorBoundary({ children }) {
+  const { pathname } = useLocation()
+  return <ErrorBoundaryClass key={pathname}>{children}</ErrorBoundaryClass>
+}
 
 function PageLoader() {
   return (
@@ -74,26 +79,26 @@ function App() {
       <StickyProductCTA />
       <main id="main-content" className="pt-20">
         <ErrorBoundary>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sectors" element={<Sectors />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/product-selector" element={<ProductSelector />} />
-            <Route path="/products/product-selector/:id" element={<ProductSelector />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/company" element={<Company />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/resources/:slug" element={<ResourceDetail />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/silbo" element={<Silbo />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/sectors" element={<Sectors />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/products/product-selector" element={<ProductSelector />} />
+              <Route path="/products/product-selector/:id" element={<ProductSelector />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/company" element={<Company />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/resources/:slug" element={<ResourceDetail />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/silbo" element={<Silbo />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </ErrorBoundary>
       </main>
       <Footer />

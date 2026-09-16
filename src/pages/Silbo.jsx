@@ -42,7 +42,7 @@ export default function Silbo() {
     </div>
   )
 
-  if (!content) return null
+  if (!content || !site) return null
 
   const { aboutSection, capabilities, useCases, hero, latestLaunch, intelSection, categoriesSection, marketFit, partners, ctaBanner } = content
 
