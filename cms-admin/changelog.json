@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-16T10:47:19.504Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team[\"Arka Halder\"].photo",
+        "from": "images/team/arka-halder.jpg",
+        "to": ""
+      }
+    ]
+  },
+  {
     "ts": "2026-09-16T10:29:45.997Z",
     "user": "ananth.r@invendis.com",
     "page": "Site Settings",
