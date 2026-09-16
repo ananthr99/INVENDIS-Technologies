@@ -54,11 +54,11 @@
     "websites": [
       {
         "label": "www.invendis.com",
-        "url": "invendis.com"
+        "url": "https://invendis.com/"
       },
       {
         "label": "www.silbonetworks.com",
-        "url": "silbonetworks.com"
+        "url": "https://silbonetworks.com/"
       }
     ]
   },
