@@ -17,6 +17,35 @@ function initials(name) {
   return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
 }
 
+function TeamCard({ name, role, photo, gi }) {
+  return (
+    <div className="w-36 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+      <div
+        className="h-[100px] flex items-center justify-center relative"
+        style={{ background: getGradient(avatarGradients[gi % avatarGradients.length]) }}
+      >
+        {photo ? (
+          <img
+            src={photo.startsWith('http') ? photo : `${import.meta.env.BASE_URL}${photo}`}
+            alt={name}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <span className="font-sora font-extrabold text-white text-3xl tracking-tight select-none">
+            {initials(name)}
+          </span>
+        )}
+      </div>
+      <div className="px-3 py-2.5">
+        <h4 className="font-sora font-bold text-brand-text text-sm leading-tight">{name}</h4>
+        <p className="text-xs text-brand-blue font-medium mt-1 leading-snug">{role}</p>
+      </div>
+    </div>
+  )
+}
+
 export default function Company() {
     const { data: content, loading } = useContent('pages/company.json', { withLoading: true })
   if (loading) return (
@@ -262,48 +291,16 @@ export default function Company() {
           <div className="flex justify-center">
             <div className="flex flex-col gap-4">
               {teamRows.map(({ members, offset }, ri) => (
-                <div key={ri} className="flex gap-6" style={offset ? { marginLeft: '5.25rem' } : {}}>
-                  {members.map(({ name, role, photo, gi }) => (
-                    <div key={gi} className="flex flex-col items-center text-center group w-36">
-                      <div className="w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
-                        {photo ? (
-                          <img src={photo.startsWith('http') ? photo : `${import.meta.env.BASE_URL}${photo}`} alt={name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-                        ) : (
-                          <div
-                            className="w-full h-full flex items-center justify-center text-white font-sora font-bold text-2xl"
-                            style={{ background: getGradient(avatarGradients[gi % avatarGradients.length]) }}
-                          >
-                            {initials(name)}
-                          </div>
-                        )}
-                      </div>
-                      <h4 className="font-sora font-bold text-brand-text text-sm">{name}</h4>
-                      <p className="text-brand-muted text-xs mt-1 leading-snug">{role}</p>
-                    </div>
-                  ))}
+                <div key={ri} className="flex gap-5" style={offset ? { marginLeft: '5.25rem' } : {}}>
+                  {members.map(m => <TeamCard key={m.gi} {...m} />)}
                 </div>
               ))}
             </div>
           </div>
         ) : (
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-5">
             {team.map(({ name, role, photo }, i) => (
-              <div key={i} className="flex flex-col items-center text-center group w-36">
-                <div className="w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
-                  {photo ? (
-                    <img src={photo.startsWith('http') ? photo : `${import.meta.env.BASE_URL}${photo}`} alt={name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-                  ) : (
-                    <div
-                      className="w-full h-full flex items-center justify-center text-white font-sora font-bold text-2xl"
-                      style={{ background: getGradient(avatarGradients[i % avatarGradients.length]) }}
-                    >
-                      {initials(name)}
-                    </div>
-                  )}
-                </div>
-                <h4 className="font-sora font-bold text-brand-text text-sm">{name}</h4>
-                <p className="text-brand-muted text-xs mt-1 leading-snug">{role}</p>
-              </div>
+              <TeamCard key={i} name={name} role={role} photo={photo} gi={i} />
             ))}
           </div>
         )}
