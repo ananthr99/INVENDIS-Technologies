@@ -174,52 +174,62 @@
     {
       "name": "Satish Kulkarni",
       "role": "CEO",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/satish-kulkarni-69b8129/"
     },
     {
       "name": "S Rangarajan",
       "role": "COO",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/srinivasan-rangarajan-37a92b7/"
     },
     {
       "name": "Praveenkumar Bijadi",
       "role": "President",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/praveenkumar-bijadi-16526612/"
     },
     {
       "name": "Shreesha Nataraj",
       "role": "Vice President",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/shreesha-nataraj-67b8b49/"
     },
     {
       "name": "Ravishankar S",
       "role": "Assistant Vice President",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/ravi-shankar-31441431/"
     },
     {
       "name": "Sathiya Moorthy",
       "role": "Head of Sales",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/sathiya6moorthy/"
     },
     {
       "name": "Sachin Chaurasiya",
       "role": "General Manager",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/sachin-chaurasiya-3176a516/"
     },
     {
       "name": "Arka Halder",
       "role": "DGM-Sales",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/arka-halder-05995338/"
     },
     {
       "name": "Bhimsen Bukkebag",
       "role": "DGM-Software Delivery",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/bhimsen-bukkebag-674b7255/"
     },
     {
       "name": "Yashwanth B Melwanki",
       "role": "AGM-Hardware",
-      "photo": null
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/yashwanth-melwanki-01039118/"
     }
   ],
   "ctaBanner": {
