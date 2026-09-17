@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, useState, lazy, Suspense } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CookieBanner from './components/shared/CookieBanner'
@@ -7,34 +7,25 @@ import WhatsAppButton from './components/shared/WhatsAppButton'
 import ErrorBoundaryClass from './components/ErrorBoundary'
 import { trackPageView } from './utils/analytics'
 import StickyProductCTA from './components/shared/StickyProductCTA'
-
-const Home            = lazy(() => import('./pages/Home'))
-const Sectors         = lazy(() => import('./pages/Sectors'))
-const Products        = lazy(() => import('./pages/Products'))
-const ProductSelector = lazy(() => import('./pages/ProductSelector'))
-const CaseStudies     = lazy(() => import('./pages/CaseStudies'))
-const Company         = lazy(() => import('./pages/Company'))
-const Contact         = lazy(() => import('./pages/Contact'))
-const Privacy         = lazy(() => import('./pages/Privacy'))
-const Terms           = lazy(() => import('./pages/Terms'))
-const Resources       = lazy(() => import('./pages/Resources'))
-const ResourceDetail  = lazy(() => import('./pages/ResourceDetail'))
-const Careers         = lazy(() => import('./pages/Careers'))
-const Silbo           = lazy(() => import('./pages/Silbo'))
-const Gallery         = lazy(() => import('./pages/Gallery'))
-const NotFound        = lazy(() => import('./pages/NotFound'))
+import Home from './pages/Home'
+import Sectors from './pages/Sectors'
+import Products from './pages/Products'
+import ProductSelector from './pages/ProductSelector'
+import CaseStudies from './pages/CaseStudies'
+import Company from './pages/Company'
+import Contact from './pages/Contact'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Resources from './pages/Resources'
+import ResourceDetail from './pages/ResourceDetail'
+import Careers from './pages/Careers'
+import Silbo from './pages/Silbo'
+import Gallery from './pages/Gallery'
+import NotFound from './pages/NotFound'
 
 function ErrorBoundary({ children }) {
   const { pathname } = useLocation()
   return <ErrorBoundaryClass key={pathname}>{children}</ErrorBoundaryClass>
-}
-
-function PageLoader() {
-  return (
-    <div className="min-h-[60vh] flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-brand-blue border-t-transparent rounded-full animate-spin" />
-    </div>
-  )
 }
 
 function ScrollToTop() {
@@ -79,26 +70,24 @@ function App() {
       <StickyProductCTA />
       <main id="main-content" className="pt-20">
         <ErrorBoundary>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/sectors" element={<Sectors />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/product-selector" element={<ProductSelector />} />
-              <Route path="/products/product-selector/:id" element={<ProductSelector />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/company" element={<Company />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/resources/:slug" element={<ResourceDetail />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/silbo" element={<Silbo />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sectors" element={<Sectors />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/product-selector" element={<ProductSelector />} />
+            <Route path="/products/product-selector/:id" element={<ProductSelector />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/company" element={<Company />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:slug" element={<ResourceDetail />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/silbo" element={<Silbo />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </ErrorBoundary>
       </main>
       <Footer />
