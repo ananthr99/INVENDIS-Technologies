@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-17T09:38:30.341Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team",
+        "from": "—",
+        "to": "added \"Yashwanth B Melwanki\""
+      }
+    ]
+  },
+  {
     "ts": "2026-09-16T16:54:28.083Z",
     "user": "ananth.r@invendis.com",
     "page": "Sectors",
