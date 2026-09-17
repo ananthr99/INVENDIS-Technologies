@@ -129,17 +129,13 @@ function HeroTab({ data, patch }) {
   async function handleHeroImageUpload(file) {
     if (!file) return
     const ext = file.name.split('.').pop().toLowerCase()
-    const filename = `silbo-hero.${ext}`
+    const filename = `silbo-hero-${Date.now()}.${ext}`
     const base64 = await toBase64(file)
     try {
       toast('Uploading image…', '')
-      let ghSha = null
-      try { ghSha = (await readFileDirect(`images/hero/${filename}`, token)).sha } catch {}
-      await writeFileRawDirect(`images/hero/${filename}`, base64, `CMS: upload SILBO hero image`, ghSha, token)
-      let mainSha = null
-      try { mainSha = (await readFile(`public/images/hero/${filename}`, token)).sha } catch {}
-      await writeFileRaw(`public/images/hero/${filename}`, base64, `CMS: upload SILBO hero image [skip ci]`, mainSha, token)
-      patch(d => { d.hero.heroImage = `images/hero/${filename}`; return d })
+      await writeFileRawDirect(`images/hero/${filename}`, base64, `CMS: upload SILBO hero image`, null, token)
+      await writeFileRaw(`public/images/hero/${filename}`, base64, `CMS: upload SILBO hero image [skip ci]`, null, token)
+      patch(d => { d.hero.heroImages = [...(d.hero.heroImages || []), `images/hero/${filename}`]; return d })
       toast('Image uploaded — click Save & Publish to apply', 'ok')
     } catch (e) {
       toast(e.message, 'err')
@@ -169,30 +165,24 @@ function HeroTab({ data, patch }) {
           <textarea rows={3} value={data.hero.description} onChange={e => s('description', e.target.value)} />
         </div>
 
-        {/* Hero Image */}
+        {/* Hero Images */}
         <div className="field">
-          <label>Hero Image <span className="hint">— optional · shown on the right side of the header · landscape recommended</span></label>
-          <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', marginTop: 8 }}>
-            <div style={{ width: 180, height: 112, borderRadius: 10, overflow: 'hidden', background: '#e5e7eb', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #d1d5db' }}>
-              {data.hero.heroImage ? (
-                <img src={`${PREVIEW_BASE}${data.hero.heroImage}`} alt="Hero preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => { e.target.style.display = 'none' }} />
-              ) : (
-                <span style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: '0 12px' }}>No image uploaded</span>
-              )}
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <label style={{ fontSize: 13, color: '#2563eb', cursor: 'pointer', textDecoration: 'underline', display: 'inline-block' }}>
-                {data.hero.heroImage ? 'Change image' : 'Upload image'}
-                <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => handleHeroImageUpload(e.target.files?.[0])} />
-              </label>
-              {data.hero.heroImage && (
-                <button onClick={() => patch(d => { d.hero.heroImage = null; return d })} style={{ fontSize: 13, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: 0, textAlign: 'left' }}>
-                  Remove image
-                </button>
-              )}
-              <span style={{ fontSize: 11, color: '#6b7280', maxWidth: 240 }}>Without an image the text spans the full header width. With an image it appears side-by-side.</span>
-            </div>
+          <label>Hero Images <span className="hint">— optional · multiple images auto-scroll · landscape recommended</span></label>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 8 }}>
+            {(data.hero.heroImages || []).map((img, i) => (
+              <div key={i} style={{ position: 'relative', width: 140, height: 88, borderRadius: 8, overflow: 'hidden', border: '1px solid #d1d5db', background: '#e5e7eb', flexShrink: 0 }}>
+                <img src={`${PREVIEW_BASE}${img}`} alt={`Hero ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => { e.target.style.display = 'none' }} />
+                <button onClick={() => patch(d => { d.hero.heroImages = d.hero.heroImages.filter((_, j) => j !== i); return d })} style={{ position: 'absolute', top: 4, right: 4, width: 20, height: 20, borderRadius: '50%', background: 'rgba(239,68,68,0.9)', border: 'none', cursor: 'pointer', color: '#fff', fontSize: 14, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
+                <span style={{ position: 'absolute', bottom: 4, left: 4, background: 'rgba(0,0,0,0.5)', color: '#fff', fontSize: 10, padding: '2px 6px', borderRadius: 4 }}>{i + 1}</span>
+              </div>
+            ))}
+            <label style={{ width: 140, height: 88, borderRadius: 8, border: '2px dashed #d1d5db', background: '#f9fafb', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', gap: 2, color: '#6b7280', flexShrink: 0 }}>
+              <span style={{ fontSize: 22, lineHeight: 1 }}>+</span>
+              <span style={{ fontSize: 11 }}>Add image</span>
+              <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => { handleHeroImageUpload(e.target.files?.[0]); e.target.value = '' }} />
+            </label>
           </div>
+          <span style={{ fontSize: 11, color: '#6b7280', marginTop: 6, display: 'block' }}>No images = full-width text. One image = side-by-side. Multiple images = auto-scrolling carousel.</span>
         </div>
       </div>
       <div className="form-section">

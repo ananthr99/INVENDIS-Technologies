@@ -1647,8 +1647,8 @@ const products = [
     "id": "invcf",
     "name": "INV-CF-XX",
     "cat": "Intel Based Devices",
-    "cpu": "Intel N150/x7425E/x7433RE/x7835RE/i3-N305/N355, 4/8 cores with 3.4GHz Turbo Frequency",
-    "ram": "32GB DDR5 SODIMM (Max)",
+    "cpu": "Intel N150/x7425E/x7433RE/x7835RE/i3-N305/N355, 4/8 cores with 3.4-3.9 GHz Turbo Frequency",
+    "ram": "32GB DDR4/64 GB DDR5 SODIMM (Max)",
     "storage": "One M.2 (B Key,2280), Upto 512GB SSD, Upto64GB eMMC",
     "cell": "none",
     "cellular_gen": "5G",
@@ -1666,6 +1666,7 @@ const products = [
     "op_temp": "0 ~ 50℃",
     "hidden_fields": [
       "cell",
+      "wifi",
       "rs485",
       "rs232"
     ],
@@ -2306,6 +2307,7 @@ const products = [
     "hidden_fields": [
       "cell",
       "cellular_gen",
+      "power",
       "ports",
       "rs485",
       "rs232"
@@ -3978,10 +3980,10 @@ const products = [
     "ports": 0,
     "os": "—",
     "desc": "The SILBO XI-244-2L is an industrial Layer 2 managed switch featuring 24 Gigabit Ethernet PoE ports with a 240W total power budget, alongside 2 Gigabit RJ45 ports and 2 SFP fiber uplinks for flexible network aggregation. Encased in a durable aluminum enclosure, it supports advanced traffic management, redundancy protocols (STP/MSTP/ERPS), and PoE scheduling for demanding surveillance, IoT, and industrial applications.",
-    "housing": "",
-    "dims": "",
+    "housing": "19” Rack mountable 1U enclosure",
+    "dims": "440x220x44.5 MM",
     "weight": "3150 gm",
-    "op_temp": "",
+    "op_temp": "-10℃~+60℃",
     "hidden_fields": [
       "cell",
       "cellular_gen",
@@ -3993,10 +3995,7 @@ const products = [
       "power",
       "os",
       "rs485",
-      "rs232",
-      "housing",
-      "dims",
-      "op_temp"
+      "rs232"
     ],
     "additional_specs": [
       {

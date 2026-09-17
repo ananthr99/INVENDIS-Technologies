@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import PageSEO from '../components/shared/PageSEO'
 import CtaBanner from '../components/shared/CTABanner'
 import { useContent } from '../hooks/useContent'
@@ -19,8 +20,18 @@ const CAT_META = {
 }
 
 export default function Silbo() {
-    const { data: content, loading: contentLoading } = useContent('pages/silbo.json', { withLoading: true })
+  const { data: content, loading: contentLoading } = useContent('pages/silbo.json', { withLoading: true })
   const { data: site, loading: siteLoading } = useContent('siteSettings.json', { withLoading: true })
+  const heroImages = content?.hero?.heroImages?.length
+    ? content.hero.heroImages
+    : (content?.hero?.heroImage ? [content.hero.heroImage] : [])
+  const [slideIdx, setSlideIdx] = useState(0)
+  useEffect(() => {
+    if (heroImages.length <= 1) return
+    const id = setInterval(() => setSlideIdx(i => (i + 1) % heroImages.length), 3500)
+    return () => clearInterval(id)
+  }, [heroImages.length])
+
   if (contentLoading || siteLoading) return (
     <div className="min-h-screen">
       <div className="h-64 animate-pulse" style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 100%)' }}>
@@ -76,7 +87,7 @@ export default function Silbo() {
             backgroundSize: '40px 40px',
           }}
         />
-        {hero.heroImage ? (
+        {heroImages.length > 0 ? (
           <div className="relative w-full grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-12 items-center">
             <div className="max-w-4xl">
               <p className="text-brand-red font-sora text-sm font-semibold uppercase tracking-widest mb-5">
@@ -107,7 +118,7 @@ export default function Silbo() {
                   {hero.secondaryCta.label}
                 </Link>
               </div>
-              <div className="flex flex-wrap gap-10 mt-14 pt-10 border-t border-white/10">
+              <div className="flex flex-wrap gap-10 mt-6 pt-6 border-t border-white/10">
                 {SILBO_CATS.map(cat => (
                   <div key={cat}>
                     <p className="font-sora text-3xl font-bold">{catCounts[cat]}+</p>
@@ -121,13 +132,20 @@ export default function Silbo() {
               </div>
             </div>
             <div className="hidden lg:flex items-center justify-center">
-              <img
-                src={hero.heroImage.startsWith('http') ? hero.heroImage : `${import.meta.env.BASE_URL}${hero.heroImage}`}
-                alt="SILBO hero"
-                className="w-full object-contain"
-                style={{ maxHeight: '380px', mixBlendMode: 'multiply' }}
-                loading="eager"
-              />
+              <div
+                className="w-full rounded-2xl bg-white/10 border border-white/15 shadow-xl relative overflow-hidden"
+                style={{ height: '330px' }}
+              >
+                {heroImages.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img.startsWith('http') ? img : `${import.meta.env.BASE_URL}${img}`}
+                    alt={`SILBO hero ${i + 1}`}
+                    className={`absolute inset-0 w-full h-full object-contain p-5 transition-opacity duration-700 ${i === slideIdx ? 'opacity-100' : 'opacity-0'}`}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         ) : (
@@ -174,6 +192,13 @@ export default function Silbo() {
             </div>
           </div>
         )}
+        <button
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 hover:text-white/90 transition-colors duration-200 animate-bounce"
+          aria-label="Scroll down"
+        >
+          <ChevronDown size={32} strokeWidth={1.5} />
+        </button>
       </section>
 
       {/* About + Capabilities */}
