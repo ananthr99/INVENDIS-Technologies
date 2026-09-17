@@ -123,7 +123,7 @@ export default function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {hero.stats.map(({ value, label }, i) => (
                 <motion.div
                   key={label}
@@ -131,12 +131,12 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -4, scale: 1.03 }}
                   transition={{ duration: 0.4, delay: 0.5 + i * 0.12, ease: 'easeOut' }}
-                  className="bg-white/10 border border-white/15 rounded-2xl px-5 py-5 backdrop-blur-sm cursor-default"
+                  className="bg-white/10 border border-white/15 rounded-xl sm:rounded-2xl px-2.5 py-3 sm:px-5 sm:py-5 backdrop-blur-sm cursor-default"
                 >
-                  <div className="font-sora text-3xl font-extrabold text-white leading-none mb-1.5">
+                  <div className="font-sora text-xl sm:text-3xl font-extrabold text-white leading-tight sm:leading-none mb-1 sm:mb-1.5 break-words">
                     <CountUp value={value} delay={0.5 + i * 0.12} />
                   </div>
-                  <div className="text-xs text-white/65 leading-snug">{label}</div>
+                  <div className="text-[10px] sm:text-xs text-white/65 leading-snug">{label}</div>
                 </motion.div>
               ))}
             </div>
