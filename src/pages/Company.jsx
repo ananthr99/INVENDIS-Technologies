@@ -5,43 +5,58 @@ import { useContent } from '../hooks/useContent'
 import { getIcon } from '../utils/iconMap'
 import { getGradient } from '../utils/styleMap'
 
+const CARD_COLORS = [
+  '#02026b', '#be123c', '#15803d', '#7c3aed',
+  '#0284c7', '#c2410c', '#0f766e', '#a21caf',
+]
+
 const colorClass = {
   blue: 'bg-brand-blue',
   red: 'bg-brand-red',
   muted: 'bg-brand-muted',
 }
 
-const avatarGradients = ['blue', 'red', 'green', 'purple', 'blue', 'red']
 
 function initials(name) {
   return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
 }
 
-function TeamCard({ name, role, photo, gi }) {
+function TeamCard({ name, role, photo, linkedin, gi }) {
   return (
-    <div className="w-36 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-center text-center p-5">
       <div
-        className="h-[100px] flex items-center justify-center relative"
-        style={{ background: getGradient(avatarGradients[gi % avatarGradients.length]) }}
+        className="w-20 h-20 rounded-full flex items-center justify-center mb-3 flex-shrink-0 shadow-sm"
+        style={{ background: CARD_COLORS[gi % CARD_COLORS.length] }}
       >
         {photo ? (
           <img
             src={photo.startsWith('http') ? photo : `${import.meta.env.BASE_URL}${photo}`}
             alt={name}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-full"
             loading="lazy"
             decoding="async"
           />
         ) : (
-          <span className="font-sora font-extrabold text-white text-3xl tracking-tight select-none">
+          <span className="font-sora font-bold text-white text-xl select-none">
             {initials(name)}
           </span>
         )}
       </div>
-      <div className="px-3 py-2.5">
-        <h4 className="font-sora font-bold text-brand-text text-sm leading-tight">{name}</h4>
-        <p className="text-xs text-brand-blue font-medium mt-1 leading-snug">{role}</p>
-      </div>
+      <h4 className="font-sora font-bold text-brand-text text-sm leading-tight">{name}</h4>
+      <p className="text-brand-blue text-xs font-medium mt-1 leading-snug">{role}</p>
+      {linkedin && (
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-1.5 text-xs text-white bg-[#0077b5] hover:bg-[#005885] px-2.5 py-1 rounded-full transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Connect
+        </a>
+      )}
     </div>
   )
 }
@@ -80,21 +95,6 @@ export default function Company() {
     certifications, locationGallery, teamSection, team, ctaBanner,
   } = content
 
-  const teamRows = (() => {
-    const FULL = 6, STAGGER = 5
-    const rows = []
-    let idx = 0, rowNum = 0
-    while (idx < team.length) {
-      const size = rowNum % 2 === 0 ? FULL : STAGGER
-      rows.push({
-        members: team.slice(idx, idx + size).map((m, j) => ({ ...m, gi: idx + j })),
-        offset: rowNum % 2 === 1,
-      })
-      idx += size
-      rowNum++
-    }
-    return rows
-  })()
 
   return (
     <div className="min-h-screen">
@@ -276,8 +276,8 @@ export default function Company() {
       </section>
 
       {/* Management Team */}
-      <section className="py-20 px-8 lg:px-16 bg-brand-light">
-        <div className="text-center mb-12">
+      <section className="py-10 px-8 lg:px-16 bg-brand-light">
+        <div className="text-center mb-8">
           <p className="text-brand-red font-sora text-xs font-semibold uppercase tracking-widest mb-2">{teamSection.eyebrow}</p>
           <h2 className="font-sora text-3xl font-bold text-brand-text mb-3">
             {teamSection.heading} <span className="text-brand-blue">{teamSection.headingAccent}</span>
@@ -287,23 +287,13 @@ export default function Company() {
           </p>
         </div>
 
-        {team.length >= 10 ? (
-          <div className="flex justify-center">
-            <div className="flex flex-col gap-4">
-              {teamRows.map(({ members, offset }, ri) => (
-                <div key={ri} className="flex gap-5" style={offset ? { marginLeft: '5.25rem' } : {}}>
-                  {members.map(m => <TeamCard key={m.gi} {...m} />)}
-                </div>
-              ))}
+        <div className="flex flex-wrap justify-center gap-4">
+          {team.map(({ name, role, photo, linkedin }, i) => (
+            <div key={i} className="basis-[calc(50%-8px)] sm:basis-[calc(33.333%-11px)] lg:basis-[calc(20%-13px)]">
+              <TeamCard name={name} role={role} photo={photo} linkedin={linkedin} gi={i} />
             </div>
-          </div>
-        ) : (
-          <div className="flex flex-wrap justify-center gap-5">
-            {team.map(({ name, role, photo }, i) => (
-              <TeamCard key={i} name={name} role={role} photo={photo} gi={i} />
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
       </section>
 
       <CtaBanner

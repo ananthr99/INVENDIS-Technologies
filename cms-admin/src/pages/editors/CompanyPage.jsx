@@ -615,15 +615,19 @@ function TeamTab({ data, patch }) {
                 )}
               </div>
 
-              {/* Name + Role */}
+              {/* Name + Role + LinkedIn */}
               <div style={{ flex: 1 }}>
                 <div className="field" style={{ marginBottom: 8 }}>
                   <label>Name</label>
                   <input value={member.name} onChange={e => update(i, 'name', e.target.value)} placeholder="Full name" />
                 </div>
-                <div className="field" style={{ marginBottom: 0 }}>
+                <div className="field" style={{ marginBottom: 8 }}>
                   <label>Role</label>
                   <input value={member.role} onChange={e => update(i, 'role', e.target.value)} placeholder="CEO" />
+                </div>
+                <div className="field" style={{ marginBottom: 0 }}>
+                  <label>LinkedIn URL <span className="hint">— optional</span></label>
+                  <input value={member.linkedin || ''} onChange={e => update(i, 'linkedin', e.target.value || null)} placeholder="https://linkedin.com/in/username" />
                 </div>
               </div>
 
@@ -643,6 +647,7 @@ function TeamTab({ data, patch }) {
 function AddTeamMemberModal({ token, toast, onSave, onCancel }) {
   const [name,       setName]       = useState('')
   const [role,       setRole]       = useState('')
+  const [linkedin,   setLinkedin]   = useState('')
   const [file,       setFile]       = useState(null)
   const [previewUrl, setPreviewUrl] = useState(null)
   const [uploading,  setUploading]  = useState(false)
@@ -686,7 +691,7 @@ function AddTeamMemberModal({ token, toast, onSave, onCancel }) {
         await writeFileRaw(`public/images/team/${filename}`, base64, `CMS: upload team photo ${filename} [skip ci]`, mainSha, token)
         photo = `images/team/${filename}`
       }
-      onSave({ name: name.trim(), role: role.trim(), photo })
+      onSave({ name: name.trim(), role: role.trim(), photo, linkedin: linkedin.trim() || null })
       toast(photo ? 'Member added — click Save & Publish' : 'Member added', 'ok')
     } catch (e) {
       toast(e.message, 'err')
@@ -723,9 +728,13 @@ function AddTeamMemberModal({ token, toast, onSave, onCancel }) {
             <label>Name</label>
             <input value={name} onChange={e => setName(e.target.value)} placeholder="Full name" autoFocus />
           </div>
-          <div className="field" style={{ marginBottom: 0 }}>
+          <div className="field" style={{ marginBottom: 8 }}>
             <label>Role</label>
             <input value={role} onChange={e => setRole(e.target.value)} placeholder="CEO" />
+          </div>
+          <div className="field" style={{ marginBottom: 0 }}>
+            <label>LinkedIn URL <span className="hint">— optional</span></label>
+            <input value={linkedin} onChange={e => setLinkedin(e.target.value)} placeholder="https://linkedin.com/in/username" />
           </div>
         </div>
         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', padding: '12px 24px 18px', borderTop: '1px solid #f0f0f0', flexShrink: 0 }}>
