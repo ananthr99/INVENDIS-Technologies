@@ -51,6 +51,22 @@ export default function Company() {
     certifications, locationGallery, teamSection, team, ctaBanner,
   } = content
 
+  const teamRows = (() => {
+    const FULL = 6, STAGGER = 5
+    const rows = []
+    let idx = 0, rowNum = 0
+    while (idx < team.length) {
+      const size = rowNum % 2 === 0 ? FULL : STAGGER
+      rows.push({
+        members: team.slice(idx, idx + size).map((m, j) => ({ ...m, gi: idx + j })),
+        offset: rowNum % 2 === 1,
+      })
+      idx += size
+      rowNum++
+    }
+    return rows
+  })()
+
   return (
     <div className="min-h-screen">
       <PageSEO
@@ -242,26 +258,55 @@ export default function Company() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
-          {team.map(({ name, role, photo }, i) => (
-            <div key={i} className="flex flex-col items-center text-center group w-36">
-              <div className="w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
-                {photo ? (
-                  <img src={photo.startsWith('http') ? photo : `${import.meta.env.BASE_URL}${photo}`} alt={name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-                ) : (
-                  <div
-                    className="w-full h-full flex items-center justify-center text-white font-sora font-bold text-2xl"
-                    style={{ background: getGradient(avatarGradients[i % avatarGradients.length]) }}
-                  >
-                    {initials(name)}
-                  </div>
-                )}
-              </div>
-              <h4 className="font-sora font-bold text-brand-text text-sm">{name}</h4>
-              <p className="text-brand-muted text-xs mt-1 leading-snug">{role}</p>
+        {team.length >= 10 ? (
+          <div className="flex justify-center">
+            <div className="flex flex-col gap-4">
+              {teamRows.map(({ members, offset }, ri) => (
+                <div key={ri} className="flex gap-6" style={offset ? { marginLeft: '5.25rem' } : {}}>
+                  {members.map(({ name, role, photo, gi }) => (
+                    <div key={gi} className="flex flex-col items-center text-center group w-36">
+                      <div className="w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
+                        {photo ? (
+                          <img src={photo.startsWith('http') ? photo : `${import.meta.env.BASE_URL}${photo}`} alt={name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                        ) : (
+                          <div
+                            className="w-full h-full flex items-center justify-center text-white font-sora font-bold text-2xl"
+                            style={{ background: getGradient(avatarGradients[gi % avatarGradients.length]) }}
+                          >
+                            {initials(name)}
+                          </div>
+                        )}
+                      </div>
+                      <h4 className="font-sora font-bold text-brand-text text-sm">{name}</h4>
+                      <p className="text-brand-muted text-xs mt-1 leading-snug">{role}</p>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="flex flex-wrap justify-center gap-6">
+            {team.map(({ name, role, photo }, i) => (
+              <div key={i} className="flex flex-col items-center text-center group w-36">
+                <div className="w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
+                  {photo ? (
+                    <img src={photo.startsWith('http') ? photo : `${import.meta.env.BASE_URL}${photo}`} alt={name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                  ) : (
+                    <div
+                      className="w-full h-full flex items-center justify-center text-white font-sora font-bold text-2xl"
+                      style={{ background: getGradient(avatarGradients[i % avatarGradients.length]) }}
+                    >
+                      {initials(name)}
+                    </div>
+                  )}
+                </div>
+                <h4 className="font-sora font-bold text-brand-text text-sm">{name}</h4>
+                <p className="text-brand-muted text-xs mt-1 leading-snug">{role}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       <CtaBanner
