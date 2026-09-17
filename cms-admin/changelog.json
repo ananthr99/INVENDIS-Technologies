@@ -1,5 +1,64 @@
 [
   {
+    "ts": "2026-09-17T10:19:15.905Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Company",
+    "section": "Team",
+    "action": "Updated Company — Team",
+    "changes": [
+      {
+        "field": "team[\"Satish Kulkarni\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/satish-kulkarni-69b8129/"
+      },
+      {
+        "field": "team[\"S Rangarajan\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/srinivasan-rangarajan-37a92b7/"
+      },
+      {
+        "field": "team[\"Praveenkumar Bijadi\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/praveenkumar-bijadi-16526612/"
+      },
+      {
+        "field": "team[\"Shreesha Nataraj\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/shreesha-nataraj-67b8b49/"
+      },
+      {
+        "field": "team[\"Ravishankar S\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/ravi-shankar-31441431/"
+      },
+      {
+        "field": "team[\"Sathiya Moorthy\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/sathiya6moorthy/"
+      },
+      {
+        "field": "team[\"Sachin Chaurasiya\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/sachin-chaurasiya-3176a516/"
+      },
+      {
+        "field": "team[\"Arka Halder\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/arka-halder-05995338/"
+      },
+      {
+        "field": "team[\"Bhimsen Bukkebag\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/bhimsen-bukkebag-674b7255/"
+      },
+      {
+        "field": "team[\"Yashwanth B Melwanki\"].linkedin",
+        "from": "",
+        "to": "https://www.linkedin.com/in/yashwanth-melwanki-01039118/"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-17T09:38:30.341Z",
     "user": "ananth.r@invendis.com",
     "page": "Company",
