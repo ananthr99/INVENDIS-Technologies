@@ -66,7 +66,7 @@ export default function Silbo() {
 
       {/* Hero */}
       <section
-        className="relative text-white py-24 px-8 lg:px-16 overflow-hidden"
+        className="relative text-white py-10 lg:py-14 px-8 lg:px-16 overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #02026b 0%, #05059b 50%, #02026b 100%)' }}
       >
         <div
@@ -124,8 +124,8 @@ export default function Silbo() {
               <img
                 src={hero.heroImage.startsWith('http') ? hero.heroImage : `${import.meta.env.BASE_URL}${hero.heroImage}`}
                 alt="SILBO hero"
-                className="w-full object-cover rounded-2xl shadow-2xl border border-white/10"
-                style={{ maxHeight: 'calc(100vh - 160px)' }}
+                className="w-full object-contain"
+                style={{ maxHeight: '380px', mixBlendMode: 'multiply' }}
                 loading="eager"
               />
             </div>

@@ -52,7 +52,7 @@ export default function Products() {
 
       {/* Hero */}
       <section
-        className="relative text-white py-24 px-8 lg:px-16 overflow-hidden"
+        className="relative text-white py-10 lg:py-14 px-8 lg:px-16 overflow-hidden"
         style={{ background: getGradient('navy') }}
       >
         <div className="absolute inset-0 opacity-5"
@@ -80,8 +80,8 @@ export default function Products() {
               <img
                 src={hero.heroImage.startsWith('http') ? hero.heroImage : `${import.meta.env.BASE_URL}${hero.heroImage}`}
                 alt="Products hero"
-                className="w-full object-cover rounded-2xl shadow-2xl border border-white/10"
-                style={{ maxHeight: 'calc(100vh - 160px)' }}
+                className="w-full object-contain"
+                style={{ maxHeight: '380px', mixBlendMode: 'multiply' }}
                 loading="eager"
               />
             </div>
