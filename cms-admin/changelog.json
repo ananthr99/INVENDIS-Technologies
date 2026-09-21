@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-09-21T04:30:26.816Z",
+    "user": "ananth.r@invendis.com",
+    "page": "Sectors",
+    "section": "Hero",
+    "action": "Updated Sectors — Hero",
+    "changes": [
+      {
+        "field": "hero.heroImages",
+        "from": "—",
+        "to": "images/hero/sectors-hero-1789965017231.pn…"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-17T10:19:15.905Z",
     "user": "ananth.r@invendis.com",
     "page": "Company",
