@@ -36,6 +36,8 @@ jobs:
       - name: Build admin
         run: npm run build
         working-directory: ./cms-admin
+        env:
+          VITE_BASE: /INVENDIS-Technologies/cms-admin/
 
       - name: Copy admin build into dist
         run: cp -r ./cms-admin/dist ./dist/cms-admin
