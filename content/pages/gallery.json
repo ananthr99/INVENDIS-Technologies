@@ -39,7 +39,7 @@
   "photos": [
     {
       "id": 1,
-      "order": 2,
+      "order": 4,
       "category": "events",
       "title": "Intel ISB Connect 2026",
       "caption": "Showcase of the latest Intel Edge Devices at the Taj Hotel, Bengaluru, on 13th August 2026",
@@ -51,7 +51,7 @@
       "title": "Coins Partner Awards 2025",
       "caption": "Invendis received the business excellence award at the Coins IT Partner Summit 5.0 held from 15-17 December 2025 in Goa",
       "src": "images/gallery/coins-partner-awards-2026.jpeg",
-      "order": 7
+      "order": 8
     },
     {
       "id": 6,
@@ -59,7 +59,7 @@
       "title": "ElAsia 2026",
       "caption": "Invendis participated in ElAsia from May 14-17 2026",
       "src": "images/gallery/elasia-2026.jpeg",
-      "order": 4
+      "order": 5
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "title": "Embedded World Germany 2026",
       "caption": "Took part in Embedded World Germany, the only trade show dedicated to the latest embedded technology from 10-12 March 2026",
       "src": "images/gallery/embedded-world-germany-2026.jpeg",
-      "order": 5
+      "order": 6
     },
     {
       "id": 9,
@@ -83,7 +83,7 @@
       "title": "Intel Alderlake Award",
       "caption": "Invendis received an award for designing the Alderlake Power-On Board in a record 3 days under the Make in India initiative in March 2026",
       "src": "images/gallery/intel-alderlake-award.jpeg",
-      "order": 6
+      "order": 7
     },
     {
       "id": 10,
@@ -91,6 +91,14 @@
       "title": "Connected Britain 2026",
       "caption": "Invendis attended the recent Connected Britain Event 2026 from 9-10th September 2026 and was honoured to showcase Intel based Edge Compute devices and explain about the product portfolio.",
       "src": "images/gallery/connected-britain-2026.jpeg",
+      "order": 2
+    },
+    {
+      "id": 11,
+      "category": "expos",
+      "title": "India Mobile Congress 2026",
+      "caption": "Invendis attended India Mobile Congress 2026, held from 7-10th October 2026 (ongoing) at stall BP 34, Hall 1, and was also an official shuttle sponsor for the event.",
+      "src": "images/gallery/india-mobile-congress-2026.jpeg",
       "order": 1
     }
   ],
