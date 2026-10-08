@@ -1,5 +1,19 @@
 [
   {
+    "ts": "2026-10-08T09:49:56.430Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos[\"11\"].caption",
+        "from": "Invendis attended India Mobile Congress 2026, held from 7-1…",
+        "to": "Invendis attended India Mobile Congress 2026, held from 7-1…"
+      }
+    ]
+  },
+  {
     "ts": "2026-10-08T09:48:19.580Z",
     "user": "ananya.chengta@invendis.com",
     "page": "Gallery",
