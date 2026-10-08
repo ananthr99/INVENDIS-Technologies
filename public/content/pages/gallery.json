@@ -39,7 +39,7 @@
   "photos": [
     {
       "id": 1,
-      "order": 4,
+      "order": 3,
       "category": "events",
       "title": "Intel ISB Connect 2026",
       "caption": "Showcase of the latest Intel Edge Devices at the Taj Hotel, Bengaluru, on 13th August 2026",
@@ -67,7 +67,7 @@
       "title": "Automation Expo 2026",
       "caption": "Invendis participated in the Industrial Automation Expo 2026, one of India's largest events for automation related technology from 22nd-25th July 2026. ",
       "src": "images/gallery/automation-expo-2026.jpeg",
-      "order": 3
+      "order": 4
     },
     {
       "id": 8,
