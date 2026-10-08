@@ -1,5 +1,49 @@
 [
   {
+    "ts": "2026-10-08T09:48:19.580Z",
+    "user": "ananya.chengta@invendis.com",
+    "page": "Gallery",
+    "section": "Photos",
+    "action": "Updated Gallery — Photos",
+    "changes": [
+      {
+        "field": "photos",
+        "from": "—",
+        "to": "added \"11\""
+      },
+      {
+        "field": "photos[\"1\"].order",
+        "from": "2",
+        "to": "4"
+      },
+      {
+        "field": "photos[\"5\"].order",
+        "from": "7",
+        "to": "8"
+      },
+      {
+        "field": "photos[\"6\"].order",
+        "from": "4",
+        "to": "5"
+      },
+      {
+        "field": "photos[\"8\"].order",
+        "from": "5",
+        "to": "6"
+      },
+      {
+        "field": "photos[\"9\"].order",
+        "from": "6",
+        "to": "7"
+      },
+      {
+        "field": "photos[\"10\"].order",
+        "from": "1",
+        "to": "2"
+      }
+    ]
+  },
+  {
     "ts": "2026-09-21T04:30:26.816Z",
     "user": "ananth.r@invendis.com",
     "page": "Sectors",
